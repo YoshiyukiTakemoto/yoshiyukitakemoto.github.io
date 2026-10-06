@@ -1,0 +1,50 @@
+{
+  "order": 78,
+  "category": "calc",
+  "schemaCategory": "FinanceApplication",
+  "en": {
+    "name": "Bill Splitter",
+    "title": "Bill Splitter: Split the Bill Unevenly or Evenly",
+    "description": "Free bill splitting calculator. Split a restaurant bill or trip cost between friends, give some people a bigger share, round to convenient amounts and copy the result to share.",
+    "h1": "Bill splitter",
+    "lede": "Split a bill between any number of people, evenly or with different shares, rounded to amounts that are easy to pay. The organiser settles any small difference.",
+    "card": "Split a bill evenly or by share, with rounding.",
+    "steps": [
+      "Enter the total and how you want each share rounded.",
+      "List the people. The first person is the organiser who paid.",
+      "Give someone a bigger or smaller share with the Share column, for example 1.5 or 0.5.",
+      "Copy the text and paste it into your group chat."
+    ],
+    "sections": [
+      { "h": "How rounding works", "html": "<p>Everyone except the organiser pays their share rounded to the unit you chose. With <em>Round up</em> the group collects slightly more and the organiser keeps the extra; with <em>Round down</em> the organiser covers the small gap. The difference is always shown.</p>" }
+    ],
+    "faq": [
+      ["Can I include a tip?", "Add the tip to the total before splitting. For a 15% tip on 160, enter 184."],
+      ["What does a share of 0.5 mean?", "That person pays half as much as someone with a share of 1. Use it for people who arrived late or didn’t drink."],
+      ["Is the list saved?", "Yes, in this browser only, so you can reuse it for the next outing."]
+    ]
+  },
+  "ja": {
+    "name": "割り勘計算",
+    "title": "割り勘計算（傾斜・端数処理・幹事向け）",
+    "description": "飲み会や旅行の割り勘を無料で計算。上司は多め・遅刻者は少なめなどの傾斜配分、100円単位などの端数処理に対応。結果はLINEに貼れるテキストでコピーできます。",
+    "h1": "割り勘計算",
+    "lede": "飲み会や旅行の費用を、人数・負担割合・集める単位に合わせて計算します。端数は幹事が調整する形で、集めやすい金額になります。",
+    "card": "傾斜配分・100円単位の端数処理つき割り勘。",
+    "steps": [
+      "合計金額と、集める単位（100円単位など）を入力します。",
+      "参加者を入力します。1人目は支払いをした幹事です。",
+      "「負担割合」で多め・少なめを設定できます。例：上司は1.5、遅れて来た人は0.5。",
+      "結果のテキストをコピーして、LINEなどに貼り付けます。"
+    ],
+    "sections": [
+      { "h": "端数の扱い", "html": "<p>幹事以外の参加者は、選んだ単位で切り上げ（または切り捨て）た金額を払います。切り上げの場合は少し多めに集まり、余りは幹事の取り分に。切り捨ての場合は不足分を幹事が負担します。差額は必ず表示されます。</p>" },
+      { "h": "傾斜配分の例", "html": "<p>合計30,000円を、部長（1.5）、課長（1.2）、社員3人（各1）で分けると、割合の合計は5.7。1あたり約5,263円なので、100円単位で切り上げると社員は5,300円、課長は6,400円、部長は7,900円になります。</p>" }
+    ],
+    "faq": [
+      ["負担割合0.5とはどういう意味ですか？", "割合1の人の半額を払うという意味です。お酒を飲まない人や途中参加の人に使えます。"],
+      ["参加者リストは保存されますか？", "はい。このブラウザに保存されるので、いつものメンバーで次回もすぐ計算できます。"],
+      ["幹事も割り勘に含まれますか？", "はい。1人目が幹事で、ほかの人が払った残りを幹事が負担する計算です。"]
+    ]
+  }
+}

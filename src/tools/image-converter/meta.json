@@ -1,0 +1,51 @@
+{
+  "order": 28,
+  "category": "media",
+  "schemaCategory": "MultimediaApplication",
+  "assets": ["jszip.min.js", "heic2any.min.js"],
+  "scripts": ["jszip.min.js", "/assets/minipdf.js"],
+  "en": {
+    "name": "Image Converter",
+    "title": "Image Converter: HEIC to JPG, PNG, WebP, PDF",
+    "description": "Free image format converter. Convert HEIC (iPhone), PNG, WebP, AVIF, GIF, BMP and SVG to JPG, PNG, WebP, AVIF, BMP, ICO or PDF in your browser. Batch convert, no upload.",
+    "h1": "Image format converter",
+    "lede": "Convert iPhone HEIC photos to JPG, turn PNG into WebP, make a favicon ICO, or combine images into one PDF. Everything runs in your browser, so your photos are never uploaded.",
+    "card": "HEIC→JPG, PNG⇔JPG, WebP, ICO and images to PDF.",
+    "steps": [
+      "Choose the format you want to convert to.",
+      "Drop images on the box, choose them, or paste with Ctrl+V / ⌘V. You can add many at once.",
+      "Download each file, all of them as a ZIP, or, for PDF, all images in one PDF."
+    ],
+    "sections": [
+      { "h": "Supported conversions", "html": "<table><thead><tr><th>From</th><th>To</th></tr></thead><tbody><tr><td>HEIC / HEIF (iPhone)</td><td>JPG, PNG, WebP, PDF</td></tr><tr><td>PNG, WebP, AVIF, GIF, BMP</td><td>JPG, PNG, WebP, AVIF, BMP</td></tr><tr><td>Any image, SVG</td><td>ICO favicon (16–256 px)</td></tr><tr><td>Several images</td><td>One PDF, a page per image</td></tr></tbody></table>" },
+      { "h": "Which format to choose", "html": "<ul><li><strong>JPG</strong>: photos that need to open anywhere, including forms and older apps.</li><li><strong>PNG</strong>: screenshots and graphics with sharp edges or transparency.</li><li><strong>WebP / AVIF</strong>: much smaller files for websites.</li><li><strong>PDF</strong>: documents to email or submit, such as scanned receipts.</li></ul>" }
+    ],
+    "faq": [
+      ["Are my photos uploaded?", "No. Your browser does the conversion. The HEIC decoder is downloaded once from this site and also runs on your device."],
+      ["Is transparency kept?", "In PNG, WebP, AVIF and ICO, yes. JPG, BMP and PDF don’t support transparency, so it becomes white."],
+      ["Is location data removed?", "Yes. Converted files don’t keep EXIF metadata such as GPS location."]
+    ]
+  },
+  "ja": {
+    "name": "画像形式変換",
+    "title": "画像変換（HEIC→JPG・PNG・WebP・PDF）無料",
+    "description": "画像の形式を無料で相互変換。iPhoneのHEICをJPGに、PNGをJPGやWebPに、画像をPDFやICO（ファビコン）に変換できます。複数まとめて変換、アップロード不要。",
+    "h1": "画像形式変換（HEIC・JPG・PNG・WebP・PDF）",
+    "lede": "iPhoneのHEIC写真をJPGに、PNGをJPGやWebPに、複数の画像を1つのPDFに。変換はブラウザ内で行うため、写真がアップロードされることはありません。",
+    "card": "HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。",
+    "steps": [
+      "変換後の形式を選びます。",
+      "画像を枠にドロップするか、選択するか、Ctrl+V / ⌘V で貼り付けます。複数まとめて追加できます。",
+      "1枚ずつ保存するか、ZIPでまとめて保存します。PDFの場合は、すべての画像を1つのPDFにまとめられます。"
+    ],
+    "sections": [
+      { "h": "対応している変換", "html": "<table><thead><tr><th>変換元</th><th>変換先</th></tr></thead><tbody><tr><td>HEIC・HEIF（iPhone）</td><td>JPG、PNG、WebP、PDF</td></tr><tr><td>PNG、WebP、AVIF、GIF、BMP</td><td>JPG、PNG、WebP、AVIF、BMP</td></tr><tr><td>あらゆる画像、SVG</td><td>ICO（ファビコン 16〜256px）</td></tr><tr><td>複数の画像</td><td>1つのPDF（1枚1ページ）</td></tr></tbody></table>" },
+      { "h": "iPhoneのHEICをJPGにする理由", "html": "<p>iPhoneの写真は容量の小さいHEIC形式で保存されますが、Windowsの一部のソフトや、役所・学校・就職活動のWebフォームではアップロードできないことがあります。JPGに変換すれば、ほぼどこでも使えます。</p>" }
+    ],
+    "faq": [
+      ["写真はアップロードされますか？", "いいえ。変換はブラウザ内で行います。HEICの読み込みに使うプログラムは初回に本サイトから読み込み、同じく端末内で動作します。"],
+      ["透明な背景は残りますか？", "PNG・WebP・AVIF・ICOでは残ります。JPG・BMP・PDFは透明に対応していないため、白になります。"],
+      ["位置情報は削除されますか？", "はい。変換後のファイルには、GPS位置情報などのEXIF情報は含まれません。"]
+    ]
+  }
+}

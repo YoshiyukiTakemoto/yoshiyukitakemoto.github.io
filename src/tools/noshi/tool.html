@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&family=Yuji+Syuku&display=swap">
+<div class="ns">
+  <section class="panel form">
+    <div class="field"><label for="use" id="l-use"></label><select id="use"></select></div>
+    <div class="field"><label for="omote" id="l-omote"></label><input id="omote" type="text" maxlength="8"></div>
+    <div class="field"><label for="names" id="l-names"></label><textarea id="names" rows="3"></textarea><small id="h-names"></small></div>
+    <div class="grid2">
+      <div class="field"><label for="mizuhiki" id="l-mizuhiki"></label><select id="mizuhiki"></select></div>
+      <div class="field"><label for="color" id="l-color"></label><select id="color"></select></div>
+      <div class="field"><label for="font" id="l-font"></label><select id="font"></select></div>
+      <div class="field"><label for="paper" id="l-paper"></label><select id="paper"></select></div>
+    </div>
+    <label class="check"><input type="checkbox" id="noshi-mark" checked><span id="l-mark"></span></label>
+    <p class="tip" id="tip"></p>
+    <div class="btns"><button class="btn primary" type="button" id="pdf"></button><button class="btn" type="button" id="png"></button><button class="btn" type="button" id="print"></button></div>
+  </section>
+  <section class="panel preview"><canvas id="cv" aria-label="Noshi preview"></canvas></section>
+  <img id="print-img" alt="">
+</div>

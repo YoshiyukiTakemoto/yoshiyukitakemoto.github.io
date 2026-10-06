@@ -1,0 +1,17 @@
+.ns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.ns{grid-template-columns:1fr}}
+.form input:not([type=checkbox]),.form select,.form textarea{width:100%}
+.form textarea{resize:vertical;font:16px/1.6 var(--f-body)}
+#omote{font-size:18px}
+.form small{color:var(--muted);font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tip{margin:0;font-size:13px;color:var(--muted);background:var(--bg);border-radius:8px;padding:8px 12px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.preview{background:var(--bg);place-items:center;position:sticky;top:16px}
+.preview canvas{width:100%;max-width:26rem;height:auto;background:#fff;box-shadow:0 4px 18px rgba(10,15,35,.18);display:block}
+#print-img{display:none}
+@media print{
+  body>*:not(main),main>*:not(.ns),.ns>.form,.preview{display:none!important}
+  body,main,.ns{margin:0!important;padding:0!important;background:#fff!important;display:block!important}
+  #print-img{display:block!important;width:100%;height:auto}
+}

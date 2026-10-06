@@ -1,0 +1,49 @@
+{
+  "order": 102,
+  "category": "fun",
+  "schemaCategory": "LifestyleApplication",
+  "en": {
+    "name": "Your Life in Weeks",
+    "title": "Your Life in Weeks: Life Calendar",
+    "description": "See your whole life as a grid of weeks. Enter your birthday to see how many weeks you’ve lived, how many are left, and how many summers and weekends remain.",
+    "h1": "Your life in weeks",
+    "lede": "Each square is one week of a long life. Enter your birthday to see the weeks you’ve lived, this week, and the ones still ahead.",
+    "card": "Your whole life as a grid of weeks, with weeks left.",
+    "steps": [
+      "Enter your date of birth.",
+      "Adjust life expectancy if you like. Global average life expectancy is about 73; many countries are above 80.",
+      "Each row is one year, each square one week. Filled squares are behind you; the red one is this week.",
+      "Share your result, or save the page and come back to watch the grid fill in."
+    ],
+    "sections": [
+      { "h": "Why weeks?", "html": "<p>A year feels long and a day feels small, but a week is the unit most of our plans are made in. Seeing every week of a life on one screen makes it easier to ask what matters in the ones ahead. The idea was popularised by Tim Urban’s “Your Life in Weeks” essay.</p>" }
+    ],
+    "faq": [
+      ["Is my birthday stored?", "Only in your browser, so the page remembers it next time. It isn’t sent anywhere."],
+      ["How are heartbeats estimated?", "Using an average resting heart rate of 75 beats per minute for every minute you’ve lived. Real numbers vary a lot."],
+      ["What life expectancy should I use?", "It depends on where you live and your health. The setting is just for perspective; try a few values."]
+    ]
+  },
+  "ja": {
+    "name": "人生カレンダー",
+    "title": "人生カレンダー（あなたの人生を週で見る）",
+    "description": "生年月日を入れるだけで、人生を1週間＝1マスのカレンダーで表示。これまで過ごした週、残りの週、残りの夏や週末の回数がわかります。",
+    "h1": "人生カレンダー：あなたの人生は何週？",
+    "lede": "1マスが1週間。生年月日を入れると、これまでに過ごした週と、これから過ごす週が一目でわかります。",
+    "card": "人生を1週間＝1マスで表示。残りの週・夏を計算。",
+    "steps": [
+      "生年月日を入力します。",
+      "想定する寿命を変更できます。日本の平均寿命は男性約81歳、女性約87歳です。",
+      "1行が1年、1マスが1週間です。塗られたマスがこれまでの週、赤いマスが今週です。",
+      "結果をシェアしたり、ブックマークしてマスが埋まっていく様子を時々確認したりできます。"
+    ],
+    "sections": [
+      { "h": "なぜ「週」で見るのか", "html": "<p>1年は長く、1日は短く感じますが、私たちの予定の多くは1週間単位で立てられています。人生のすべての週を1画面で見ると、これからの時間で何を大切にしたいかを考えるきっかけになります。ティム・アーバンのエッセイ「Your Life in Weeks」で広く知られるようになった考え方です。</p>" }
+    ],
+    "faq": [
+      ["生年月日は保存されますか？", "次回も表示できるよう、このブラウザ内にだけ保存されます。どこにも送信されません。"],
+      ["心拍数はどう計算していますか？", "安静時の平均的な心拍数を1分75回として、生きてきた時間をかけた概算です。実際の値は人によって大きく異なります。"],
+      ["寿命は何歳に設定すればいいですか？", "初期値は85歳です。あくまで考えるきっかけのための数字なので、いくつか試してみてください。"]
+    ]
+  }
+}

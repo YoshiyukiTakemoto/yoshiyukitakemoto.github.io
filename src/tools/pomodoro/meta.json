@@ -1,0 +1,51 @@
+{
+  "order": 1,
+  "category": "productivity",
+  "schemaCategory": "ProductivityApplication",
+  "en": {
+    "name": "Pomodoro Timer",
+    "title": "Pomodoro Timer Online: Free Focus Timer",
+    "description": "Free online Pomodoro timer with 25/5 focus and break sessions, long breaks, sound and notifications. Shows the countdown in the browser tab and tracks your sessions for the week.",
+    "h1": "Pomodoro timer",
+    "lede": "Work in focused 25-minute sessions with short breaks in between. The countdown shows in your browser tab, and the timer keeps going even if you reload the page.",
+    "card": "Focus and break timer with daily session count.",
+    "steps": [
+      "Press <strong>Start</strong> (or the space bar) to begin a 25-minute focus session.",
+      "When the time is up you hear a sound and the break starts automatically.",
+      "After every four focus sessions you get a longer break.",
+      "Change the lengths in Settings. Your settings and session history stay in this browser."
+    ],
+    "sections": [
+      { "h": "What is the Pomodoro Technique?", "html": "<p>A time management method created by Francesco Cirillo in the late 1980s. You pick one task, work on it for 25 minutes without interruption, then take a 5-minute break. Each 25-minute block is one “pomodoro”, named after the tomato-shaped kitchen timer he used. After four pomodoros you take a longer break of 15 to 30 minutes.</p>" },
+      { "h": "Tips", "html": "<ul><li>Write down the one task for the session before you press Start.</li><li>If something else comes to mind, note it and return to the task.</li><li>Step away from the screen during breaks.</li><li>Add this page to your home screen to open it like an app.</li></ul>" }
+    ],
+    "faq": [
+      ["Does the timer keep running in a background tab?", "Yes. The timer is based on the end time, so it stays accurate even when the browser slows down background tabs. The tab title shows the time left."],
+      ["Can I change 25 and 5 minutes?", "Yes. Some people prefer 50/10 or 90/20. Set any length from 1 to 180 minutes."],
+      ["Why don’t I hear a sound?", "Browsers only allow sound after you interact with the page, so press Start yourself at least once. Also check that the tab isn’t muted."]
+    ]
+  },
+  "ja": {
+    "name": "ポモドーロタイマー",
+    "title": "ポモドーロタイマー（無料・作業用タイマー）",
+    "description": "無料で使えるポモドーロタイマー。25分作業＋5分休憩を自動で繰り返し、終了時に音と通知でお知らせ。残り時間をタブに表示し、1週間の作業回数も記録します。",
+    "h1": "ポモドーロタイマー",
+    "lede": "25分の集中と5分の休憩を繰り返して、作業や勉強の集中力を保ちます。残り時間はブラウザのタブに表示され、ページを再読み込みしてもタイマーは止まりません。",
+    "card": "25分作業＋5分休憩の集中タイマー。回数を記録。",
+    "steps": [
+      "<strong>スタート</strong>（またはスペースキー）で25分の作業を始めます。",
+      "時間になると音が鳴り、自動で休憩が始まります。",
+      "作業を4回終えると、長い休憩になります。",
+      "時間は「設定」で変更できます。設定と作業記録はこのブラウザに保存されます。"
+    ],
+    "sections": [
+      { "h": "ポモドーロ・テクニックとは", "html": "<p>1980年代後半にフランチェスコ・シリロが考案した時間管理術です。1つの作業に25分間集中し、5分間休憩します。この25分を1ポモドーロと数え、4ポモドーロごとに15〜30分の長い休憩をとります。名前は、彼が使っていたトマト（イタリア語でポモドーロ）型のキッチンタイマーに由来します。</p>" },
+      { "h": "効果的に使うコツ", "html": "<ul><li>スタート前に、その回でやる作業を1つだけ決めます。</li><li>途中で別のことを思いついたら、メモして作業に戻ります。</li><li>休憩中は画面から離れて体を動かします。</li><li>このページをホーム画面に追加すると、アプリのようにすぐ開けます。</li></ul>" }
+    ],
+    "faq": [
+      ["別のタブを見ていてもタイマーは正確ですか？", "はい。終了時刻をもとに計算しているため、ブラウザがバックグラウンドのタブを省電力にしても正確です。残り時間はタブのタイトルに表示されます。"],
+      ["25分・5分以外にできますか？", "できます。50分＋10分や90分＋20分など、1〜180分の範囲で自由に設定できます。"],
+      ["音が鳴りません。", "ブラウザは、ページを操作した後でないと音を鳴らせない仕組みです。一度ご自身でスタートを押してください。タブがミュートになっていないかも確認してください。"]
+    ]
+  }
+}

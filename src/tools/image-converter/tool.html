@@ -1,0 +1,17 @@
+<section class="controls">
+  <div class="field"><label for="to" id="l-to"></label><select id="to"></select></div>
+  <div class="field" id="q-f"><label for="q" id="l-q"></label><div class="range"><input type="range" id="q" min="40" max="100" value="92"><output id="qv">92</output></div></div>
+  <div class="field" id="pdf-f" hidden><label for="pdfmode" id="l-pdfmode"></label><select id="pdfmode"></select></div>
+</section>
+<label class="drop" id="drop" for="file">
+  <strong id="d-title"></strong>
+  <span class="sub" id="d-sub"></span>
+  <span class="btn primary" id="d-btn"></span>
+  <input type="file" id="file" accept="image/*,.heic,.heif" multiple hidden>
+</label>
+<div class="summary" id="summary" hidden>
+  <span class="pill" id="count"></span><span class="sp"></span>
+  <button class="btn" type="button" id="clear"></button>
+  <button class="btn primary" type="button" id="all"></button>
+</div>
+<ul class="list" id="list"></ul>

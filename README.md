@@ -26,3 +26,5 @@ Set `"domain"` in `site.config.json` (e.g. `"tools.example.com"`). The build wri
 
 - [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) (MIT) by Kazuhiko Arase. QR Code is a registered trademark of DENSO WAVE INCORPORATED.
 - [JSZip](https://github.com/Stuk/jszip) (MIT).
+- [heic2any](https://github.com/alexcorvi/heic2any) (MIT), which bundles [libheif](https://github.com/strukturag/libheif) (LGPL-3.0), unmodified.
+- Fonts: Bricolage Grotesque, IBM Plex Sans JP, IBM Plex Mono, Shippori Mincho B1, Yuji Syuku (SIL Open Font License, via Google Fonts).

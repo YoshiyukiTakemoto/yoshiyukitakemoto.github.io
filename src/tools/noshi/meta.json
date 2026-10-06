@@ -1,0 +1,52 @@
+{
+  "order": 58,
+  "category": "media",
+  "scripts": ["/assets/minipdf.js"],
+  "schemaCategory": "DesignApplication",
+  "en": {
+    "name": "Noshi Paper Maker",
+    "title": "Noshi Paper Maker: Japanese Gift Wrap Template",
+    "description": "Make and print Japanese noshi gift paper for free. Choose the occasion, mizuhiki knot and cord colour, add names, and download a print-ready A4 PDF or PNG.",
+    "h1": "Noshi paper maker",
+    "lede": "Create the formal paper band used on Japanese gifts. Pick the occasion and the right mizuhiki knot is chosen for you. Download a print-ready PDF or print it directly.",
+    "card": "Printable Japanese noshi gift paper with names.",
+    "steps": [
+      "Choose the occasion. The heading, knot, cord colour and noshi symbol are set to match.",
+      "Enter the giver’s name below the cord. For several people, put one name per line.",
+      "Pick a font and paper size.",
+      "Download the PDF and print at 100% (actual size), or press Print."
+    ],
+    "sections": [
+      { "h": "What is noshi?", "html": "<p>In Japan, gifts for formal occasions are wrapped with <em>noshi-gami</em>: a paper printed with decorative cords (<em>mizuhiki</em>), a small folded ornament in the top right (<em>noshi</em>), the purpose of the gift above the cords and the giver’s name below. The knot shows the kind of occasion: a bow for happy events that may happen again, and a tight knot for once-only events such as weddings or for condolences.</p>" }
+    ],
+    "faq": [
+      ["Which knot should I use for a wedding?", "A tight knot (musubi-kiri) or awaji knot, because a wedding should happen only once. The bow is used for births, celebrations and seasonal gifts."],
+      ["Why is there no noshi symbol for condolences?", "The noshi ornament comes from dried abalone, a celebratory offering, so it is left off for funerals, memorials and get-well gifts."],
+      ["Can I use this commercially?", "Yes. Print as many as you like for shops or businesses. The fonts are open-licensed Google Fonts."]
+    ]
+  },
+  "ja": {
+    "name": "熨斗（のし）作成",
+    "title": "のし紙作成・印刷（無料テンプレート・名入れ）",
+    "description": "のし紙を無料で作成して印刷。用途を選ぶと表書き・水引（蝶結び・結び切り・あわじ結び）・色が自動で決まり、名入れも連名もOK。A4・B5などのPDF・画像で保存できます。",
+    "h1": "熨斗（のし紙）作成・印刷",
+    "lede": "用途を選んで名前を入れるだけで、のし紙を作成できます。表書きと水引の種類はマナーに合わせて自動で選ばれます。PDFで保存して、ご家庭のプリンターで印刷できます。",
+    "card": "名入れのし紙を作成・PDF保存・印刷。",
+    "steps": [
+      "用途を選びます。表書き、水引の結び方と色、熨斗の有無がマナーに合わせて自動で設定されます。",
+      "水引の下に入れる名前を入力します。連名の場合は1行に1人ずつ入力します（右から順に並びます）。",
+      "書体（筆文字・明朝体）と用紙サイズを選びます。",
+      "PDFで保存し、印刷時は「実際のサイズ（100%）」を選んで印刷します。そのまま「印刷する」ボタンでも印刷できます。"
+    ],
+    "sections": [
+      { "h": "水引の結び方の選び方", "html": "<ul><li><strong>蝶結び（花結び）</strong>：何度でも結び直せることから、出産、入学、お中元・お歳暮、お礼など「何度あってもうれしいこと」に使います。</li><li><strong>結び切り</strong>：ほどけないことから、結婚、快気祝い、お見舞い、弔事など「一度きりにしたいこと」に使います。</li><li><strong>あわじ結び</strong>：結び切りの一種で、「末永く付き合う」という意味から結婚祝いによく使われます。</li></ul>" },
+      { "h": "内のしと外のし", "html": "<p><strong>内のし</strong>は品物に直接のし紙をかけてから包装する方法で、内祝いや配送する贈り物に向いています。<strong>外のし</strong>は包装の上からのし紙をかける方法で、手渡しで贈り物の目的をはっきり伝えたいときに使います。</p>" },
+      { "h": "名入れのルール", "html": "<p>名前は水引の下中央に、表書きよりやや小さく書きます。連名は3名程度までとし、目上の人を右から順に書きます。4名以上の場合は「○○一同」とするのが一般的です。会社名を入れる場合は、名前の右側に小さく入れます。</p>" }
+    ],
+    "faq": [
+      ["弔事で熨斗を付けないのはなぜですか？", "熨斗は、お祝いの贈り物に添えた干しあわび（のしあわび）が由来です。そのため、香典返しや御霊前、お見舞いなど、慶事以外では付けません。"],
+      ["家庭用プリンターで印刷できますか？", "はい。A4やB5の普通紙・和紙で印刷できます。PDFを印刷するときは、拡大・縮小せず「実際のサイズ（100%）」を選んでください。"],
+      ["お店や会社で使ってもいいですか？", "はい。商用でも無料でご利用いただけます。書体はオープンライセンスのGoogle Fontsを使用しています。"]
+    ]
+  }
+}

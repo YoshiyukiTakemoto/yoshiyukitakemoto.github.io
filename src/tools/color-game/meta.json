@@ -1,0 +1,49 @@
+{
+  "order": 106,
+  "category": "fun",
+  "schemaCategory": "GameApplication",
+  "en": {
+    "name": "Color Difference Game",
+    "title": "Color Test Game: Find the Different Color",
+    "description": "How good is your color vision? Find the one tile with a slightly different color. The grid grows and the difference shrinks every level. 60 seconds, free, no sign-up.",
+    "h1": "Find the different color",
+    "lede": "One tile is a slightly different shade. Find it, and the next grid gets bigger and the difference smaller. How far can you get in 60 seconds?",
+    "card": "Spot the odd color out. 60-second challenge.",
+    "steps": [
+      "Press <strong>Start</strong>. The 60-second timer begins.",
+      "Tap the tile whose color is slightly different from the rest.",
+      "Each correct tap moves you up a level. A wrong tap costs 3 seconds.",
+      "When time runs out, see your level and share it."
+    ],
+    "sections": [
+      { "h": "What does the score mean?", "html": "<p>Early levels differ by a large step in lightness; later levels differ by only 2 points on a 0–100 scale, which is hard to see on many screens. Screen brightness, color settings and room lighting all affect the result, so this is a game, not a medical color vision test.</p>" }
+    ],
+    "faq": [
+      ["Is this a color blindness test?", "No. It measures how well you notice small lightness differences on your screen. For color vision deficiency, see an eye care professional."],
+      ["Why is it harder on my phone?", "Small tiles and automatic brightness or night mode make subtle differences harder to see. Try turning off night mode."],
+      ["Is my best score saved?", "Yes, in this browser."]
+    ]
+  },
+  "ja": {
+    "name": "色の違い探しゲーム",
+    "title": "色の違い探しゲーム（色彩感覚テスト）",
+    "description": "1つだけ色が違うマスを探すゲーム。レベルが上がるほどマスが増え、色の差が小さくなります。60秒で何レベルまで行けるか、色彩感覚をチェック。無料・登録不要。",
+    "h1": "色の違い探しゲーム",
+    "lede": "1つだけ色が少し違うマスがあります。見つけると次はマスが増え、色の差が小さくなります。60秒でどこまで行けるか挑戦してください。",
+    "card": "1つだけ違う色を探す60秒チャレンジ。",
+    "steps": [
+      "<strong>スタート</strong>を押すと60秒のカウントが始まります。",
+      "ほかと少しだけ色が違うマスをタップします。",
+      "正解するとレベルが1つ上がります。間違えると3秒減ります。",
+      "時間切れになると到達レベルが表示されます。シェアして友達と競いましょう。"
+    ],
+    "sections": [
+      { "h": "スコアの見方", "html": "<p>序盤は明るさの差が大きく、後半は0〜100のうち2しか違わないため、多くの画面では見分けるのが困難です。画面の明るさ、色の設定、部屋の照明でも結果が変わるため、医学的な色覚検査ではなく、ゲームとして楽しんでください。</p>" }
+    ],
+    "faq": [
+      ["色覚検査として使えますか？", "いいえ。画面上のわずかな明るさの違いに気づけるかを試すゲームです。色覚が気になる場合は眼科で相談してください。"],
+      ["スマホだと難しいのはなぜ？", "マスが小さいことや、明るさの自動調整・ナイトモードによって、わずかな違いが見えにくくなるためです。ナイトモードをオフにして試してください。"],
+      ["ベストスコアは保存されますか？", "はい。このブラウザ内に保存されます。"]
+    ]
+  }
+}

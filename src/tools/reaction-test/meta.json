@@ -1,0 +1,49 @@
+{
+  "order": 104,
+  "category": "fun",
+  "schemaCategory": "GameApplication",
+  "en": {
+    "name": "Reaction Time Test",
+    "title": "Reaction Time Test: How Fast Are You?",
+    "description": "Test your reaction time in milliseconds. Tap when the screen turns green, five times, and get your average, best and rating. Keeps your personal best.",
+    "h1": "Reaction time test",
+    "lede": "Wait for green, then tap as fast as you can. Five tries give you an average in milliseconds and a rating. Your all-time best is saved.",
+    "card": "Tap when it turns green. Average of 5 tries in ms.",
+    "steps": [
+      "Tap the big box (or press the space bar) to start.",
+      "Wait for it to turn green. If you tap while it is red, it counts as a false start.",
+      "Tap the moment it turns green. Repeat five times.",
+      "See your average and rating, then share it or try to beat your best."
+    ],
+    "sections": [
+      { "h": "What is a good reaction time?", "html": "<p>Simple visual reaction time for most adults is about 200 to 300 ms. Under 200 ms is very fast. Results depend on your device too: screens and touch panels add roughly 10 to 50 ms of delay, so compare scores on the same device.</p>" }
+    ],
+    "faq": [
+      ["Why is my score slower on my phone?", "Touch screens and display refresh add delay. A desktop with a mouse and a high-refresh monitor usually gives the lowest numbers."],
+      ["Can I improve my reaction time?", "Sleep, caffeine and warming up help a little. Practice improves consistency more than raw speed."],
+      ["Is my best score saved?", "Yes, in this browser only."]
+    ]
+  },
+  "ja": {
+    "name": "反射神経テスト",
+    "title": "反射神経テスト（反応速度をミリ秒で測定）",
+    "description": "画面が緑になった瞬間にタップして、反応速度をミリ秒で測定。5回の平均とベスト、判定を表示し、自己ベストも記録します。友達と競えるシェア機能付き。",
+    "h1": "反射神経テスト",
+    "lede": "緑になった瞬間にタップしてください。5回の平均反応速度をミリ秒で測り、判定を表示します。自己ベストも保存されます。",
+    "card": "緑になったらタップ。反応速度をミリ秒で測定。",
+    "steps": [
+      "大きな枠をタップ（またはスペースキー）してスタートします。",
+      "緑になるまで待ちます。赤のうちにタップするとフライングです。",
+      "緑になった瞬間にタップします。これを5回繰り返します。",
+      "平均と判定が表示されます。シェアしたり、自己ベストに挑戦したりしましょう。"
+    ],
+    "sections": [
+      { "h": "反応速度の目安", "html": "<p>目で見て反応する単純な反応時間は、多くの大人で約200〜300ミリ秒です。200ミリ秒を切ればかなり速い部類です。なお、画面やタッチパネルの遅延が10〜50ミリ秒ほど加わるため、比べるときは同じ端末で測りましょう。</p>" }
+    ],
+    "faq": [
+      ["スマホだと遅く出るのはなぜ？", "タッチパネルや画面の表示遅延が加わるためです。マウスと高リフレッシュレートのモニターを使うと、最も速い数値が出やすくなります。"],
+      ["反射神経は鍛えられますか？", "睡眠やウォーミングアップで少し改善します。練習を重ねると、速さよりもばらつきの少なさが向上します。"],
+      ["自己ベストは保存されますか？", "はい。このブラウザ内に保存されます。"]
+    ]
+  }
+}

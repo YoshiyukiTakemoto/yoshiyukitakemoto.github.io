@@ -63,6 +63,8 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#2440c4">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="${url(lang)}manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${FONTS}">
@@ -70,7 +72,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 ${css ? `<style>\n${css}\n</style>` : ""}
 ${schema.map(ld).join("\n")}
 </head>
-<body>
+<body${slug ? ` data-slug="${slug}"` : ""}>
 <header class="bar"><div class="bar-in">
   <a class="brand" href="${url(lang)}">${LOGO}${esc(cfg.name)}</a>
   <nav><a href="${url(lang)}#tools">${ui.allTools}</a><a class="lang" href="${url(other, slug)}" hreflang="${other}" lang="${other}">${cfg.ui[other].langName}</a></nav>
@@ -81,7 +83,7 @@ ${main}
   <p style="margin:0">${esc(ui.foot)} <a href="${cfg.repo}">${ui.source}</a></p>
   <p style="margin:0">© ${new Date().getFullYear()} ${esc(cfg.name)}</p>
 </div></footer>
-${scripts.map((s) => `<script src="${s}" defer></script>`).join("\n")}
+${["/assets/site.js", ...scripts].map((s) => `<script src="${s}" defer></script>`).join("\n")}
 </body>
 </html>
 `;
@@ -99,6 +101,9 @@ function related(t) {
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 write("assets/base.css", fs.readFileSync(path.join(SRC, "base.css")));
+write("assets/site.js", fs.readFileSync(path.join(SRC, "site.js")));
+write("assets/minipdf.js", fs.readFileSync(path.join(SRC, "minipdf.js")));
+for (const f of fs.readdirSync(path.join(SRC, "static"))) write(f, fs.readFileSync(path.join(SRC, "static", f)));
 write("favicon.svg", FAVICON);
 write(".nojekyll", "");
 if (cfg.domain) write("CNAME", cfg.domain + "\n");
@@ -129,7 +134,7 @@ ${cards(lang, related(t))}
       { "@context": "https://schema.org", "@type": "WebApplication", name: m.name, url: BASE + url(lang, t.slug), description: m.description, applicationCategory: t.meta.schemaCategory || "UtilitiesApplication", operatingSystem: "Any", browserRequirements: "Requires JavaScript", inLanguage: lang, isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: ui.home, item: BASE + url(lang) }, { "@type": "ListItem", position: 2, name: m.name, item: BASE + url(lang, t.slug) }] },
     ];
-    const scripts = [...(t.meta.scripts || []).map((s) => `/${t.slug}/${s}`), `/${t.slug}/app.js`];
+    const scripts = [...(t.meta.scripts || []).map((s) => (s.startsWith("/") ? s : `/${t.slug}/${s}`)), `/${t.slug}/app.js`];
     write(`${url(lang, t.slug).slice(1)}index.html`, page({ lang, slug: t.slug, title: `${m.title} | ${cfg.name}`, desc: m.description, main, css: t.css, scripts, schema }));
   }
   addUrl(t.slug);
@@ -140,6 +145,7 @@ for (const lang of LANGS) {
   const groups = cfg.categories.map((c) => ({ c, list: tools.filter((t) => t.meta.category === c) })).filter((g) => g.list.length);
   const main = `<main class="wrap">
 <div><h1>${esc(ui.homeH1)}</h1><p class="lede">${esc(ui.homeLede)}</p></div>
+<section id="recent" class="cat" hidden><h2>${esc(ui.recent)}</h2><ul class="cards" id="recent-list"></ul></section>
 <section id="tools" style="display:grid;gap:18px">${groups.map((g) => `<div class="cat"><h2>${esc(ui.cat[g.c])}</h2>${cards(lang, g.list)}</div>`).join("")}</section>
 <section class="promise">${ui.promise.map(([h, p]) => `<div><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("")}</section>
 </main>`;
@@ -156,4 +162,31 @@ write("404.html", page({ lang: "en", title: `${nf.notFound} | ${cfg.name}`, desc
   main: `<main class="wrap"><div><h1>${nf.notFound}</h1><p class="lede">${nf.notFoundBody} · <a href="/ja/">日本語</a></p></div>${cards("en", tools)}</main>` }));
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemap.join("\n")}\n</urlset>\n`);
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
+// ---- PWA: per-language manifest (with shortcuts to repeat-use tools) and a service worker ----
+const SHORTCUTS = ["pomodoro", "notepad", "character-count", "quiet-qr"];
+for (const lang of LANGS) {
+  const ui = cfg.ui[lang];
+  write(`${url(lang).slice(1)}manifest.webmanifest`, JSON.stringify({
+    name: `${cfg.name}: ${ui.appDesc}`, short_name: cfg.name, description: ui.homeDesc, lang,
+    start_url: url(lang), scope: "/", display: "standalone", background_color: "#f2f4f8", theme_color: "#2440c4",
+    icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }],
+    shortcuts: SHORTCUTS.map((s) => tools.find((t) => t.slug === s)).filter(Boolean).map((t) => ({ name: t.meta[lang].name, url: url(lang, t.slug), icons: [{ src: "/icon-192.png", sizes: "192x192" }] })),
+  }, null, 1));
+}
+// Network-first for our own files (fresh after each deploy, cached for offline); cache-first for fonts.
+write("sw.js", `const V = "pk-${Date.now()}";
+self.addEventListener("install", (e) => { self.skipWaiting(); e.waitUntil(caches.open(V).then((c) => c.addAll(["/", "/ja/", "/assets/base.css", "/assets/site.js", "/favicon.svg"]))); });
+self.addEventListener("activate", (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== V).map((k) => caches.delete(k)))).then(() => self.clients.claim())); });
+self.addEventListener("fetch", (e) => {
+  const r = e.request, u = new URL(r.url);
+  if (r.method !== "GET") return;
+  if (u.origin === location.origin) {
+    e.respondWith(fetch(r).then((res) => { if (res.ok) { const c = res.clone(); caches.open(V).then((ca) => ca.put(r, c)); } return res; })
+      .catch(() => caches.match(r, { ignoreSearch: true }).then((m) => m || (r.mode === "navigate" ? caches.match(u.pathname.startsWith("/ja/") ? "/ja/" : "/") : undefined))));
+  } else if (/fonts\.(googleapis|gstatic)\.com$/.test(u.hostname)) {
+    e.respondWith(caches.match(r).then((m) => m || fetch(r).then((res) => { const c = res.clone(); caches.open(V).then((ca) => ca.put(r, c)); return res; })));
+  }
+});
+`);
+
 console.log(`Built ${tools.length} tools × ${LANGS.length} languages → dist/ (${BASE})`);

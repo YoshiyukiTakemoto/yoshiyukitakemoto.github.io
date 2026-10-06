@@ -1,0 +1,15 @@
+<div class="lw">
+  <section class="panel">
+    <div class="row">
+      <div class="field"><label for="birth" id="l-birth"></label><input id="birth" type="date" min="1900-01-01"></div>
+      <div class="field"><label for="span" id="l-span"></label><input id="span" type="number" min="30" max="120" value="85"></div>
+    </div>
+    <div class="headline" aria-live="polite"><strong id="pct"></strong><span id="sub"></span></div>
+    <dl class="facts" id="facts"></dl>
+    <div id="share"></div>
+  </section>
+  <section class="panel">
+    <div class="legend"><span><i class="past"></i><span id="lg-past"></span></span><span><i class="now"></i><span id="lg-now"></span></span><span><i class="future"></i><span id="lg-future"></span></span></div>
+    <canvas id="grid" width="1040" height="1800" aria-label="Life in weeks grid"></canvas>
+  </section>
+</div>

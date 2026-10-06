@@ -1,0 +1,49 @@
+{
+  "order": 100,
+  "category": "fun",
+  "schemaCategory": "GameApplication",
+  "en": {
+    "name": "Spin the Wheel",
+    "title": "Spin the Wheel: Random Picker Wheel",
+    "description": "Free spinning wheel to pick a random name, choice or winner. Type your items, spin, and optionally remove the winner each time. Your list is saved for next time.",
+    "h1": "Spin the wheel",
+    "lede": "Type a list of names or options and spin the wheel to pick one at random. Great for classrooms, giveaways, team meetings and deciding what to eat.",
+    "card": "Random picker wheel for names, prizes and decisions.",
+    "steps": [
+      "Type one item per line on the right. The wheel updates as you type.",
+      "Press <strong>Spin</strong> (or the space bar).",
+      "Turn on <em>Remove the winner</em> to pick each item only once, for example to set a speaking order.",
+      "Your list is saved in this browser, so it’s there next time."
+    ],
+    "sections": [
+      { "h": "Is it fair?", "html": "<p>Every item gets an equal slice of the wheel, and the stopping point comes from your browser’s cryptographic random number generator. Each spin is independent of the last.</p>" }
+    ],
+    "faq": [
+      ["How many items can I add?", "As many as you like. Above about 40 the labels get very small, but the draw stays fair."],
+      ["Can I use it on a projector or live stream?", "Yes. It works full screen in any browser and the wheel is large and readable."],
+      ["Can I make one item more likely?", "Type it on more than one line. Each line gets its own slice."]
+    ]
+  },
+  "ja": {
+    "name": "ルーレット",
+    "title": "ルーレット（抽選・くじ引き・順番決め）",
+    "description": "項目を入力して回すだけの無料ルーレット。抽選、くじ引き、発表の順番決め、ランチ選びに。当たった項目を除外する機能付きで、項目リストは次回も残ります。",
+    "h1": "ルーレット（抽選・くじ引き）",
+    "lede": "名前や選択肢を入力してルーレットを回すと、ランダムに1つを選びます。授業での指名、プレゼント抽選、会議の発表順、今日のランチ決めなどに使えます。",
+    "card": "抽選・順番決め・ランチ選びに使えるルーレット。",
+    "steps": [
+      "右側に項目を1行に1つずつ入力します。入力に合わせてルーレットが変わります。",
+      "<strong>回す</strong>（またはスペースキー）を押します。",
+      "<em>当たった項目を次から除外する</em>をオンにすると、同じ項目が2回当たりません。発表の順番決めに便利です。",
+      "項目リストはこのブラウザに保存され、次回もそのまま使えます。"
+    ],
+    "sections": [
+      { "h": "公平に選ばれますか", "html": "<p>すべての項目は同じ大きさに分けられ、止まる位置はブラウザの暗号用乱数で決めています。毎回の結果は前回の結果に影響されません。</p>" }
+    ],
+    "faq": [
+      ["項目はいくつまで入れられますか？", "上限はありません。40項目を超えると文字が小さくなりますが、抽選の公平さは変わりません。"],
+      ["プロジェクターや配信で使えますか？", "はい。ルーレットが大きく表示されるので、画面共有や配信でも見やすいです。"],
+      ["特定の項目を当たりやすくできますか？", "同じ項目を複数行に入力すると、その分だけ当たる確率が上がります。"]
+    ]
+  }
+}

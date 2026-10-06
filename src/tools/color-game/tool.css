@@ -1,0 +1,9 @@
+.cg{max-width:34rem;margin:0 auto;width:100%}
+.cg .panel{justify-items:center;text-align:center}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%}
+.hud span{display:grid;gap:2px}
+.hud b{font:700 1.8rem/1 var(--f-display);font-variant-numeric:tabular-nums}
+.board{display:grid;gap:6px;width:min(100%,28rem);aspect-ratio:1;touch-action:manipulation}
+.board button{border:0;border-radius:8px;cursor:pointer;padding:0;min-width:0}
+.board button.hit{outline:4px solid var(--fg);outline-offset:-4px}
+.msg{margin:0;min-height:1.5em;font-weight:600}

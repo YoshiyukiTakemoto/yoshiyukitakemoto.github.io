@@ -1,0 +1,49 @@
+{
+  "order": 2,
+  "category": "productivity",
+  "schemaCategory": "ProductivityApplication",
+  "en": {
+    "name": "Online Notepad",
+    "title": "Online Notepad: Autosaves, No Sign-up",
+    "description": "Free online notepad that saves automatically in your browser. Keep several notes, search them and download as .txt. No account, no upload, works offline.",
+    "h1": "Online notepad",
+    "lede": "A quick place to write that saves every keystroke in your browser. Keep several notes, search them, and come back any time. No account and nothing uploaded.",
+    "card": "Autosaving notes in your browser. Search and .txt download.",
+    "steps": [
+      "Start typing. Notes save automatically as you write.",
+      "Press <strong>New note</strong> to add another. The first line becomes the title.",
+      "Use the search box to find text in any note.",
+      "Download a note as a .txt file to keep a backup or move it to another device."
+    ],
+    "sections": [
+      { "h": "Where are my notes stored?", "html": "<p>In your browser’s local storage on this device. They stay after you close the tab or restart the computer. They are not synced to other devices and can be lost if you clear site data or use a private window, so download important notes.</p>" }
+    ],
+    "faq": [
+      ["Can anyone else see my notes?", "No. Notes never leave your device. There is no server copy."],
+      ["Does it work offline?", "Yes. After your first visit the page loads without a connection, and you can add it to your home screen like an app."],
+      ["Is there a size limit?", "Browsers allow about 5 MB of local storage per site, which is roughly two million characters in total."]
+    ]
+  },
+  "ja": {
+    "name": "メモ帳",
+    "title": "オンラインメモ帳（自動保存・登録不要）",
+    "description": "ブラウザに自動保存される無料のオンラインメモ帳。複数のメモを作成・検索でき、.txtで保存も可能。登録不要・アップロードなし・オフラインでも使えます。",
+    "h1": "オンラインメモ帳",
+    "lede": "思いついたことをすぐ書けて、1文字ごとにブラウザへ自動保存されるメモ帳です。複数のメモを作って検索でき、いつでも続きから書けます。登録もアップロードもありません。",
+    "card": "ブラウザに自動保存されるメモ帳。検索・.txt保存。",
+    "steps": [
+      "入力を始めると、自動で保存されます。",
+      "<strong>新しいメモ</strong>でメモを追加できます。1行目がタイトルになります。",
+      "検索欄で、すべてのメモから文字を探せます。",
+      ".txtで保存すると、控えを残したり別の端末に移したりできます。"
+    ],
+    "sections": [
+      { "h": "メモはどこに保存されますか", "html": "<p>この端末のブラウザ内（ローカルストレージ）に保存されます。タブを閉じても、パソコンを再起動しても残ります。ほかの端末とは同期されません。また、閲覧データの削除やシークレットウィンドウでは消えることがあるため、大切なメモは.txtで保存してください。</p>" }
+    ],
+    "faq": [
+      ["ほかの人にメモを見られることはありますか？", "ありません。メモは端末の外に出ず、サーバーにも保存されません。"],
+      ["オフラインでも使えますか？", "はい。一度開いたあとは通信なしでも表示でき、ホーム画面に追加すればアプリのように使えます。"],
+      ["容量の上限はありますか？", "ブラウザの保存領域はサイトごとに約5MBで、すべてのメモの合計で約200万文字程度です。"]
+    ]
+  }
+}

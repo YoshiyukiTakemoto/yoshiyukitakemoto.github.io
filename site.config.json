@@ -4,8 +4,10 @@
   "domain": "tools.motty.jp",
   "repo": "https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io",
   "categories": [
+    "productivity",
     "time",
     "calc",
+    "fun",
     "text",
     "media",
     "dev"
@@ -24,10 +26,12 @@
       "related": "More free tools",
       "cat": {
         "time": "Time & dates",
-        "media": "Images & codes",
+        "media": "Images & printing",
         "text": "Text & security",
         "calc": "Calculators",
-        "dev": "Developer & design"
+        "dev": "Developer & design",
+        "productivity": "Everyday productivity",
+        "fun": "Games & tests"
       },
       "promise": [
         [
@@ -46,7 +50,16 @@
       "foot": "No sign-up, no cookies, no tracking. Every tool runs in your browser.",
       "source": "Source code",
       "notFound": "Page not found",
-      "notFoundBody": "This page doesn’t exist. Try one of the tools below."
+      "notFoundBody": "This page doesn’t exist. Try one of the tools below.",
+      "recent": "Recently used",
+      "share": "Share",
+      "shareX": "Post on X",
+      "shareLine": "LINE",
+      "copyLink": "Copy result",
+      "copied": "Copied",
+      "install": "Install app",
+      "appName": "Plainkit",
+      "appDesc": "Free tools that run in your browser"
     },
     "ja": {
       "langName": "日本語",
@@ -61,10 +74,12 @@
       "related": "ほかの無料ツール",
       "cat": {
         "time": "時間・日付",
-        "media": "画像・コード",
+        "media": "画像・印刷",
         "text": "テキスト・セキュリティ",
         "calc": "計算ツール",
-        "dev": "開発・デザイン"
+        "dev": "開発・デザイン",
+        "productivity": "仕事・作業",
+        "fun": "ゲーム・診断"
       },
       "promise": [
         [
@@ -83,7 +98,16 @@
       "foot": "登録不要・Cookieなし・トラッキングなし。すべてのツールはブラウザ内で動作します。",
       "source": "ソースコード",
       "notFound": "ページが見つかりません",
-      "notFoundBody": "お探しのページはありません。以下のツールをお試しください。"
+      "notFoundBody": "お探しのページはありません。以下のツールをお試しください。",
+      "recent": "最近使ったツール",
+      "share": "シェア",
+      "shareX": "Xでポスト",
+      "shareLine": "LINEで送る",
+      "copyLink": "結果をコピー",
+      "copied": "コピーしました",
+      "install": "アプリとして追加",
+      "appName": "Plainkit",
+      "appDesc": "ブラウザだけで使える無料ツール集"
     }
   }
 }
