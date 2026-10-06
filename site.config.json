@@ -1,7 +1,7 @@
 {
   "name": "Plainkit",
   "baseUrl": "https://yoshiyukitakemoto.github.io",
-  "domain": "",
+  "domain": "tools.motty.jp",
   "repo": "https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io",
   "categories": ["time", "media", "text"],
   "ui": {
