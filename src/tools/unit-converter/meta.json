@@ -1,0 +1,52 @@
+{
+  "order": 70,
+  "category": "calc",
+  "en": {
+    "name": "Unit Converter",
+    "title": "Unit Converter: Length, Weight, Temperature & More",
+    "description": "Free unit converter for length, weight, temperature, area, volume, speed and data size. Converts to every unit at once, including traditional Japanese units like tsubo and shaku.",
+    "h1": "Unit converter",
+    "lede": "Enter a value once and see it in every unit: metric, imperial and US customary, plus traditional Japanese units such as tsubo, shaku and gō.",
+    "card": "Length, weight, temperature, area, volume, speed and data.",
+    "steps": [
+      "Choose a quantity: length, weight, temperature, area, volume, speed or data size.",
+      "Type a value and pick the unit it is in.",
+      "Read the value in every other unit at once. The unit you entered is highlighted.",
+      "Press Copy next to a result to paste it elsewhere."
+    ],
+    "sections": [
+      { "h": "Quick reference", "html": "<table><tbody><tr><td>1 inch</td><td>2.54 cm</td></tr><tr><td>1 foot</td><td>30.48 cm</td></tr><tr><td>1 mile</td><td>1.609344 km</td></tr><tr><td>1 pound</td><td>453.59237 g</td></tr><tr><td>1 US gallon</td><td>3.785 L</td></tr><tr><td>0 °C</td><td>32 °F</td></tr><tr><td>1 tsubo</td><td>3.306 m²</td></tr></tbody></table>" },
+      { "h": "Traditional Japanese units", "html": "<p>Japan still uses some pre-metric units. Property sizes are given in <strong>tsubo</strong> (about 3.306 m²) and rooms in <strong>jō</strong>, the area of one tatami mat (1.62 m² by the real estate advertising standard). Rice and sake are measured in <strong>gō</strong> (about 180 mL). Carpentry uses <strong>shaku</strong> (about 30.3 cm).</p>" }
+    ],
+    "faq": [
+      ["How do I convert Celsius to Fahrenheit?", "Multiply by 9/5 and add 32. For example, 20 °C × 1.8 + 32 = 68 °F. Choose Temperature above to convert instantly."],
+      ["Why are there two kinds of gigabyte?", "GB uses powers of 1000 (used by drive makers) and GiB uses powers of 1024 (used by many operating systems). That’s why a 1 TB drive shows as about 931 GiB."],
+      ["How big is a tatami mat (jō)?", "It varies by region, from about 1.45 to 1.82 m². Japanese property listings use 1.62 m² per jō, which is the value used here."],
+      ["Are US and UK gallons the same?", "No. A US gallon is 3.785 L and a UK (imperial) gallon is 4.546 L. Both are listed."]
+    ]
+  },
+  "ja": {
+    "name": "単位換算",
+    "title": "単位換算（長さ・重さ・温度・面積・坪）",
+    "description": "長さ・重さ・温度・面積・体積・速さ・データ量を一括で単位換算。インチ、フィート、ポンドから、坪・畳・尺・合などの日本の伝統単位まで対応した無料ツールです。",
+    "h1": "単位換算",
+    "lede": "数値を1回入力するだけで、すべての単位に一括で換算します。メートル法やヤード・ポンド法に加え、坪・畳・尺・合・貫などの尺貫法にも対応しています。",
+    "card": "長さ・重さ・温度・面積（坪・畳）・容量・速さ・データ量。",
+    "steps": [
+      "換算したい種類（長さ、重さ、温度、面積、体積・容量、速さ、データ量）を選びます。",
+      "数値を入力し、その数値の単位を選びます。",
+      "ほかのすべての単位での値が一覧で表示されます。入力した単位の行は色付きで表示されます。",
+      "結果の横の「コピー」で数値をコピーできます。"
+    ],
+    "sections": [
+      { "h": "よく使う換算の早見表", "html": "<table><tbody><tr><td>1坪</td><td>約3.306 m²（畳約2枚分）</td></tr><tr><td>1畳</td><td>1.62 m²（不動産の表示規約）</td></tr><tr><td>1インチ</td><td>2.54 cm</td></tr><tr><td>1フィート</td><td>30.48 cm</td></tr><tr><td>1ポンド</td><td>約453.6 g</td></tr><tr><td>1マイル</td><td>約1.609 km</td></tr><tr><td>1合</td><td>約180 mL</td></tr><tr><td>1尺</td><td>約30.3 cm</td></tr></tbody></table>" },
+      { "h": "坪と畳の換算について", "html": "<p>1坪は約3.306 m²で、「400/121 m²」と定義されています。畳の大きさは地域によって異なり（江戸間・京間など）、不動産広告では1畳＝1.62 m²以上として表示するルールがあるため、このツールでも1.62 m²で計算しています。例えば70 m²のマンションは約21.2坪、約43.2畳です。</p>" }
+    ],
+    "faq": [
+      ["摂氏を華氏に換算する計算式は？", "摂氏×1.8＋32＝華氏です。例えば20 °Cは68 °Fになります。上の「温度」を選ぶとすぐに換算できます。"],
+      ["GBとGiBの違いは？", "GBは1000倍ごと（ストレージメーカーの表記）、GiBは1024倍ごと（多くのOSの表示）です。そのため1 TBのドライブはOS上で約931 GiBと表示されます。"],
+      ["1坪は何平方メートル、何畳ですか？", "1坪は約3.306 m²で、1.62 m²の畳に換算すると約2.04畳です。一般には「1坪＝畳2枚」と覚えられています。"],
+      ["料理の「1カップ」は何mLですか？", "日本の計量カップは200 mL、アメリカのカップは約237 mLです。両方を一覧に表示しています。"]
+    ]
+  }
+}

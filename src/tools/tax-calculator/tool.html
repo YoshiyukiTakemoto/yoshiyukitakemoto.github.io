@@ -1,0 +1,16 @@
+<div class="tx">
+  <section class="panel">
+    <div class="seg" role="group" id="mode"><button type="button" data-m="add" aria-pressed="true" id="m-add"></button><button type="button" data-m="remove" aria-pressed="false" id="m-remove"></button></div>
+    <div class="row">
+      <div class="field"><label for="amt" id="l-amt"></label><input id="amt" type="number" step="any" min="0" inputmode="decimal"></div>
+      <div class="field"><label for="rate" id="l-rate"></label><select id="rate"></select></div>
+      <div class="field" id="custom-f" hidden><label for="custom" id="l-custom"></label><input id="custom" type="number" step="any" min="0" value="7"></div>
+      <div class="field"><label for="round" id="l-round"></label><select id="round"></select></div>
+    </div>
+    <dl class="out" id="out"></dl>
+  </section>
+  <section class="panel">
+    <h2 class="eyebrow" id="l-table"></h2>
+    <div class="tw"><table class="qt"><thead id="qt-h"></thead><tbody id="qt"></tbody></table></div>
+  </section>
+</div>

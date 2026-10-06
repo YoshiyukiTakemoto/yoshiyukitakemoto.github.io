@@ -1,0 +1,47 @@
+{
+  "order": 42,
+  "category": "time",
+  "en": {
+    "name": "Age Calculator",
+    "title": "Age Calculator: Exact Age in Years, Months & Days",
+    "description": "Free age calculator. Enter a date of birth to get exact age in years, months and days, days lived, days until the next birthday, birth weekday, star sign and Chinese zodiac.",
+    "h1": "Age calculator",
+    "lede": "Find exact age in years, months and days on any date, plus how many days someone has lived and how long until their next birthday.",
+    "card": "Exact age, days lived and countdown to the next birthday.",
+    "steps": [
+      "Enter the date of birth.",
+      "Leave the second date as today, or change it to find age on another date, such as a deadline or an event.",
+      "Read the age and the extra details below it."
+    ],
+    "sections": [
+      { "h": "How exact age is counted", "html": "<p>Age goes up by one on each birthday. The months and days after the full years count from the most recent birthday. For example, someone born on 15 March 1990 is 36 years, 6 months and 21 days old on 6 October 2026.</p>" }
+    ],
+    "faq": [
+      ["What about birthdays on 29 February?", "In non-leap years this calculator treats 1 March as the birthday. This matches the UK and Japan; a few places use 28 February instead."],
+      ["Can I work out someone’s age on a past or future date?", "Yes. Change the second date. This is useful for age limits on forms, school entry dates and retirement planning."],
+      ["Is my date of birth saved?", "No. The calculation happens in your browser and nothing is sent or stored."]
+    ]
+  },
+  "ja": {
+    "name": "年齢計算",
+    "title": "年齢計算（満年齢・数え年・学年）",
+    "description": "生年月日から満年齢・数え年を無料で計算。生まれてからの日数、次の誕生日まで、学年（早生まれ対応）、和暦の生まれ年、干支、星座まで一度にわかります。",
+    "h1": "年齢計算（満年齢・数え年・学年）",
+    "lede": "生年月日を入力すると、今日または指定した日の満年齢と数え年、何歳何か月何日かを計算します。早生まれを考慮した学年や、干支・星座もわかります。",
+    "card": "満年齢・数え年・学年（早生まれ対応）・干支を計算。",
+    "steps": [
+      "生年月日を入力します。",
+      "基準日は今日になっています。入学日や試験日など、別の日の年齢を知りたいときは変更します。",
+      "満年齢と、数え年・学年・干支・星座などの詳細が表示されます。"
+    ],
+    "sections": [
+      { "h": "満年齢と数え年の違い", "html": "<p><strong>満年齢</strong>は生まれたときを0歳とし、誕生日ごとに1歳ずつ増えます。役所の手続きや一般的な年齢はこちらです。<strong>数え年</strong>は生まれたときを1歳とし、元日（1月1日）ごとに1歳ずつ増えます。厄年や七五三、長寿のお祝いで使われることがあります。</p>" },
+      { "h": "早生まれと学年", "html": "<p>日本の学校は4月2日生まれから翌年4月1日生まれまでを同じ学年とします。1月1日〜4月1日生まれは「早生まれ」と呼ばれ、同じ年の4月2日以降に生まれた人より1学年上になります。小学校に入学するのは、満6歳になった後の最初の4月です。</p>" }
+    ],
+    "faq": [
+      ["4月1日生まれが早生まれになるのはなぜ？", "法律（年齢計算ニ関スル法律）では、誕生日の前日の終わりに1歳加算されるとされています。4月1日生まれの人は3月31日に6歳になるため、4月1日時点で6歳に達しており、その年の4月に入学します。"],
+      ["2月29日生まれの人はいつ年をとりますか？", "法律上は誕生日の前日の終わりに年をとるため、うるう年でない年は2月28日の終わり（24時）に1歳加算されます。日付で見ると3月1日から1つ上の年齢になるため、このツールでも、うるう年以外は3月1日から年齢が上がるものとして計算しています。"],
+      ["入力した生年月日は保存されますか？", "いいえ。計算はブラウザ内で行い、生年月日はどこにも送信・保存されません。"]
+    ]
+  }
+}

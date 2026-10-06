@@ -1,0 +1,50 @@
+{
+  "order": 74,
+  "category": "calc",
+  "schemaCategory": "FinanceApplication",
+  "en": {
+    "name": "VAT Calculator",
+    "title": "VAT & Sales Tax Calculator: Add or Remove Tax",
+    "description": "Free VAT and sales tax calculator. Add tax to a net price or remove it from a gross price at any rate, with presets for the UK, EU, Japan, Australia and more.",
+    "h1": "VAT and sales tax calculator",
+    "lede": "Add VAT or sales tax to a price, or work out the price before tax from a total. Choose a preset rate or enter your own.",
+    "card": "Add or remove VAT and sales tax at any rate.",
+    "steps": [
+      "Choose <strong>Add tax</strong> if your price excludes tax, or <strong>Remove tax</strong> if it already includes it.",
+      "Enter the amount and pick a tax rate, or choose Other to type any rate.",
+      "Read the net price, the tax and the gross price."
+    ],
+    "sections": [
+      { "h": "How to remove VAT correctly", "html": "<p>A common mistake is to take 20% off a VAT-inclusive price. That gives the wrong answer, because the tax was 20% of the <em>net</em> price. Divide by 1.2 instead: £120 ÷ 1.2 = £100 net, so the VAT is £20, not £24.</p>" },
+      { "h": "Formulas", "html": "<ul><li>Gross = net × (1 + rate ÷ 100)</li><li>Net = gross ÷ (1 + rate ÷ 100)</li><li>Tax = gross − net</li></ul>" }
+    ],
+    "faq": [
+      ["What is the UK VAT rate?", "The standard rate is 20%. A reduced rate of 5% and a zero rate apply to some goods and services."],
+      ["Can I use this for US sales tax?", "Yes. Choose Other and enter your combined state and local rate, such as 8.875% for New York City."],
+      ["Why does rounding matter?", "Tax is often a fraction of a cent. Most invoices round to the nearest cent, but some systems always round down. Pick the method your invoices use."]
+    ]
+  },
+  "ja": {
+    "name": "消費税計算",
+    "title": "消費税計算（税込・税抜・10%/8%）",
+    "description": "消費税の税込・税抜を無料で計算。10%の標準税率と8%の軽減税率に対応し、切り捨て・四捨五入・切り上げの端数処理も選べます。税込価格の早見表付き。",
+    "h1": "消費税計算（税込・税抜）",
+    "lede": "税抜価格から税込価格を、税込価格から税抜価格と消費税額を計算します。標準税率10%・軽減税率8%と、端数処理の方法を選べます。",
+    "card": "税込⇔税抜を10%・8%で計算。端数処理も選択可。",
+    "steps": [
+      "税抜価格から計算するなら<strong>税抜 → 税込</strong>、税込価格から計算するなら<strong>税込 → 税抜</strong>を選びます。",
+      "金額を入力し、税率（10%または8%）を選びます。",
+      "端数処理（切り捨て・四捨五入・切り上げ）を選ぶと、税抜価格・消費税額・税込価格が表示されます。"
+    ],
+    "sections": [
+      { "h": "税込から税抜を求める正しい計算", "html": "<p>税込1,100円から10%を引いて990円とするのは誤りです。消費税は税抜価格の10%なので、<strong>税込価格÷1.1</strong>で計算します。1,100円÷1.1＝1,000円（税抜）、消費税は100円です。軽減税率8%の場合は÷1.08です。</p>" },
+      { "h": "10%と8%（軽減税率）の対象", "html": "<ul><li><strong>8%</strong>：酒類・外食を除く飲食料品、定期購読の新聞（週2回以上発行）</li><li><strong>10%</strong>：それ以外の商品・サービス、酒類、外食、ケータリング</li></ul><p>同じ食品でも、店内飲食は10%、持ち帰りは8%になります。</p>" },
+      { "h": "インボイス制度と端数処理", "html": "<p>インボイス（適格請求書）では、消費税の端数処理は「1つの請求書につき、税率ごとに1回」と決められています。商品ごとに端数処理して合計すると、請求書全体で計算した額とずれることがあります。端数を切り捨てるか、四捨五入するか、切り上げるかは事業者が選べます。</p>" }
+    ],
+    "faq": [
+      ["税込価格から消費税額を計算するには？", "税率10%なら税込価格×10÷110、8%なら税込価格×8÷108です。「税込 → 税抜」を選ぶと税額も表示されます。"],
+      ["端数処理はどれを選べばいいですか？", "法律上の決まりはなく事業者の選択ですが、実務では切り捨てが最も多く使われています。取引先や会計ソフトの設定に合わせてください。"],
+      ["総額表示とは何ですか？", "消費者向けの価格表示では、消費税を含めた総額の表示が義務付けられています（例：1,100円（税込））。税抜価格を併記することはできます。"]
+    ]
+  }
+}

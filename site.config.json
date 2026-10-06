@@ -3,12 +3,18 @@
   "baseUrl": "https://yoshiyukitakemoto.github.io",
   "domain": "tools.motty.jp",
   "repo": "https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io",
-  "categories": ["time", "media", "text"],
+  "categories": [
+    "time",
+    "calc",
+    "text",
+    "media",
+    "dev"
+  ],
   "ui": {
     "en": {
       "langName": "English",
       "homeTitle": "Plainkit: Free Online Tools That Run in Your Browser",
-      "homeDesc": "Free, private online tools: meeting planner, QR code generator, image compressor, character counter, date calculator, password generator and more. No sign-up, no tracking.",
+      "homeDesc": "Free, private online tools: unit converter, percentage and tax calculators, age and BMI calculators, QR code generator, image compressor, character counter, JSON formatter and more. No sign-up, no tracking.",
       "homeH1": "Free tools that run in your browser",
       "homeLede": "Small, fast tools for everyday work. No sign-up, no ads, no tracking. Your files and text never leave your device.",
       "home": "Home",
@@ -16,8 +22,27 @@
       "howTo": "How to use",
       "faq": "Frequently asked questions",
       "related": "More free tools",
-      "cat": { "time": "Time & dates", "media": "Images & codes", "text": "Text & security" },
-      "promise": [["Free, no sign-up", "Every tool is free to use with no account, no trial and no usage limits."], ["Private by design", "Tools run entirely in your browser. Nothing you type or drop is uploaded."], ["Works anywhere", "Phone, tablet or desktop, in any modern browser. Japanese and English."]],
+      "cat": {
+        "time": "Time & dates",
+        "media": "Images & codes",
+        "text": "Text & security",
+        "calc": "Calculators",
+        "dev": "Developer & design"
+      },
+      "promise": [
+        [
+          "Free, no sign-up",
+          "Every tool is free to use with no account, no trial and no usage limits."
+        ],
+        [
+          "Private by design",
+          "Tools run entirely in your browser. Nothing you type or drop is uploaded."
+        ],
+        [
+          "Works anywhere",
+          "Phone, tablet or desktop, in any modern browser. Japanese and English."
+        ]
+      ],
       "foot": "No sign-up, no cookies, no tracking. Every tool runs in your browser.",
       "source": "Source code",
       "notFound": "Page not found",
@@ -26,7 +51,7 @@
     "ja": {
       "langName": "日本語",
       "homeTitle": "Plainkit｜登録不要・無料で使えるブラウザツール集",
-      "homeDesc": "会議時間の調整、QRコード作成、画像圧縮、文字数カウント、日数計算、和暦西暦変換、パスワード生成など。すべて無料・登録不要・ブラウザ内で動作します。",
+      "homeDesc": "単位換算、パーセント計算、消費税計算、年齢計算、BMI計算、QRコード作成、画像圧縮、文字数カウント、JSON整形など。すべて無料・登録不要・ブラウザ内で動作する便利ツール集です。",
       "homeH1": "ブラウザだけで使える無料ツール集",
       "homeLede": "毎日の作業に使える、小さく速いツールを集めました。登録・広告・トラッキングはありません。ファイルや文章が端末の外に出ることもありません。",
       "home": "ホーム",
@@ -34,8 +59,27 @@
       "howTo": "使い方",
       "faq": "よくある質問",
       "related": "ほかの無料ツール",
-      "cat": { "time": "時間・日付", "media": "画像・コード", "text": "テキスト・セキュリティ" },
-      "promise": [["無料・登録不要", "すべてのツールを無料で使えます。アカウント登録、試用期間、回数制限はありません。"], ["プライバシー重視", "処理はすべてブラウザ内で行います。入力した文章やファイルはアップロードされません。"], ["どこでも使える", "スマホ・タブレット・パソコンの最新ブラウザで動作します。日本語と英語に対応。"]],
+      "cat": {
+        "time": "時間・日付",
+        "media": "画像・コード",
+        "text": "テキスト・セキュリティ",
+        "calc": "計算ツール",
+        "dev": "開発・デザイン"
+      },
+      "promise": [
+        [
+          "無料・登録不要",
+          "すべてのツールを無料で使えます。アカウント登録、試用期間、回数制限はありません。"
+        ],
+        [
+          "プライバシー重視",
+          "処理はすべてブラウザ内で行います。入力した文章やファイルはアップロードされません。"
+        ],
+        [
+          "どこでも使える",
+          "スマホ・タブレット・パソコンの最新ブラウザで動作します。日本語と英語に対応。"
+        ]
+      ],
       "foot": "登録不要・Cookieなし・トラッキングなし。すべてのツールはブラウザ内で動作します。",
       "source": "ソースコード",
       "notFound": "ページが見つかりません",

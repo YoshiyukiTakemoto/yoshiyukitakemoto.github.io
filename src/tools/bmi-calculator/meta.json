@@ -1,0 +1,49 @@
+{
+  "order": 76,
+  "category": "calc",
+  "schemaCategory": "HealthApplication",
+  "en": {
+    "name": "BMI Calculator",
+    "title": "BMI Calculator for Adults (Metric & Imperial)",
+    "description": "Free BMI calculator. Enter height and weight in cm/kg or ft/in/lb to get your body mass index, WHO category and healthy weight range.",
+    "h1": "BMI calculator",
+    "lede": "Work out your body mass index from height and weight, see where it falls on the WHO adult scale and find the weight range considered healthy for your height.",
+    "card": "Body mass index with WHO category and healthy range.",
+    "steps": [
+      "Choose cm / kg or ft·in / lb.",
+      "Enter your height and weight.",
+      "Read your BMI, its category and the healthy weight range for your height."
+    ],
+    "sections": [
+      { "h": "BMI categories (WHO, adults)", "html": "<table><thead><tr><th>BMI</th><th>Category</th></tr></thead><tbody><tr><td>Below 18.5</td><td>Underweight</td></tr><tr><td>18.5–24.9</td><td>Healthy weight</td></tr><tr><td>25.0–29.9</td><td>Overweight</td></tr><tr><td>30.0–34.9</td><td>Obesity class I</td></tr><tr><td>35.0–39.9</td><td>Obesity class II</td></tr><tr><td>40 and above</td><td>Obesity class III</td></tr></tbody></table>" },
+      { "h": "How BMI is calculated", "html": "<p>BMI = weight in kilograms ÷ (height in metres)². For example, 65 kg at 1.70 m gives 65 ÷ 2.89 = 22.5. In imperial units: 703 × weight in pounds ÷ (height in inches)².</p>" }
+    ],
+    "faq": [
+      ["Is BMI accurate for everyone?", "No. It doesn’t distinguish muscle from fat, so athletes may score high. It is a quick screening measure, not a diagnosis."],
+      ["Does BMI work for children?", "Not with these categories. Children and teenagers are assessed with BMI-for-age percentiles that depend on age and sex."],
+      ["Why do some countries use different cut-offs?", "Studies show higher health risks at lower BMI in some Asian populations, so Japan, for example, classes a BMI of 25 or more as obesity."]
+    ]
+  },
+  "ja": {
+    "name": "BMI計算",
+    "title": "BMI計算（標準体重・肥満度判定）",
+    "description": "身長と体重からBMIを無料で計算。日本肥満学会の基準で肥満度を判定し、標準体重（BMI22）と普通体重の範囲も表示します。",
+    "h1": "BMI計算・肥満度チェック",
+    "lede": "身長と体重を入力すると、BMIと肥満度の判定（日本肥満学会の基準）、標準体重、普通体重の範囲がわかります。",
+    "card": "BMIと肥満度、標準体重（BMI22）を計算。",
+    "steps": [
+      "身長（cm）と体重（kg）を入力します。",
+      "BMIと肥満度の判定が表示されます。",
+      "標準体重（BMI 22）と、普通体重の範囲を確認できます。"
+    ],
+    "sections": [
+      { "h": "肥満度の判定基準（日本肥満学会）", "html": "<table><thead><tr><th>BMI</th><th>判定</th></tr></thead><tbody><tr><td>18.5未満</td><td>低体重（やせ）</td></tr><tr><td>18.5以上25未満</td><td>普通体重</td></tr><tr><td>25以上30未満</td><td>肥満（1度）</td></tr><tr><td>30以上35未満</td><td>肥満（2度）</td></tr><tr><td>35以上40未満</td><td>肥満（3度）</td></tr><tr><td>40以上</td><td>肥満（4度）</td></tr></tbody></table>" },
+      { "h": "BMIと標準体重の計算式", "html": "<p>BMI＝体重（kg）÷身長（m）÷身長（m）です。例えば身長170 cm・体重65 kgなら、65÷1.7÷1.7＝22.5です。標準体重は統計的に病気になりにくいとされるBMI 22から、身長（m）×身長（m）×22で求めます。身長170 cmの標準体重は約63.6 kgです。</p>" }
+    ],
+    "faq": [
+      ["日本とWHOで肥満の基準が違うのはなぜ？", "日本人はBMIが比較的低くても生活習慣病のリスクが高まりやすいため、日本肥満学会はBMI 25以上を肥満としています。WHOでは25〜30未満を過体重、30以上を肥満としています。"],
+      ["子どもにも使えますか？", "この判定は18歳以上の成人向けです。子どもの肥満度は、性別・年齢・身長別の標準体重を使う「肥満度」やローレル指数などで評価します。"],
+      ["BMIが普通でも安心できますか？", "BMIは筋肉と脂肪を区別しないため、普通体重でも内臓脂肪が多い「隠れ肥満」の場合があります。腹囲なども合わせて確認し、気になる場合は医師に相談してください。"]
+    ]
+  }
+}

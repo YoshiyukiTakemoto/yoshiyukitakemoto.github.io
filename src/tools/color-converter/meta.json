@@ -1,0 +1,51 @@
+{
+  "order": 92,
+  "category": "dev",
+  "schemaCategory": "DesignApplication",
+  "en": {
+    "name": "Color Converter",
+    "title": "Color Code Converter: HEX, RGB, HSL, CMYK, OKLCH",
+    "description": "Free color converter. Convert between HEX, RGB, HSL, HSV, CMYK and OKLCH, check WCAG contrast against white and black, and generate tints and shades.",
+    "h1": "Color code converter",
+    "lede": "Type or pick a color to get it in every common format, check its contrast for accessible text, and generate lighter and darker versions.",
+    "card": "HEX, RGB, HSL, CMYK and OKLCH with WCAG contrast check.",
+    "steps": [
+      "Type a color in any CSS format (#2440c4, rgb(36 64 196), hsl(229 69% 46%) or a name like teal), or use the picker.",
+      "Copy the format you need from the table.",
+      "Check the contrast ratios to see whether text in this color is readable on white or black, and the reverse.",
+      "Click a swatch in the tints and shades row to switch to it."
+    ],
+    "sections": [
+      { "h": "WCAG contrast levels", "html": "<ul><li><strong>AA</strong>: at least 4.5:1 for normal text.</li><li><strong>AA Large</strong>: at least 3:1 for text 24 px and larger, or 19 px bold.</li><li><strong>AAA</strong>: at least 7:1 for normal text.</li></ul>" },
+      { "h": "About CMYK", "html": "<p>CMYK values here are a simple conversion from RGB. Printed colors depend on the paper, ink and colour profile, so ask your printer for exact values for important brand colours.</p>" }
+    ],
+    "faq": [
+      ["What is OKLCH?", "A newer CSS color format based on how people perceive lightness and colourfulness. Changing only the L value gives evenly lighter or darker colours, which makes it useful for design systems."],
+      ["What is the difference between HSL and HSV?", "Both describe hue and saturation. HSL’s lightness runs from black through the pure colour to white; HSV’s value runs from black to the pure colour. Design tools such as Photoshop often call HSV “HSB”."],
+      ["Which formats can I type in?", "Any format a browser understands: hex (3 or 6 digits), rgb(), hsl(), hwb(), and the 148 named CSS colours."]
+    ]
+  },
+  "ja": {
+    "name": "カラーコード変換",
+    "title": "カラーコード変換（HEX・RGB・HSL・CMYK）",
+    "description": "カラーコードを無料で変換。HEX・RGB・HSL・HSV・CMYK・OKLCHを相互に変換し、白・黒とのコントラスト比（WCAG）チェックや明るさのバリエーション作成もできます。",
+    "h1": "カラーコード変換",
+    "lede": "色を入力するかカラーピッカーで選ぶと、HEX・RGB・HSLなどすべての形式に変換します。文字色として読みやすいかのコントラスト比チェックや、明るさ違いの色の作成もできます。",
+    "card": "HEX・RGB・HSL・CMYK変換とコントラスト比チェック。",
+    "steps": [
+      "色をCSSの任意の形式（#2440c4、rgb(36 64 196)、hsl(229 69% 46%)、teal などの色名）で入力するか、カラーピッカーで選びます。",
+      "表から必要な形式をコピーします。",
+      "コントラスト比で、この色の文字が白背景・黒背景で読みやすいか（またはその逆）を確認します。",
+      "明るさのバリエーションの色をクリックすると、その色に切り替わります。"
+    ],
+    "sections": [
+      { "h": "コントラスト比の基準（WCAG）", "html": "<ul><li><strong>AA</strong>：通常の文字で4.5:1以上。</li><li><strong>AA Large</strong>：大きな文字（24px以上、または太字19px以上）で3:1以上。</li><li><strong>AAA</strong>：通常の文字で7:1以上。</li></ul><p>ウェブアクセシビリティの日本産業規格JIS X 8341-3も、同じWCAG 2の基準を採用しています。</p>" },
+      { "h": "CMYKについて", "html": "<p>ここでのCMYKはRGBからの簡易変換です。実際の印刷色は用紙・インク・カラープロファイルによって変わるため、ロゴなど重要な色は印刷会社に確認してください。</p>" }
+    ],
+    "faq": [
+      ["OKLCHとは何ですか？", "人の目に感じる明るさと鮮やかさに基づいた、新しいCSSの色の形式です。Lの値だけを変えると均等に明るく・暗くなるため、デザインシステムの配色作りに便利です。"],
+      ["HSLとHSVの違いは？", "どちらも色相と彩度で色を表します。HSLの明度は黒→純色→白、HSVの明度は黒→純色です。PhotoshopなどではHSVを「HSB」と呼びます。"],
+      ["どんな形式で入力できますか？", "ブラウザが理解できる形式なら入力できます。HEX（3桁・6桁）、rgb()、hsl()、hwb()、CSSの色名（148色）などです。"]
+    ]
+  }
+}

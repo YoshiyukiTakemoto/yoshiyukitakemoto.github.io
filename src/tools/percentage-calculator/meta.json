@@ -1,0 +1,48 @@
+{
+  "order": 72,
+  "category": "calc",
+  "en": {
+    "name": "Percentage Calculator",
+    "title": "Percentage Calculator: % of, % Change, Discounts",
+    "description": "Free percentage calculator. Find X% of a number, what percent one number is of another, percentage increase or decrease, discounts and the original total. Shows the formula.",
+    "h1": "Percentage calculator",
+    "lede": "Six everyday percentage calculations on one page, each with the formula shown so you can check the working.",
+    "card": "% of a number, % change, discounts and reverse percentages.",
+    "steps": [
+      "Find the card that matches your question, such as “What is X% of Y?” or “Percentage change”.",
+      "Replace the example numbers with your own. The answer updates as you type.",
+      "Check the formula under the answer if you need to show your working."
+    ],
+    "sections": [
+      { "h": "Percentage formulas", "html": "<ul><li><strong>X% of Y</strong> = Y × X ÷ 100</li><li><strong>X as a percent of Y</strong> = X ÷ Y × 100</li><li><strong>Percentage change</strong> = (new − old) ÷ old × 100</li><li><strong>Price after X% off</strong> = price × (1 − X ÷ 100)</li><li><strong>Whole from a part</strong> = part ÷ X × 100</li></ul>" },
+      { "h": "Percent vs percentage points", "html": "<p>If an interest rate rises from 2% to 3%, it has gone up by <strong>1 percentage point</strong>, but by <strong>50 percent</strong>. Use the percentage change card for the second figure.</p>" }
+    ],
+    "faq": [
+      ["Why doesn’t a 20% rise followed by a 20% fall return to the start?", "The fall is 20% of the larger number. 100 → 120 → 96. To get back from 120 to 100 you need a fall of about 16.7%."],
+      ["How do I work out a percentage of a total?", "Use “X is what percent of Y?”. For example, 45 out of 60 is 75%."],
+      ["How do I find the price before a discount?", "Use “Find the whole from a part”. If you paid 70 after 30% off, 70 is 70% of the original price: 70 ÷ 70 × 100 = 100."]
+    ]
+  },
+  "ja": {
+    "name": "パーセント計算",
+    "title": "パーセント計算（割合・増減率・割引）",
+    "description": "パーセント（％）計算を無料で。○の△%、割合、増減率、○%オフの割引価格、全体の数の逆算まで6種類の計算を式付きで表示します。",
+    "h1": "パーセント（割合）計算",
+    "lede": "よく使う6種類のパーセント計算を1ページにまとめました。計算式も表示するので、検算や説明にも使えます。",
+    "card": "割合・増減率・○%オフ・元の数の逆算を式付きで。",
+    "steps": [
+      "知りたい内容に合うカードを選びます（「AのB%はいくつ？」「増減率」など）。",
+      "例の数値を自分の数値に書き換えます。入力に合わせて答えが更新されます。",
+      "答えの下の計算式で、計算の過程を確認できます。"
+    ],
+    "sections": [
+      { "h": "パーセント計算の公式", "html": "<ul><li><strong>AのB%</strong>＝A×B÷100</li><li><strong>AはBの何%</strong>＝A÷B×100</li><li><strong>増減率</strong>＝（後の値－前の値）÷前の値×100</li><li><strong>B%オフの価格</strong>＝定価×（1－B÷100）</li><li><strong>B%がAのときの全体</strong>＝A÷B×100</li></ul>" },
+      { "h": "「割」「分」とパーセント", "html": "<p>日本語の歩合では、1割＝10%、1分＝1%、1厘＝0.1%です。「3割引」は30%オフ、「打率3割2分5厘」は32.5%を意味します。</p>" }
+    ],
+    "faq": [
+      ["20%値上げした後に20%値下げすると元に戻らないのはなぜ？", "値下げは値上げ後の大きな数に対する20%だからです。100→120→96となります。120から100に戻すには約16.7%の値下げが必要です。"],
+      ["定価の3割引はいくら？", "「割引」のカードに定価と30を入力してください。定価×0.7が割引後の価格です。"],
+      ["割引後の価格から定価を求めるには？", "「割合から元の数」を使います。30%オフで700円だった場合、700円は定価の70%なので、700÷70×100＝1,000円です。"]
+    ]
+  }
+}

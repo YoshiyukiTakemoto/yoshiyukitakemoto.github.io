@@ -1,0 +1,10 @@
+.jf{display:grid;gap:12px}
+.bar2{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.field.inline{display:flex;align-items:center;gap:6px}
+.status{margin-left:auto;font-size:14px;font-weight:500}
+.status.ok{color:var(--ok)}.status.err{color:var(--warn)}
+.panes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:820px){.panes{grid-template-columns:1fr}}
+.panes textarea{width:100%;min-height:26rem;resize:vertical;font:13px/1.55 var(--f-mono);tab-size:4;white-space:pre;overflow:auto}
+#in.bad{border-color:var(--warn)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}

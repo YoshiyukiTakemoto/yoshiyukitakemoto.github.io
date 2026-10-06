@@ -1,0 +1,8 @@
+.pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:14px}
+.pc h2{font:600 15px var(--f-body);margin:0}
+.q{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:15px}
+.q input{width:7.5rem;font:500 16px var(--f-mono);text-align:right}
+.ans{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:2px}
+.ans strong{font:700 1.9rem/1.15 var(--f-display);font-variant-numeric:tabular-nums;letter-spacing:-.01em;word-break:break-all}
+.ans span{color:var(--muted);font-size:13px}
+.up{color:var(--ok)}.down{color:var(--warn)}

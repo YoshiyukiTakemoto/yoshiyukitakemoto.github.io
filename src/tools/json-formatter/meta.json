@@ -1,0 +1,49 @@
+{
+  "order": 90,
+  "category": "dev",
+  "schemaCategory": "DeveloperApplication",
+  "en": {
+    "name": "JSON Formatter",
+    "title": "JSON Formatter & Validator (Beautify, Minify)",
+    "description": "Free JSON formatter and validator. Beautify or minify JSON, sort keys and find syntax errors by line and column. Runs in your browser, so private data stays private.",
+    "h1": "JSON formatter and validator",
+    "lede": "Paste JSON to pretty-print it, minify it or check it for errors. The error message points to the line and column. Your data never leaves your browser.",
+    "card": "Beautify, minify and validate JSON with error locations.",
+    "steps": [
+      "Paste JSON into the left box. It is checked as you type.",
+      "Press <strong>Format</strong> to indent it, or <strong>Minify</strong> to put it on one line.",
+      "Turn on <em>Sort keys</em> to order object keys alphabetically, which makes two files easier to compare.",
+      "Copy the result or download it as a .json file."
+    ],
+    "sections": [
+      { "h": "Common JSON errors", "html": "<ul><li><strong>Trailing comma</strong>: <code>[1, 2,]</code> is not allowed in JSON.</li><li><strong>Single quotes</strong>: strings and keys must use double quotes.</li><li><strong>Unquoted keys</strong>: <code>{name: 1}</code> must be <code>{\"name\": 1}</code>.</li><li><strong>Comments</strong>: JSON has no comments. Remove <code>//</code> and <code>/* */</code>.</li><li><strong>Special values</strong>: <code>NaN</code>, <code>Infinity</code> and <code>undefined</code> are not valid.</li></ul>" }
+    ],
+    "faq": [
+      ["Is it safe to paste API responses or config files?", "Yes. Formatting uses your browser’s built-in JSON parser. Nothing is uploaded, logged or stored."],
+      ["How large a file can it handle?", "Several megabytes is fine on most computers. Very large files depend on your device’s memory."],
+      ["Does sorting keys change the data?", "No. JSON objects are unordered, so sorting keys keeps the same meaning. Array order is never changed."]
+    ]
+  },
+  "ja": {
+    "name": "JSON整形",
+    "title": "JSON整形・検証ツール（フォーマッター）",
+    "description": "JSONを無料で整形（インデント）・圧縮・検証。エラーの行と位置を表示し、キーの並べ替えにも対応。ブラウザ内で処理するので機密データも安心です。",
+    "h1": "JSON整形・検証",
+    "lede": "JSONを貼り付けるだけで、見やすく整形したり、1行に圧縮したり、構文エラーをチェックしたりできます。エラーは行と位置で表示します。データはブラウザの外に出ません。",
+    "card": "JSONを整形・圧縮・検証。エラー位置を表示。",
+    "steps": [
+      "左側にJSONを貼り付けます。入力に合わせて自動でチェックします。",
+      "<strong>整形</strong>でインデント付きに、<strong>圧縮</strong>で1行にします。",
+      "<em>キーを並べ替え</em>をオンにすると、キーがアルファベット順になり、2つのJSONを比較しやすくなります。",
+      "結果をコピーするか、.jsonファイルとして保存します。"
+    ],
+    "sections": [
+      { "h": "よくあるJSONのエラー", "html": "<ul><li><strong>末尾のカンマ</strong>：<code>[1, 2,]</code> のような最後のカンマは使えません。</li><li><strong>シングルクォート</strong>：文字列とキーはダブルクォート（\"）で囲みます。</li><li><strong>キーのクォート忘れ</strong>：<code>{name: 1}</code> は <code>{\"name\": 1}</code> と書きます。</li><li><strong>コメント</strong>：JSONにコメントは書けません。<code>//</code> や <code>/* */</code> を削除してください。</li><li><strong>全角の記号や空白</strong>：全角のコロン・カンマ・スペースが混ざるとエラーになります。</li></ul>" }
+    ],
+    "faq": [
+      ["APIのレスポンスや設定ファイルを貼り付けても安全ですか？", "はい。ブラウザ標準のJSONパーサーで処理し、データの送信・記録・保存は一切しません。"],
+      ["どれくらいの大きさまで扱えますか？", "数MB程度なら多くのパソコンで問題なく動作します。非常に大きなファイルは端末のメモリ量に左右されます。"],
+      ["キーを並べ替えるとデータが変わりますか？", "変わりません。JSONのオブジェクトは順序を持たないため、意味は同じです。配列の順序は変更しません。"]
+    ]
+  }
+}

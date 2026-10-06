@@ -1,0 +1,10 @@
+.ag{max-width:52rem}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.result{display:grid;gap:16px;border-top:1px solid var(--line);padding-top:16px}
+.big{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.big strong{font:700 clamp(2.6rem,8vw,3.6rem)/1 var(--f-display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.big span{color:var(--muted);font-size:16px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:10px;margin:0}
+.facts div{background:var(--bg);border-radius:10px;padding:10px 12px;display:grid;gap:2px}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font:500 16px var(--f-body);font-variant-numeric:tabular-nums}
