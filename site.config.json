@@ -16,9 +16,9 @@
     "en": {
       "langName": "English",
       "homeTitle": "Plainkit: Free Online Tools That Run in Your Browser",
-      "homeDesc": "Free, private online tools: unit converter, percentage and tax calculators, age and BMI calculators, QR code generator, image compressor, character counter, JSON formatter and more. No sign-up, no tracking.",
+      "homeDesc": "Free, private online tools: unit converter, percentage and tax calculators, age and BMI calculators, QR code generator, image compressor, character counter, JSON formatter and more. No sign-up, no cookies.",
       "homeH1": "Free tools that run in your browser",
-      "homeLede": "Small, fast tools for everyday work. No sign-up, no ads, no tracking. Your files and text never leave your device.",
+      "homeLede": "Small, fast tools for everyday work. No sign-up, no ads, no cookies. Your files and text never leave your device.",
       "home": "Home",
       "allTools": "All tools",
       "howTo": "How to use",
@@ -47,7 +47,7 @@
           "Phone, tablet or desktop, in any modern browser. Japanese and English."
         ]
       ],
-      "foot": "No sign-up, no cookies, no tracking. Every tool runs in your browser.",
+      "foot": "No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser.",
       "source": "Source code",
       "notFound": "Page not found",
       "notFoundBody": "This page doesn’t exist. Try one of the tools below.",
@@ -66,7 +66,7 @@
       "homeTitle": "Plainkit｜登録不要・無料で使えるブラウザツール集",
       "homeDesc": "単位換算、パーセント計算、消費税計算、年齢計算、BMI計算、QRコード作成、画像圧縮、文字数カウント、JSON整形など。すべて無料・登録不要・ブラウザ内で動作する便利ツール集です。",
       "homeH1": "ブラウザだけで使える無料ツール集",
-      "homeLede": "毎日の作業に使える、小さく速いツールを集めました。登録・広告・トラッキングはありません。ファイルや文章が端末の外に出ることもありません。",
+      "homeLede": "毎日の作業に使える、小さく速いツールを集めました。登録・広告・Cookieはありません。ファイルや文章が端末の外に出ることもありません。",
       "home": "ホーム",
       "allTools": "ツール一覧",
       "howTo": "使い方",
@@ -95,7 +95,7 @@
           "スマホ・タブレット・パソコンの最新ブラウザで動作します。日本語と英語に対応。"
         ]
       ],
-      "foot": "登録不要・Cookieなし・トラッキングなし。すべてのツールはブラウザ内で動作します。",
+      "foot": "登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。",
       "source": "ソースコード",
       "notFound": "ページが見つかりません",
       "notFoundBody": "お探しのページはありません。以下のツールをお試しください。",
@@ -109,5 +109,6 @@
       "appName": "Plainkit",
       "appDesc": "ブラウザだけで使える無料ツール集"
     }
-  }
+  },
+  "cfBeaconToken": "97bf9990a8e1407281935cbd76170ebb"
 }

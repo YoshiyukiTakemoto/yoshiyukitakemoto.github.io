@@ -1,6 +1,6 @@
 # Plainkit
 
-Free tools that run in the browser: no sign-up, no cookies, no tracking. English and Japanese.
+Free tools that run in the browser: no sign-up, no cookies. Visits are counted with Cloudflare Web Analytics (cookieless; set `cfBeaconToken` in `site.config.json`). English and Japanese.
 
 Live: https://tools.motty.jp/
 

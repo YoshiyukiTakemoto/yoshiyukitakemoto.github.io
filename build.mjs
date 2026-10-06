@@ -84,6 +84,7 @@ ${main}
   <p style="margin:0">© ${new Date().getFullYear()} ${esc(cfg.name)}</p>
 </div></footer>
 ${["/assets/site.js", ...scripts].map((s) => `<script src="${s}" defer></script>`).join("\n")}
+${cfg.cfBeaconToken && !noindex ? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${cfg.cfBeaconToken}"}'></script>` : ""}
 </body>
 </html>
 `;
