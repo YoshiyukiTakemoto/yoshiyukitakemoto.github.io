@@ -2,7 +2,7 @@
 
 Free tools that run in the browser: no sign-up, no cookies, no tracking. English and Japanese.
 
-Live: https://yoshiyukitakemoto.github.io/
+Live: https://tools.motty.jp/
 
 ## Adding a tool
 
