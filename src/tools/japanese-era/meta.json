@@ -1,0 +1,54 @@
+{
+  "order": 45,
+  "category": "time",
+  "assets": ["eras.js"],
+  "scripts": ["eras.js"],
+  "en": {
+    "name": "Japanese Era Converter",
+    "title": "Japanese Era Converter (Reiwa, Heisei, Showa)",
+    "description": "Convert Western years and dates to Japanese era years (Reiwa, Heisei, Showa, Taisho, Meiji) and back. Includes a full year chart with zodiac signs and ages.",
+    "h1": "Japanese era converter",
+    "lede": "Convert between Gregorian years and Japanese era names such as Reiwa 7 or Heisei 31. Useful for Japanese forms, documents and residence cards.",
+    "card": "Convert years and dates to Reiwa, Heisei, Showa and back.",
+    "steps": [
+      "Enter a Gregorian year to see its Japanese era year and zodiac sign.",
+      "Or pick an era and year number, such as Showa 50, to find the Gregorian year.",
+      "For years in which the era changed, use the exact date converter to see which era applies.",
+      "Scroll the chart below to look up any year from 1868 to next year."
+    ],
+    "sections": [
+      { "h": "Japanese eras since 1868", "html": "<table><thead><tr><th>Era</th><th>Kanji</th><th>Began</th><th>Years</th></tr></thead><tbody><tr><td>Reiwa</td><td>令和</td><td>1 May 2019</td><td>2019–</td></tr><tr><td>Heisei</td><td>平成</td><td>8 January 1989</td><td>1989–2019</td></tr><tr><td>Showa</td><td>昭和</td><td>25 December 1926</td><td>1926–1989</td></tr><tr><td>Taisho</td><td>大正</td><td>30 July 1912</td><td>1912–1926</td></tr><tr><td>Meiji</td><td>明治</td><td>1868</td><td>1868–1912</td></tr></tbody></table>" },
+      { "h": "How to write a Japanese era date", "html": "<p>Japanese dates put the era first, then year, month and day: 令和7年10月6日 is Reiwa 7, 6 October, which is 6 October 2025. The first year of an era is written 元年 (gannen) instead of 1年. On forms, eras are often abbreviated to one letter: R (Reiwa), H (Heisei), S (Showa), T (Taisho) and M (Meiji).</p>" }
+    ],
+    "faq": [
+      ["What year is Reiwa 1?", "Reiwa 1 is 2019, starting from 1 May 2019. To convert a Reiwa year to a Gregorian year, add 2018."],
+      ["How do I convert Heisei and Showa years?", "Add 1988 to a Heisei year and 1925 to a Showa year. For example, Heisei 10 is 1998 and Showa 60 is 1985."],
+      ["Why does 1989 have two eras?", "Emperor Showa died on 7 January 1989. 1–7 January is Showa 64 and from 8 January it is Heisei 1. Likewise, 2019 is Heisei 31 until 30 April and Reiwa 1 from 1 May."],
+      ["How are ages in the chart calculated?", "The age is the age a person born in that year reaches on their birthday this year. Before their birthday they are one year younger."]
+    ]
+  },
+  "ja": {
+    "name": "和暦・西暦変換",
+    "title": "和暦西暦変換・早見表（令和・平成・昭和）",
+    "description": "西暦と和暦（令和・平成・昭和・大正・明治）を相互に変換。年齢と干支つきの早見表で、生まれ年や書類に書く年をすぐに確認できます。",
+    "h1": "和暦・西暦の変換と早見表",
+    "lede": "西暦を令和・平成・昭和などの和暦に、和暦を西暦に変換します。元号が変わった年は日付で正確に判定できます。年齢・干支つきの早見表もあります。",
+    "card": "西暦⇔和暦を変換。年齢・干支つき早見表。",
+    "steps": [
+      "西暦を入力すると、和暦と干支、今年の年齢が表示されます。",
+      "元号と年を選ぶと、西暦に変換します（例：昭和50年 → 1975年）。",
+      "元号が変わった年（1989年・2019年など）は「日付で変換」で正確な元号を確認できます。",
+      "下の早見表で、1868年から来年までのすべての年を確認できます。"
+    ],
+    "sections": [
+      { "h": "元号の一覧（明治以降）", "html": "<table><thead><tr><th>元号</th><th>開始日</th><th>西暦</th><th>西暦への換算</th></tr></thead><tbody><tr><td>令和（R）</td><td>2019年5月1日</td><td>2019年〜</td><td>令和の年＋2018</td></tr><tr><td>平成（H）</td><td>1989年1月8日</td><td>1989〜2019年</td><td>平成の年＋1988</td></tr><tr><td>昭和（S）</td><td>1926年12月25日</td><td>1926〜1989年</td><td>昭和の年＋1925</td></tr><tr><td>大正（T）</td><td>1912年7月30日</td><td>1912〜1926年</td><td>大正の年＋1911</td></tr><tr><td>明治（M）</td><td>1868年</td><td>1868〜1912年</td><td>明治の年＋1867</td></tr></tbody></table>" },
+      { "h": "「元年」と書き方のルール", "html": "<p>元号の最初の年は「1年」ではなく「元年」と書くのが一般的です（例：令和元年）。履歴書や役所の書類では、和暦と西暦のどちらかに統一して書くのが基本です。略記ではR・H・S・T・Mのアルファベットが使われます。</p>" }
+    ],
+    "faq": [
+      ["令和元年は西暦何年ですか？", "2019年です（2019年5月1日から）。令和の年に2018を足すと西暦になります。"],
+      ["平成と昭和を西暦に変換する計算方法は？", "平成は＋1988、昭和は＋1925です。例：平成10年＝1998年、昭和60年＝1985年。"],
+      ["1989年と2019年はどちらの元号ですか？", "1989年は1月7日まで昭和64年、1月8日から平成元年です。2019年は4月30日まで平成31年、5月1日から令和元年です。"],
+      ["早見表の年齢はどう計算していますか？", "その年に生まれた人が、今年の誕生日を迎えたときの満年齢です。誕生日前の場合は1歳少なくなります。"]
+    ]
+  }
+}

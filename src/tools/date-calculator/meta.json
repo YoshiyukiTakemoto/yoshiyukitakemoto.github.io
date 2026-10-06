@@ -1,0 +1,52 @@
+{
+  "order": 40,
+  "category": "time",
+  "en": {
+    "name": "Date Calculator",
+    "title": "Date Calculator: Days Between Dates & Add Days",
+    "description": "Count the days between two dates, including weekdays only, or add and subtract days, weeks, months and years from a date. Free and instant.",
+    "h1": "Date calculator",
+    "lede": "Count the days between two dates, or find the date a number of days, weeks, months or years from now. Weekday counts are included.",
+    "card": "Days between dates, weekdays, and adding days or months.",
+    "steps": [
+      "Choose <strong>Days between dates</strong> to count, or <strong>Add or subtract</strong> to find a new date.",
+      "Pick the dates. Turn on <em>Include the end date</em> if both the first and last day should count, as for a hotel stay or a leave request.",
+      "Read the total in days, weeks, months and weekdays.",
+      "To go back in time, enter a negative number, such as −30."
+    ],
+    "sections": [
+      { "h": "Should I include the end date?", "html": "<p>From 1 to 3 March is <strong>2 days</strong> when you measure elapsed time, and <strong>3 days</strong> when you count every calendar day you are away. Deadlines and ages usually exclude the end date. Event lengths, leave days and rental periods usually include it.</p>" },
+      { "h": "Adding months to the end of a month", "html": "<p>Months have different lengths, so 31 January plus 1 month gives 28 February (or 29 in a leap year). The calculator moves to the last day of the shorter month instead of spilling into March.</p>" }
+    ],
+    "faq": [
+      ["Are public holidays excluded from weekdays?", "No. The weekday count removes Saturdays and Sundays only, because public holidays differ by country and region."],
+      ["Does it handle leap years?", "Yes. Dates are calculated on the Gregorian calendar, including 29 February in leap years."],
+      ["Do time zones or daylight saving change the result?", "No. The calculator works with whole calendar dates, so clock changes don’t add or remove days."],
+      ["Can I link straight to the add/subtract mode?", "Yes. Add #add to the end of the page address."]
+    ]
+  },
+  "ja": {
+    "name": "日数計算",
+    "title": "日数計算（日付から日数・○日後を計算）",
+    "description": "2つの日付の間の日数や平日の日数を計算。日付に日数・週・月・年を足し引きして、○日後・○日前の日付もすぐにわかります。無料・登録不要。",
+    "h1": "日数計算・日付計算",
+    "lede": "2つの日付の間の日数を数えたり、今日から○日後・○か月後の日付を調べたりできます。平日（土日を除く）の日数も表示します。",
+    "card": "日付の間の日数、平日の日数、○日後の日付を計算。",
+    "steps": [
+      "日数を数えるなら<strong>2つの日付の間の日数</strong>、新しい日付を求めるなら<strong>日付の加算・減算</strong>を選びます。",
+      "日付を選びます。初日と最終日の両方を数える場合（休暇日数、イベント期間など）は<em>終了日を含める（両端入れ）</em>をオンにします。",
+      "日数、週、年月日、平日の日数が表示されます。",
+      "○日前を調べるには、−30のようにマイナスの数を入力します。"
+    ],
+    "sections": [
+      { "h": "「片端入れ」と「両端入れ」", "html": "<p>3月1日から3月3日までは、経過日数で数えると<strong>2日</strong>（片端入れ）、両日を含めて数えると<strong>3日</strong>（両端入れ）です。期限や年齢の計算は片端入れ、休暇日数・宿泊期間・イベント日数は両端入れが一般的です。法律上の期間計算では初日を算入しない「初日不算入」が原則です。</p>" },
+      { "h": "月末に「○か月後」を足すとき", "html": "<p>月によって日数が異なるため、1月31日の1か月後は2月28日（うるう年は29日）になります。3月にはみ出さず、短い月の末日に合わせて計算します。</p>" }
+    ],
+    "faq": [
+      ["平日の日数から祝日は除かれますか？", "いいえ。土曜と日曜のみ除いています。祝日は国や地域によって異なるためです。"],
+      ["うるう年に対応していますか？", "はい。グレゴリオ暦で計算するため、うるう年の2月29日も正しく扱います。"],
+      ["今日から100日後は何日ですか？", "「日付の加算・減算」を選び、「100日後」ボタンを押すとすぐに表示されます。記念日や期限の確認に便利です。"],
+      ["加算・減算モードを直接開くリンクはありますか？", "はい。ページのURLの末尾に #add を付けると、加算・減算モードで開きます。"]
+    ]
+  }
+}

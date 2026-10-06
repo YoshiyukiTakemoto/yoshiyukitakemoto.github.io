@@ -1,0 +1,55 @@
+{
+  "order": 30,
+  "category": "media",
+  "schemaCategory": "MultimediaApplication",
+  "assets": ["jszip.min.js"],
+  "scripts": ["jszip.min.js"],
+  "en": {
+    "name": "Image Compressor",
+    "title": "Compress & Resize Images Online, No Upload",
+    "description": "Free image compressor. Shrink JPEG, PNG and WebP photos, resize them and convert to WebP or AVIF in your browser. Nothing is uploaded and EXIF data is removed.",
+    "h1": "Compress and resize images without uploading",
+    "lede": "Drop in photos to make them smaller, resize them and convert to WebP, JPEG, PNG or AVIF. Everything happens on your device, so it’s fast and private.",
+    "card": "Shrink, resize and convert photos. Nothing is uploaded.",
+    "steps": [
+      "Pick an output format. WebP gives the best size for most photos; JPEG works everywhere.",
+      "Set the quality (80 is a good start) and, if you like, a maximum size for the longest side.",
+      "Drop images on the box, choose them, or paste with Ctrl+V / ⌘V.",
+      "Download each image, or all of them at once as a ZIP file."
+    ],
+    "sections": [
+      { "h": "Which format should I use?", "html": "<ul><li><strong>WebP</strong>: 25–35% smaller than JPEG at the same quality. Supported by all current browsers.</li><li><strong>AVIF</strong>: often smaller still, but slower to create. Appears in the list only if your browser can make it.</li><li><strong>JPEG</strong>: the safest choice for email, older software and printing services.</li><li><strong>PNG</strong>: lossless. Use it for screenshots, diagrams and images that need transparency.</li></ul>" },
+      { "h": "Common sizes", "html": "<p>For a website, 1920 px on the longest side covers full-screen images on most displays. For email attachments and chat apps, 1280 px is usually plenty. Social networks resize uploads themselves, so 2048 px is a safe upper limit.</p>" }
+    ],
+    "faq": [
+      ["Are my images uploaded?", "No. Your browser decodes and re-encodes each image locally. You can disconnect from the internet after the page loads and it still works."],
+      ["Is there a file size or count limit?", "No fixed limit. Very large batches depend on your device’s memory."],
+      ["Does it remove location data?", "Yes. Re-encoding removes EXIF metadata such as GPS location, camera model and serial numbers. The image is rotated to the correct orientation first."],
+      ["Why is a file sometimes kept as the original?", "When the image is already well compressed and you keep the same format and size, re-encoding can make it larger. In that case the original file is kept."]
+    ]
+  },
+  "ja": {
+    "name": "画像圧縮・リサイズ",
+    "title": "画像圧縮・リサイズ（アップロード不要・無料）",
+    "description": "JPEG・PNG・WebPの画像をブラウザ内で無料で圧縮・リサイズ。WebPやAVIFへの変換にも対応。アップロード不要で、位置情報などのEXIFも削除します。",
+    "h1": "アップロードせずに画像を圧縮・リサイズ",
+    "lede": "写真をドロップするだけで、容量を小さくしたり、サイズを変えたり、WebP・JPEG・PNG・AVIFに変換したりできます。処理は端末内で行うので、速く安全です。",
+    "card": "写真を圧縮・リサイズ・形式変換。アップロード不要。",
+    "steps": [
+      "出力形式を選びます。多くの写真はWebPが最も小さくなり、JPEGはどこでも使えます。",
+      "画質（まずは80がおすすめ）と、必要なら長辺の最大サイズを設定します。",
+      "画像を枠にドロップするか、選択するか、Ctrl+V / ⌘V で貼り付けます。",
+      "1枚ずつ保存するか、ZIPでまとめて保存します。"
+    ],
+    "sections": [
+      { "h": "どの形式を選べばいい？", "html": "<ul><li><strong>WebP</strong>：同じ画質ならJPEGより25〜35%小さくなります。現在の主要ブラウザはすべて対応しています。</li><li><strong>AVIF</strong>：さらに小さくなることが多いですが、作成に時間がかかります。お使いのブラウザが対応している場合のみ表示されます。</li><li><strong>JPEG</strong>：メール添付、古いソフト、印刷サービス向けの最も無難な形式です。</li><li><strong>PNG</strong>：劣化なし（可逆圧縮）。スクリーンショット、図、透過が必要な画像向けです。</li></ul>" },
+      { "h": "用途別のサイズの目安", "html": "<p>ウェブサイトなら長辺1920pxで、ほとんどの画面の全画面表示に足ります。メール添付やチャットなら1280pxで十分なことが多いです。SNSは投稿時に自動で縮小されるため、2048px程度を上限にすると安心です。</p>" }
+    ],
+    "faq": [
+      ["画像はアップロードされますか？", "いいえ。ブラウザ内で画像を読み込み、再エンコードします。ページを開いた後ならインターネットを切断しても動作します。"],
+      ["ファイルサイズや枚数の制限はありますか？", "決まった上限はありません。大量の画像を一度に処理する場合は、端末のメモリ量に左右されます。"],
+      ["位置情報は削除されますか？", "はい。再エンコードにより、GPS位置情報、カメラ機種、シリアル番号などのEXIF情報が削除されます。画像の向きは先に正しく補正します。"],
+      ["元のファイルのまま残ることがあるのはなぜ？", "すでに十分圧縮された画像を同じ形式・同じサイズで再エンコードすると、かえって大きくなることがあります。その場合は元のファイルを残します。"]
+    ]
+  }
+}

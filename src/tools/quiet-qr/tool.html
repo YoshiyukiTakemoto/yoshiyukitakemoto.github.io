@@ -1,0 +1,24 @@
+<div class="qr-main">
+  <section class="panel">
+    <div class="types" id="types" role="group"></div>
+    <div class="fields" id="fields"></div>
+    <div class="opts">
+      <div class="field"><label for="ecl" id="l-ecl"></label><select id="ecl"></select></div>
+      <div class="field"><label for="size" id="l-size"></label><select id="size"></select></div>
+      <div class="field"><label for="margin" id="l-margin"></label><select id="margin"></select></div>
+      <div class="field"><span class="eyebrow" id="l-colors"></span>
+        <div class="colors"><input type="color" id="fg" value="#141a2b" aria-label="Foreground"><input type="color" id="bg" value="#ffffff" aria-label="Background"><label class="check"><input type="checkbox" id="transparent"><span id="l-transparent"></span></label></div></div>
+    </div>
+  </section>
+  <aside class="panel out">
+    <div class="stage" id="stage"></div>
+    <div class="meta" id="meta"></div>
+    <div class="warn" id="warn" hidden></div>
+    <div class="btns">
+      <button class="btn primary" type="button" id="dl-png"></button>
+      <button class="btn" type="button" id="dl-svg"></button>
+      <button class="btn full" type="button" id="copy-img"></button>
+    </div>
+    <div class="field"><span class="eyebrow" id="l-payload"></span><pre class="payload" id="payload"></pre></div>
+  </aside>
+</div>

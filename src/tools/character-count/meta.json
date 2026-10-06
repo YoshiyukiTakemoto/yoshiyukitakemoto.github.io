@@ -1,0 +1,53 @@
+{
+  "order": 50,
+  "category": "text",
+  "schemaCategory": "UtilitiesApplication",
+  "en": {
+    "name": "Character Counter",
+    "title": "Character Counter & Word Count Tool",
+    "description": "Free character and word counter. Counts characters with and without spaces, words, lines, bytes and X (Twitter) length as you type. Works with emoji and Japanese.",
+    "h1": "Character and word counter",
+    "lede": "Paste or type text to count characters, words, sentences, lines and bytes instantly. Emoji and accented letters count as one character, just as people read them.",
+    "card": "Count characters, words, lines, bytes and X (Twitter) length.",
+    "steps": [
+      "Type or paste your text into the box.",
+      "Read the totals on the right. They update with every keystroke.",
+      "Set a limit, such as 160 for a meta description, to see how much room is left.",
+      "Your text is kept in this browser, so you can close the tab and come back to it."
+    ],
+    "sections": [
+      { "h": "Common character limits", "html": "<table><thead><tr><th>Where</th><th>Limit</th></tr></thead><tbody><tr><td>X (Twitter) post</td><td>280 (CJK characters count as 2)</td></tr><tr><td>Google title tag</td><td>about 50–60 characters</td></tr><tr><td>Meta description</td><td>about 150–160 characters</td></tr><tr><td>Instagram caption</td><td>2,200 characters</td></tr><tr><td>LinkedIn post</td><td>3,000 characters</td></tr><tr><td>SMS (GSM-7)</td><td>160 characters per message</td></tr></tbody></table>" },
+      { "h": "How characters are counted", "html": "<p>The counter uses grapheme clusters, the units a reader sees as one character. A family emoji 👨‍👩‍👧 or a letter with an accent counts as 1, even though it is stored as several code points. Byte counts show how much space the text takes in UTF‑8, which matters for databases and some form fields.</p>" }
+    ],
+    "faq": [
+      ["Is my text sent anywhere?", "No. Counting happens in your browser and the text is never uploaded."],
+      ["Why does the X count differ from the character count?", "X counts Chinese, Japanese and Korean characters and emoji as 2, and every link as 23, no matter how long it is."],
+      ["How is reading time estimated?", "About 238 words per minute for English and 500 characters per minute for Japanese, which are typical silent reading speeds for adults."],
+      ["Does it count spaces?", "The main total includes spaces. The panel also shows totals without spaces and without spaces or line breaks."]
+    ]
+  },
+  "ja": {
+    "name": "文字数カウント",
+    "title": "文字数カウント（リアルタイム・無料）",
+    "description": "文字数をリアルタイムで数える無料ツール。空白・改行を除いた文字数、行数、原稿用紙枚数、バイト数、X（Twitter）の文字数まで同時に表示します。",
+    "h1": "文字数カウント",
+    "lede": "文章を入力または貼り付けるだけで、文字数・行数・段落数・バイト数をすぐに数えます。原稿用紙の枚数やX（Twitter）の文字数換算も表示します。",
+    "card": "文字数・行数・原稿用紙枚数・Xの文字数をリアルタイム計測。",
+    "steps": [
+      "文章を入力欄に入力するか、貼り付けます。",
+      "右側に結果が表示されます。入力のたびに更新されます。",
+      "目標文字数を入れると、あと何文字か、何文字オーバーかがわかります。レポートやES（エントリーシート）の字数制限に便利です。",
+      "入力した文章はこのブラウザ内に保存されるため、タブを閉じても続きから再開できます。"
+    ],
+    "sections": [
+      { "h": "主な文字数の目安", "html": "<table><thead><tr><th>用途</th><th>文字数</th></tr></thead><tbody><tr><td>X（Twitter）の投稿</td><td>全角140文字（半角280文字）</td></tr><tr><td>Googleの検索タイトル</td><td>全角30文字前後</td></tr><tr><td>メタディスクリプション</td><td>全角80〜120文字前後</td></tr><tr><td>原稿用紙1枚</td><td>400文字（20字×20行）</td></tr><tr><td>Instagramのキャプション</td><td>2,200文字</td></tr></tbody></table>" },
+      { "h": "文字の数え方", "html": "<p>見た目で1文字に見える単位（書記素クラスタ）で数えるため、絵文字👨‍👩‍👧や濁点付きの合成文字も1文字として数えます。原稿用紙の枚数は空白・改行を除いた文字数を400で割った目安で、句読点のぶら下げや改行による空きマスは考慮していません。</p>" }
+    ],
+    "faq": [
+      ["入力した文章は送信されますか？", "いいえ。文字数の計算はブラウザ内で行い、文章はどこにもアップロードされません。"],
+      ["空白や改行は文字数に含まれますか？", "一番大きく表示される文字数には空白と改行を含みます。右側に「空白を除く」「空白・改行を除く」文字数も表示します。"],
+      ["Xの文字数が通常の文字数と違うのはなぜ？", "Xでは日本語などの全角文字と絵文字を2、URLは長さに関係なく23として数えるためです。上限は280（全角140文字）です。"],
+      ["Shift_JISのバイト数は正確ですか？", "半角英数字と半角カナを1バイト、それ以外を2バイトとして計算した目安です。Shift_JISにない文字も2バイトとして数えます。"]
+    ]
+  }
+}

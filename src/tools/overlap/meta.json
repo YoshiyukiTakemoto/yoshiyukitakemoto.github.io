@@ -1,0 +1,53 @@
+{
+  "order": 10,
+  "category": "time",
+  "schemaCategory": "BusinessApplication",
+  "en": {
+    "name": "Meeting Time Zone Planner",
+    "title": "Meeting Planner Across Time Zones (Free)",
+    "description": "Free world meeting planner. Compare cities on a 24-hour grid, see who is in working hours, and pick a time that fits everyone. Handles daylight saving time.",
+    "h1": "Meeting planner across time zones",
+    "lede": "Line up any cities on one 24-hour grid and find the hour when everyone is at work. Daylight saving time and half-hour offsets are handled for you.",
+    "card": "Find a meeting time that falls inside everyone’s working hours.",
+    "steps": [
+      "Type a city or time zone in the search box and press Enter. Add as many as you need.",
+      "The first city is the base. Use the ⇡ button to make another city the base.",
+      "Set the date, working hours and meeting length. Columns where every city is at work turn green in the top row.",
+      "Click any hour to choose it, then copy the text or add the slot to Google Calendar."
+    ],
+    "sections": [
+      { "h": "Reading the grid", "html": "<p>Yellow cells are inside the working hours you set. Light blue cells are early morning or evening (06:00–22:00 outside working hours). Dark cells are night. A blue line marks where a city crosses midnight into the next or previous day.</p>" },
+      { "h": "Why daylight saving time matters", "html": "<p>Europe and North America change their clocks on different weekends, so the gap between London and New York is 4 hours for a few weeks each year instead of 5. The planner uses your browser’s built-in IANA time zone database for the date you pick, so the times are correct for that exact day.</p>" }
+    ],
+    "faq": [
+      ["Is it free?", "Yes. There is no account, no trial and no limit on cities or use."],
+      ["Does it support cities with 30 or 45-minute offsets?", "Yes. India (UTC+5:30), Nepal (UTC+5:45), Newfoundland, Adelaide and other non-hour offsets show their exact local times."],
+      ["Where is my city list stored?", "Only in your browser’s local storage on this device. Nothing is sent to a server."],
+      ["Can I add a time zone that isn’t in the city list?", "Yes. Search for any IANA time zone name, such as America/Denver or Asia/Almaty."]
+    ]
+  },
+  "ja": {
+    "name": "時差・会議時間プランナー",
+    "title": "時差計算・海外との会議時間調整ツール（無料）",
+    "description": "海外との会議時間を無料で調整。複数都市の時刻を24時間のグリッドで比較し、全員の勤務時間が重なる時間帯を見つけます。サマータイムにも対応。",
+    "h1": "時差を見ながら会議時間を決める",
+    "lede": "複数の都市を1つの24時間グリッドに並べ、全員が勤務時間になる時間帯を探せます。サマータイムや30分単位の時差も自動で計算します。",
+    "card": "海外と全員の勤務時間が重なる会議時間を探す。",
+    "steps": [
+      "検索欄に都市名かタイムゾーン名を入力し、Enterで追加します。何都市でも追加できます。",
+      "一番上の都市が基準です。⇡ボタンで別の都市を基準にできます。",
+      "日付・勤務時間・会議の長さを設定します。全都市が勤務時間に入る列は、上の行が緑になります。",
+      "時間をクリックして選び、テキストをコピーするかGoogleカレンダーに追加します。"
+    ],
+    "sections": [
+      { "h": "グリッドの見方", "html": "<p>黄色のセルは設定した勤務時間内、薄い青は早朝・夜（6時〜22時のうち勤務時間外）、濃い色は深夜です。青い縦線は、その都市で日付が変わる位置を示します。</p>" },
+      { "h": "サマータイムに注意", "html": "<p>ヨーロッパと北米ではサマータイムの切り替え日が異なるため、ロンドンとニューヨークの時差は年に数週間だけ5時間ではなく4時間になります。日本との時差も季節で変わります。このツールは選んだ日付に合わせてブラウザ内蔵のIANAタイムゾーンデータで計算するため、その日の正確な時刻がわかります。</p>" }
+    ],
+    "faq": [
+      ["無料で使えますか？", "はい。登録不要で、都市の数や利用回数にも制限はありません。"],
+      ["インドなど30分単位の時差にも対応していますか？", "はい。インド（UTC+5:30）、ネパール（UTC+5:45）、アデレードなど、1時間単位でない時差も正確な現地時刻で表示します。"],
+      ["追加した都市はどこに保存されますか？", "この端末のブラウザ内（ローカルストレージ）にのみ保存されます。サーバーには送信されません。"],
+      ["一覧にない地域は追加できますか？", "はい。America/Denver や Asia/Almaty など、IANAタイムゾーン名で検索すれば追加できます。"]
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+<div class="pg">
+  <section class="panel">
+    <div class="len">
+      <label for="len" class="eyebrow" id="l-len"></label>
+      <div class="lenrow"><input type="range" id="len" min="4" max="64" value="16"><input type="number" id="len-n" min="4" max="64" value="16" inputmode="numeric" aria-labelledby="l-len"></div>
+    </div>
+    <fieldset class="sets"><legend class="eyebrow" id="l-sets"></legend>
+      <label class="check"><input type="checkbox" id="c-upper" checked><span id="l-upper"></span></label>
+      <label class="check"><input type="checkbox" id="c-lower" checked><span id="l-lower"></span></label>
+      <label class="check"><input type="checkbox" id="c-digits" checked><span id="l-digits"></span></label>
+      <label class="check"><input type="checkbox" id="c-symbols" checked><span id="l-symbols"></span></label>
+      <label class="check"><input type="checkbox" id="c-ambig"><span id="l-ambig"></span></label>
+    </fieldset>
+    <div class="strength" id="strength"><div class="meter"><i></i></div><span id="s-label"></span></div>
+  </section>
+  <section class="panel">
+    <div class="head"><span class="eyebrow" id="l-out"></span><button class="btn primary" type="button" id="gen"></button></div>
+    <ol class="pw" id="pw"></ol>
+    <p class="msg" id="msg" aria-live="polite"></p>
+  </section>
+</div>

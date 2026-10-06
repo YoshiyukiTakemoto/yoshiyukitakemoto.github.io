@@ -1,0 +1,15 @@
+<div class="cc">
+  <section class="panel editor">
+    <div class="ed-top">
+      <label for="text" class="eyebrow" id="l-text"></label>
+      <div class="target"><label for="limit" id="l-limit"></label><input id="limit" type="number" min="0" step="1" inputmode="numeric"></div>
+    </div>
+    <textarea id="text" spellcheck="false"></textarea>
+    <div class="limitbar" id="limitbar" hidden><i></i><span class="num" id="limitmsg"></span></div>
+    <div class="ed-btns"><button class="btn" type="button" id="copy"></button><button class="btn" type="button" id="clear"></button></div>
+  </section>
+  <aside class="panel stats" aria-live="polite">
+    <div class="big"><span class="eyebrow" id="l-chars"></span><strong class="num" id="s-chars">0</strong></div>
+    <dl id="stats"></dl>
+  </aside>
+</div>

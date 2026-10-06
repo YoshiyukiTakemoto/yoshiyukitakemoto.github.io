@@ -1,0 +1,53 @@
+{
+  "order": 60,
+  "category": "text",
+  "schemaCategory": "SecurityApplication",
+  "en": {
+    "name": "Password Generator",
+    "title": "Strong Password Generator (Random & Secure)",
+    "description": "Generate strong random passwords in your browser with a cryptographically secure generator. Choose length and character types, and see the entropy. Nothing is sent online.",
+    "h1": "Strong password generator",
+    "lede": "Create random passwords with your browser’s cryptographically secure random number generator. Passwords are made on your device and never sent or stored anywhere.",
+    "card": "Secure random passwords with length and character options.",
+    "steps": [
+      "Set the length. 16 characters or more is a good default for accounts.",
+      "Choose which character types to include. Turn on <em>Avoid look-alikes</em> if the password will be typed by hand or read aloud.",
+      "Copy one of the five passwords, or press <strong>Generate new</strong> for another set.",
+      "Save it in a password manager rather than reusing it on several sites."
+    ],
+    "sections": [
+      { "h": "What makes a password strong?", "html": "<p>Length matters most. Each extra character multiplies the number of possible passwords. Entropy, shown in bits, measures this: a 16-character password using all four character types has about 104 bits, far beyond what can be guessed by brute force. Use a different password for every site, so one leak doesn’t expose the rest.</p>" },
+      { "h": "How this generator works", "html": "<p>Characters are picked with <code>crypto.getRandomValues</code>, the same source browsers use for encryption keys. Rejection sampling makes every character equally likely, and each password is checked to include every character type you selected.</p>" }
+    ],
+    "faq": [
+      ["Is it safe to generate passwords online?", "This page makes passwords entirely in your browser. They are never sent over the network or saved. Only your length and character settings are remembered on this device."],
+      ["How long should my password be?", "At least 12 characters, and 16 or more for important accounts such as email and banking. For a Wi‑Fi password, 20 or more is easy since you rarely type it."],
+      ["Some sites reject symbols. What should I do?", "Turn off Symbols and add a few characters of length instead. A longer password without symbols can be just as strong."],
+      ["What does “Avoid look-alikes” do?", "It removes characters that are easy to confuse, such as capital I, lowercase l, the number 1, capital O and zero."]
+    ]
+  },
+  "ja": {
+    "name": "パスワード生成",
+    "title": "パスワード生成（安全・ランダム・無料）",
+    "description": "暗号論的に安全な乱数で強力なランダムパスワードを生成。文字数や使う文字を選べて、強度（エントロピー）も表示します。生成はブラウザ内のみで送信されません。",
+    "h1": "強力なパスワードを生成",
+    "lede": "ブラウザの暗号用乱数を使って、推測されにくいランダムなパスワードを作ります。生成は端末内で行い、どこにも送信・保存されません。",
+    "card": "安全なランダムパスワードを文字数・文字種を指定して生成。",
+    "steps": [
+      "文字数を設定します。アカウント用なら16文字以上がおすすめです。",
+      "使う文字の種類を選びます。手入力や読み上げをする場合は「紛らわしい文字を除く」をオンにします。",
+      "5つの候補から1つをコピーします。「再生成」で別の候補を作れます。",
+      "パスワードは使い回さず、パスワード管理アプリに保存してください。"
+    ],
+    "sections": [
+      { "h": "強いパスワードの条件", "html": "<p>最も重要なのは長さです。1文字増えるごとに、考えられる組み合わせの数が何十倍にもなります。この強さを表すのがエントロピー（ビット）で、4種類の文字を使った16文字のパスワードは約104ビットあり、総当たりで破られる心配はまずありません。サイトごとに別のパスワードを使えば、1つが漏れても他は守られます。</p>" },
+      { "h": "このツールの仕組み", "html": "<p>文字は、ブラウザが暗号鍵の生成にも使う <code>crypto.getRandomValues</code> で選んでいます。棄却サンプリングで各文字が均等に選ばれるようにし、選んだ文字の種類がすべて含まれるかも確認しています。</p>" }
+    ],
+    "faq": [
+      ["ネットでパスワードを作っても安全ですか？", "このページはパスワードをブラウザ内だけで生成し、ネットワークに送信したり保存したりしません。端末に記憶されるのは文字数と文字種の設定だけです。"],
+      ["パスワードは何文字にすればいいですか？", "最低12文字、メールや銀行など重要なアカウントは16文字以上がおすすめです。Wi‑Fiのパスワードは入力する機会が少ないので20文字以上にしても負担になりません。"],
+      ["記号が使えないサイトではどうすればいいですか？", "記号をオフにして、その分文字数を数文字増やしてください。記号なしでも長ければ十分に強くなります。"],
+      ["「紛らわしい文字を除く」とは？", "大文字のI、小文字のl、数字の1、大文字のO、数字の0など、見間違えやすい文字を使わないようにします。"]
+    ]
+  }
+}

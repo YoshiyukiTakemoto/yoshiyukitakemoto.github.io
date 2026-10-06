@@ -1,0 +1,55 @@
+{
+  "order": 20,
+  "category": "media",
+  "schemaCategory": "DesignApplication",
+  "assets": ["qrcode.js"],
+  "scripts": ["qrcode.js"],
+  "en": {
+    "name": "QR Code Generator",
+    "title": "Free QR Code Generator: No Expiry, No Sign-up",
+    "description": "Make QR codes for links, Wi‑Fi, contact cards, email, phone and SMS. Static codes that never expire, with PNG and SVG download. Free, no tracking.",
+    "h1": "QR code generator that never expires",
+    "lede": "Create QR codes for links, Wi‑Fi, contacts and more. The data is stored in the code itself, so it keeps working forever with no redirect service in between.",
+    "card": "Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.",
+    "steps": [
+      "Choose what the code should do: open a link, join Wi‑Fi, save a contact, write an email, call or text.",
+      "Fill in the fields. The code updates as you type.",
+      "Adjust error correction, size, quiet zone and colours if needed. A warning appears if the colours are hard to scan.",
+      "Download a PNG for screens and documents, or an SVG for print."
+    ],
+    "sections": [
+      { "h": "Static vs dynamic QR codes", "html": "<p>Many QR code sites create <em>dynamic</em> codes: the code points to their short link, which then redirects to your page. If the service shuts down or asks for payment, every printed code stops working. This generator makes <em>static</em> codes. Your link or text is encoded directly, so the code works as long as the destination does.</p>" },
+      { "h": "Choosing error correction", "html": "<ul><li><strong>L (7%)</strong>: smallest code, best for screens.</li><li><strong>M (15%)</strong>: a good default for most uses.</li><li><strong>Q (25%)</strong>: for printed codes that may get scratched or dirty.</li><li><strong>H (30%)</strong>: for codes with a logo placed on top, or rough surfaces.</li></ul>" }
+    ],
+    "faq": [
+      ["Do these QR codes expire?", "No. They are static codes with your data inside. There is no server that can turn them off."],
+      ["Is my Wi‑Fi password safe?", "The code is made entirely in your browser. Nothing you type is sent anywhere. Anyone who scans the printed code can read the password, so only share it where you would share the password."],
+      ["What size should a printed QR code be?", "At least 2 × 2 cm (about 0.8 inch) for scanning at arm’s length. As a rule, the scanning distance should be no more than about 10 times the code width. Keep the white quiet zone around it."],
+      ["Can I use the codes commercially?", "Yes. The codes you create are yours to use anywhere, including on products and printed materials."]
+    ]
+  },
+  "ja": {
+    "name": "QRコード作成",
+    "title": "QRコード作成（無料・期限なし・登録不要）",
+    "description": "URL・Wi‑Fi・連絡先・メール・電話・SMSのQRコードを無料で作成。期限切れにならない静的QRコードで、PNG・SVGで保存できます。トラッキングなし。",
+    "h1": "期限切れにならないQRコード作成",
+    "lede": "URL、Wi‑Fi、連絡先などのQRコードを作成できます。データはコード自体に入っているので、中継サーバーなしでずっと使えます。",
+    "card": "URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。",
+    "steps": [
+      "用途を選びます：URLを開く、Wi‑Fiに接続、連絡先を保存、メール作成、電話、SMS。",
+      "項目を入力します。入力に合わせてコードが更新されます。",
+      "必要に応じて誤り訂正レベル、サイズ、余白、色を調整します。読み取りにくい配色だと警告が出ます。",
+      "画面や資料用にはPNG、印刷用にはSVGで保存します。"
+    ],
+    "sections": [
+      { "h": "静的QRコードと動的QRコードの違い", "html": "<p>多くのQRコード作成サイトは<em>動的</em>QRコードを作ります。コードはそのサービスの短縮URLを指し、そこから目的のページへ転送されます。サービスが終了したり有料化されたりすると、印刷済みのコードがすべて使えなくなります。このツールが作るのは<em>静的</em>QRコードで、URLやテキストを直接埋め込むため、リンク先がある限り使い続けられます。</p>" },
+      { "h": "誤り訂正レベルの選び方", "html": "<ul><li><strong>L（7%）</strong>：最も小さいコード。画面表示向け。</li><li><strong>M（15%）</strong>：多くの用途に適した標準設定。</li><li><strong>Q（25%）</strong>：傷や汚れが付きやすい印刷物向け。</li><li><strong>H（30%）</strong>：ロゴを重ねる場合や、凹凸のある素材向け。</li></ul>" }
+    ],
+    "faq": [
+      ["作ったQRコードに有効期限はありますか？", "ありません。データを直接埋め込んだ静的コードなので、停止されるサーバーがありません。"],
+      ["Wi‑Fiのパスワードを入力しても安全ですか？", "コードはすべてブラウザ内で作成され、入力内容はどこにも送信されません。ただし、印刷したコードを読み取った人はパスワードを見られるため、パスワードを共有してよい場所でだけ使ってください。"],
+      ["印刷するときのサイズの目安は？", "手に持って読み取るなら最低2×2cm程度が目安です。読み取り距離はコード幅のおよそ10倍までと考えてください。周囲の白い余白も残してください。"],
+      ["商用利用できますか？", "はい。作成したコードは、商品や印刷物を含めて自由に使えます。なお「QRコード」は株式会社デンソーウェーブの登録商標です。"]
+    ]
+  }
+}

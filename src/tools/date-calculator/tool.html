@@ -1,0 +1,23 @@
+<div class="dc">
+  <div class="seg" role="group" id="mode"><button type="button" data-mode="between" aria-pressed="true" id="m-between"></button><button type="button" data-mode="add" aria-pressed="false" id="m-add"></button></div>
+  <section class="panel" id="p-between">
+    <div class="row">
+      <div class="field"><label for="b-start" id="l-bstart"></label><input type="date" id="b-start"></div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="field"><label for="b-end" id="l-bend"></label><input type="date" id="b-end"></div>
+      <label class="check"><input type="checkbox" id="b-incl"><span id="l-incl"></span></label>
+    </div>
+    <div class="quick" id="b-quick"></div>
+    <div class="result" id="r-between"></div>
+  </section>
+  <section class="panel" id="p-add" hidden>
+    <div class="row">
+      <div class="field"><label for="a-start" id="l-astart"></label><input type="date" id="a-start"></div>
+      <div class="field"><label for="a-n" id="l-an"></label><input type="number" id="a-n" value="100" step="1" inputmode="numeric"></div>
+      <div class="field"><label for="a-unit" id="l-unit"></label><select id="a-unit"></select></div>
+      <label class="check"><input type="checkbox" id="a-biz"><span id="l-biz"></span></label>
+    </div>
+    <div class="quick" id="a-quick"></div>
+    <div class="result" id="r-add"></div>
+  </section>
+</div>

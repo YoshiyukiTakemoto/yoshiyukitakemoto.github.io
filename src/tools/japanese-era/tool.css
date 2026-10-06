@@ -1,0 +1,15 @@
+.je{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:14px}
+.je h2.eyebrow{margin:0}
+.je .row{display:flex;flex-wrap:wrap;gap:10px}
+.je input[type=number]{width:8rem}
+.out{border-top:1px solid var(--line);padding-top:12px;min-height:5.5rem}
+.out strong{display:block;font:700 clamp(1.5rem,4vw,2rem)/1.25 var(--f-display);letter-spacing:-.01em}
+.out strong small{font:500 12px var(--f-body);color:var(--muted);margin-left:4px}
+.out .kanji{font:500 1rem var(--f-body);color:var(--muted)}
+.out p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.chart h2{font:600 1.3rem var(--f-display);margin:8px 0 10px}
+.tscroll{max-height:28rem;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.chart table{border-collapse:collapse;width:100%;font-size:14px}
+.chart th{position:sticky;top:0;background:var(--surface);text-align:left;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.chart th,.chart td{padding:7px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+.chart tr.cur td{background:color-mix(in srgb,var(--accent) 12%,var(--surface));font-weight:600}
