@@ -1,0 +1,51 @@
+{
+  "order": 95,
+  "category": "fun",
+  "schemaCategory": "GameApplication",
+  "en": {
+    "name": "Kit Dungeon",
+    "title": "Kit Dungeon: Free Roguelike RPG in Your Browser",
+    "description": "Play Kit Dungeon, a free turn-based roguelike RPG. Explore auto-generated dungeons, fight monsters, find weapons and potions, and see how deep you can go. A new daily dungeon every day.",
+    "h1": "Kit Dungeon: daily roguelike RPG",
+    "lede": "A turn-based dungeon crawler. Every floor is generated as you go down. Fight monsters, level up, find better gear and descend as deep as you can. One life per run.",
+    "card": "Turn-based roguelike with a new daily dungeon.",
+    "steps": [
+      "Choose <strong>Today’s dungeon</strong> (the same layout for everyone today) or a new random dungeon.",
+      "Move with the arrow keys or WASD. On phones, use the pad or tap the map. Walk into a monster to attack it.",
+      "Step on items to pick them up. Better weapons and armour are equipped automatically. Press 1–8 to use potions, bombs and scrolls.",
+      "Find the golden stairs and press Enter to go deeper. Your run saves every turn, so you can close the page and come back."
+    ],
+    "sections": [
+      { "h": "How it works", "html": "<p>Each action takes one turn, and monsters move after you. You see only what is in your line of sight; explored areas stay on the map. Monsters get stronger the deeper you go, so balance fighting for experience against hurrying down. When your HP reaches zero the run ends and you start again from floor B1.</p>" },
+      { "h": "Items", "html": "<ul><li><strong>Potion</strong>: restores some HP.</li><li><strong>Elixir</strong>: restores all HP.</li><li><strong>Bomb</strong>: damages every monster in sight.</li><li><strong>Teleport scroll</strong>: moves you to a random spot on the floor. Useful when surrounded.</li></ul>" }
+    ],
+    "faq": [
+      ["What is a roguelike?", "A game genre with randomly generated levels, turn-based movement and permanent death. Every run is different, so you learn and improve rather than memorise."],
+      ["Is today’s dungeon really the same for everyone?", "Yes. The floors are generated from today’s date, so everyone gets the same layouts, monsters and items. Combat rolls still vary."],
+      ["Is my progress saved?", "Yes. The current run saves in this browser after every turn."]
+    ]
+  },
+  "ja": {
+    "name": "キットダンジョン",
+    "title": "キットダンジョン（無料ブラウザRPG・ローグライク）",
+    "description": "ブラウザで無料で遊べるターン制のローグライクRPG。自動生成されるダンジョンを探索し、モンスターを倒し、武器や薬を集めてどこまで深く潜れるか挑戦。毎日全員共通の「今日のダンジョン」も。",
+    "h1": "キットダンジョン（毎日遊べるローグライクRPG）",
+    "lede": "ターン制のダンジョン探索RPGです。階段を降りるたびに新しいフロアが自動で作られます。モンスターを倒してレベルを上げ、強い装備を見つけ、どこまで深く潜れるか挑戦しましょう。倒れたら最初からです。",
+    "card": "毎日のダンジョンに潜るターン制ローグライクRPG。",
+    "steps": [
+      "<strong>今日のダンジョン</strong>（今日は全員同じ地形）か、<strong>新しいダンジョン</strong>を選びます。",
+      "矢印キーまたはWASDで移動します。スマホでは方向ボタンを使うか、マップをタップします。モンスターに向かって進むと攻撃します。",
+      "アイテムは上を歩くと拾えます。強い武器・防具は自動で装備されます。ポーション・爆弾・巻物は1〜8のキーで使います。",
+      "金色の階段を見つけたらEnterで次の階へ。毎ターン自動保存されるので、ページを閉じても続きから遊べます。"
+    ],
+    "sections": [
+      { "h": "遊び方のポイント", "html": "<p>1回の行動で1ターンが進み、あなたの行動の後にモンスターが動きます。見えるのは視界の範囲だけで、一度探索した場所は地図に残ります。深い階ほどモンスターが強くなるので、経験値を稼ぐか、先を急ぐかの判断が大切です。HPが0になると冒険は終わり、地下1階からやり直しです。</p>" },
+      { "h": "アイテム", "html": "<ul><li><strong>ポーション</strong>：HPを回復します。</li><li><strong>エリクサー</strong>：HPを全回復します。</li><li><strong>爆弾</strong>：見えているすべてのモンスターにダメージを与えます。</li><li><strong>ワープの巻物</strong>：フロアのどこかへ移動します。囲まれたときに便利です。</li></ul>" }
+    ],
+    "faq": [
+      ["ローグライクとは何ですか？", "ダンジョンが毎回自動で生成され、ターン制で進み、倒れると最初からやり直しになるゲームのジャンルです。毎回違う展開になるので、暗記ではなく判断力で上達していきます。"],
+      ["今日のダンジョンは本当に全員同じですか？", "はい。今日の日付からフロアを作るので、地形・モンスター・アイテムの配置は全員共通です。戦闘のダメージなどは毎回変わります。"],
+      ["途中で保存されますか？", "はい。冒険の途中経過は、毎ターンこのブラウザに保存されます。"]
+    ]
+  }
+}

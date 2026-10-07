@@ -1,0 +1,28 @@
+<div class="kd">
+  <div class="modes">
+    <button class="btn primary" type="button" id="daily"></button>
+    <button class="btn" type="button" id="free"></button>
+    <span class="mode" id="mode"></span>
+  </div>
+  <div class="main">
+    <div class="view">
+      <canvas id="map" width="960" height="704" tabindex="0" aria-label="Dungeon map"></canvas>
+      <div class="pad" id="pad" hidden>
+        <button type="button" data-d="up" aria-label="Up">▲</button>
+        <button type="button" data-d="left" aria-label="Left">◀</button>
+        <button type="button" data-d="wait" aria-label="Wait">・</button>
+        <button type="button" data-d="right" aria-label="Right">▶</button>
+        <button type="button" data-d="down" aria-label="Down">▼</button>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="hp"><div class="bar"><i id="hpbar"></i></div><span class="num" id="hptext"></span></div>
+      <dl class="stats" id="stats"></dl>
+      <div><span class="eyebrow" id="l-inv"></span><div class="inv" id="inv"></div></div>
+      <button class="btn" type="button" id="stairs" hidden></button>
+      <ol class="log" id="log" aria-live="polite"></ol>
+      <div id="share"></div>
+    </aside>
+  </div>
+  <p class="keys" id="keys"></p>
+</div>
