@@ -1,0 +1,51 @@
+{
+  "order": 96,
+  "category": "fun",
+  "schemaCategory": "GameApplication",
+  "en": {
+    "name": "Kit Blaster",
+    "title": "Kit Blaster: Free Retro Shooting Game",
+    "description": "Play Kit Blaster, a free retro-style vertical shooter in your browser. Blast through endless waves, power up your shots, chain kills for combos and take on a boss every five waves.",
+    "h1": "Kit Blaster: retro space shooter",
+    "lede": "A fast vertical shooter in the arcade tradition. Your ship fires automatically, so focus on dodging. Collect power-ups, build combos and see how many waves you can survive.",
+    "card": "Retro vertical shooter with power-ups and bosses.",
+    "steps": [
+      "Press Space or tap the screen to start.",
+      "Move with the arrow keys or WASD. Your ship fires on its own. Hold Shift to move slowly through tight gaps; a white dot shows your hit area.",
+      "On phones, drag anywhere on the screen. The ship moves with your finger but stays above it, so you can see it.",
+      "Grab <strong>P</strong> to power up your shots and <strong>♥</strong> for an extra life. A boss appears every fifth wave."
+    ],
+    "sections": [
+      { "h": "Scoring and combos", "html": "<p>Each enemy has a point value. Destroy enemies within about a second of each other to raise the combo multiplier, up to ×8. Getting hit resets the combo and lowers your shot power by one level. Power-ups collected at full power are worth 1,000 points.</p>" },
+      { "h": "Enemies", "html": "<ul><li><strong>Drones</strong> (pink squares) sweep down in lines.</li><li><strong>Divers</strong> (orange arrows) pause, then dash straight at you.</li><li><strong>Turrets</strong> (teal hexagons) stop and fire aimed shots. They take several hits.</li><li><strong>Spinners</strong> (yellow rings) loop in from the sides.</li><li><strong>Bosses</strong> change attack patterns as their health drops.</li></ul>" }
+    ],
+    "faq": [
+      ["Is my high score saved?", "Yes, in this browser. Share your score with the buttons that appear after a game."],
+      ["Can I turn off the sound?", "Yes. Use the speaker button in the top-right corner of the game."],
+      ["Does it work on phones?", "Yes. It is designed for portrait screens. Use full screen (⛶) for the best view."]
+    ]
+  },
+  "ja": {
+    "name": "キットブラスター",
+    "title": "キットブラスター（無料レトロシューティングゲーム）",
+    "description": "ブラウザで無料で遊べるレトロ風の縦スクロールシューティング。終わりのないウェーブを撃ち抜き、パワーアップで弾を強化し、連続撃破でコンボを稼ぎ、5ウェーブごとのボスに挑戦します。",
+    "h1": "キットブラスター（縦スクロールシューティング）",
+    "lede": "アーケード風のスピーディーな縦シューティングです。弾は自動で発射されるので、敵弾をよけることに集中できます。パワーアップを集め、コンボをつなげ、何ウェーブ生き残れるか挑戦しましょう。",
+    "card": "パワーアップとボス戦のあるレトロ縦シューティング。",
+    "steps": [
+      "スペースキーを押すか、画面をタップしてスタートします。",
+      "矢印キーまたはWASDで移動します。弾は自動で発射されます。Shiftを押している間はゆっくり動き、当たり判定が白い点で表示されます。",
+      "スマホでは画面のどこでもドラッグして操作します。自機は指より少し上に表示されるので、指で隠れません。",
+      "<strong>P</strong>を取ると弾が強化され、<strong>♥</strong>で残機が増えます。5ウェーブごとにボスが登場します。"
+    ],
+    "sections": [
+      { "h": "スコアとコンボ", "html": "<p>敵ごとに得点があり、約1秒以内に続けて倒すとコンボ倍率が上がります（最大×8）。被弾するとコンボがリセットされ、弾のパワーが1段階下がります。パワーが最大のときにPを取ると1,000点です。</p>" },
+      { "h": "敵の種類", "html": "<ul><li><strong>ドローン</strong>（ピンクの四角）：列になって降りてきます。</li><li><strong>ダイバー</strong>（オレンジの矢印）：一度止まってから自機めがけて突進します。</li><li><strong>タレット</strong>（青緑の六角形）：止まって狙い撃ちしてきます。耐久力が高めです。</li><li><strong>スピナー</strong>（黄色の輪）：画面の横から回り込んで現れます。</li><li><strong>ボス</strong>：体力が減るごとに攻撃パターンが変わります。</li></ul>" }
+    ],
+    "faq": [
+      ["ハイスコアは保存されますか？", "はい。このブラウザに保存されます。ゲーム終了後に表示されるボタンでスコアをシェアできます。"],
+      ["音を消せますか？", "はい。ゲーム画面右上のスピーカーボタンで切り替えられます。"],
+      ["スマホでも遊べますか？", "はい。縦画面向けに作っています。全画面（⛶）にすると遊びやすくなります。"]
+    ]
+  }
+}

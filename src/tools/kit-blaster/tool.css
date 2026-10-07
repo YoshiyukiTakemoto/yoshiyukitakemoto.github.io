@@ -1,0 +1,10 @@
+.kb{display:grid;gap:12px;justify-items:center}
+.stage{position:relative;width:min(100%,calc(78vh * 9 / 16));aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#070b1c;touch-action:none;user-select:none;-webkit-user-select:none}
+.stage:fullscreen{border-radius:0;width:100%;height:100%;display:grid;place-items:center;background:#000}
+.stage:fullscreen canvas{height:100%;width:auto;aspect-ratio:9/16}
+#game{width:100%;height:100%;display:block;outline:none;cursor:crosshair}
+.ui{position:absolute;top:8px;right:8px;display:flex;gap:6px}
+.ui button{border:0;border-radius:8px;background:rgba(255,255,255,.14);color:#fff;font-size:16px;width:34px;height:34px;cursor:pointer}
+.below{display:grid;gap:10px;justify-items:center;text-align:center}
+.keys{margin:0;color:var(--muted);font-size:14px}
+.keys kbd{font:500 12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--surface);color:var(--fg)}
