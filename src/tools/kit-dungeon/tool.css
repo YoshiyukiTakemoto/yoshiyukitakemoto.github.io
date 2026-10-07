@@ -23,7 +23,9 @@
 .inv button{border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);padding:6px 2px;font:500 11.5px var(--f-body);cursor:pointer;min-height:44px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .inv button:disabled{opacity:.35;cursor:default}
 .inv small{display:block;color:var(--muted);font:11px var(--f-mono)}
-.log{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-size:13px;max-height:9.5rem;overflow:auto}
-.log li{color:var(--muted)}.log li:first-child{color:var(--fg);font-weight:500}
+.screen{position:relative}
+.log{position:absolute;left:8px;right:8px;bottom:8px;list-style:none;margin:0;padding:6px 10px;display:grid;gap:2px;font:500 clamp(11px,1.6vw,14px)/1.45 var(--f-body);color:#fff;background:rgba(11,14,26,.62);border-radius:8px;pointer-events:none}
+.log:empty{display:none}
+.log li{opacity:.55}.log li:nth-last-child(2){opacity:.75}.log li:last-child{opacity:1;font-weight:600}
 .keys{margin:0;color:var(--muted);font-size:13px}
 .keys kbd{font:500 12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--surface);color:var(--fg)}

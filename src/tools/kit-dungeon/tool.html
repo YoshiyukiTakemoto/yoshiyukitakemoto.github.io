@@ -6,7 +6,10 @@
   </div>
   <div class="main">
     <div class="view">
-      <canvas id="map" width="960" height="704" tabindex="0" aria-label="Dungeon map"></canvas>
+      <div class="screen">
+        <canvas id="map" width="960" height="704" tabindex="0" aria-label="Dungeon map"></canvas>
+        <ol class="log" id="log" aria-live="polite"></ol>
+      </div>
       <div class="pad" id="pad" hidden>
         <button type="button" data-d="up" aria-label="Up">▲</button>
         <button type="button" data-d="left" aria-label="Left">◀</button>
@@ -20,7 +23,6 @@
       <dl class="stats" id="stats"></dl>
       <div><span class="eyebrow" id="l-inv"></span><div class="inv" id="inv"></div></div>
       <button class="btn" type="button" id="stairs" hidden></button>
-      <ol class="log" id="log" aria-live="polite"></ol>
       <div id="share"></div>
     </aside>
   </div>

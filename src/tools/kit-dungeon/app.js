@@ -158,7 +158,7 @@ function render(){
   $("stats").innerHTML=st.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
   $("inv").innerHTML=Array.from({length:8},(_,i)=>{const t=p.inv[i];return`<button type="button" data-i="${i}"${t&&!G.dead?"":" disabled"}>${t?nm(ITEMS[t]):"—"}<small>${i+1}</small></button>`}).join("");
   $("stairs").hidden=G.dead||p.x!==G.f.stairs[0]||p.y!==G.f.stairs[1];
-  $("log").innerHTML=G.log.slice(0,12).map(s=>`<li>${s}</li>`).join("");
+  $("log").innerHTML=G.log.slice(0,3).reverse().map(s=>`<li>${s}</li>`).join("");
   $("mode").textContent=G.daily?TX.modeDaily(G.daily):TX.modeFree;
 }
 // ---- input ----
