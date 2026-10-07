@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WMV to MP4 Converter: Free, No Upload | Plainkit</title>
+<meta name="description" content="Convert old Windows Media Video (WMV) files to MP4 so they play on iPhone, Mac, Android and the web. Free, runs in your browser, nothing uploaded.">
+<link rel="canonical" href="https://tools.motty.jp/wmv-to-mp4/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/wmv-to-mp4/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/wmv-to-mp4/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/wmv-to-mp4/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="WMV to MP4 Converter: Free, No Upload | Plainkit">
+<meta property="og:description" content="Convert old Windows Media Video (WMV) files to MP4 so they play on iPhone, Mac, Android and the web. Free, runs in your browser, nothing uploaded.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/wmv-to-mp4/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.vc{display:grid;gap:14px}
+.drop{border:2px dashed var(--line);border-radius:14px;background:var(--surface);padding:28px 16px;text-align:center;display:grid;gap:10px;justify-items:center;cursor:pointer}
+.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.drop strong{font-family:var(--f-display);font-weight:500;font-size:1.3rem}
+.drop .sub{color:var(--muted);font-size:14px;max-width:44rem}
+.info{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;align-items:baseline}
+.info b{font-weight:600;word-break:break-all}
+.info span{color:var(--muted);font-family:var(--f-mono);font-size:13px}
+.opts{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end}
+.opts input[type=text]{width:6.5rem;font-family:var(--f-mono)}
+.checks{display:flex;flex-wrap:wrap;gap:8px 20px}
+.go{display:flex;flex-wrap:wrap;gap:8px}
+.btn.big{font-size:16px;padding:11px 28px}
+.prog{display:grid;gap:6px}
+.prog .bar{height:10px;border-radius:5px;background:var(--bg);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+.prog span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.err{margin:0;background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 12px;font-size:14px}
+.result{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:700px){.result{grid-template-columns:1fr}}
+.preview video,.preview img{width:100%;max-height:22rem;object-fit:contain;background:#000;border-radius:10px;display:block}
+.preview audio{width:100%}
+.preview .noprev{background:var(--bg);border-radius:10px;padding:30px 12px;text-align:center;color:var(--muted);font-size:14px}
+.rinfo{display:grid;gap:6px;justify-items:start}
+.rinfo strong{word-break:break-all}
+.rinfo span{color:var(--muted);font:13px var(--f-mono)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WMV to MP4","url":"https://tools.motty.jp/wmv-to-mp4/","description":"Convert old Windows Media Video (WMV) files to MP4 so they play on iPhone, Mac, Android and the web. Free, runs in your browser, nothing uploaded.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"WMV to MP4","item":"https://tools.motty.jp/wmv-to-mp4/"}]}</script>
+</head>
+<body data-slug="wmv-to-mp4">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/wmv-to-mp4/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">WMV to MP4</li></ol></nav>
+<div><h1>WMV to MP4 converter</h1><p class="lede">Old Windows Media videos often won’t play on phones, Macs or websites. Convert them to MP4 (H.264) in your browser, without installing anything.</p></div>
+<div class="vc" id="vc" data-preset="{&quot;to&quot;:&quot;mp4&quot;}">
+  <label class="drop" id="drop" for="file">
+    <strong id="d-title"></strong>
+    <span class="sub" id="d-sub"></span>
+    <span class="btn primary" id="d-btn"></span>
+    <input type="file" id="file" accept="video/*,audio/*,.wmv,.avi,.mkv,.flv,.mov,.m4v,.3gp,.mpg,.mpeg,.ts,.asf" hidden>
+  </label>
+  <section class="panel" id="work" hidden>
+    <div class="info" id="info"></div>
+    <div class="opts">
+      <div class="field"><label for="to" id="l-to"></label><select id="to"></select></div>
+      <div class="field" data-for="video"><label for="quality" id="l-quality"></label><select id="quality"></select></div>
+      <div class="field" data-for="video"><label for="res" id="l-res"></label><select id="res"></select></div>
+      <div class="field" data-for="gif"><label for="fps" id="l-fps"></label><select id="fps"><option>8</option><option>10</option><option selected>12</option><option>15</option><option>20</option></select></div>
+      <div class="field" data-for="gif"><label for="gw" id="l-gw"></label><select id="gw"><option>320</option><option selected>480</option><option>640</option><option>800</option></select></div>
+      <div class="field"><label for="ss" id="l-ss"></label><input id="ss" type="text" inputmode="decimal" placeholder="0:00"></div>
+      <div class="field"><label for="to-t" id="l-tot"></label><input id="to-t" type="text" inputmode="decimal"></div>
+    </div>
+    <div class="checks">
+      <label class="check" data-for="video"><input type="checkbox" id="mute"><span id="l-mute"></span></label>
+      <label class="check" data-for="copy"><input type="checkbox" id="copy" checked><span id="l-copy"></span></label>
+    </div>
+    <div class="go"><button class="btn primary big" type="button" id="run"></button><button class="btn" type="button" id="cancel" hidden></button><button class="btn" type="button" id="other"></button></div>
+    <div class="prog" id="prog" hidden><div class="bar"><i id="bar"></i></div><span id="ptext" aria-live="polite"></span></div>
+    <p class="err" id="err" hidden></p>
+    <div class="result" id="result" hidden>
+      <div class="preview" id="preview"></div>
+      <div class="rinfo"><strong id="rname"></strong><span id="rsize"></span><button class="btn primary" type="button" id="dl"></button></div>
+    </div>
+  </section>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Drop your WMV file on the box.</li><li>Keep MP4 selected. Choose a lower resolution or “Small file” to make the result smaller.</li><li>Press Convert. WMV must be re-encoded, so allow a few minutes for longer videos.</li></ol>
+<h2>About WMV</h2>
+<p>WMV (Windows Media Video) was Microsoft’s video format in the 2000s and was used by many cameras, screen recorders and Windows Movie Maker. Apple devices and most browsers can’t play it. Converting to MP4 with H.264 video and AAC audio makes the file playable almost everywhere. This tool can also convert videos <em>to</em> WMV for older Windows software.</p>
+<h2>Open-source software</h2>
+<p>Conversion is done by <a href="https://ffmpeg.org/">FFmpeg</a> compiled to WebAssembly by <a href="https://github.com/ffmpegwasm/ffmpeg.wasm">ffmpeg.wasm</a> (MIT). The FFmpeg core used here includes components licensed under the GPL; their source code is available from those projects. The converter (about 31 MB) is downloaded from the jsDelivr CDN the first time you convert, then cached by your browser.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Is my video uploaded?</summary><p>No. The video is processed by your browser on your own device. Only the converter program itself is downloaded.</p></details><details><summary>Why is it slower than desktop software?</summary><p>Browsers run the converter on a single CPU core without hardware acceleration. Converting a 1-minute 720p video usually takes one to a few minutes. Copying H.264 into MP4 or MOV without re-encoding takes seconds.</p></details><details><summary>Is there a size limit?</summary><p>There is no fixed limit, but browsers can only use a few GB of memory. Files up to a few hundred MB usually work; very long or 4K videos may fail.</p></details><details><summary>Why does my WMV fail to convert?</summary><p>WMV files protected with Windows Media DRM can’t be converted by any free tool.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/quiet-qr/"><strong>QR Code Generator</strong><span>Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.</span></a></li><li><a href="/image-converter/"><strong>Image Converter</strong><span>HEIC→JPG, PNG⇔JPG, WebP, ICO and images to PDF.</span></a></li><li><a href="/video-converter/"><strong>Video Converter</strong><span>MP4, MOV, WMV, WebM, GIF and MP3. No upload.</span></a></li><li><a href="/mov-to-mp4/"><strong>MOV to MP4</strong><span>iPhone MOV to MP4 in seconds, no quality loss.</span></a></li><li><a href="/video-to-gif/"><strong>Video to GIF</strong><span>Clean animated GIFs from videos, no watermark.</span></a></li><li><a href="/video-to-mp3/"><strong>Video to MP3</strong><span>Save a video’s soundtrack as MP3, M4A or WAV.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/video-converter/ffmpeg.js" defer></script>
+<script src="/assets/minipdf.js" defer></script>
+<script src="/video-converter/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

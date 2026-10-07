@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Character Counter &amp; Word Count Tool | Plainkit</title>
+<meta name="description" content="Free character and word counter. Counts characters with and without spaces, words, lines, bytes and X (Twitter) length as you type. Works with emoji and Japanese.">
+<link rel="canonical" href="https://tools.motty.jp/character-count/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/character-count/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/character-count/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/character-count/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Character Counter &amp; Word Count Tool | Plainkit">
+<meta property="og:description" content="Free character and word counter. Counts characters with and without spaces, words, lines, bytes and X (Twitter) length as you type. Works with emoji and Japanese.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/character-count/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.cc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,19rem);gap:20px;align-items:start}
+@media (max-width:820px){.cc{grid-template-columns:1fr}}
+.ed-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.target{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.target input{width:6.5rem}
+#text{width:100%;min-height:22rem;resize:vertical;font:16px/1.75 var(--f-body);padding:12px 14px}
+.ed-btns{display:flex;gap:8px;flex-wrap:wrap}
+.limitbar{display:grid;gap:4px}
+.limitbar i{display:block;height:6px;border-radius:3px;background:var(--ok);width:0;max-width:100%}
+.limitbar.over i{background:var(--warn)}
+.limitbar span{font-size:13px;color:var(--muted)}
+.limitbar.over span{color:var(--warn)}
+.stats{position:sticky;top:16px}
+.big{display:grid;gap:2px}
+.big strong{font:700 3rem/1 var(--f-display);letter-spacing:-.02em}
+.stats dl{display:grid;grid-template-columns:minmax(0,1fr) auto;margin:0;gap:0}
+.stats dt,.stats dd{padding:8px 0;border-top:1px solid var(--line);margin:0}
+.stats dt{color:var(--muted);font-size:14px}
+.stats dd{font:500 15px var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.stats dd small{color:var(--muted);font-size:12px}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Character Counter","url":"https://tools.motty.jp/character-count/","description":"Free character and word counter. Counts characters with and without spaces, words, lines, bytes and X (Twitter) length as you type. Works with emoji and Japanese.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Character Counter","item":"https://tools.motty.jp/character-count/"}]}</script>
+</head>
+<body data-slug="character-count">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/character-count/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Character Counter</li></ol></nav>
+<div><h1>Character and word counter</h1><p class="lede">Paste or type text to count characters, words, sentences, lines and bytes instantly. Emoji and accented letters count as one character, just as people read them.</p></div>
+<div class="cc">
+  <section class="panel editor">
+    <div class="ed-top">
+      <label for="text" class="eyebrow" id="l-text"></label>
+      <div class="target"><label for="limit" id="l-limit"></label><input id="limit" type="number" min="0" step="1" inputmode="numeric"></div>
+    </div>
+    <textarea id="text" spellcheck="false"></textarea>
+    <div class="limitbar" id="limitbar" hidden><i></i><span class="num" id="limitmsg"></span></div>
+    <div class="ed-btns"><button class="btn" type="button" id="copy"></button><button class="btn" type="button" id="clear"></button></div>
+  </section>
+  <aside class="panel stats" aria-live="polite">
+    <div class="big"><span class="eyebrow" id="l-chars"></span><strong class="num" id="s-chars">0</strong></div>
+    <dl id="stats"></dl>
+  </aside>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Type or paste your text into the box.</li><li>Read the totals on the right. They update with every keystroke.</li><li>Set a limit, such as 160 for a meta description, to see how much room is left.</li><li>Your text is kept in this browser, so you can close the tab and come back to it.</li></ol>
+<h2>Common character limits</h2>
+<table><thead><tr><th>Where</th><th>Limit</th></tr></thead><tbody><tr><td>X (Twitter) post</td><td>280 (CJK characters count as 2)</td></tr><tr><td>Google title tag</td><td>about 50–60 characters</td></tr><tr><td>Meta description</td><td>about 150–160 characters</td></tr><tr><td>Instagram caption</td><td>2,200 characters</td></tr><tr><td>LinkedIn post</td><td>3,000 characters</td></tr><tr><td>SMS (GSM-7)</td><td>160 characters per message</td></tr></tbody></table>
+<h2>How characters are counted</h2>
+<p>The counter uses grapheme clusters, the units a reader sees as one character. A family emoji 👨‍👩‍👧 or a letter with an accent counts as 1, even though it is stored as several code points. Byte counts show how much space the text takes in UTF‑8, which matters for databases and some form fields.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Is my text sent anywhere?</summary><p>No. Counting happens in your browser and the text is never uploaded.</p></details><details><summary>Why does the X count differ from the character count?</summary><p>X counts Chinese, Japanese and Korean characters and emoji as 2, and every link as 23, no matter how long it is.</p></details><details><summary>How is reading time estimated?</summary><p>About 238 words per minute for English and 500 characters per minute for Japanese, which are typical silent reading speeds for adults.</p></details><details><summary>Does it count spaces?</summary><p>The main total includes spaces. The panel also shows totals without spaces and without spaces or line breaks.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/password-generator/"><strong>Password Generator</strong><span>Secure random passwords with length and character options.</span></a></li><li><a href="/pomodoro/"><strong>Pomodoro Timer</strong><span>Focus and break timer with daily session count.</span></a></li><li><a href="/notepad/"><strong>Online Notepad</strong><span>Autosaving notes in your browser. Search and .txt download.</span></a></li><li><a href="/overlap/"><strong>Meeting Time Zone Planner</strong><span>Find a meeting time that falls inside everyone’s working hours.</span></a></li><li><a href="/quiet-qr/"><strong>QR Code Generator</strong><span>Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.</span></a></li><li><a href="/image-converter/"><strong>Image Converter</strong><span>HEIC→JPG, PNG⇔JPG, WebP, ICO and images to PDF.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/character-count/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Image Converter: HEIC to JPG, PNG, WebP, PDF | Plainkit</title>
+<meta name="description" content="Free image format converter. Convert HEIC (iPhone), PNG, WebP, AVIF, GIF, BMP and SVG to JPG, PNG, WebP, AVIF, BMP, ICO or PDF in your browser. Batch convert, no upload.">
+<link rel="canonical" href="https://tools.motty.jp/image-converter/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/image-converter/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/image-converter/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/image-converter/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Image Converter: HEIC to JPG, PNG, WebP, PDF | Plainkit">
+<meta property="og:description" content="Free image format converter. Convert HEIC (iPhone), PNG, WebP, AVIF, GIF, BMP and SVG to JPG, PNG, WebP, AVIF, BMP, ICO or PDF in your browser. Batch convert, no upload.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/image-converter/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.range{display:flex;align-items:center;gap:10px}
+.range input{width:9rem}
+.range output{font:500 14px var(--f-mono);min-width:2.2rem}
+.drop{border:2px dashed var(--line);border-radius:14px;background:var(--surface);padding:28px 16px;text-align:center;display:grid;gap:10px;justify-items:center;cursor:pointer}
+.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.drop strong{font-family:var(--f-display);font-weight:500;font-size:1.3rem}
+.drop .sub{color:var(--muted);font-size:14px;max-width:40rem}
+.summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.summary .sp{flex:1}
+.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.item{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.item img{width:64px;height:64px;object-fit:cover;border-radius:8px;background:var(--bg);display:block}
+.name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nums{font:13px var(--f-mono);color:var(--muted)}
+.err{font-size:13px;color:var(--warn)}
+@media (max-width:560px){.item{grid-template-columns:52px minmax(0,1fr)}.item img{width:52px;height:52px}.item .btn{grid-column:1/-1}}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Converter","url":"https://tools.motty.jp/image-converter/","description":"Free image format converter. Convert HEIC (iPhone), PNG, WebP, AVIF, GIF, BMP and SVG to JPG, PNG, WebP, AVIF, BMP, ICO or PDF in your browser. Batch convert, no upload.","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Image Converter","item":"https://tools.motty.jp/image-converter/"}]}</script>
+</head>
+<body data-slug="image-converter">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/image-converter/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Image Converter</li></ol></nav>
+<div><h1>Image format converter</h1><p class="lede">Convert iPhone HEIC photos to JPG, turn PNG into WebP, make a favicon ICO, or combine images into one PDF. Everything runs in your browser, so your photos are never uploaded.</p></div>
+<section class="controls">
+  <div class="field"><label for="to" id="l-to"></label><select id="to"></select></div>
+  <div class="field" id="q-f"><label for="q" id="l-q"></label><div class="range"><input type="range" id="q" min="40" max="100" value="92"><output id="qv">92</output></div></div>
+  <div class="field" id="pdf-f" hidden><label for="pdfmode" id="l-pdfmode"></label><select id="pdfmode"></select></div>
+</section>
+<label class="drop" id="drop" for="file">
+  <strong id="d-title"></strong>
+  <span class="sub" id="d-sub"></span>
+  <span class="btn primary" id="d-btn"></span>
+  <input type="file" id="file" accept="image/*,.heic,.heif" multiple hidden>
+</label>
+<div class="summary" id="summary" hidden>
+  <span class="pill" id="count"></span><span class="sp"></span>
+  <button class="btn" type="button" id="clear"></button>
+  <button class="btn primary" type="button" id="all"></button>
+</div>
+<ul class="list" id="list"></ul>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Choose the format you want to convert to.</li><li>Drop images on the box, choose them, or paste with Ctrl+V / ⌘V. You can add many at once.</li><li>Download each file, all of them as a ZIP, or, for PDF, all images in one PDF.</li></ol>
+<h2>Supported conversions</h2>
+<table><thead><tr><th>From</th><th>To</th></tr></thead><tbody><tr><td>HEIC / HEIF (iPhone)</td><td>JPG, PNG, WebP, PDF</td></tr><tr><td>PNG, WebP, AVIF, GIF, BMP</td><td>JPG, PNG, WebP, AVIF, BMP</td></tr><tr><td>Any image, SVG</td><td>ICO favicon (16–256 px)</td></tr><tr><td>Several images</td><td>One PDF, a page per image</td></tr></tbody></table>
+<h2>Which format to choose</h2>
+<ul><li><strong>JPG</strong>: photos that need to open anywhere, including forms and older apps.</li><li><strong>PNG</strong>: screenshots and graphics with sharp edges or transparency.</li><li><strong>WebP / AVIF</strong>: much smaller files for websites.</li><li><strong>PDF</strong>: documents to email or submit, such as scanned receipts.</li></ul>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Are my photos uploaded?</summary><p>No. Your browser does the conversion. The HEIC decoder is downloaded once from this site and also runs on your device.</p></details><details><summary>Is transparency kept?</summary><p>In PNG, WebP, AVIF and ICO, yes. JPG, BMP and PDF don’t support transparency, so it becomes white.</p></details><details><summary>Is location data removed?</summary><p>Yes. Converted files don’t keep EXIF metadata such as GPS location.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/quiet-qr/"><strong>QR Code Generator</strong><span>Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.</span></a></li><li><a href="/video-converter/"><strong>Video Converter</strong><span>MP4, MOV, WMV, WebM, GIF and MP3. No upload.</span></a></li><li><a href="/mov-to-mp4/"><strong>MOV to MP4</strong><span>iPhone MOV to MP4 in seconds, no quality loss.</span></a></li><li><a href="/wmv-to-mp4/"><strong>WMV to MP4</strong><span>Make old Windows WMV videos play everywhere.</span></a></li><li><a href="/video-to-gif/"><strong>Video to GIF</strong><span>Clean animated GIFs from videos, no watermark.</span></a></li><li><a href="/video-to-mp3/"><strong>Video to MP3</strong><span>Save a video’s soundtrack as MP3, M4A or WAV.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/image-converter/jszip.min.js" defer></script>
+<script src="/assets/minipdf.js" defer></script>
+<script src="/image-converter/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

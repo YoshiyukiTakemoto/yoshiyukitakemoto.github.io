@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>キットジャンプ（無料ブラウザゲーム・横スクロールアクション） | Plainkit</title>
+<meta name="description" content="ブラウザで無料で遊べる横スクロールアクションゲーム。ステージは無限に自動生成され、穴を飛び越え、敵を踏み、コインを集めながらどこまで進めるかに挑戦します。スマホ対応。">
+<link rel="canonical" href="https://tools.motty.jp/ja/kit-jump/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/kit-jump/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/kit-jump/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/kit-jump/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="キットジャンプ（無料ブラウザゲーム・横スクロールアクション） | Plainkit">
+<meta property="og:description" content="ブラウザで無料で遊べる横スクロールアクションゲーム。ステージは無限に自動生成され、穴を飛び越え、敵を踏み、コインを集めながらどこまで進めるかに挑戦します。スマホ対応。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/kit-jump/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.kj{display:grid;gap:12px}
+.stage{position:relative;width:100%;aspect-ratio:16/9;max-width:100%;border-radius:14px;overflow:hidden;background:#9fd3f5;touch-action:none;user-select:none;-webkit-user-select:none}
+.stage:fullscreen{border-radius:0;display:grid;place-items:center;background:#000}
+.stage:fullscreen canvas{width:auto;height:100%;max-width:100%;aspect-ratio:16/9}
+#game{width:100%;height:100%;display:block;outline:none}
+.touch{position:absolute;left:0;right:0;bottom:0;display:flex;gap:10px;padding:12px;pointer-events:none}
+.touch .sp{flex:1}
+.touch button{pointer-events:auto;width:64px;height:64px;border-radius:50%;border:0;background:rgba(20,26,43,.35);color:#fff;font-size:24px;touch-action:none}
+.touch button.jump{width:76px;height:76px;background:rgba(36,64,196,.6)}
+.touch button.on{background:rgba(20,26,43,.6)}
+.fs{position:absolute;top:8px;right:8px;border:0;border-radius:8px;background:rgba(20,26,43,.35);color:#fff;font-size:18px;width:36px;height:36px;cursor:pointer}
+.below{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
+.keys{margin:0;color:var(--muted);font-size:14px}
+.keys kbd{font:500 12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--surface);color:var(--fg)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"キットジャンプ","url":"https://tools.motty.jp/ja/kit-jump/","description":"ブラウザで無料で遊べる横スクロールアクションゲーム。ステージは無限に自動生成され、穴を飛び越え、敵を踏み、コインを集めながらどこまで進めるかに挑戦します。スマホ対応。","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"キットジャンプ","item":"https://tools.motty.jp/ja/kit-jump/"}]}</script>
+</head>
+<body data-slug="kit-jump">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/kit-jump/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">キットジャンプ</li></ol></nav>
+<div><h1>キットジャンプ（無限横スクロールアクション）</h1><p class="lede">走って跳んで、どこまでも続く世界を進むアクションゲームです。敵を踏みつけ、コインを集め、ハイスコアを目指しましょう。ダウンロードも登録も不要です。</p></div>
+<div class="kj">
+  <div class="stage" id="stage">
+    <canvas id="game" width="1280" height="720" tabindex="0" aria-label="Kit Jump game"></canvas>
+    <div class="touch" id="touch" hidden>
+      <button type="button" data-k="left" aria-label="Left">◀</button>
+      <button type="button" data-k="right" aria-label="Right">▶</button>
+      <span class="sp"></span>
+      <button type="button" data-k="jump" class="jump" aria-label="Jump">▲</button>
+    </div>
+    <button type="button" class="fs" id="fs" aria-label="Full screen">⛶</button>
+  </div>
+  <div class="below">
+    <p class="keys" id="keys"></p>
+    <div id="share"></div>
+  </div>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>スペースキーを押すか、ゲーム画面をタップしてスタートします。</li><li>矢印キーまたはA・Dで移動、スペース・↑・Wでジャンプします。長押しすると高く跳べます。</li><li>敵は上から踏むと倒せます。横からぶつかったり、穴に落ちたりするとゲームオーバーです。</li><li>スマホでは画面のボタンで操作します。⛶で全画面、Pキーで一時停止できます。</li></ol>
+<h2>スコアの計算</h2>
+<ul><li>進んだ距離1ブロックごとに1点</li><li>コイン1枚で10点</li><li>敵を1体踏むごとに50点</li></ul><p>先に進むほど穴が広く、敵が多くなります。ハイスコアはこのブラウザに保存されます。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>ステージに終わりはありますか？</summary><p>ありません。進むたびにステージが自動で作られるので、毎回違うコースになります。</p></details><details><summary>スマホでも遊べますか？</summary><p>はい。タッチ操作の端末では画面にボタンが表示されます。横向きにして全画面にすると遊びやすくなります。</p></details><details><summary>無料ですか？</summary><p>はい。広告、課金、登録はありません。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-dungeon/"><strong>キットダンジョン</strong><span>毎日のダンジョンに潜るターン制ローグライクRPG。</span></a></li><li><a href="/ja/kit-blaster/"><strong>キットブラスター</strong><span>パワーアップとボス戦のあるレトロ縦シューティング。</span></a></li><li><a href="/ja/sudoku/"><strong>数独（ナンプレ）</strong><span>毎日の数独を3つの難易度で。メモ・連続記録つき。</span></a></li><li><a href="/ja/roulette/"><strong>ルーレット</strong><span>抽選・順番決め・ランチ選びに使えるルーレット。</span></a></li><li><a href="/ja/life-in-weeks/"><strong>人生カレンダー</strong><span>人生を1週間＝1マスで表示。残りの週・夏を計算。</span></a></li><li><a href="/ja/reaction-test/"><strong>反射神経テスト</strong><span>緑になったらタップ。反応速度をミリ秒で測定。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/kit-jump/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

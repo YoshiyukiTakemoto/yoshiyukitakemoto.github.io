@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Compress &amp; Resize Images Online, No Upload | Plainkit</title>
+<meta name="description" content="Free image compressor. Shrink JPEG, PNG and WebP photos, resize them and convert to WebP or AVIF in your browser. Nothing is uploaded and EXIF data is removed.">
+<link rel="canonical" href="https://tools.motty.jp/lighten/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/lighten/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/lighten/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/lighten/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Compress &amp; Resize Images Online, No Upload | Plainkit">
+<meta property="og:description" content="Free image compressor. Shrink JPEG, PNG and WebP photos, resize them and convert to WebP or AVIF in your browser. Nothing is uploaded and EXIF data is removed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/lighten/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.range{display:flex;align-items:center;gap:10px}
+.range input{width:10rem}
+.range output{font:500 14px var(--f-mono);min-width:2.5rem}
+.drop{border:2px dashed var(--line);border-radius:14px;background:var(--surface);padding:28px 16px;text-align:center;display:grid;gap:10px;justify-items:center;cursor:pointer}
+.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.drop strong{font-family:var(--f-display);font-weight:500;font-size:1.3rem}
+.drop .sub{color:var(--muted);font-size:14px}
+.sample{margin:-8px 0 0;font-size:14px;color:var(--muted)}
+.link{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;text-decoration:underline;padding:0}
+.summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.summary .sp{flex:1}
+.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.item{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.item img{width:72px;height:72px;object-fit:cover;border-radius:8px;background:var(--bg);display:block}
+.name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nums{font:13px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px}
+.nums b{color:var(--fg);font-weight:500}
+.item .bar{height:6px;border-radius:3px;background:var(--bg);margin-top:6px;overflow:hidden;border:0}
+.item .bar i{display:block;height:100%;background:var(--ok)}
+.item.grew .bar i{background:var(--warn)}
+.note{font-size:12px;color:var(--warn)}
+.side{display:grid;gap:6px;justify-items:end}
+.pct{font:600 15px var(--f-mono)}
+.pct.good{color:var(--ok)}
+@media (max-width:560px){.item{grid-template-columns:56px minmax(0,1fr)}.item img{width:56px;height:56px}.side{grid-column:1/-1;grid-template-columns:auto auto;justify-content:space-between;align-items:center}}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Compressor","url":"https://tools.motty.jp/lighten/","description":"Free image compressor. Shrink JPEG, PNG and WebP photos, resize them and convert to WebP or AVIF in your browser. Nothing is uploaded and EXIF data is removed.","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Image Compressor","item":"https://tools.motty.jp/lighten/"}]}</script>
+</head>
+<body data-slug="lighten">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/lighten/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Image Compressor</li></ol></nav>
+<div><h1>Compress and resize images without uploading</h1><p class="lede">Drop in photos to make them smaller, resize them and convert to WebP, JPEG, PNG or AVIF. Everything happens on your device, so it’s fast and private.</p></div>
+<section class="controls">
+  <div class="field"><label for="fmt" id="l-fmt"></label><select id="fmt"></select></div>
+  <div class="field"><label for="q" id="l-q"></label><div class="range"><input type="range" id="q" min="30" max="100" step="1" value="80"><output id="qv">80</output></div></div>
+  <div class="field"><label for="max" id="l-max"></label><select id="max"></select></div>
+</section>
+<label class="drop" id="drop" for="file">
+  <strong id="d-title"></strong>
+  <span class="sub" id="d-sub"></span>
+  <span class="btn primary" id="d-btn"></span>
+  <input type="file" id="file" accept="image/*" multiple hidden>
+</label>
+<p class="sample"><button type="button" class="link" id="sample"></button></p>
+<div class="summary" id="summary" hidden>
+  <span class="pill ok" id="total"></span><span class="sp"></span>
+  <button class="btn" type="button" id="clear"></button>
+  <button class="btn primary" type="button" id="zip"></button>
+</div>
+<ul class="list" id="list"></ul>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Pick an output format. WebP gives the best size for most photos; JPEG works everywhere.</li><li>Set the quality (80 is a good start) and, if you like, a maximum size for the longest side.</li><li>Drop images on the box, choose them, or paste with Ctrl+V / ⌘V.</li><li>Download each image, or all of them at once as a ZIP file.</li></ol>
+<h2>Which format should I use?</h2>
+<ul><li><strong>WebP</strong>: 25–35% smaller than JPEG at the same quality. Supported by all current browsers.</li><li><strong>AVIF</strong>: often smaller still, but slower to create. Appears in the list only if your browser can make it.</li><li><strong>JPEG</strong>: the safest choice for email, older software and printing services.</li><li><strong>PNG</strong>: lossless. Use it for screenshots, diagrams and images that need transparency.</li></ul>
+<h2>Common sizes</h2>
+<p>For a website, 1920 px on the longest side covers full-screen images on most displays. For email attachments and chat apps, 1280 px is usually plenty. Social networks resize uploads themselves, so 2048 px is a safe upper limit.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Are my images uploaded?</summary><p>No. Your browser decodes and re-encodes each image locally. You can disconnect from the internet after the page loads and it still works.</p></details><details><summary>Is there a file size or count limit?</summary><p>No fixed limit. Very large batches depend on your device’s memory.</p></details><details><summary>Does it remove location data?</summary><p>Yes. Re-encoding removes EXIF metadata such as GPS location, camera model and serial numbers. The image is rotated to the correct orientation first.</p></details><details><summary>Why is a file sometimes kept as the original?</summary><p>When the image is already well compressed and you keep the same format and size, re-encoding can make it larger. In that case the original file is kept.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/quiet-qr/"><strong>QR Code Generator</strong><span>Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.</span></a></li><li><a href="/image-converter/"><strong>Image Converter</strong><span>HEIC→JPG, PNG⇔JPG, WebP, ICO and images to PDF.</span></a></li><li><a href="/video-converter/"><strong>Video Converter</strong><span>MP4, MOV, WMV, WebM, GIF and MP3. No upload.</span></a></li><li><a href="/mov-to-mp4/"><strong>MOV to MP4</strong><span>iPhone MOV to MP4 in seconds, no quality loss.</span></a></li><li><a href="/wmv-to-mp4/"><strong>WMV to MP4</strong><span>Make old Windows WMV videos play everywhere.</span></a></li><li><a href="/video-to-gif/"><strong>Video to GIF</strong><span>Clean animated GIFs from videos, no watermark.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/lighten/jszip.min.js" defer></script>
+<script src="/lighten/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

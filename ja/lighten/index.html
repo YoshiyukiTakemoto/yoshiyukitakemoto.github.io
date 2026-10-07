@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>画像圧縮・リサイズ（アップロード不要・無料） | Plainkit</title>
+<meta name="description" content="JPEG・PNG・WebPの画像をブラウザ内で無料で圧縮・リサイズ。WebPやAVIFへの変換にも対応。アップロード不要で、位置情報などのEXIFも削除します。">
+<link rel="canonical" href="https://tools.motty.jp/ja/lighten/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/lighten/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/lighten/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/lighten/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="画像圧縮・リサイズ（アップロード不要・無料） | Plainkit">
+<meta property="og:description" content="JPEG・PNG・WebPの画像をブラウザ内で無料で圧縮・リサイズ。WebPやAVIFへの変換にも対応。アップロード不要で、位置情報などのEXIFも削除します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/lighten/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.range{display:flex;align-items:center;gap:10px}
+.range input{width:10rem}
+.range output{font:500 14px var(--f-mono);min-width:2.5rem}
+.drop{border:2px dashed var(--line);border-radius:14px;background:var(--surface);padding:28px 16px;text-align:center;display:grid;gap:10px;justify-items:center;cursor:pointer}
+.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.drop strong{font-family:var(--f-display);font-weight:500;font-size:1.3rem}
+.drop .sub{color:var(--muted);font-size:14px}
+.sample{margin:-8px 0 0;font-size:14px;color:var(--muted)}
+.link{background:none;border:0;color:var(--accent);font:inherit;cursor:pointer;text-decoration:underline;padding:0}
+.summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.summary .sp{flex:1}
+.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.item{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.item img{width:72px;height:72px;object-fit:cover;border-radius:8px;background:var(--bg);display:block}
+.name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nums{font:13px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px}
+.nums b{color:var(--fg);font-weight:500}
+.item .bar{height:6px;border-radius:3px;background:var(--bg);margin-top:6px;overflow:hidden;border:0}
+.item .bar i{display:block;height:100%;background:var(--ok)}
+.item.grew .bar i{background:var(--warn)}
+.note{font-size:12px;color:var(--warn)}
+.side{display:grid;gap:6px;justify-items:end}
+.pct{font:600 15px var(--f-mono)}
+.pct.good{color:var(--ok)}
+@media (max-width:560px){.item{grid-template-columns:56px minmax(0,1fr)}.item img{width:56px;height:56px}.side{grid-column:1/-1;grid-template-columns:auto auto;justify-content:space-between;align-items:center}}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"画像圧縮・リサイズ","url":"https://tools.motty.jp/ja/lighten/","description":"JPEG・PNG・WebPの画像をブラウザ内で無料で圧縮・リサイズ。WebPやAVIFへの変換にも対応。アップロード不要で、位置情報などのEXIFも削除します。","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"画像圧縮・リサイズ","item":"https://tools.motty.jp/ja/lighten/"}]}</script>
+</head>
+<body data-slug="lighten">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/lighten/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">画像圧縮・リサイズ</li></ol></nav>
+<div><h1>アップロードせずに画像を圧縮・リサイズ</h1><p class="lede">写真をドロップするだけで、容量を小さくしたり、サイズを変えたり、WebP・JPEG・PNG・AVIFに変換したりできます。処理は端末内で行うので、速く安全です。</p></div>
+<section class="controls">
+  <div class="field"><label for="fmt" id="l-fmt"></label><select id="fmt"></select></div>
+  <div class="field"><label for="q" id="l-q"></label><div class="range"><input type="range" id="q" min="30" max="100" step="1" value="80"><output id="qv">80</output></div></div>
+  <div class="field"><label for="max" id="l-max"></label><select id="max"></select></div>
+</section>
+<label class="drop" id="drop" for="file">
+  <strong id="d-title"></strong>
+  <span class="sub" id="d-sub"></span>
+  <span class="btn primary" id="d-btn"></span>
+  <input type="file" id="file" accept="image/*" multiple hidden>
+</label>
+<p class="sample"><button type="button" class="link" id="sample"></button></p>
+<div class="summary" id="summary" hidden>
+  <span class="pill ok" id="total"></span><span class="sp"></span>
+  <button class="btn" type="button" id="clear"></button>
+  <button class="btn primary" type="button" id="zip"></button>
+</div>
+<ul class="list" id="list"></ul>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>出力形式を選びます。多くの写真はWebPが最も小さくなり、JPEGはどこでも使えます。</li><li>画質（まずは80がおすすめ）と、必要なら長辺の最大サイズを設定します。</li><li>画像を枠にドロップするか、選択するか、Ctrl+V / ⌘V で貼り付けます。</li><li>1枚ずつ保存するか、ZIPでまとめて保存します。</li></ol>
+<h2>どの形式を選べばいい？</h2>
+<ul><li><strong>WebP</strong>：同じ画質ならJPEGより25〜35%小さくなります。現在の主要ブラウザはすべて対応しています。</li><li><strong>AVIF</strong>：さらに小さくなることが多いですが、作成に時間がかかります。お使いのブラウザが対応している場合のみ表示されます。</li><li><strong>JPEG</strong>：メール添付、古いソフト、印刷サービス向けの最も無難な形式です。</li><li><strong>PNG</strong>：劣化なし（可逆圧縮）。スクリーンショット、図、透過が必要な画像向けです。</li></ul>
+<h2>用途別のサイズの目安</h2>
+<p>ウェブサイトなら長辺1920pxで、ほとんどの画面の全画面表示に足ります。メール添付やチャットなら1280pxで十分なことが多いです。SNSは投稿時に自動で縮小されるため、2048px程度を上限にすると安心です。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>画像はアップロードされますか？</summary><p>いいえ。ブラウザ内で画像を読み込み、再エンコードします。ページを開いた後ならインターネットを切断しても動作します。</p></details><details><summary>ファイルサイズや枚数の制限はありますか？</summary><p>決まった上限はありません。大量の画像を一度に処理する場合は、端末のメモリ量に左右されます。</p></details><details><summary>位置情報は削除されますか？</summary><p>はい。再エンコードにより、GPS位置情報、カメラ機種、シリアル番号などのEXIF情報が削除されます。画像の向きは先に正しく補正します。</p></details><details><summary>元のファイルのまま残ることがあるのはなぜ？</summary><p>すでに十分圧縮された画像を同じ形式・同じサイズで再エンコードすると、かえって大きくなることがあります。その場合は元のファイルを残します。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li><li><a href="/ja/image-converter/"><strong>画像形式変換</strong><span>HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。</span></a></li><li><a href="/ja/video-converter/"><strong>動画変換</strong><span>MP4・MOV・WMV・WebM・GIF・MP3に変換。</span></a></li><li><a href="/ja/mov-to-mp4/"><strong>MOV→MP4変換</strong><span>iPhoneのMOVを画質そのままMP4へ。</span></a></li><li><a href="/ja/wmv-to-mp4/"><strong>WMV→MP4変換</strong><span>古いWindowsのWMV動画をどこでも再生できるMP4に。</span></a></li><li><a href="/ja/video-to-gif/"><strong>動画→GIF変換</strong><span>動画や画面録画を透かしなしでGIFに。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/lighten/jszip.min.js" defer></script>
+<script src="/lighten/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

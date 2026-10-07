@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daily Sudoku: Free Online Sudoku Puzzles | Plainkit</title>
+<meta name="description" content="Play free sudoku online. A new daily puzzle in easy, medium and hard, plus unlimited practice. Pencil marks, undo, mistake highlighting, streaks and auto-save.">
+<link rel="canonical" href="https://tools.motty.jp/sudoku/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/sudoku/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/sudoku/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/sudoku/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Daily Sudoku: Free Online Sudoku Puzzles | Plainkit">
+<meta property="og:description" content="Play free sudoku online. A new daily puzzle in easy, medium and hard, plus unlimited practice. Pencil marks, undo, mistake highlighting, streaks and auto-save.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/sudoku/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--given:var(--fg);--user:var(--accent);--bad:#c23b3b;--hl:color-mix(in srgb,var(--accent) 9%,var(--surface));--same:color-mix(in srgb,var(--accent) 22%,var(--surface));--selc:color-mix(in srgb,var(--accent) 34%,var(--surface))}
+@media (prefers-color-scheme:dark){:root{--bad:#ff7a7a}}
+.sd{display:grid;gap:14px}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.top .sp{flex:1}
+.today{color:var(--muted);font-size:14px}
+.stat{display:grid;text-align:center}
+.stat b{font:600 18px var(--f-mono)}
+.play{display:grid;grid-template-columns:minmax(0,34rem) minmax(0,16rem);gap:20px;align-items:start}
+@media (max-width:760px){.play{grid-template-columns:1fr}}
+.board{display:grid;grid-template-columns:repeat(9,1fr);aspect-ratio:1;width:100%;max-width:34rem;border:2.5px solid var(--fg);border-radius:6px;overflow:hidden;background:var(--surface);user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.board:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.cell{border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);display:grid;place-items:center;font:500 clamp(18px,5.4vw,28px)/1 var(--f-body);color:var(--user);cursor:pointer;padding:0;position:relative;min-width:0}
+.cell:nth-child(9n+3),.cell:nth-child(9n+6){border-right:2px solid var(--fg)}
+.cell:nth-child(n+19):nth-child(-n+27),.cell:nth-child(n+46):nth-child(-n+54){border-bottom:2px solid var(--fg)}
+.cell.given{color:var(--given);font-weight:700}
+.cell.hl{background:var(--hl)}.cell.same{background:var(--same)}.cell.sel{background:var(--selc)}
+.cell.bad{color:var(--bad)}
+.cell .nt{display:grid;grid-template-columns:repeat(3,1fr);width:100%;height:100%;padding:2px}
+.cell .nt span{font:500 clamp(8px,2vw,11px)/1 var(--f-mono);color:var(--muted);display:grid;place-items:center}
+.side{display:grid;gap:12px}
+.pad{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+@media (max-width:760px){.pad{grid-template-columns:repeat(9,1fr)}}
+.pad button{font:600 22px var(--f-body);padding:10px 0;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:grid;line-height:1}
+.pad button small{font:500 10px var(--f-mono);color:var(--muted);margin-top:3px}
+.pad button:disabled{opacity:.35}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+#notes[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.done{background:var(--ok-bg);border-radius:12px;padding:14px;display:grid;gap:10px}
+.done strong{color:var(--ok);font:600 16px var(--f-body)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Daily Sudoku","url":"https://tools.motty.jp/sudoku/","description":"Play free sudoku online. A new daily puzzle in easy, medium and hard, plus unlimited practice. Pencil marks, undo, mistake highlighting, streaks and auto-save.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Daily Sudoku","item":"https://tools.motty.jp/sudoku/"}]}</script>
+</head>
+<body data-slug="sudoku">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/sudoku/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Daily Sudoku</li></ol></nav>
+<div><h1>Daily sudoku</h1><p class="lede">A new puzzle every day at three difficulty levels, the same for everyone. Keep your streak going, or play unlimited practice puzzles. Progress saves automatically.</p></div>
+<div class="sd">
+  <div class="top">
+    <div class="seg" role="group" id="levels"></div>
+    <span class="today" id="today"></span>
+    <span class="sp"></span>
+    <span class="stat"><span class="eyebrow" id="l-time"></span><b class="num" id="time">0:00</b></span>
+    <span class="stat"><span class="eyebrow" id="l-miss"></span><b class="num" id="miss">0</b></span>
+    <span class="stat"><span class="eyebrow" id="l-streak"></span><b class="num" id="streak">0</b></span>
+  </div>
+  <div class="play">
+    <div class="board" id="board" role="grid" tabindex="0"></div>
+    <div class="side">
+      <div class="pad" id="pad"></div>
+      <div class="tools">
+        <button class="btn" type="button" id="notes" aria-pressed="false"></button>
+        <button class="btn" type="button" id="erase"></button>
+        <button class="btn" type="button" id="undo"></button>
+      </div>
+      <label class="check"><input type="checkbox" id="showerr" checked><span id="l-showerr"></span></label>
+      <button class="btn" type="button" id="random"></button>
+      <div class="done" id="done" hidden><strong id="done-msg"></strong><div id="share"></div></div>
+    </div>
+  </div>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Pick Easy, Medium or Hard. Everyone playing today gets the same puzzle.</li><li>Tap a cell, then tap a number. On a keyboard, use the arrow keys and 1–9.</li><li>Turn on <strong>Notes</strong> (or press N) to pencil in candidates.</li><li>Solve the daily puzzle each day to build a streak, then share your time.</li></ol>
+<h2>How to play sudoku</h2>
+<p>Fill the 9×9 grid so that every row, every column and every 3×3 box contains the digits 1 to 9 exactly once. Every puzzle here has exactly one solution and can be solved by logic, without guessing.</p>
+<h2>Solving tips</h2>
+<ul><li><strong>Single position</strong>: if a digit fits in only one cell of a row, column or box, it goes there.</li><li><strong>Single candidate</strong>: if a cell can only take one digit, write it in.</li><li><strong>Use notes</strong> on harder puzzles to track candidates, and clear them as you place digits.</li></ul>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>When does the daily puzzle change?</summary><p>At midnight in your own time zone.</p></details><details><summary>Is my game saved if I close the tab?</summary><p>Yes. Each puzzle’s progress, time and notes are saved in this browser.</p></details><details><summary>What counts as a mistake?</summary><p>Placing a digit that doesn’t match the solution. You can hide mistake highlighting for a harder challenge; mistakes are still counted.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/kit-dungeon/"><strong>Kit Dungeon</strong><span>Turn-based roguelike with a new daily dungeon.</span></a></li><li><a href="/kit-blaster/"><strong>Kit Blaster</strong><span>Retro vertical shooter with power-ups and bosses.</span></a></li><li><a href="/kit-jump/"><strong>Kit Jump</strong><span>Endless run-and-jump game. Stomp, collect, survive.</span></a></li><li><a href="/roulette/"><strong>Spin the Wheel</strong><span>Random picker wheel for names, prizes and decisions.</span></a></li><li><a href="/life-in-weeks/"><strong>Your Life in Weeks</strong><span>Your whole life as a grid of weeks, with weeks left.</span></a></li><li><a href="/reaction-test/"><strong>Reaction Time Test</strong><span>Tap when it turns green. Average of 5 tries in ms.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/sudoku/gen.js" defer></script>
+<script src="/sudoku/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

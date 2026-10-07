@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QRコード作成（無料・期限なし・登録不要） | Plainkit</title>
+<meta name="description" content="URL・Wi‑Fi・連絡先・メール・電話・SMSのQRコードを無料で作成。期限切れにならない静的QRコードで、PNG・SVGで保存できます。トラッキングなし。">
+<link rel="canonical" href="https://tools.motty.jp/ja/quiet-qr/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/quiet-qr/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/quiet-qr/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/quiet-qr/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="QRコード作成（無料・期限なし・登録不要） | Plainkit">
+<meta property="og:description" content="URL・Wi‑Fi・連絡先・メール・電話・SMSのQRコードを無料で作成。期限切れにならない静的QRコードで、PNG・SVGで保存できます。トラッキングなし。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/quiet-qr/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.qr-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,22rem);gap:20px;align-items:start}
+@media (max-width:820px){.qr-main{grid-template-columns:1fr}.out{order:-1}}
+.types{display:flex;flex-wrap:wrap;gap:6px}
+.types button{font:500 14px var(--f-body);border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer}
+.types button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fields .wide{grid-column:1/-1}
+@media (max-width:520px){.fields{grid-template-columns:1fr}}
+.fields input:not([type=checkbox]),.fields select,.fields textarea{width:100%;min-height:40px}
+.fields textarea{min-height:6rem;resize:vertical}
+input[type=color]{padding:3px;width:3.2rem;cursor:pointer}
+.opts{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:flex-end;border-top:1px solid var(--line);padding-top:16px}
+.colors{display:flex;gap:8px;align-items:center}
+.out{position:sticky;top:16px}
+.stage{border-radius:10px;display:grid;place-items:center;padding:14px;aspect-ratio:1;max-width:100%;background-color:var(--bg);background-image:linear-gradient(45deg,var(--line) 25%,transparent 25%,transparent 75%,var(--line) 75%),linear-gradient(45deg,var(--line) 25%,transparent 25%,transparent 75%,var(--line) 75%);background-size:16px 16px;background-position:0 0,8px 8px}
+.stage svg{width:100%;height:auto;display:block}
+.err{color:var(--warn);text-align:center;font-weight:500;padding:20px}
+.meta{font:12px var(--f-mono);color:var(--muted)}
+.warn{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 12px;font-size:13px}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn.full{grid-column:1/-1}
+.payload{font:12px/1.5 var(--f-mono);color:var(--muted);white-space:pre-wrap;word-break:break-all;max-height:7rem;overflow:auto;background:var(--bg);border-radius:8px;padding:8px 10px;margin:0}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"QRコード作成","url":"https://tools.motty.jp/ja/quiet-qr/","description":"URL・Wi‑Fi・連絡先・メール・電話・SMSのQRコードを無料で作成。期限切れにならない静的QRコードで、PNG・SVGで保存できます。トラッキングなし。","applicationCategory":"DesignApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"QRコード作成","item":"https://tools.motty.jp/ja/quiet-qr/"}]}</script>
+</head>
+<body data-slug="quiet-qr">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/quiet-qr/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">QRコード作成</li></ol></nav>
+<div><h1>期限切れにならないQRコード作成</h1><p class="lede">URL、Wi‑Fi、連絡先などのQRコードを作成できます。データはコード自体に入っているので、中継サーバーなしでずっと使えます。</p></div>
+<div class="qr-main">
+  <section class="panel">
+    <div class="types" id="types" role="group"></div>
+    <div class="fields" id="fields"></div>
+    <div class="opts">
+      <div class="field"><label for="ecl" id="l-ecl"></label><select id="ecl"></select></div>
+      <div class="field"><label for="size" id="l-size"></label><select id="size"></select></div>
+      <div class="field"><label for="margin" id="l-margin"></label><select id="margin"></select></div>
+      <div class="field"><span class="eyebrow" id="l-colors"></span>
+        <div class="colors"><input type="color" id="fg" value="#141a2b" aria-label="Foreground"><input type="color" id="bg" value="#ffffff" aria-label="Background"><label class="check"><input type="checkbox" id="transparent"><span id="l-transparent"></span></label></div></div>
+    </div>
+  </section>
+  <aside class="panel out">
+    <div class="stage" id="stage"></div>
+    <div class="meta" id="meta"></div>
+    <div class="warn" id="warn" hidden></div>
+    <div class="btns">
+      <button class="btn primary" type="button" id="dl-png"></button>
+      <button class="btn" type="button" id="dl-svg"></button>
+      <button class="btn full" type="button" id="copy-img"></button>
+    </div>
+    <div class="field"><span class="eyebrow" id="l-payload"></span><pre class="payload" id="payload"></pre></div>
+  </aside>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>用途を選びます：URLを開く、Wi‑Fiに接続、連絡先を保存、メール作成、電話、SMS。</li><li>項目を入力します。入力に合わせてコードが更新されます。</li><li>必要に応じて誤り訂正レベル、サイズ、余白、色を調整します。読み取りにくい配色だと警告が出ます。</li><li>画面や資料用にはPNG、印刷用にはSVGで保存します。</li></ol>
+<h2>静的QRコードと動的QRコードの違い</h2>
+<p>多くのQRコード作成サイトは<em>動的</em>QRコードを作ります。コードはそのサービスの短縮URLを指し、そこから目的のページへ転送されます。サービスが終了したり有料化されたりすると、印刷済みのコードがすべて使えなくなります。このツールが作るのは<em>静的</em>QRコードで、URLやテキストを直接埋め込むため、リンク先がある限り使い続けられます。</p>
+<h2>誤り訂正レベルの選び方</h2>
+<ul><li><strong>L（7%）</strong>：最も小さいコード。画面表示向け。</li><li><strong>M（15%）</strong>：多くの用途に適した標準設定。</li><li><strong>Q（25%）</strong>：傷や汚れが付きやすい印刷物向け。</li><li><strong>H（30%）</strong>：ロゴを重ねる場合や、凹凸のある素材向け。</li></ul>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>作ったQRコードに有効期限はありますか？</summary><p>ありません。データを直接埋め込んだ静的コードなので、停止されるサーバーがありません。</p></details><details><summary>Wi‑Fiのパスワードを入力しても安全ですか？</summary><p>コードはすべてブラウザ内で作成され、入力内容はどこにも送信されません。ただし、印刷したコードを読み取った人はパスワードを見られるため、パスワードを共有してよい場所でだけ使ってください。</p></details><details><summary>印刷するときのサイズの目安は？</summary><p>手に持って読み取るなら最低2×2cm程度が目安です。読み取り距離はコード幅のおよそ10倍までと考えてください。周囲の白い余白も残してください。</p></details><details><summary>商用利用できますか？</summary><p>はい。作成したコードは、商品や印刷物を含めて自由に使えます。なお「QRコード」は株式会社デンソーウェーブの登録商標です。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/image-converter/"><strong>画像形式変換</strong><span>HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。</span></a></li><li><a href="/ja/video-converter/"><strong>動画変換</strong><span>MP4・MOV・WMV・WebM・GIF・MP3に変換。</span></a></li><li><a href="/ja/mov-to-mp4/"><strong>MOV→MP4変換</strong><span>iPhoneのMOVを画質そのままMP4へ。</span></a></li><li><a href="/ja/wmv-to-mp4/"><strong>WMV→MP4変換</strong><span>古いWindowsのWMV動画をどこでも再生できるMP4に。</span></a></li><li><a href="/ja/video-to-gif/"><strong>動画→GIF変換</strong><span>動画や画面録画を透かしなしでGIFに。</span></a></li><li><a href="/ja/video-to-mp3/"><strong>動画→MP3変換</strong><span>動画の音声をMP3・M4A・WAVで保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/quiet-qr/qrcode.js" defer></script>
+<script src="/quiet-qr/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

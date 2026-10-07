@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>時差計算・海外との会議時間調整ツール（無料） | Plainkit</title>
+<meta name="description" content="海外との会議時間を無料で調整。複数都市の時刻を24時間のグリッドで比較し、全員の勤務時間が重なる時間帯を見つけます。サマータイムにも対応。">
+<link rel="canonical" href="https://tools.motty.jp/ja/overlap/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/overlap/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/overlap/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/overlap/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="時差計算・海外との会議時間調整ツール（無料） | Plainkit">
+<meta property="og:description" content="海外との会議時間を無料で調整。複数都市の時刻を24時間のグリッドで比較し、全員の勤務時間が重なる時間帯を見つけます。サマータイムにも対応。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/overlap/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--day:#f5d77e;--day-ink:#3b2f05;--dusk:#cfd8ec;--dusk-ink:#28324d;--night:#28314d;--night-ink:#c4cce3;--label:14.5rem}
+@media (prefers-color-scheme:dark){:root{--day:#d6ae45;--day-ink:#1c1503;--dusk:#2c3656;--dusk-ink:#c8d0e8;--night:#080b16;--night-ink:#6d7792}}
+.pair{display:flex;align-items:center;gap:6px}
+.search{position:relative;flex:1 1 16rem}
+.search input{width:100%}
+#results{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 4px);margin:0;padding:4px;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(10,15,35,.18);max-height:20rem;overflow:auto}
+#results li{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;cursor:pointer}
+#results li[aria-selected="true"],#results li:hover{background:var(--bg)}
+#results small{color:var(--muted);font-family:var(--f-mono);font-size:12px;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-left:auto}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+.scroller{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.grid{display:grid;min-width:max-content}
+.lab{position:sticky;left:0;z-index:2;background:var(--surface);padding:10px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;min-width:0}
+.lab .who{flex:1;min-width:0}
+.lab .name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lab .meta{font:12px var(--f-mono);color:var(--muted);white-space:nowrap}
+.lab .clock{font:500 15px var(--f-mono);font-variant-numeric:tabular-nums}
+.lab .acts{display:flex;flex-direction:column;gap:2px}
+.lab.top{align-items:flex-end}
+.icon{border:0;background:none;color:var(--muted);cursor:pointer;font-size:14px;line-height:1;padding:3px 5px;border-radius:5px}
+.icon:hover{background:var(--bg);color:var(--fg)}
+.badge{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:2px}
+.cell{display:grid;place-items:center;font:500 13px var(--f-mono);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--line);border-left:1px solid color-mix(in srgb,var(--line) 60%,transparent);min-height:58px;cursor:pointer;position:relative;padding:2px}
+.cell.work{background:var(--day);color:var(--day-ink)}
+.cell.edge{background:var(--dusk);color:var(--dusk-ink)}
+.cell.night{background:var(--night);color:var(--night-ink)}
+.cell .d{font:600 9.5px var(--f-body);letter-spacing:.04em;text-transform:uppercase;line-height:1.1;text-align:center}
+.cell.newday{box-shadow:inset 2px 0 0 var(--accent)}
+.cell.sel{outline:2px solid var(--accent);outline-offset:-2px;z-index:1}
+.meter{border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;padding:6px 3px 5px;cursor:pointer;min-height:58px;position:relative}
+.meter b{display:block;width:62%;border-radius:3px 3px 0 0;background:color-mix(in srgb,var(--muted) 35%,transparent)}
+.meter.full b{background:var(--ok)}
+.meter.sel b{background:var(--accent)}
+.meter span{font:11px var(--f-mono);color:var(--muted)}
+.meter .now{position:absolute;top:4px;font:600 9px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.slot{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+@media (max-width:760px){.slot{grid-template-columns:1fr}:root{--label:10rem}.lab .clock{display:none}}
+.slot h2{font-family:var(--f-display);font-weight:500;font-size:1.35rem;margin:4px 0 12px;letter-spacing:-.01em}
+.rows{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.rows li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line)}
+.rows .t{font:500 17px var(--f-mono);font-variant-numeric:tabular-nums}
+.rows .dt{color:var(--muted);font-size:13px;white-space:nowrap}
+.chip{font-size:11px;font-weight:600;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.chip.work{background:var(--day);color:var(--day-ink)}
+.chip.edge{background:var(--dusk);color:var(--dusk-ink)}
+.chip.night{background:var(--night);color:var(--night-ink)}
+.share{display:grid;gap:10px;align-content:start;min-width:0}
+.share textarea{width:100%;min-height:9.5rem;resize:vertical;font:13px/1.55 var(--f-mono)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.note{color:var(--muted);font-size:13px;max-width:62ch}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"時差・会議時間プランナー","url":"https://tools.motty.jp/ja/overlap/","description":"海外との会議時間を無料で調整。複数都市の時刻を24時間のグリッドで比較し、全員の勤務時間が重なる時間帯を見つけます。サマータイムにも対応。","applicationCategory":"BusinessApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"時差・会議時間プランナー","item":"https://tools.motty.jp/ja/overlap/"}]}</script>
+</head>
+<body data-slug="overlap">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/overlap/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">時差・会議時間プランナー</li></ol></nav>
+<div><h1>時差を見ながら会議時間を決める</h1><p class="lede">複数の都市を1つの24時間グリッドに並べ、全員が勤務時間になる時間帯を探せます。サマータイムや30分単位の時差も自動で計算します。</p></div>
+<section class="controls">
+  <div class="field search">
+    <label for="city-q" id="l-add"></label>
+    <input id="city-q" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="results">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <div class="field"><label for="date" id="l-date"></label><input id="date" type="date"></div>
+  <div class="field"><label for="ws" id="l-work"></label><div class="pair"><select id="ws"></select><span>–</span><select id="we"></select></div></div>
+  <div class="field"><label for="dur" id="l-dur"></label><select id="dur"></select></div>
+</section>
+<div class="status"><span class="pill" id="verdict"></span><div class="legend" id="legend"></div></div>
+<div class="scroller"><div class="grid" id="grid"></div></div>
+<section class="slot" id="slot"></section>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>検索欄に都市名かタイムゾーン名を入力し、Enterで追加します。何都市でも追加できます。</li><li>一番上の都市が基準です。⇡ボタンで別の都市を基準にできます。</li><li>日付・勤務時間・会議の長さを設定します。全都市が勤務時間に入る列は、上の行が緑になります。</li><li>時間をクリックして選び、テキストをコピーするかGoogleカレンダーに追加します。</li></ol>
+<h2>グリッドの見方</h2>
+<p>黄色のセルは設定した勤務時間内、薄い青は早朝・夜（6時〜22時のうち勤務時間外）、濃い色は深夜です。青い縦線は、その都市で日付が変わる位置を示します。</p>
+<h2>サマータイムに注意</h2>
+<p>ヨーロッパと北米ではサマータイムの切り替え日が異なるため、ロンドンとニューヨークの時差は年に数週間だけ5時間ではなく4時間になります。日本との時差も季節で変わります。このツールは選んだ日付に合わせてブラウザ内蔵のIANAタイムゾーンデータで計算するため、その日の正確な時刻がわかります。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>無料で使えますか？</summary><p>はい。登録不要で、都市の数や利用回数にも制限はありません。</p></details><details><summary>インドなど30分単位の時差にも対応していますか？</summary><p>はい。インド（UTC+5:30）、ネパール（UTC+5:45）、アデレードなど、1時間単位でない時差も正確な現地時刻で表示します。</p></details><details><summary>追加した都市はどこに保存されますか？</summary><p>この端末のブラウザ内（ローカルストレージ）にのみ保存されます。サーバーには送信されません。</p></details><details><summary>一覧にない地域は追加できますか？</summary><p>はい。America/Denver や Asia/Almaty など、IANAタイムゾーン名で検索すれば追加できます。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/date-calculator/"><strong>日数計算</strong><span>日付の間の日数、平日の日数、○日後の日付を計算。</span></a></li><li><a href="/ja/age-calculator/"><strong>年齢計算</strong><span>満年齢・数え年・学年（早生まれ対応）・干支を計算。</span></a></li><li><a href="/ja/japanese-era/"><strong>和暦・西暦変換</strong><span>西暦⇔和暦を変換。年齢・干支つき早見表。</span></a></li><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/overlap/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

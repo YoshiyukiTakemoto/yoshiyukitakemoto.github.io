@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>単位換算（長さ・重さ・温度・面積・坪） | Plainkit</title>
+<meta name="description" content="長さ・重さ・温度・面積・体積・速さ・データ量を一括で単位換算。インチ、フィート、ポンドから、坪・畳・尺・合などの日本の伝統単位まで対応した無料ツールです。">
+<link rel="canonical" href="https://tools.motty.jp/ja/unit-converter/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/unit-converter/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/unit-converter/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/unit-converter/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="単位換算（長さ・重さ・温度・面積・坪） | Plainkit">
+<meta property="og:description" content="長さ・重さ・温度・面積・体積・速さ・データ量を一括で単位換算。インチ、フィート、ポンドから、坪・畳・尺・合などの日本の伝統単位まで対応した無料ツールです。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/unit-converter/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.uc{display:grid;gap:14px}
+.kinds{display:flex;flex-wrap:wrap;gap:6px}
+.kinds button{font:500 14px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer}
+.kinds button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+#v{width:12rem;font:500 18px var(--f-mono)}
+.res{width:100%;border-collapse:collapse}
+.res td{padding:9px 6px;border-top:1px solid var(--line)}
+.res td.n{font:500 16px var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;word-break:break-all}
+.res td.u{color:var(--muted);width:45%}
+.res tr.self td{background:color-mix(in srgb,var(--accent) 10%,var(--surface));font-weight:600}
+.res tr.grp td{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-top:0;padding-top:16px}
+.res button{border:0;background:none;color:var(--accent);font:500 12px var(--f-body);cursor:pointer;padding:2px 6px}
+.hint{margin:0;color:var(--muted);font-size:13px}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"単位換算","url":"https://tools.motty.jp/ja/unit-converter/","description":"長さ・重さ・温度・面積・体積・速さ・データ量を一括で単位換算。インチ、フィート、ポンドから、坪・畳・尺・合などの日本の伝統単位まで対応した無料ツールです。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"単位換算","item":"https://tools.motty.jp/ja/unit-converter/"}]}</script>
+</head>
+<body data-slug="unit-converter">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/unit-converter/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">単位換算</li></ol></nav>
+<div><h1>単位換算</h1><p class="lede">数値を1回入力するだけで、すべての単位に一括で換算します。メートル法やヤード・ポンド法に加え、坪・畳・尺・合・貫などの尺貫法にも対応しています。</p></div>
+<div class="uc">
+  <div class="kinds" id="kinds" role="group"></div>
+  <section class="panel">
+    <div class="row">
+      <div class="field"><label for="v" id="l-v"></label><input id="v" type="number" step="any" value="1" inputmode="decimal"></div>
+      <div class="field"><label for="from" id="l-from"></label><select id="from"></select></div>
+    </div>
+    <table class="res"><tbody id="res"></tbody></table>
+    <p class="hint" id="hint"></p>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>換算したい種類（長さ、重さ、温度、面積、体積・容量、速さ、データ量）を選びます。</li><li>数値を入力し、その数値の単位を選びます。</li><li>ほかのすべての単位での値が一覧で表示されます。入力した単位の行は色付きで表示されます。</li><li>結果の横の「コピー」で数値をコピーできます。</li></ol>
+<h2>よく使う換算の早見表</h2>
+<table><tbody><tr><td>1坪</td><td>約3.306 m²（畳約2枚分）</td></tr><tr><td>1畳</td><td>1.62 m²（不動産の表示規約）</td></tr><tr><td>1インチ</td><td>2.54 cm</td></tr><tr><td>1フィート</td><td>30.48 cm</td></tr><tr><td>1ポンド</td><td>約453.6 g</td></tr><tr><td>1マイル</td><td>約1.609 km</td></tr><tr><td>1合</td><td>約180 mL</td></tr><tr><td>1尺</td><td>約30.3 cm</td></tr></tbody></table>
+<h2>坪と畳の換算について</h2>
+<p>1坪は約3.306 m²で、「400/121 m²」と定義されています。畳の大きさは地域によって異なり（江戸間・京間など）、不動産広告では1畳＝1.62 m²以上として表示するルールがあるため、このツールでも1.62 m²で計算しています。例えば70 m²のマンションは約21.2坪、約43.2畳です。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>摂氏を華氏に換算する計算式は？</summary><p>摂氏×1.8＋32＝華氏です。例えば20 °Cは68 °Fになります。上の「温度」を選ぶとすぐに換算できます。</p></details><details><summary>GBとGiBの違いは？</summary><p>GBは1000倍ごと（ストレージメーカーの表記）、GiBは1024倍ごと（多くのOSの表示）です。そのため1 TBのドライブはOS上で約931 GiBと表示されます。</p></details><details><summary>1坪は何平方メートル、何畳ですか？</summary><p>1坪は約3.306 m²で、1.62 m²の畳に換算すると約2.04畳です。一般には「1坪＝畳2枚」と覚えられています。</p></details><details><summary>料理の「1カップ」は何mLですか？</summary><p>日本の計量カップは200 mL、アメリカのカップは約237 mLです。両方を一覧に表示しています。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/percentage-calculator/"><strong>パーセント計算</strong><span>割合・増減率・○%オフ・元の数の逆算を式付きで。</span></a></li><li><a href="/ja/tax-calculator/"><strong>消費税計算</strong><span>税込⇔税抜を10%・8%で計算。端数処理も選択可。</span></a></li><li><a href="/ja/bmi-calculator/"><strong>BMI計算</strong><span>BMIと肥満度、標準体重（BMI22）を計算。</span></a></li><li><a href="/ja/split-bill/"><strong>割り勘計算</strong><span>傾斜配分・100円単位の端数処理つき割り勘。</span></a></li><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/unit-converter/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

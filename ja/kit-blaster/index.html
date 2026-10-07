@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>キットブラスター（無料レトロシューティングゲーム） | Plainkit</title>
+<meta name="description" content="ブラウザで無料で遊べるレトロ風の縦スクロールシューティング。終わりのないウェーブを撃ち抜き、パワーアップで弾を強化し、連続撃破でコンボを稼ぎ、5ウェーブごとのボスに挑戦します。">
+<link rel="canonical" href="https://tools.motty.jp/ja/kit-blaster/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/kit-blaster/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/kit-blaster/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/kit-blaster/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="キットブラスター（無料レトロシューティングゲーム） | Plainkit">
+<meta property="og:description" content="ブラウザで無料で遊べるレトロ風の縦スクロールシューティング。終わりのないウェーブを撃ち抜き、パワーアップで弾を強化し、連続撃破でコンボを稼ぎ、5ウェーブごとのボスに挑戦します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/kit-blaster/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.kb{display:grid;gap:12px;justify-items:center}
+.stage{position:relative;width:min(100%,calc(78vh * 9 / 16));aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#070b1c;touch-action:none;user-select:none;-webkit-user-select:none}
+.stage:fullscreen{border-radius:0;width:100%;height:100%;display:grid;place-items:center;background:#000}
+.stage:fullscreen canvas{height:100%;width:auto;aspect-ratio:9/16}
+#game{width:100%;height:100%;display:block;outline:none;cursor:crosshair}
+.ui{position:absolute;top:8px;right:8px;display:flex;gap:6px}
+.ui button{border:0;border-radius:8px;background:rgba(255,255,255,.14);color:#fff;font-size:16px;width:34px;height:34px;cursor:pointer}
+.below{display:grid;gap:10px;justify-items:center;text-align:center}
+.keys{margin:0;color:var(--muted);font-size:14px}
+.keys kbd{font:500 12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--surface);color:var(--fg)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"キットブラスター","url":"https://tools.motty.jp/ja/kit-blaster/","description":"ブラウザで無料で遊べるレトロ風の縦スクロールシューティング。終わりのないウェーブを撃ち抜き、パワーアップで弾を強化し、連続撃破でコンボを稼ぎ、5ウェーブごとのボスに挑戦します。","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"キットブラスター","item":"https://tools.motty.jp/ja/kit-blaster/"}]}</script>
+</head>
+<body data-slug="kit-blaster">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/kit-blaster/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">キットブラスター</li></ol></nav>
+<div><h1>キットブラスター（縦スクロールシューティング）</h1><p class="lede">アーケード風のスピーディーな縦シューティングです。弾は自動で発射されるので、敵弾をよけることに集中できます。パワーアップを集め、コンボをつなげ、何ウェーブ生き残れるか挑戦しましょう。</p></div>
+<div class="kb">
+  <div class="stage" id="stage">
+    <canvas id="game" width="720" height="1280" tabindex="0" aria-label="Kit Blaster game"></canvas>
+    <div class="ui"><button type="button" id="mute" aria-label="Sound">🔊</button><button type="button" id="fs" aria-label="Full screen">⛶</button></div>
+  </div>
+  <div class="below">
+    <p class="keys" id="keys"></p>
+    <div id="share"></div>
+  </div>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>スペースキーを押すか、画面をタップしてスタートします。</li><li>矢印キーまたはWASDで移動します。弾は自動で発射されます。Shiftを押している間はゆっくり動き、当たり判定が白い点で表示されます。</li><li>スマホでは画面のどこでもドラッグして操作します。自機は指より少し上に表示されるので、指で隠れません。</li><li><strong>P</strong>を取ると弾が強化され、<strong>♥</strong>で残機が増えます。5ウェーブごとにボスが登場します。</li></ol>
+<h2>スコアとコンボ</h2>
+<p>敵ごとに得点があり、約1秒以内に続けて倒すとコンボ倍率が上がります（最大×8）。被弾するとコンボがリセットされ、弾のパワーが1段階下がります。パワーが最大のときにPを取ると1,000点です。</p>
+<h2>敵の種類</h2>
+<ul><li><strong>ドローン</strong>（ピンクの四角）：列になって降りてきます。</li><li><strong>ダイバー</strong>（オレンジの矢印）：一度止まってから自機めがけて突進します。</li><li><strong>タレット</strong>（青緑の六角形）：止まって狙い撃ちしてきます。耐久力が高めです。</li><li><strong>スピナー</strong>（黄色の輪）：画面の横から回り込んで現れます。</li><li><strong>ボス</strong>：体力が減るごとに攻撃パターンが変わります。</li></ul>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>ハイスコアは保存されますか？</summary><p>はい。このブラウザに保存されます。ゲーム終了後に表示されるボタンでスコアをシェアできます。</p></details><details><summary>音を消せますか？</summary><p>はい。ゲーム画面右上のスピーカーボタンで切り替えられます。</p></details><details><summary>スマホでも遊べますか？</summary><p>はい。縦画面向けに作っています。全画面（⛶）にすると遊びやすくなります。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-dungeon/"><strong>キットダンジョン</strong><span>毎日のダンジョンに潜るターン制ローグライクRPG。</span></a></li><li><a href="/ja/kit-jump/"><strong>キットジャンプ</strong><span>無限に続く横スクロールアクション。敵を踏んでコイン集め。</span></a></li><li><a href="/ja/sudoku/"><strong>数独（ナンプレ）</strong><span>毎日の数独を3つの難易度で。メモ・連続記録つき。</span></a></li><li><a href="/ja/roulette/"><strong>ルーレット</strong><span>抽選・順番決め・ランチ選びに使えるルーレット。</span></a></li><li><a href="/ja/life-in-weeks/"><strong>人生カレンダー</strong><span>人生を1週間＝1マスで表示。残りの週・夏を計算。</span></a></li><li><a href="/ja/reaction-test/"><strong>反射神経テスト</strong><span>緑になったらタップ。反応速度をミリ秒で測定。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/kit-blaster/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

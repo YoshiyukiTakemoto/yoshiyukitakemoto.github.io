@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>数独・ナンプレ無料（毎日の問題・初級〜上級） | Plainkit</title>
+<meta name="description" content="無料で遊べるオンライン数独（ナンプレ）。毎日新しい問題を初級・中級・上級で出題。メモ機能、戻す、間違い表示、連続日数の記録、自動保存に対応。登録不要。">
+<link rel="canonical" href="https://tools.motty.jp/ja/sudoku/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/sudoku/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/sudoku/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/sudoku/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="数独・ナンプレ無料（毎日の問題・初級〜上級） | Plainkit">
+<meta property="og:description" content="無料で遊べるオンライン数独（ナンプレ）。毎日新しい問題を初級・中級・上級で出題。メモ機能、戻す、間違い表示、連続日数の記録、自動保存に対応。登録不要。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/sudoku/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--given:var(--fg);--user:var(--accent);--bad:#c23b3b;--hl:color-mix(in srgb,var(--accent) 9%,var(--surface));--same:color-mix(in srgb,var(--accent) 22%,var(--surface));--selc:color-mix(in srgb,var(--accent) 34%,var(--surface))}
+@media (prefers-color-scheme:dark){:root{--bad:#ff7a7a}}
+.sd{display:grid;gap:14px}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.top .sp{flex:1}
+.today{color:var(--muted);font-size:14px}
+.stat{display:grid;text-align:center}
+.stat b{font:600 18px var(--f-mono)}
+.play{display:grid;grid-template-columns:minmax(0,34rem) minmax(0,16rem);gap:20px;align-items:start}
+@media (max-width:760px){.play{grid-template-columns:1fr}}
+.board{display:grid;grid-template-columns:repeat(9,1fr);aspect-ratio:1;width:100%;max-width:34rem;border:2.5px solid var(--fg);border-radius:6px;overflow:hidden;background:var(--surface);user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.board:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.cell{border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);display:grid;place-items:center;font:500 clamp(18px,5.4vw,28px)/1 var(--f-body);color:var(--user);cursor:pointer;padding:0;position:relative;min-width:0}
+.cell:nth-child(9n+3),.cell:nth-child(9n+6){border-right:2px solid var(--fg)}
+.cell:nth-child(n+19):nth-child(-n+27),.cell:nth-child(n+46):nth-child(-n+54){border-bottom:2px solid var(--fg)}
+.cell.given{color:var(--given);font-weight:700}
+.cell.hl{background:var(--hl)}.cell.same{background:var(--same)}.cell.sel{background:var(--selc)}
+.cell.bad{color:var(--bad)}
+.cell .nt{display:grid;grid-template-columns:repeat(3,1fr);width:100%;height:100%;padding:2px}
+.cell .nt span{font:500 clamp(8px,2vw,11px)/1 var(--f-mono);color:var(--muted);display:grid;place-items:center}
+.side{display:grid;gap:12px}
+.pad{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+@media (max-width:760px){.pad{grid-template-columns:repeat(9,1fr)}}
+.pad button{font:600 22px var(--f-body);padding:10px 0;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:grid;line-height:1}
+.pad button small{font:500 10px var(--f-mono);color:var(--muted);margin-top:3px}
+.pad button:disabled{opacity:.35}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+#notes[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.done{background:var(--ok-bg);border-radius:12px;padding:14px;display:grid;gap:10px}
+.done strong{color:var(--ok);font:600 16px var(--f-body)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"数独（ナンプレ）","url":"https://tools.motty.jp/ja/sudoku/","description":"無料で遊べるオンライン数独（ナンプレ）。毎日新しい問題を初級・中級・上級で出題。メモ機能、戻す、間違い表示、連続日数の記録、自動保存に対応。登録不要。","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"数独（ナンプレ）","item":"https://tools.motty.jp/ja/sudoku/"}]}</script>
+</head>
+<body data-slug="sudoku">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/sudoku/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">数独（ナンプレ）</li></ol></nav>
+<div><h1>数独（ナンプレ）毎日の問題</h1><p class="lede">毎日新しい問題を3つの難易度で出題します。問題は全員共通なので、タイムを友達と比べられます。練習問題は何問でも遊べ、途中経過は自動で保存されます。</p></div>
+<div class="sd">
+  <div class="top">
+    <div class="seg" role="group" id="levels"></div>
+    <span class="today" id="today"></span>
+    <span class="sp"></span>
+    <span class="stat"><span class="eyebrow" id="l-time"></span><b class="num" id="time">0:00</b></span>
+    <span class="stat"><span class="eyebrow" id="l-miss"></span><b class="num" id="miss">0</b></span>
+    <span class="stat"><span class="eyebrow" id="l-streak"></span><b class="num" id="streak">0</b></span>
+  </div>
+  <div class="play">
+    <div class="board" id="board" role="grid" tabindex="0"></div>
+    <div class="side">
+      <div class="pad" id="pad"></div>
+      <div class="tools">
+        <button class="btn" type="button" id="notes" aria-pressed="false"></button>
+        <button class="btn" type="button" id="erase"></button>
+        <button class="btn" type="button" id="undo"></button>
+      </div>
+      <label class="check"><input type="checkbox" id="showerr" checked><span id="l-showerr"></span></label>
+      <button class="btn" type="button" id="random"></button>
+      <div class="done" id="done" hidden><strong id="done-msg"></strong><div id="share"></div></div>
+    </div>
+  </div>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>初級・中級・上級を選びます。今日遊ぶ人は全員同じ問題です。</li><li>マスをタップしてから数字をタップします。キーボードでは矢印キーと1〜9で入力できます。</li><li><strong>メモ</strong>をオン（またはNキー）にすると、候補の数字を小さく書き込めます。</li><li>毎日解いて連続日数を伸ばし、タイムをシェアしましょう。</li></ol>
+<h2>数独のルール</h2>
+<p>9×9のマスに、どの行・どの列・どの3×3のブロックにも1〜9の数字が1つずつ入るように埋めます。このサイトの問題はすべて答えが1つだけで、当てずっぽうに頼らず理詰めで解けます。数独はナンプレ（ナンバープレース）とも呼ばれます。</p>
+<h2>解き方のコツ</h2>
+<ul><li><strong>入る場所が1つだけ</strong>：ある数字が、行・列・ブロックの中で1か所にしか入らないなら、そこに決まります。</li><li><strong>入る数字が1つだけ</strong>：あるマスに入れられる数字が1つしかなければ、それに決まります。</li><li><strong>メモを使う</strong>：上級では候補をメモし、数字が決まるたびに消していくと解きやすくなります。</li></ul>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>今日の問題はいつ切り替わりますか？</summary><p>お使いの端末の時刻で、毎日0時に切り替わります。</p></details><details><summary>途中でタブを閉じても続きから遊べますか？</summary><p>はい。問題ごとに、入力内容・タイム・メモがこのブラウザに保存されます。</p></details><details><summary>ミスはどう数えられますか？</summary><p>答えと違う数字を入れるとミスになります。「間違いを赤で表示」をオフにすると表示されなくなりますが、回数は数えられます。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-dungeon/"><strong>キットダンジョン</strong><span>毎日のダンジョンに潜るターン制ローグライクRPG。</span></a></li><li><a href="/ja/kit-blaster/"><strong>キットブラスター</strong><span>パワーアップとボス戦のあるレトロ縦シューティング。</span></a></li><li><a href="/ja/kit-jump/"><strong>キットジャンプ</strong><span>無限に続く横スクロールアクション。敵を踏んでコイン集め。</span></a></li><li><a href="/ja/roulette/"><strong>ルーレット</strong><span>抽選・順番決め・ランチ選びに使えるルーレット。</span></a></li><li><a href="/ja/life-in-weeks/"><strong>人生カレンダー</strong><span>人生を1週間＝1マスで表示。残りの週・夏を計算。</span></a></li><li><a href="/ja/reaction-test/"><strong>反射神経テスト</strong><span>緑になったらタップ。反応速度をミリ秒で測定。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/sudoku/gen.js" defer></script>
+<script src="/sudoku/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

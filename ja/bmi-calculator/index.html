@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BMI計算（標準体重・肥満度判定） | Plainkit</title>
+<meta name="description" content="身長と体重からBMIを無料で計算。日本肥満学会の基準で肥満度を判定し、標準体重（BMI22）と普通体重の範囲も表示します。">
+<link rel="canonical" href="https://tools.motty.jp/ja/bmi-calculator/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/bmi-calculator/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/bmi-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/bmi-calculator/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="BMI計算（標準体重・肥満度判定） | Plainkit">
+<meta property="og:description" content="身長と体重からBMIを無料で計算。日本肥満学会の基準で肥満度を判定し、標準体重（BMI22）と普通体重の範囲も表示します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/bmi-calculator/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--b1:#9cc3e6;--b2:#8fd1a8;--b3:#f2d16b;--b4:#f0a868;--b5:#e07a6a}
+@media (prefers-color-scheme:dark){:root{--b1:#3d6b94;--b2:#3f8a5c;--b3:#a88c2c;--b4:#a8642c;--b5:#9c4538}}
+.bmi{display:grid;gap:12px;max-width:44rem}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.row input{width:9rem;font:500 18px var(--f-mono)}
+.result{display:grid;gap:16px;border-top:1px solid var(--line);padding-top:16px}
+.big{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.big strong{font:700 3.2rem/1 var(--f-display);font-variant-numeric:tabular-nums}
+.cat{font-weight:600;padding:3px 12px;border-radius:999px;background:var(--bg)}
+.scale{position:relative;padding-top:4px}
+.bands{display:flex;height:14px;border-radius:7px;overflow:hidden}
+.bands span{display:block;height:100%}
+.bandlabels{display:flex;font-size:11px;color:var(--muted);margin-top:4px}
+.bandlabels span{text-align:left;white-space:nowrap;overflow:hidden}
+.mark{position:absolute;top:0;width:4px;height:22px;margin-left:-2px;background:var(--fg);border-radius:2px;transition:left .2s}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:10px;margin:0}
+.facts div{background:var(--bg);border-radius:10px;padding:10px 12px}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font:500 16px var(--f-mono)}
+.note{margin:0;font-size:13px;color:var(--muted)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BMI計算","url":"https://tools.motty.jp/ja/bmi-calculator/","description":"身長と体重からBMIを無料で計算。日本肥満学会の基準で肥満度を判定し、標準体重（BMI22）と普通体重の範囲も表示します。","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"BMI計算","item":"https://tools.motty.jp/ja/bmi-calculator/"}]}</script>
+</head>
+<body data-slug="bmi-calculator">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/bmi-calculator/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">BMI計算</li></ol></nav>
+<div><h1>BMI計算・肥満度チェック</h1><p class="lede">身長と体重を入力すると、BMIと肥満度の判定（日本肥満学会の基準）、標準体重、普通体重の範囲がわかります。</p></div>
+<div class="bmi">
+  <section class="panel">
+    <div class="seg" role="group" id="units" hidden><button type="button" data-u="metric" aria-pressed="true">cm / kg</button><button type="button" data-u="imperial" aria-pressed="false">ft·in / lb</button></div>
+    <div class="row" id="metric">
+      <div class="field"><label for="h" id="l-h"></label><input id="h" type="number" step="0.1" min="50" max="250" value="170" inputmode="decimal"></div>
+      <div class="field"><label for="w" id="l-w"></label><input id="w" type="number" step="0.1" min="10" max="300" value="65" inputmode="decimal"></div>
+    </div>
+    <div class="row" id="imperial" hidden>
+      <div class="field"><label for="ft">Height (ft)</label><input id="ft" type="number" min="3" max="8" value="5" inputmode="numeric"></div>
+      <div class="field"><label for="in">(in)</label><input id="in" type="number" min="0" max="11.9" step="0.1" value="7" inputmode="decimal"></div>
+      <div class="field"><label for="lb">Weight (lb)</label><input id="lb" type="number" min="20" max="700" step="0.1" value="143" inputmode="decimal"></div>
+    </div>
+    <div class="result" aria-live="polite">
+      <div class="big"><span class="eyebrow">BMI</span><strong id="bmi"></strong><span class="cat" id="cat"></span></div>
+      <div class="scale" id="scale"><div class="bands" id="bands"></div><i class="mark" id="mark"></i></div>
+      <dl class="facts" id="facts"></dl>
+    </div>
+  </section>
+  <p class="note" id="note"></p>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>身長（cm）と体重（kg）を入力します。</li><li>BMIと肥満度の判定が表示されます。</li><li>標準体重（BMI 22）と、普通体重の範囲を確認できます。</li></ol>
+<h2>肥満度の判定基準（日本肥満学会）</h2>
+<table><thead><tr><th>BMI</th><th>判定</th></tr></thead><tbody><tr><td>18.5未満</td><td>低体重（やせ）</td></tr><tr><td>18.5以上25未満</td><td>普通体重</td></tr><tr><td>25以上30未満</td><td>肥満（1度）</td></tr><tr><td>30以上35未満</td><td>肥満（2度）</td></tr><tr><td>35以上40未満</td><td>肥満（3度）</td></tr><tr><td>40以上</td><td>肥満（4度）</td></tr></tbody></table>
+<h2>BMIと標準体重の計算式</h2>
+<p>BMI＝体重（kg）÷身長（m）÷身長（m）です。例えば身長170 cm・体重65 kgなら、65÷1.7÷1.7＝22.5です。標準体重は統計的に病気になりにくいとされるBMI 22から、身長（m）×身長（m）×22で求めます。身長170 cmの標準体重は約63.6 kgです。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>日本とWHOで肥満の基準が違うのはなぜ？</summary><p>日本人はBMIが比較的低くても生活習慣病のリスクが高まりやすいため、日本肥満学会はBMI 25以上を肥満としています。WHOでは25〜30未満を過体重、30以上を肥満としています。</p></details><details><summary>子どもにも使えますか？</summary><p>この判定は18歳以上の成人向けです。子どもの肥満度は、性別・年齢・身長別の標準体重を使う「肥満度」やローレル指数などで評価します。</p></details><details><summary>BMIが普通でも安心できますか？</summary><p>BMIは筋肉と脂肪を区別しないため、普通体重でも内臓脂肪が多い「隠れ肥満」の場合があります。腹囲なども合わせて確認し、気になる場合は医師に相談してください。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/unit-converter/"><strong>単位換算</strong><span>長さ・重さ・温度・面積（坪・畳）・容量・速さ・データ量。</span></a></li><li><a href="/ja/percentage-calculator/"><strong>パーセント計算</strong><span>割合・増減率・○%オフ・元の数の逆算を式付きで。</span></a></li><li><a href="/ja/tax-calculator/"><strong>消費税計算</strong><span>税込⇔税抜を10%・8%で計算。端数処理も選択可。</span></a></li><li><a href="/ja/split-bill/"><strong>割り勘計算</strong><span>傾斜配分・100円単位の端数処理つき割り勘。</span></a></li><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/bmi-calculator/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

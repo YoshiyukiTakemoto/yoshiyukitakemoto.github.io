@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>キットダンジョン（無料ブラウザRPG・ローグライク） | Plainkit</title>
+<meta name="description" content="ブラウザで無料で遊べるターン制のローグライクRPG。自動生成されるダンジョンを探索し、モンスターを倒し、武器や薬を集めてどこまで深く潜れるか挑戦。毎日全員共通の「今日のダンジョン」も。">
+<link rel="canonical" href="https://tools.motty.jp/ja/kit-dungeon/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/kit-dungeon/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/kit-dungeon/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/kit-dungeon/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="キットダンジョン（無料ブラウザRPG・ローグライク） | Plainkit">
+<meta property="og:description" content="ブラウザで無料で遊べるターン制のローグライクRPG。自動生成されるダンジョンを探索し、モンスターを倒し、武器や薬を集めてどこまで深く潜れるか挑戦。毎日全員共通の「今日のダンジョン」も。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/kit-dungeon/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.kd{display:grid;gap:12px}
+.modes{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.modes .mode{color:var(--muted);font-size:14px}
+#free.confirm,#daily.confirm{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,19rem);gap:16px;align-items:start}
+@media (max-width:820px){.main{grid-template-columns:1fr}}
+.view{position:relative}
+#map{width:100%;height:auto;aspect-ratio:960/704;display:block;border-radius:12px;background:#0b0e1a;outline:none;touch-action:manipulation;image-rendering:pixelated}
+#map:focus-visible{box-shadow:0 0 0 3px var(--accent)}
+.pad{display:grid;grid-template-columns:repeat(3,56px);grid-template-rows:repeat(3,56px);gap:6px;justify-content:center;margin-top:10px}
+.pad button{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);font-size:20px;touch-action:manipulation}
+.pad [data-d=up]{grid-column:2;grid-row:1}.pad [data-d=left]{grid-column:1;grid-row:2}.pad [data-d=wait]{grid-column:2;grid-row:2}.pad [data-d=right]{grid-column:3;grid-row:2}.pad [data-d=down]{grid-column:2;grid-row:3}
+.side{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.hp{display:grid;gap:4px}
+.hp .bar{height:12px;border-radius:6px;background:var(--bg);overflow:hidden}
+.hp i{display:block;height:100%;background:#3fae6a;transition:width .2s}
+.hp i.low{background:#d9534f}
+.hp span{font-size:13px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px;margin:0;font-size:14px}
+.stats div{display:flex;justify-content:space-between;gap:6px;border-bottom:1px dashed var(--line);padding-bottom:3px}
+.stats dt{color:var(--muted)}.stats dd{margin:0;font-family:var(--f-mono);text-align:right}
+.inv{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+.inv button{border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);padding:6px 2px;font:500 11.5px var(--f-body);cursor:pointer;min-height:44px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.inv button:disabled{opacity:.35;cursor:default}
+.inv small{display:block;color:var(--muted);font:11px var(--f-mono)}
+.screen{position:relative}
+.log{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);width:min(92%,34rem);list-style:none;margin:0;padding:10px 16px;display:grid;gap:3px;font:600 clamp(12px,1.8vw,15px)/1.5 var(--f-body);color:#fff;background:rgba(10,12,24,.9);border:2px solid #e6e9f2;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.4);pointer-events:none}
+.log.pop{animation:msgin .14s ease-out}
+@keyframes msgin{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+.keys{margin:0;color:var(--muted);font-size:13px}
+.keys kbd{font:500 12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--surface);color:var(--fg)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"キットダンジョン","url":"https://tools.motty.jp/ja/kit-dungeon/","description":"ブラウザで無料で遊べるターン制のローグライクRPG。自動生成されるダンジョンを探索し、モンスターを倒し、武器や薬を集めてどこまで深く潜れるか挑戦。毎日全員共通の「今日のダンジョン」も。","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"キットダンジョン","item":"https://tools.motty.jp/ja/kit-dungeon/"}]}</script>
+</head>
+<body data-slug="kit-dungeon">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/kit-dungeon/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">キットダンジョン</li></ol></nav>
+<div><h1>キットダンジョン（毎日遊べるローグライクRPG）</h1><p class="lede">ターン制のダンジョン探索RPGです。階段を降りるたびに新しいフロアが自動で作られます。モンスターを倒してレベルを上げ、強い装備を見つけ、どこまで深く潜れるか挑戦しましょう。倒れたら最初からです。</p></div>
+<div class="kd">
+  <div class="modes">
+    <button class="btn primary" type="button" id="daily"></button>
+    <button class="btn" type="button" id="free"></button>
+    <span class="mode" id="mode"></span>
+  </div>
+  <div class="main">
+    <div class="view">
+      <div class="screen">
+        <canvas id="map" width="960" height="704" tabindex="0" aria-label="Dungeon map"></canvas>
+        <ol class="log" id="log" aria-live="polite" hidden></ol>
+      </div>
+      <div class="pad" id="pad" hidden>
+        <button type="button" data-d="up" aria-label="Up">▲</button>
+        <button type="button" data-d="left" aria-label="Left">◀</button>
+        <button type="button" data-d="wait" aria-label="Wait">・</button>
+        <button type="button" data-d="right" aria-label="Right">▶</button>
+        <button type="button" data-d="down" aria-label="Down">▼</button>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="hp"><div class="bar"><i id="hpbar"></i></div><span class="num" id="hptext"></span></div>
+      <dl class="stats" id="stats"></dl>
+      <div><span class="eyebrow" id="l-inv"></span><div class="inv" id="inv"></div></div>
+      <button class="btn" type="button" id="stairs" hidden></button>
+      <div id="share"></div>
+    </aside>
+  </div>
+  <p class="keys" id="keys"></p>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li><strong>今日のダンジョン</strong>（今日は全員同じ地形）か、<strong>新しいダンジョン</strong>を選びます。</li><li>矢印キーまたはWASDで移動します。スマホでは方向ボタンを使うか、マップをタップします。モンスターに向かって進むと攻撃します。</li><li>アイテムは上を歩くと拾えます。強い武器・防具は自動で装備されます。ポーション・爆弾・巻物は1〜8のキーで使います。</li><li>金色の階段を見つけたらEnterで次の階へ。毎ターン自動保存されるので、ページを閉じても続きから遊べます。</li></ol>
+<h2>遊び方のポイント</h2>
+<p>1回の行動で1ターンが進み、あなたの行動の後にモンスターが動きます。見えるのは視界の範囲だけで、一度探索した場所は地図に残ります。深い階ほどモンスターが強くなるので、経験値を稼ぐか、先を急ぐかの判断が大切です。HPが0になると冒険は終わり、地下1階からやり直しです。</p>
+<h2>アイテム</h2>
+<ul><li><strong>ポーション</strong>：HPを回復します。</li><li><strong>エリクサー</strong>：HPを全回復します。</li><li><strong>爆弾</strong>：見えているすべてのモンスターにダメージを与えます。</li><li><strong>ワープの巻物</strong>：フロアのどこかへ移動します。囲まれたときに便利です。</li></ul>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>ローグライクとは何ですか？</summary><p>ダンジョンが毎回自動で生成され、ターン制で進み、倒れると最初からやり直しになるゲームのジャンルです。毎回違う展開になるので、暗記ではなく判断力で上達していきます。</p></details><details><summary>今日のダンジョンは本当に全員同じですか？</summary><p>はい。今日の日付からフロアを作るので、地形・モンスター・アイテムの配置は全員共通です。戦闘のダメージなどは毎回変わります。</p></details><details><summary>途中で保存されますか？</summary><p>はい。冒険の途中経過は、毎ターンこのブラウザに保存されます。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-blaster/"><strong>キットブラスター</strong><span>パワーアップとボス戦のあるレトロ縦シューティング。</span></a></li><li><a href="/ja/kit-jump/"><strong>キットジャンプ</strong><span>無限に続く横スクロールアクション。敵を踏んでコイン集め。</span></a></li><li><a href="/ja/sudoku/"><strong>数独（ナンプレ）</strong><span>毎日の数独を3つの難易度で。メモ・連続記録つき。</span></a></li><li><a href="/ja/roulette/"><strong>ルーレット</strong><span>抽選・順番決め・ランチ選びに使えるルーレット。</span></a></li><li><a href="/ja/life-in-weeks/"><strong>人生カレンダー</strong><span>人生を1週間＝1マスで表示。残りの週・夏を計算。</span></a></li><li><a href="/ja/reaction-test/"><strong>反射神経テスト</strong><span>緑になったらタップ。反応速度をミリ秒で測定。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/kit-dungeon/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

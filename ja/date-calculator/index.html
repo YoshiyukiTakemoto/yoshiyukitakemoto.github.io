@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日数計算（日付から日数・○日後を計算） | Plainkit</title>
+<meta name="description" content="2つの日付の間の日数や平日の日数を計算。日付に日数・週・月・年を足し引きして、○日後・○日前の日付もすぐにわかります。無料・登録不要。">
+<link rel="canonical" href="https://tools.motty.jp/ja/date-calculator/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/date-calculator/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/date-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/date-calculator/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="日数計算（日付から日数・○日後を計算） | Plainkit">
+<meta property="og:description" content="2つの日付の間の日数や平日の日数を計算。日付に日数・週・月・年を足し引きして、○日後・○日前の日付もすぐにわかります。無料・登録不要。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/date-calculator/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.dc{display:grid;gap:14px;justify-items:start}
+.dc .panel{width:100%}
+.row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 16px}
+.row input[type=number]{width:8rem}
+.arrow{font-size:1.3rem;color:var(--muted);padding-bottom:6px}
+.quick{display:flex;flex-wrap:wrap;gap:6px}
+.quick button{font:500 13px var(--f-body);border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:999px;padding:5px 12px;cursor:pointer}
+.quick button:hover{border-color:var(--accent)}
+.result{display:grid;gap:14px;border-top:1px solid var(--line);padding-top:16px}
+.hero{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.hero strong{font:700 clamp(2.4rem,7vw,3.6rem)/1 var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hero span{color:var(--muted);font-size:16px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:10px}
+.facts div{background:var(--bg);border-radius:10px;padding:10px 12px;display:grid;gap:2px}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font:500 16px var(--f-mono);font-variant-numeric:tabular-nums}
+.hint{font-size:13px;color:var(--muted);margin:0}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"日数計算","url":"https://tools.motty.jp/ja/date-calculator/","description":"2つの日付の間の日数や平日の日数を計算。日付に日数・週・月・年を足し引きして、○日後・○日前の日付もすぐにわかります。無料・登録不要。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"日数計算","item":"https://tools.motty.jp/ja/date-calculator/"}]}</script>
+</head>
+<body data-slug="date-calculator">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/date-calculator/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">日数計算</li></ol></nav>
+<div><h1>日数計算・日付計算</h1><p class="lede">2つの日付の間の日数を数えたり、今日から○日後・○か月後の日付を調べたりできます。平日（土日を除く）の日数も表示します。</p></div>
+<div class="dc">
+  <div class="seg" role="group" id="mode"><button type="button" data-mode="between" aria-pressed="true" id="m-between"></button><button type="button" data-mode="add" aria-pressed="false" id="m-add"></button></div>
+  <section class="panel" id="p-between">
+    <div class="row">
+      <div class="field"><label for="b-start" id="l-bstart"></label><input type="date" id="b-start"></div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="field"><label for="b-end" id="l-bend"></label><input type="date" id="b-end"></div>
+      <label class="check"><input type="checkbox" id="b-incl"><span id="l-incl"></span></label>
+    </div>
+    <div class="quick" id="b-quick"></div>
+    <div class="result" id="r-between"></div>
+  </section>
+  <section class="panel" id="p-add" hidden>
+    <div class="row">
+      <div class="field"><label for="a-start" id="l-astart"></label><input type="date" id="a-start"></div>
+      <div class="field"><label for="a-n" id="l-an"></label><input type="number" id="a-n" value="100" step="1" inputmode="numeric"></div>
+      <div class="field"><label for="a-unit" id="l-unit"></label><select id="a-unit"></select></div>
+      <label class="check"><input type="checkbox" id="a-biz"><span id="l-biz"></span></label>
+    </div>
+    <div class="quick" id="a-quick"></div>
+    <div class="result" id="r-add"></div>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>日数を数えるなら<strong>2つの日付の間の日数</strong>、新しい日付を求めるなら<strong>日付の加算・減算</strong>を選びます。</li><li>日付を選びます。初日と最終日の両方を数える場合（休暇日数、イベント期間など）は<em>終了日を含める（両端入れ）</em>をオンにします。</li><li>日数、週、年月日、平日の日数が表示されます。</li><li>○日前を調べるには、−30のようにマイナスの数を入力します。</li></ol>
+<h2>「片端入れ」と「両端入れ」</h2>
+<p>3月1日から3月3日までは、経過日数で数えると<strong>2日</strong>（片端入れ）、両日を含めて数えると<strong>3日</strong>（両端入れ）です。期限や年齢の計算は片端入れ、休暇日数・宿泊期間・イベント日数は両端入れが一般的です。法律上の期間計算では初日を算入しない「初日不算入」が原則です。</p>
+<h2>月末に「○か月後」を足すとき</h2>
+<p>月によって日数が異なるため、1月31日の1か月後は2月28日（うるう年は29日）になります。3月にはみ出さず、短い月の末日に合わせて計算します。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>平日の日数から祝日は除かれますか？</summary><p>いいえ。土曜と日曜のみ除いています。祝日は国や地域によって異なるためです。</p></details><details><summary>うるう年に対応していますか？</summary><p>はい。グレゴリオ暦で計算するため、うるう年の2月29日も正しく扱います。</p></details><details><summary>今日から100日後は何日ですか？</summary><p>「日付の加算・減算」を選び、「100日後」ボタンを押すとすぐに表示されます。記念日や期限の確認に便利です。</p></details><details><summary>加算・減算モードを直接開くリンクはありますか？</summary><p>はい。ページのURLの末尾に #add を付けると、加算・減算モードで開きます。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/overlap/"><strong>時差・会議時間プランナー</strong><span>海外と全員の勤務時間が重なる会議時間を探す。</span></a></li><li><a href="/ja/age-calculator/"><strong>年齢計算</strong><span>満年齢・数え年・学年（早生まれ対応）・干支を計算。</span></a></li><li><a href="/ja/japanese-era/"><strong>和暦・西暦変換</strong><span>西暦⇔和暦を変換。年齢・干支つき早見表。</span></a></li><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/date-calculator/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

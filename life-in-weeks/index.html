@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Life in Weeks: Life Calendar | Plainkit</title>
+<meta name="description" content="See your whole life as a grid of weeks. Enter your birthday to see how many weeks you’ve lived, how many are left, and how many summers and weekends remain.">
+<link rel="canonical" href="https://tools.motty.jp/life-in-weeks/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/life-in-weeks/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/life-in-weeks/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/life-in-weeks/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Your Life in Weeks: Life Calendar | Plainkit">
+<meta property="og:description" content="See your whole life as a grid of weeks. Enter your birthday to see how many weeks you’ve lived, how many are left, and how many summers and weekends remain.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/life-in-weeks/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.lw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start}
+@media (max-width:860px){.lw{grid-template-columns:1fr}}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+#span{width:6rem}
+.headline{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:14px}
+.headline strong{font:700 clamp(2.6rem,9vw,4rem)/1 var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.headline span{color:var(--muted);font-size:15px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0}
+.facts div{background:var(--bg);border-radius:10px;padding:10px 12px}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font:600 20px var(--f-display);font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.legend .past{background:var(--fg)}.legend .now{background:#e0614f}.legend .future{border:1px solid var(--muted)}
+#grid{width:100%;height:auto;display:block}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Your Life in Weeks","url":"https://tools.motty.jp/life-in-weeks/","description":"See your whole life as a grid of weeks. Enter your birthday to see how many weeks you’ve lived, how many are left, and how many summers and weekends remain.","applicationCategory":"LifestyleApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Your Life in Weeks","item":"https://tools.motty.jp/life-in-weeks/"}]}</script>
+</head>
+<body data-slug="life-in-weeks">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/life-in-weeks/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Your Life in Weeks</li></ol></nav>
+<div><h1>Your life in weeks</h1><p class="lede">Each square is one week of a long life. Enter your birthday to see the weeks you’ve lived, this week, and the ones still ahead.</p></div>
+<div class="lw">
+  <section class="panel">
+    <div class="row">
+      <div class="field"><label for="birth" id="l-birth"></label><input id="birth" type="date" min="1900-01-01"></div>
+      <div class="field"><label for="span" id="l-span"></label><input id="span" type="number" min="30" max="120" value="85"></div>
+    </div>
+    <div class="headline" aria-live="polite"><strong id="pct"></strong><span id="sub"></span></div>
+    <dl class="facts" id="facts"></dl>
+    <div id="share"></div>
+  </section>
+  <section class="panel">
+    <div class="legend"><span><i class="past"></i><span id="lg-past"></span></span><span><i class="now"></i><span id="lg-now"></span></span><span><i class="future"></i><span id="lg-future"></span></span></div>
+    <canvas id="grid" width="1040" height="1800" aria-label="Life in weeks grid"></canvas>
+  </section>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Enter your date of birth.</li><li>Adjust life expectancy if you like. Global average life expectancy is about 73; many countries are above 80.</li><li>Each row is one year, each square one week. Filled squares are behind you; the red one is this week.</li><li>Share your result, or save the page and come back to watch the grid fill in.</li></ol>
+<h2>Why weeks?</h2>
+<p>A year feels long and a day feels small, but a week is the unit most of our plans are made in. Seeing every week of a life on one screen makes it easier to ask what matters in the ones ahead. The idea was popularised by Tim Urban’s “Your Life in Weeks” essay.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Is my birthday stored?</summary><p>Only in your browser, so the page remembers it next time. It isn’t sent anywhere.</p></details><details><summary>How are heartbeats estimated?</summary><p>Using an average resting heart rate of 75 beats per minute for every minute you’ve lived. Real numbers vary a lot.</p></details><details><summary>What life expectancy should I use?</summary><p>It depends on where you live and your health. The setting is just for perspective; try a few values.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/kit-dungeon/"><strong>Kit Dungeon</strong><span>Turn-based roguelike with a new daily dungeon.</span></a></li><li><a href="/kit-blaster/"><strong>Kit Blaster</strong><span>Retro vertical shooter with power-ups and bosses.</span></a></li><li><a href="/kit-jump/"><strong>Kit Jump</strong><span>Endless run-and-jump game. Stomp, collect, survive.</span></a></li><li><a href="/sudoku/"><strong>Daily Sudoku</strong><span>New daily puzzle in 3 levels, with notes and streaks.</span></a></li><li><a href="/roulette/"><strong>Spin the Wheel</strong><span>Random picker wheel for names, prizes and decisions.</span></a></li><li><a href="/reaction-test/"><strong>Reaction Time Test</strong><span>Tap when it turns green. Average of 5 tries in ms.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/life-in-weeks/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

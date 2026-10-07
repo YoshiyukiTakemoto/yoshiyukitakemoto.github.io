@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>反射神経テスト（反応速度をミリ秒で測定） | Plainkit</title>
+<meta name="description" content="画面が緑になった瞬間にタップして、反応速度をミリ秒で測定。5回の平均とベスト、判定を表示し、自己ベストも記録します。友達と競えるシェア機能付き。">
+<link rel="canonical" href="https://tools.motty.jp/ja/reaction-test/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/reaction-test/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/reaction-test/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/reaction-test/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="反射神経テスト（反応速度をミリ秒で測定） | Plainkit">
+<meta property="og:description" content="画面が緑になった瞬間にタップして、反応速度をミリ秒で測定。5回の平均とベスト、判定を表示し、自己ベストも記録します。友達と競えるシェア機能付き。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/reaction-test/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.rt{display:grid;gap:14px}
+.pad{border:0;border-radius:16px;min-height:min(24rem,60vh);display:grid;place-content:center;gap:10px;text-align:center;cursor:pointer;color:#fff;padding:24px;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.pad strong{font:700 clamp(2rem,7vw,3.6rem)/1.1 var(--f-display);letter-spacing:-.01em}
+.pad span{font-size:16px;opacity:.9}
+.pad.wait{background:#2440c4}.pad.ready{background:#c23b3b}.pad.go{background:#1f9a55}.pad.early{background:#9a5b00}.pad.result{background:#2440c4}
+.tries{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.tries div{background:var(--bg);border-radius:10px;padding:10px;text-align:center;font:500 18px var(--f-mono);font-variant-numeric:tabular-nums}
+.tries small{display:block;font:500 11px var(--f-body);color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:8px;margin:0}
+.facts div{border-top:2px solid var(--fg);padding-top:8px}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font:700 24px var(--f-display);font-variant-numeric:tabular-nums}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"反射神経テスト","url":"https://tools.motty.jp/ja/reaction-test/","description":"画面が緑になった瞬間にタップして、反応速度をミリ秒で測定。5回の平均とベスト、判定を表示し、自己ベストも記録します。友達と競えるシェア機能付き。","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"反射神経テスト","item":"https://tools.motty.jp/ja/reaction-test/"}]}</script>
+</head>
+<body data-slug="reaction-test">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/reaction-test/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">反射神経テスト</li></ol></nav>
+<div><h1>反射神経テスト</h1><p class="lede">緑になった瞬間にタップしてください。5回の平均反応速度をミリ秒で測り、判定を表示します。自己ベストも保存されます。</p></div>
+<div class="rt">
+  <button type="button" class="pad wait" id="pad"><strong id="msg"></strong><span id="hint"></span></button>
+  <section class="panel">
+    <div class="tries" id="tries"></div>
+    <dl class="facts" id="facts"></dl>
+    <div id="share"></div>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>大きな枠をタップ（またはスペースキー）してスタートします。</li><li>緑になるまで待ちます。赤のうちにタップするとフライングです。</li><li>緑になった瞬間にタップします。これを5回繰り返します。</li><li>平均と判定が表示されます。シェアしたり、自己ベストに挑戦したりしましょう。</li></ol>
+<h2>反応速度の目安</h2>
+<p>目で見て反応する単純な反応時間は、多くの大人で約200〜300ミリ秒です。200ミリ秒を切ればかなり速い部類です。なお、画面やタッチパネルの遅延が10〜50ミリ秒ほど加わるため、比べるときは同じ端末で測りましょう。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>スマホだと遅く出るのはなぜ？</summary><p>タッチパネルや画面の表示遅延が加わるためです。マウスと高リフレッシュレートのモニターを使うと、最も速い数値が出やすくなります。</p></details><details><summary>反射神経は鍛えられますか？</summary><p>睡眠やウォーミングアップで少し改善します。練習を重ねると、速さよりもばらつきの少なさが向上します。</p></details><details><summary>自己ベストは保存されますか？</summary><p>はい。このブラウザ内に保存されます。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-dungeon/"><strong>キットダンジョン</strong><span>毎日のダンジョンに潜るターン制ローグライクRPG。</span></a></li><li><a href="/ja/kit-blaster/"><strong>キットブラスター</strong><span>パワーアップとボス戦のあるレトロ縦シューティング。</span></a></li><li><a href="/ja/kit-jump/"><strong>キットジャンプ</strong><span>無限に続く横スクロールアクション。敵を踏んでコイン集め。</span></a></li><li><a href="/ja/sudoku/"><strong>数独（ナンプレ）</strong><span>毎日の数独を3つの難易度で。メモ・連続記録つき。</span></a></li><li><a href="/ja/roulette/"><strong>ルーレット</strong><span>抽選・順番決め・ランチ選びに使えるルーレット。</span></a></li><li><a href="/ja/life-in-weeks/"><strong>人生カレンダー</strong><span>人生を1週間＝1マスで表示。残りの週・夏を計算。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/reaction-test/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

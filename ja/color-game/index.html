@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>色の違い探しゲーム（色彩感覚テスト） | Plainkit</title>
+<meta name="description" content="1つだけ色が違うマスを探すゲーム。レベルが上がるほどマスが増え、色の差が小さくなります。60秒で何レベルまで行けるか、色彩感覚をチェック。無料・登録不要。">
+<link rel="canonical" href="https://tools.motty.jp/ja/color-game/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/color-game/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/color-game/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/color-game/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="色の違い探しゲーム（色彩感覚テスト） | Plainkit">
+<meta property="og:description" content="1つだけ色が違うマスを探すゲーム。レベルが上がるほどマスが増え、色の差が小さくなります。60秒で何レベルまで行けるか、色彩感覚をチェック。無料・登録不要。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/color-game/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.cg{max-width:34rem;margin:0 auto;width:100%}
+.cg .panel{justify-items:center;text-align:center}
+.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%}
+.hud span{display:grid;gap:2px}
+.hud b{font:700 1.8rem/1 var(--f-display);font-variant-numeric:tabular-nums}
+.board{display:grid;gap:6px;width:min(100%,28rem);aspect-ratio:1;touch-action:manipulation}
+.board button{border:0;border-radius:8px;cursor:pointer;padding:0;min-width:0}
+.board button.hit{outline:4px solid var(--fg);outline-offset:-4px}
+.msg{margin:0;min-height:1.5em;font-weight:600}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"色の違い探しゲーム","url":"https://tools.motty.jp/ja/color-game/","description":"1つだけ色が違うマスを探すゲーム。レベルが上がるほどマスが増え、色の差が小さくなります。60秒で何レベルまで行けるか、色彩感覚をチェック。無料・登録不要。","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"色の違い探しゲーム","item":"https://tools.motty.jp/ja/color-game/"}]}</script>
+</head>
+<body data-slug="color-game">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/color-game/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">色の違い探しゲーム</li></ol></nav>
+<div><h1>色の違い探しゲーム</h1><p class="lede">1つだけ色が少し違うマスがあります。見つけると次はマスが増え、色の差が小さくなります。60秒でどこまで行けるか挑戦してください。</p></div>
+<div class="cg">
+  <section class="panel">
+    <div class="hud"><span><span class="eyebrow" id="l-level"></span><b id="level">1</b></span><span><span class="eyebrow" id="l-time"></span><b id="time">60</b></span><span><span class="eyebrow" id="l-best"></span><b id="best">0</b></span></div>
+    <div class="board" id="board"></div>
+    <button class="btn primary" type="button" id="start"></button>
+    <p class="msg" id="msg" aria-live="polite"></p>
+    <div id="share"></div>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li><strong>スタート</strong>を押すと60秒のカウントが始まります。</li><li>ほかと少しだけ色が違うマスをタップします。</li><li>正解するとレベルが1つ上がります。間違えると3秒減ります。</li><li>時間切れになると到達レベルが表示されます。シェアして友達と競いましょう。</li></ol>
+<h2>スコアの見方</h2>
+<p>序盤は明るさの差が大きく、後半は0〜100のうち2しか違わないため、多くの画面では見分けるのが困難です。画面の明るさ、色の設定、部屋の照明でも結果が変わるため、医学的な色覚検査ではなく、ゲームとして楽しんでください。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>色覚検査として使えますか？</summary><p>いいえ。画面上のわずかな明るさの違いに気づけるかを試すゲームです。色覚が気になる場合は眼科で相談してください。</p></details><details><summary>スマホだと難しいのはなぜ？</summary><p>マスが小さいことや、明るさの自動調整・ナイトモードによって、わずかな違いが見えにくくなるためです。ナイトモードをオフにして試してください。</p></details><details><summary>ベストスコアは保存されますか？</summary><p>はい。このブラウザ内に保存されます。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-dungeon/"><strong>キットダンジョン</strong><span>毎日のダンジョンに潜るターン制ローグライクRPG。</span></a></li><li><a href="/ja/kit-blaster/"><strong>キットブラスター</strong><span>パワーアップとボス戦のあるレトロ縦シューティング。</span></a></li><li><a href="/ja/kit-jump/"><strong>キットジャンプ</strong><span>無限に続く横スクロールアクション。敵を踏んでコイン集め。</span></a></li><li><a href="/ja/sudoku/"><strong>数独（ナンプレ）</strong><span>毎日の数独を3つの難易度で。メモ・連続記録つき。</span></a></li><li><a href="/ja/roulette/"><strong>ルーレット</strong><span>抽選・順番決め・ランチ選びに使えるルーレット。</span></a></li><li><a href="/ja/life-in-weeks/"><strong>人生カレンダー</strong><span>人生を1週間＝1マスで表示。残りの週・夏を計算。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/color-game/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

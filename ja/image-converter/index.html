@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>画像変換（HEIC→JPG・PNG・WebP・PDF）無料 | Plainkit</title>
+<meta name="description" content="画像の形式を無料で相互変換。iPhoneのHEICをJPGに、PNGをJPGやWebPに、画像をPDFやICO（ファビコン）に変換できます。複数まとめて変換、アップロード不要。">
+<link rel="canonical" href="https://tools.motty.jp/ja/image-converter/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/image-converter/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/image-converter/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/image-converter/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="画像変換（HEIC→JPG・PNG・WebP・PDF）無料 | Plainkit">
+<meta property="og:description" content="画像の形式を無料で相互変換。iPhoneのHEICをJPGに、PNGをJPGやWebPに、画像をPDFやICO（ファビコン）に変換できます。複数まとめて変換、アップロード不要。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/image-converter/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.range{display:flex;align-items:center;gap:10px}
+.range input{width:9rem}
+.range output{font:500 14px var(--f-mono);min-width:2.2rem}
+.drop{border:2px dashed var(--line);border-radius:14px;background:var(--surface);padding:28px 16px;text-align:center;display:grid;gap:10px;justify-items:center;cursor:pointer}
+.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.drop strong{font-family:var(--f-display);font-weight:500;font-size:1.3rem}
+.drop .sub{color:var(--muted);font-size:14px;max-width:40rem}
+.summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.summary .sp{flex:1}
+.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.item{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.item img{width:64px;height:64px;object-fit:cover;border-radius:8px;background:var(--bg);display:block}
+.name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nums{font:13px var(--f-mono);color:var(--muted)}
+.err{font-size:13px;color:var(--warn)}
+@media (max-width:560px){.item{grid-template-columns:52px minmax(0,1fr)}.item img{width:52px;height:52px}.item .btn{grid-column:1/-1}}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"画像形式変換","url":"https://tools.motty.jp/ja/image-converter/","description":"画像の形式を無料で相互変換。iPhoneのHEICをJPGに、PNGをJPGやWebPに、画像をPDFやICO（ファビコン）に変換できます。複数まとめて変換、アップロード不要。","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"画像形式変換","item":"https://tools.motty.jp/ja/image-converter/"}]}</script>
+</head>
+<body data-slug="image-converter">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/image-converter/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">画像形式変換</li></ol></nav>
+<div><h1>画像形式変換（HEIC・JPG・PNG・WebP・PDF）</h1><p class="lede">iPhoneのHEIC写真をJPGに、PNGをJPGやWebPに、複数の画像を1つのPDFに。変換はブラウザ内で行うため、写真がアップロードされることはありません。</p></div>
+<section class="controls">
+  <div class="field"><label for="to" id="l-to"></label><select id="to"></select></div>
+  <div class="field" id="q-f"><label for="q" id="l-q"></label><div class="range"><input type="range" id="q" min="40" max="100" value="92"><output id="qv">92</output></div></div>
+  <div class="field" id="pdf-f" hidden><label for="pdfmode" id="l-pdfmode"></label><select id="pdfmode"></select></div>
+</section>
+<label class="drop" id="drop" for="file">
+  <strong id="d-title"></strong>
+  <span class="sub" id="d-sub"></span>
+  <span class="btn primary" id="d-btn"></span>
+  <input type="file" id="file" accept="image/*,.heic,.heif" multiple hidden>
+</label>
+<div class="summary" id="summary" hidden>
+  <span class="pill" id="count"></span><span class="sp"></span>
+  <button class="btn" type="button" id="clear"></button>
+  <button class="btn primary" type="button" id="all"></button>
+</div>
+<ul class="list" id="list"></ul>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>変換後の形式を選びます。</li><li>画像を枠にドロップするか、選択するか、Ctrl+V / ⌘V で貼り付けます。複数まとめて追加できます。</li><li>1枚ずつ保存するか、ZIPでまとめて保存します。PDFの場合は、すべての画像を1つのPDFにまとめられます。</li></ol>
+<h2>対応している変換</h2>
+<table><thead><tr><th>変換元</th><th>変換先</th></tr></thead><tbody><tr><td>HEIC・HEIF（iPhone）</td><td>JPG、PNG、WebP、PDF</td></tr><tr><td>PNG、WebP、AVIF、GIF、BMP</td><td>JPG、PNG、WebP、AVIF、BMP</td></tr><tr><td>あらゆる画像、SVG</td><td>ICO（ファビコン 16〜256px）</td></tr><tr><td>複数の画像</td><td>1つのPDF（1枚1ページ）</td></tr></tbody></table>
+<h2>iPhoneのHEICをJPGにする理由</h2>
+<p>iPhoneの写真は容量の小さいHEIC形式で保存されますが、Windowsの一部のソフトや、役所・学校・就職活動のWebフォームではアップロードできないことがあります。JPGに変換すれば、ほぼどこでも使えます。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>写真はアップロードされますか？</summary><p>いいえ。変換はブラウザ内で行います。HEICの読み込みに使うプログラムは初回に本サイトから読み込み、同じく端末内で動作します。</p></details><details><summary>透明な背景は残りますか？</summary><p>PNG・WebP・AVIF・ICOでは残ります。JPG・BMP・PDFは透明に対応していないため、白になります。</p></details><details><summary>位置情報は削除されますか？</summary><p>はい。変換後のファイルには、GPS位置情報などのEXIF情報は含まれません。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li><li><a href="/ja/video-converter/"><strong>動画変換</strong><span>MP4・MOV・WMV・WebM・GIF・MP3に変換。</span></a></li><li><a href="/ja/mov-to-mp4/"><strong>MOV→MP4変換</strong><span>iPhoneのMOVを画質そのままMP4へ。</span></a></li><li><a href="/ja/wmv-to-mp4/"><strong>WMV→MP4変換</strong><span>古いWindowsのWMV動画をどこでも再生できるMP4に。</span></a></li><li><a href="/ja/video-to-gif/"><strong>動画→GIF変換</strong><span>動画や画面録画を透かしなしでGIFに。</span></a></li><li><a href="/ja/video-to-mp3/"><strong>動画→MP3変換</strong><span>動画の音声をMP3・M4A・WAVで保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/image-converter/jszip.min.js" defer></script>
+<script src="/assets/minipdf.js" defer></script>
+<script src="/image-converter/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

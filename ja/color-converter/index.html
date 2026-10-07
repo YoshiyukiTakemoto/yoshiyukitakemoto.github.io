@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>カラーコード変換（HEX・RGB・HSL・CMYK） | Plainkit</title>
+<meta name="description" content="カラーコードを無料で変換。HEX・RGB・HSL・HSV・CMYK・OKLCHを相互に変換し、白・黒とのコントラスト比（WCAG）チェックや明るさのバリエーション作成もできます。">
+<link rel="canonical" href="https://tools.motty.jp/ja/color-converter/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/color-converter/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/color-converter/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/color-converter/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="カラーコード変換（HEX・RGB・HSL・CMYK） | Plainkit">
+<meta property="og:description" content="カラーコードを無料で変換。HEX・RGB・HSL・HSV・CMYK・OKLCHを相互に変換し、白・黒とのコントラスト比（WCAG）チェックや明るさのバリエーション作成もできます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/color-converter/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.cv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.cv{grid-template-columns:1fr}}
+.cv h2.eyebrow{margin:0}
+.swatch{height:9rem;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;font:700 2.4rem var(--f-display)}
+.row{display:flex;gap:12px;align-items:flex-end}
+.grow{flex:1}
+#picker{width:3.4rem;height:2.6rem;padding:3px;cursor:pointer}
+#code{width:100%;font:500 16px var(--f-mono)}
+.err{margin:0;color:var(--warn);font-size:13px}
+.codes{width:100%;border-collapse:collapse}
+.codes td{padding:9px 4px;border-bottom:1px solid var(--line)}
+.codes td:first-child{color:var(--muted);font-size:13px;width:5.5rem}
+.codes code{font:500 15px var(--f-mono);word-break:break-all}
+.codes button{border:0;background:none;color:var(--accent);font:500 12px var(--f-body);cursor:pointer}
+.contrast{display:grid;gap:10px}
+.cbox{display:grid;grid-template-columns:5rem minmax(0,1fr);gap:12px;align-items:center}
+.cbox .demo{border-radius:8px;padding:12px 0;text-align:center;font:600 18px var(--f-body);border:1px solid var(--line)}
+.cbox b{font:600 18px var(--f-mono)}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.tag{font-size:11px;font-weight:600;border-radius:4px;padding:1px 6px}
+.tag.pass{background:var(--ok-bg);color:var(--ok)}.tag.fail{background:var(--warn-bg);color:var(--warn)}
+.scale{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));border-radius:8px;overflow:hidden}
+.scale button{border:0;height:3.6rem;cursor:pointer;font:500 10px var(--f-mono);display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px}
+.scale button.cur{outline:2px solid var(--fg);outline-offset:-4px}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"カラーコード変換","url":"https://tools.motty.jp/ja/color-converter/","description":"カラーコードを無料で変換。HEX・RGB・HSL・HSV・CMYK・OKLCHを相互に変換し、白・黒とのコントラスト比（WCAG）チェックや明るさのバリエーション作成もできます。","applicationCategory":"DesignApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"カラーコード変換","item":"https://tools.motty.jp/ja/color-converter/"}]}</script>
+</head>
+<body data-slug="color-converter">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/color-converter/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">カラーコード変換</li></ol></nav>
+<div><h1>カラーコード変換</h1><p class="lede">色を入力するかカラーピッカーで選ぶと、HEX・RGB・HSLなどすべての形式に変換します。文字色として読みやすいかのコントラスト比チェックや、明るさ違いの色の作成もできます。</p></div>
+<div class="cv">
+  <section class="panel pick">
+    <div class="swatch" id="swatch"><span id="sw-text">Aa</span></div>
+    <div class="row">
+      <input type="color" id="picker" value="#2440c4" aria-label="Color picker">
+      <div class="field grow"><label for="code" id="l-code"></label><input id="code" type="text" value="#2440c4" spellcheck="false" autocomplete="off"></div>
+    </div>
+    <p class="err" id="err" hidden></p>
+  </section>
+  <section class="panel">
+    <table class="codes"><tbody id="codes"></tbody></table>
+  </section>
+  <section class="panel">
+    <h2 class="eyebrow" id="l-contrast"></h2>
+    <div class="contrast" id="contrast"></div>
+  </section>
+  <section class="panel">
+    <h2 class="eyebrow" id="l-scale"></h2>
+    <div class="scale" id="scale"></div>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>色をCSSの任意の形式（#2440c4、rgb(36 64 196)、hsl(229 69% 46%)、teal などの色名）で入力するか、カラーピッカーで選びます。</li><li>表から必要な形式をコピーします。</li><li>コントラスト比で、この色の文字が白背景・黒背景で読みやすいか（またはその逆）を確認します。</li><li>明るさのバリエーションの色をクリックすると、その色に切り替わります。</li></ol>
+<h2>コントラスト比の基準（WCAG）</h2>
+<ul><li><strong>AA</strong>：通常の文字で4.5:1以上。</li><li><strong>AA Large</strong>：大きな文字（24px以上、または太字19px以上）で3:1以上。</li><li><strong>AAA</strong>：通常の文字で7:1以上。</li></ul><p>ウェブアクセシビリティの日本産業規格JIS X 8341-3も、同じWCAG 2の基準を採用しています。</p>
+<h2>CMYKについて</h2>
+<p>ここでのCMYKはRGBからの簡易変換です。実際の印刷色は用紙・インク・カラープロファイルによって変わるため、ロゴなど重要な色は印刷会社に確認してください。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>OKLCHとは何ですか？</summary><p>人の目に感じる明るさと鮮やかさに基づいた、新しいCSSの色の形式です。Lの値だけを変えると均等に明るく・暗くなるため、デザインシステムの配色作りに便利です。</p></details><details><summary>HSLとHSVの違いは？</summary><p>どちらも色相と彩度で色を表します。HSLの明度は黒→純色→白、HSVの明度は黒→純色です。PhotoshopなどではHSVを「HSB」と呼びます。</p></details><details><summary>どんな形式で入力できますか？</summary><p>ブラウザが理解できる形式なら入力できます。HEX（3桁・6桁）、rgb()、hsl()、hwb()、CSSの色名（148色）などです。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/json-formatter/"><strong>JSON整形</strong><span>JSONを整形・圧縮・検証。エラー位置を表示。</span></a></li><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li><li><a href="/ja/overlap/"><strong>時差・会議時間プランナー</strong><span>海外と全員の勤務時間が重なる会議時間を探す。</span></a></li><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li><li><a href="/ja/image-converter/"><strong>画像形式変換</strong><span>HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/color-converter/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

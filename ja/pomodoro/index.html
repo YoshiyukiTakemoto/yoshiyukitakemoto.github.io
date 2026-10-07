@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ポモドーロタイマー（無料・作業用タイマー） | Plainkit</title>
+<meta name="description" content="無料で使えるポモドーロタイマー。25分作業＋5分休憩を自動で繰り返し、終了時に音と通知でお知らせ。残り時間をタブに表示し、1週間の作業回数も記録します。">
+<link rel="canonical" href="https://tools.motty.jp/ja/pomodoro/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/pomodoro/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/pomodoro/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/pomodoro/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="ポモドーロタイマー（無料・作業用タイマー） | Plainkit">
+<meta property="og:description" content="無料で使えるポモドーロタイマー。25分作業＋5分休憩を自動で繰り返し、終了時に音と通知でお知らせ。残り時間をタブに表示し、1週間の作業回数も記録します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/pomodoro/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--work:#d9534f;--rest:#1f7a4d}
+@media (prefers-color-scheme:dark){:root{--work:#ef7d78;--rest:#6fd3a0}}
+.pomo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.pomo{grid-template-columns:1fr}}
+.timer{justify-items:center;text-align:center;--c:var(--work)}
+.timer.rest{--c:var(--rest)}
+.modes{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg)}
+.modes button{border:0;background:none;color:var(--muted);font:500 14px var(--f-body);padding:7px 14px;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--c);color:#fff}
+.ring{position:relative;width:min(20rem,78vw);aspect-ratio:1;max-width:100%}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6}
+.track{stroke:var(--line)}
+.prog{stroke:var(--c);stroke-linecap:round;stroke-dasharray:339.29;transition:stroke-dashoffset .4s linear}
+.time{position:absolute;inset:0;display:grid;place-items:center;font:500 clamp(3.2rem,13vw,4.8rem)/1 var(--f-mono);letter-spacing:-.03em}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.btn.big{font-size:17px;padding:12px 34px;background:var(--c);border-color:var(--c);color:#fff}
+.count{margin:0;color:var(--muted);font-size:14px}
+.settings h2{margin:0}
+.grid3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.grid3 input{width:100%;font:500 16px var(--f-mono)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;border-top:1px solid var(--line);padding-top:12px}
+.week div{display:grid;justify-items:center;gap:4px;font-size:11px;color:var(--muted)}
+.week b{display:block;width:100%;border-radius:4px;background:var(--work);min-height:3px}
+.week span.n{font:500 13px var(--f-mono);color:var(--fg)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ポモドーロタイマー","url":"https://tools.motty.jp/ja/pomodoro/","description":"無料で使えるポモドーロタイマー。25分作業＋5分休憩を自動で繰り返し、終了時に音と通知でお知らせ。残り時間をタブに表示し、1週間の作業回数も記録します。","applicationCategory":"ProductivityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"ポモドーロタイマー","item":"https://tools.motty.jp/ja/pomodoro/"}]}</script>
+</head>
+<body data-slug="pomodoro">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/pomodoro/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">ポモドーロタイマー</li></ol></nav>
+<div><h1>ポモドーロタイマー</h1><p class="lede">25分の集中と5分の休憩を繰り返して、作業や勉強の集中力を保ちます。残り時間はブラウザのタブに表示され、ページを再読み込みしてもタイマーは止まりません。</p></div>
+<div class="pomo">
+  <section class="panel timer" id="timer">
+    <div class="modes" role="group" id="modes"><button type="button" data-m="work" id="m-work"></button><button type="button" data-m="short" id="m-short"></button><button type="button" data-m="long" id="m-long"></button></div>
+    <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" class="track"/><circle cx="60" cy="60" r="54" class="prog" id="prog"/></svg><div class="time num" id="time" role="timer" aria-live="off">25:00</div></div>
+    <div class="ctl"><button class="btn primary big" type="button" id="start"></button><button class="btn" type="button" id="reset"></button><button class="btn" type="button" id="skip"></button></div>
+    <p class="count" id="count"></p>
+  </section>
+  <section class="panel settings">
+    <h2 class="eyebrow" id="l-settings"></h2>
+    <div class="grid3">
+      <div class="field"><label for="d-work" id="l-dwork"></label><input id="d-work" type="number" min="1" max="180" value="25"></div>
+      <div class="field"><label for="d-short" id="l-dshort"></label><input id="d-short" type="number" min="1" max="60" value="5"></div>
+      <div class="field"><label for="d-long" id="l-dlong"></label><input id="d-long" type="number" min="1" max="90" value="15"></div>
+      <div class="field"><label for="every" id="l-every"></label><input id="every" type="number" min="2" max="12" value="4"></div>
+    </div>
+    <label class="check"><input type="checkbox" id="auto" checked><span id="l-auto"></span></label>
+    <label class="check"><input type="checkbox" id="sound" checked><span id="l-sound"></span></label>
+    <label class="check"><input type="checkbox" id="notify"><span id="l-notify"></span></label>
+    <div class="week" id="week"></div>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li><strong>スタート</strong>（またはスペースキー）で25分の作業を始めます。</li><li>時間になると音が鳴り、自動で休憩が始まります。</li><li>作業を4回終えると、長い休憩になります。</li><li>時間は「設定」で変更できます。設定と作業記録はこのブラウザに保存されます。</li></ol>
+<h2>ポモドーロ・テクニックとは</h2>
+<p>1980年代後半にフランチェスコ・シリロが考案した時間管理術です。1つの作業に25分間集中し、5分間休憩します。この25分を1ポモドーロと数え、4ポモドーロごとに15〜30分の長い休憩をとります。名前は、彼が使っていたトマト（イタリア語でポモドーロ）型のキッチンタイマーに由来します。</p>
+<h2>効果的に使うコツ</h2>
+<ul><li>スタート前に、その回でやる作業を1つだけ決めます。</li><li>途中で別のことを思いついたら、メモして作業に戻ります。</li><li>休憩中は画面から離れて体を動かします。</li><li>このページをホーム画面に追加すると、アプリのようにすぐ開けます。</li></ul>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>別のタブを見ていてもタイマーは正確ですか？</summary><p>はい。終了時刻をもとに計算しているため、ブラウザがバックグラウンドのタブを省電力にしても正確です。残り時間はタブのタイトルに表示されます。</p></details><details><summary>25分・5分以外にできますか？</summary><p>できます。50分＋10分や90分＋20分など、1〜180分の範囲で自由に設定できます。</p></details><details><summary>音が鳴りません。</summary><p>ブラウザは、ページを操作した後でないと音を鳴らせない仕組みです。一度ご自身でスタートを押してください。タブがミュートになっていないかも確認してください。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li><li><a href="/ja/overlap/"><strong>時差・会議時間プランナー</strong><span>海外と全員の勤務時間が重なる会議時間を探す。</span></a></li><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li><li><a href="/ja/image-converter/"><strong>画像形式変換</strong><span>HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。</span></a></li><li><a href="/ja/video-converter/"><strong>動画変換</strong><span>MP4・MOV・WMV・WebM・GIF・MP3に変換。</span></a></li><li><a href="/ja/mov-to-mp4/"><strong>MOV→MP4変換</strong><span>iPhoneのMOVを画質そのままMP4へ。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/pomodoro/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

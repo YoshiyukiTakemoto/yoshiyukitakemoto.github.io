@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>オンラインメモ帳（自動保存・登録不要） | Plainkit</title>
+<meta name="description" content="ブラウザに自動保存される無料のオンラインメモ帳。複数のメモを作成・検索でき、.txtで保存も可能。登録不要・アップロードなし・オフラインでも使えます。">
+<link rel="canonical" href="https://tools.motty.jp/ja/notepad/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/notepad/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/notepad/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/notepad/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="オンラインメモ帳（自動保存・登録不要） | Plainkit">
+<meta property="og:description" content="ブラウザに自動保存される無料のオンラインメモ帳。複数のメモを作成・検索でき、.txtで保存も可能。登録不要・アップロードなし・オフラインでも使えます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/notepad/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.np{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.np{grid-template-columns:1fr}.notes{max-height:12rem}}
+.side{gap:10px;padding:12px}
+.side-top{display:flex;gap:8px}
+.side-top input{flex:1;min-width:0}
+.notes{list-style:none;margin:0;padding:0;display:grid;gap:2px;max-height:32rem;overflow:auto}
+.notes button{width:100%;text-align:left;border:0;background:none;color:var(--fg);padding:8px 10px;border-radius:8px;cursor:pointer;display:grid;gap:1px}
+.notes button:hover{background:var(--bg)}
+.notes button[aria-current="true"]{background:color-mix(in srgb,var(--accent) 14%,var(--surface))}
+.notes strong{font:600 14px var(--f-body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notes small{color:var(--muted);font-size:12px}
+.ed{padding:12px;gap:10px}
+#ed{width:100%;min-height:30rem;resize:vertical;font:16px/1.75 var(--f-body);border:0;background:var(--surface);padding:6px}
+#ed:focus{outline:none}
+.ed-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:10px}
+.ed-bar .sp{flex:1}
+.meta{font-size:13px;color:var(--muted)}
+#del.confirm{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+.saved{margin:0;font-size:12px;color:var(--muted)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"メモ帳","url":"https://tools.motty.jp/ja/notepad/","description":"ブラウザに自動保存される無料のオンラインメモ帳。複数のメモを作成・検索でき、.txtで保存も可能。登録不要・アップロードなし・オフラインでも使えます。","applicationCategory":"ProductivityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"メモ帳","item":"https://tools.motty.jp/ja/notepad/"}]}</script>
+</head>
+<body data-slug="notepad">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/notepad/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">メモ帳</li></ol></nav>
+<div><h1>オンラインメモ帳</h1><p class="lede">思いついたことをすぐ書けて、1文字ごとにブラウザへ自動保存されるメモ帳です。複数のメモを作って検索でき、いつでも続きから書けます。登録もアップロードもありません。</p></div>
+<div class="np">
+  <aside class="panel side">
+    <div class="side-top"><button class="btn primary" type="button" id="new"></button><input id="q" type="search" aria-label="Search"></div>
+    <ul class="notes" id="notes"></ul>
+  </aside>
+  <section class="panel ed">
+    <textarea id="ed" spellcheck="false"></textarea>
+    <div class="ed-bar">
+      <span class="meta num" id="meta"></span>
+      <span class="sp"></span>
+      <button class="btn" type="button" id="copy"></button>
+      <button class="btn" type="button" id="dl"></button>
+      <button class="btn" type="button" id="del"></button>
+    </div>
+    <p class="saved" id="saved" aria-live="polite"></p>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>入力を始めると、自動で保存されます。</li><li><strong>新しいメモ</strong>でメモを追加できます。1行目がタイトルになります。</li><li>検索欄で、すべてのメモから文字を探せます。</li><li>.txtで保存すると、控えを残したり別の端末に移したりできます。</li></ol>
+<h2>メモはどこに保存されますか</h2>
+<p>この端末のブラウザ内（ローカルストレージ）に保存されます。タブを閉じても、パソコンを再起動しても残ります。ほかの端末とは同期されません。また、閲覧データの削除やシークレットウィンドウでは消えることがあるため、大切なメモは.txtで保存してください。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>ほかの人にメモを見られることはありますか？</summary><p>ありません。メモは端末の外に出ず、サーバーにも保存されません。</p></details><details><summary>オフラインでも使えますか？</summary><p>はい。一度開いたあとは通信なしでも表示でき、ホーム画面に追加すればアプリのように使えます。</p></details><details><summary>容量の上限はありますか？</summary><p>ブラウザの保存領域はサイトごとに約5MBで、すべてのメモの合計で約200万文字程度です。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/overlap/"><strong>時差・会議時間プランナー</strong><span>海外と全員の勤務時間が重なる会議時間を探す。</span></a></li><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li><li><a href="/ja/image-converter/"><strong>画像形式変換</strong><span>HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。</span></a></li><li><a href="/ja/video-converter/"><strong>動画変換</strong><span>MP4・MOV・WMV・WebM・GIF・MP3に変換。</span></a></li><li><a href="/ja/mov-to-mp4/"><strong>MOV→MP4変換</strong><span>iPhoneのMOVを画質そのままMP4へ。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/notepad/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

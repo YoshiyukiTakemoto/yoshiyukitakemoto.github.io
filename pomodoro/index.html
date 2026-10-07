@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pomodoro Timer Online: Free Focus Timer | Plainkit</title>
+<meta name="description" content="Free online Pomodoro timer with 25/5 focus and break sessions, long breaks, sound and notifications. Shows the countdown in the browser tab and tracks your sessions for the week.">
+<link rel="canonical" href="https://tools.motty.jp/pomodoro/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/pomodoro/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/pomodoro/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/pomodoro/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Pomodoro Timer Online: Free Focus Timer | Plainkit">
+<meta property="og:description" content="Free online Pomodoro timer with 25/5 focus and break sessions, long breaks, sound and notifications. Shows the countdown in the browser tab and tracks your sessions for the week.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/pomodoro/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--work:#d9534f;--rest:#1f7a4d}
+@media (prefers-color-scheme:dark){:root{--work:#ef7d78;--rest:#6fd3a0}}
+.pomo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.pomo{grid-template-columns:1fr}}
+.timer{justify-items:center;text-align:center;--c:var(--work)}
+.timer.rest{--c:var(--rest)}
+.modes{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg)}
+.modes button{border:0;background:none;color:var(--muted);font:500 14px var(--f-body);padding:7px 14px;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--c);color:#fff}
+.ring{position:relative;width:min(20rem,78vw);aspect-ratio:1;max-width:100%}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6}
+.track{stroke:var(--line)}
+.prog{stroke:var(--c);stroke-linecap:round;stroke-dasharray:339.29;transition:stroke-dashoffset .4s linear}
+.time{position:absolute;inset:0;display:grid;place-items:center;font:500 clamp(3.2rem,13vw,4.8rem)/1 var(--f-mono);letter-spacing:-.03em}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.btn.big{font-size:17px;padding:12px 34px;background:var(--c);border-color:var(--c);color:#fff}
+.count{margin:0;color:var(--muted);font-size:14px}
+.settings h2{margin:0}
+.grid3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.grid3 input{width:100%;font:500 16px var(--f-mono)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;border-top:1px solid var(--line);padding-top:12px}
+.week div{display:grid;justify-items:center;gap:4px;font-size:11px;color:var(--muted)}
+.week b{display:block;width:100%;border-radius:4px;background:var(--work);min-height:3px}
+.week span.n{font:500 13px var(--f-mono);color:var(--fg)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Pomodoro Timer","url":"https://tools.motty.jp/pomodoro/","description":"Free online Pomodoro timer with 25/5 focus and break sessions, long breaks, sound and notifications. Shows the countdown in the browser tab and tracks your sessions for the week.","applicationCategory":"ProductivityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Pomodoro Timer","item":"https://tools.motty.jp/pomodoro/"}]}</script>
+</head>
+<body data-slug="pomodoro">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/pomodoro/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Pomodoro Timer</li></ol></nav>
+<div><h1>Pomodoro timer</h1><p class="lede">Work in focused 25-minute sessions with short breaks in between. The countdown shows in your browser tab, and the timer keeps going even if you reload the page.</p></div>
+<div class="pomo">
+  <section class="panel timer" id="timer">
+    <div class="modes" role="group" id="modes"><button type="button" data-m="work" id="m-work"></button><button type="button" data-m="short" id="m-short"></button><button type="button" data-m="long" id="m-long"></button></div>
+    <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" class="track"/><circle cx="60" cy="60" r="54" class="prog" id="prog"/></svg><div class="time num" id="time" role="timer" aria-live="off">25:00</div></div>
+    <div class="ctl"><button class="btn primary big" type="button" id="start"></button><button class="btn" type="button" id="reset"></button><button class="btn" type="button" id="skip"></button></div>
+    <p class="count" id="count"></p>
+  </section>
+  <section class="panel settings">
+    <h2 class="eyebrow" id="l-settings"></h2>
+    <div class="grid3">
+      <div class="field"><label for="d-work" id="l-dwork"></label><input id="d-work" type="number" min="1" max="180" value="25"></div>
+      <div class="field"><label for="d-short" id="l-dshort"></label><input id="d-short" type="number" min="1" max="60" value="5"></div>
+      <div class="field"><label for="d-long" id="l-dlong"></label><input id="d-long" type="number" min="1" max="90" value="15"></div>
+      <div class="field"><label for="every" id="l-every"></label><input id="every" type="number" min="2" max="12" value="4"></div>
+    </div>
+    <label class="check"><input type="checkbox" id="auto" checked><span id="l-auto"></span></label>
+    <label class="check"><input type="checkbox" id="sound" checked><span id="l-sound"></span></label>
+    <label class="check"><input type="checkbox" id="notify"><span id="l-notify"></span></label>
+    <div class="week" id="week"></div>
+  </section>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Press <strong>Start</strong> (or the space bar) to begin a 25-minute focus session.</li><li>When the time is up you hear a sound and the break starts automatically.</li><li>After every four focus sessions you get a longer break.</li><li>Change the lengths in Settings. Your settings and session history stay in this browser.</li></ol>
+<h2>What is the Pomodoro Technique?</h2>
+<p>A time management method created by Francesco Cirillo in the late 1980s. You pick one task, work on it for 25 minutes without interruption, then take a 5-minute break. Each 25-minute block is one “pomodoro”, named after the tomato-shaped kitchen timer he used. After four pomodoros you take a longer break of 15 to 30 minutes.</p>
+<h2>Tips</h2>
+<ul><li>Write down the one task for the session before you press Start.</li><li>If something else comes to mind, note it and return to the task.</li><li>Step away from the screen during breaks.</li><li>Add this page to your home screen to open it like an app.</li></ul>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Does the timer keep running in a background tab?</summary><p>Yes. The timer is based on the end time, so it stays accurate even when the browser slows down background tabs. The tab title shows the time left.</p></details><details><summary>Can I change 25 and 5 minutes?</summary><p>Yes. Some people prefer 50/10 or 90/20. Set any length from 1 to 180 minutes.</p></details><details><summary>Why don’t I hear a sound?</summary><p>Browsers only allow sound after you interact with the page, so press Start yourself at least once. Also check that the tab isn’t muted.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/notepad/"><strong>Online Notepad</strong><span>Autosaving notes in your browser. Search and .txt download.</span></a></li><li><a href="/overlap/"><strong>Meeting Time Zone Planner</strong><span>Find a meeting time that falls inside everyone’s working hours.</span></a></li><li><a href="/quiet-qr/"><strong>QR Code Generator</strong><span>Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.</span></a></li><li><a href="/image-converter/"><strong>Image Converter</strong><span>HEIC→JPG, PNG⇔JPG, WebP, ICO and images to PDF.</span></a></li><li><a href="/video-converter/"><strong>Video Converter</strong><span>MP4, MOV, WMV, WebM, GIF and MP3. No upload.</span></a></li><li><a href="/mov-to-mp4/"><strong>MOV to MP4</strong><span>iPhone MOV to MP4 in seconds, no quality loss.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/pomodoro/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

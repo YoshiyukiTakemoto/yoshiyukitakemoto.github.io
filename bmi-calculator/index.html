@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BMI Calculator for Adults (Metric &amp; Imperial) | Plainkit</title>
+<meta name="description" content="Free BMI calculator. Enter height and weight in cm/kg or ft/in/lb to get your body mass index, WHO category and healthy weight range.">
+<link rel="canonical" href="https://tools.motty.jp/bmi-calculator/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/bmi-calculator/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/bmi-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/bmi-calculator/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="BMI Calculator for Adults (Metric &amp; Imperial) | Plainkit">
+<meta property="og:description" content="Free BMI calculator. Enter height and weight in cm/kg or ft/in/lb to get your body mass index, WHO category and healthy weight range.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/bmi-calculator/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--b1:#9cc3e6;--b2:#8fd1a8;--b3:#f2d16b;--b4:#f0a868;--b5:#e07a6a}
+@media (prefers-color-scheme:dark){:root{--b1:#3d6b94;--b2:#3f8a5c;--b3:#a88c2c;--b4:#a8642c;--b5:#9c4538}}
+.bmi{display:grid;gap:12px;max-width:44rem}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.row input{width:9rem;font:500 18px var(--f-mono)}
+.result{display:grid;gap:16px;border-top:1px solid var(--line);padding-top:16px}
+.big{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.big strong{font:700 3.2rem/1 var(--f-display);font-variant-numeric:tabular-nums}
+.cat{font-weight:600;padding:3px 12px;border-radius:999px;background:var(--bg)}
+.scale{position:relative;padding-top:4px}
+.bands{display:flex;height:14px;border-radius:7px;overflow:hidden}
+.bands span{display:block;height:100%}
+.bandlabels{display:flex;font-size:11px;color:var(--muted);margin-top:4px}
+.bandlabels span{text-align:left;white-space:nowrap;overflow:hidden}
+.mark{position:absolute;top:0;width:4px;height:22px;margin-left:-2px;background:var(--fg);border-radius:2px;transition:left .2s}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:10px;margin:0}
+.facts div{background:var(--bg);border-radius:10px;padding:10px 12px}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font:500 16px var(--f-mono)}
+.note{margin:0;font-size:13px;color:var(--muted)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BMI Calculator","url":"https://tools.motty.jp/bmi-calculator/","description":"Free BMI calculator. Enter height and weight in cm/kg or ft/in/lb to get your body mass index, WHO category and healthy weight range.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"BMI Calculator","item":"https://tools.motty.jp/bmi-calculator/"}]}</script>
+</head>
+<body data-slug="bmi-calculator">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/bmi-calculator/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">BMI Calculator</li></ol></nav>
+<div><h1>BMI calculator</h1><p class="lede">Work out your body mass index from height and weight, see where it falls on the WHO adult scale and find the weight range considered healthy for your height.</p></div>
+<div class="bmi">
+  <section class="panel">
+    <div class="seg" role="group" id="units" hidden><button type="button" data-u="metric" aria-pressed="true">cm / kg</button><button type="button" data-u="imperial" aria-pressed="false">ft·in / lb</button></div>
+    <div class="row" id="metric">
+      <div class="field"><label for="h" id="l-h"></label><input id="h" type="number" step="0.1" min="50" max="250" value="170" inputmode="decimal"></div>
+      <div class="field"><label for="w" id="l-w"></label><input id="w" type="number" step="0.1" min="10" max="300" value="65" inputmode="decimal"></div>
+    </div>
+    <div class="row" id="imperial" hidden>
+      <div class="field"><label for="ft">Height (ft)</label><input id="ft" type="number" min="3" max="8" value="5" inputmode="numeric"></div>
+      <div class="field"><label for="in">(in)</label><input id="in" type="number" min="0" max="11.9" step="0.1" value="7" inputmode="decimal"></div>
+      <div class="field"><label for="lb">Weight (lb)</label><input id="lb" type="number" min="20" max="700" step="0.1" value="143" inputmode="decimal"></div>
+    </div>
+    <div class="result" aria-live="polite">
+      <div class="big"><span class="eyebrow">BMI</span><strong id="bmi"></strong><span class="cat" id="cat"></span></div>
+      <div class="scale" id="scale"><div class="bands" id="bands"></div><i class="mark" id="mark"></i></div>
+      <dl class="facts" id="facts"></dl>
+    </div>
+  </section>
+  <p class="note" id="note"></p>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Choose cm / kg or ft·in / lb.</li><li>Enter your height and weight.</li><li>Read your BMI, its category and the healthy weight range for your height.</li></ol>
+<h2>BMI categories (WHO, adults)</h2>
+<table><thead><tr><th>BMI</th><th>Category</th></tr></thead><tbody><tr><td>Below 18.5</td><td>Underweight</td></tr><tr><td>18.5–24.9</td><td>Healthy weight</td></tr><tr><td>25.0–29.9</td><td>Overweight</td></tr><tr><td>30.0–34.9</td><td>Obesity class I</td></tr><tr><td>35.0–39.9</td><td>Obesity class II</td></tr><tr><td>40 and above</td><td>Obesity class III</td></tr></tbody></table>
+<h2>How BMI is calculated</h2>
+<p>BMI = weight in kilograms ÷ (height in metres)². For example, 65 kg at 1.70 m gives 65 ÷ 2.89 = 22.5. In imperial units: 703 × weight in pounds ÷ (height in inches)².</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Is BMI accurate for everyone?</summary><p>No. It doesn’t distinguish muscle from fat, so athletes may score high. It is a quick screening measure, not a diagnosis.</p></details><details><summary>Does BMI work for children?</summary><p>Not with these categories. Children and teenagers are assessed with BMI-for-age percentiles that depend on age and sex.</p></details><details><summary>Why do some countries use different cut-offs?</summary><p>Studies show higher health risks at lower BMI in some Asian populations, so Japan, for example, classes a BMI of 25 or more as obesity.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/unit-converter/"><strong>Unit Converter</strong><span>Length, weight, temperature, area, volume, speed and data.</span></a></li><li><a href="/percentage-calculator/"><strong>Percentage Calculator</strong><span>% of a number, % change, discounts and reverse percentages.</span></a></li><li><a href="/tax-calculator/"><strong>VAT Calculator</strong><span>Add or remove VAT and sales tax at any rate.</span></a></li><li><a href="/split-bill/"><strong>Bill Splitter</strong><span>Split a bill evenly or by share, with rounding.</span></a></li><li><a href="/pomodoro/"><strong>Pomodoro Timer</strong><span>Focus and break timer with daily session count.</span></a></li><li><a href="/notepad/"><strong>Online Notepad</strong><span>Autosaving notes in your browser. Search and .txt download.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/bmi-calculator/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

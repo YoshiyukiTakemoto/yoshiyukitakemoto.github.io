@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>人生カレンダー（あなたの人生を週で見る） | Plainkit</title>
+<meta name="description" content="生年月日を入れるだけで、人生を1週間＝1マスのカレンダーで表示。これまで過ごした週、残りの週、残りの夏や週末の回数がわかります。">
+<link rel="canonical" href="https://tools.motty.jp/ja/life-in-weeks/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/life-in-weeks/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/life-in-weeks/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/life-in-weeks/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="人生カレンダー（あなたの人生を週で見る） | Plainkit">
+<meta property="og:description" content="生年月日を入れるだけで、人生を1週間＝1マスのカレンダーで表示。これまで過ごした週、残りの週、残りの夏や週末の回数がわかります。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/life-in-weeks/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.lw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start}
+@media (max-width:860px){.lw{grid-template-columns:1fr}}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+#span{width:6rem}
+.headline{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:14px}
+.headline strong{font:700 clamp(2.6rem,9vw,4rem)/1 var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.headline span{color:var(--muted);font-size:15px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0}
+.facts div{background:var(--bg);border-radius:10px;padding:10px 12px}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font:600 20px var(--f-display);font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.legend .past{background:var(--fg)}.legend .now{background:#e0614f}.legend .future{border:1px solid var(--muted)}
+#grid{width:100%;height:auto;display:block}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"人生カレンダー","url":"https://tools.motty.jp/ja/life-in-weeks/","description":"生年月日を入れるだけで、人生を1週間＝1マスのカレンダーで表示。これまで過ごした週、残りの週、残りの夏や週末の回数がわかります。","applicationCategory":"LifestyleApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"人生カレンダー","item":"https://tools.motty.jp/ja/life-in-weeks/"}]}</script>
+</head>
+<body data-slug="life-in-weeks">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/life-in-weeks/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">人生カレンダー</li></ol></nav>
+<div><h1>人生カレンダー：あなたの人生は何週？</h1><p class="lede">1マスが1週間。生年月日を入れると、これまでに過ごした週と、これから過ごす週が一目でわかります。</p></div>
+<div class="lw">
+  <section class="panel">
+    <div class="row">
+      <div class="field"><label for="birth" id="l-birth"></label><input id="birth" type="date" min="1900-01-01"></div>
+      <div class="field"><label for="span" id="l-span"></label><input id="span" type="number" min="30" max="120" value="85"></div>
+    </div>
+    <div class="headline" aria-live="polite"><strong id="pct"></strong><span id="sub"></span></div>
+    <dl class="facts" id="facts"></dl>
+    <div id="share"></div>
+  </section>
+  <section class="panel">
+    <div class="legend"><span><i class="past"></i><span id="lg-past"></span></span><span><i class="now"></i><span id="lg-now"></span></span><span><i class="future"></i><span id="lg-future"></span></span></div>
+    <canvas id="grid" width="1040" height="1800" aria-label="Life in weeks grid"></canvas>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>生年月日を入力します。</li><li>想定する寿命を変更できます。日本の平均寿命は男性約81歳、女性約87歳です。</li><li>1行が1年、1マスが1週間です。塗られたマスがこれまでの週、赤いマスが今週です。</li><li>結果をシェアしたり、ブックマークしてマスが埋まっていく様子を時々確認したりできます。</li></ol>
+<h2>なぜ「週」で見るのか</h2>
+<p>1年は長く、1日は短く感じますが、私たちの予定の多くは1週間単位で立てられています。人生のすべての週を1画面で見ると、これからの時間で何を大切にしたいかを考えるきっかけになります。ティム・アーバンのエッセイ「Your Life in Weeks」で広く知られるようになった考え方です。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>生年月日は保存されますか？</summary><p>次回も表示できるよう、このブラウザ内にだけ保存されます。どこにも送信されません。</p></details><details><summary>心拍数はどう計算していますか？</summary><p>安静時の平均的な心拍数を1分75回として、生きてきた時間をかけた概算です。実際の値は人によって大きく異なります。</p></details><details><summary>寿命は何歳に設定すればいいですか？</summary><p>初期値は85歳です。あくまで考えるきっかけのための数字なので、いくつか試してみてください。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-dungeon/"><strong>キットダンジョン</strong><span>毎日のダンジョンに潜るターン制ローグライクRPG。</span></a></li><li><a href="/ja/kit-blaster/"><strong>キットブラスター</strong><span>パワーアップとボス戦のあるレトロ縦シューティング。</span></a></li><li><a href="/ja/kit-jump/"><strong>キットジャンプ</strong><span>無限に続く横スクロールアクション。敵を踏んでコイン集め。</span></a></li><li><a href="/ja/sudoku/"><strong>数独（ナンプレ）</strong><span>毎日の数独を3つの難易度で。メモ・連続記録つき。</span></a></li><li><a href="/ja/roulette/"><strong>ルーレット</strong><span>抽選・順番決め・ランチ選びに使えるルーレット。</span></a></li><li><a href="/ja/reaction-test/"><strong>反射神経テスト</strong><span>緑になったらタップ。反応速度をミリ秒で測定。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/life-in-weeks/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

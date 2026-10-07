@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>動画をGIFに変換（高画質・無料・透かしなし） | Plainkit</title>
+<meta name="description" content="動画や画面録画を高画質なGIFアニメに無料で変換。開始・終了時間、フレームレート、幅を指定できます。ブラウザ内で処理、アップロード不要、透かしなし。">
+<link rel="canonical" href="https://tools.motty.jp/ja/video-to-gif/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/video-to-gif/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/video-to-gif/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/video-to-gif/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="動画をGIFに変換（高画質・無料・透かしなし） | Plainkit">
+<meta property="og:description" content="動画や画面録画を高画質なGIFアニメに無料で変換。開始・終了時間、フレームレート、幅を指定できます。ブラウザ内で処理、アップロード不要、透かしなし。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/video-to-gif/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.vc{display:grid;gap:14px}
+.drop{border:2px dashed var(--line);border-radius:14px;background:var(--surface);padding:28px 16px;text-align:center;display:grid;gap:10px;justify-items:center;cursor:pointer}
+.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.drop strong{font-family:var(--f-display);font-weight:500;font-size:1.3rem}
+.drop .sub{color:var(--muted);font-size:14px;max-width:44rem}
+.info{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;align-items:baseline}
+.info b{font-weight:600;word-break:break-all}
+.info span{color:var(--muted);font-family:var(--f-mono);font-size:13px}
+.opts{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end}
+.opts input[type=text]{width:6.5rem;font-family:var(--f-mono)}
+.checks{display:flex;flex-wrap:wrap;gap:8px 20px}
+.go{display:flex;flex-wrap:wrap;gap:8px}
+.btn.big{font-size:16px;padding:11px 28px}
+.prog{display:grid;gap:6px}
+.prog .bar{height:10px;border-radius:5px;background:var(--bg);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+.prog span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.err{margin:0;background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 12px;font-size:14px}
+.result{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:700px){.result{grid-template-columns:1fr}}
+.preview video,.preview img{width:100%;max-height:22rem;object-fit:contain;background:#000;border-radius:10px;display:block}
+.preview audio{width:100%}
+.preview .noprev{background:var(--bg);border-radius:10px;padding:30px 12px;text-align:center;color:var(--muted);font-size:14px}
+.rinfo{display:grid;gap:6px;justify-items:start}
+.rinfo strong{word-break:break-all}
+.rinfo span{color:var(--muted);font:13px var(--f-mono)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"動画→GIF変換","url":"https://tools.motty.jp/ja/video-to-gif/","description":"動画や画面録画を高画質なGIFアニメに無料で変換。開始・終了時間、フレームレート、幅を指定できます。ブラウザ内で処理、アップロード不要、透かしなし。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"動画→GIF変換","item":"https://tools.motty.jp/ja/video-to-gif/"}]}</script>
+</head>
+<body data-slug="video-to-gif">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/video-to-gif/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">動画→GIF変換</li></ol></nav>
+<div><h1>動画をGIFアニメに変換</h1><p class="lede">動画や画面録画からGIFアニメを作ります。使う部分、フレームレート、大きさを選べます。GIFごとに色を最適化するのできれいに仕上がり、透かしも入りません。</p></div>
+<div class="vc" id="vc" data-preset="{&quot;to&quot;:&quot;gif&quot;}">
+  <label class="drop" id="drop" for="file">
+    <strong id="d-title"></strong>
+    <span class="sub" id="d-sub"></span>
+    <span class="btn primary" id="d-btn"></span>
+    <input type="file" id="file" accept="video/*,audio/*,.wmv,.avi,.mkv,.flv,.mov,.m4v,.3gp,.mpg,.mpeg,.ts,.asf" hidden>
+  </label>
+  <section class="panel" id="work" hidden>
+    <div class="info" id="info"></div>
+    <div class="opts">
+      <div class="field"><label for="to" id="l-to"></label><select id="to"></select></div>
+      <div class="field" data-for="video"><label for="quality" id="l-quality"></label><select id="quality"></select></div>
+      <div class="field" data-for="video"><label for="res" id="l-res"></label><select id="res"></select></div>
+      <div class="field" data-for="gif"><label for="fps" id="l-fps"></label><select id="fps"><option>8</option><option>10</option><option selected>12</option><option>15</option><option>20</option></select></div>
+      <div class="field" data-for="gif"><label for="gw" id="l-gw"></label><select id="gw"><option>320</option><option selected>480</option><option>640</option><option>800</option></select></div>
+      <div class="field"><label for="ss" id="l-ss"></label><input id="ss" type="text" inputmode="decimal" placeholder="0:00"></div>
+      <div class="field"><label for="to-t" id="l-tot"></label><input id="to-t" type="text" inputmode="decimal"></div>
+    </div>
+    <div class="checks">
+      <label class="check" data-for="video"><input type="checkbox" id="mute"><span id="l-mute"></span></label>
+      <label class="check" data-for="copy"><input type="checkbox" id="copy" checked><span id="l-copy"></span></label>
+    </div>
+    <div class="go"><button class="btn primary big" type="button" id="run"></button><button class="btn" type="button" id="cancel" hidden></button><button class="btn" type="button" id="other"></button></div>
+    <div class="prog" id="prog" hidden><div class="bar"><i id="bar"></i></div><span id="ptext" aria-live="polite"></span></div>
+    <p class="err" id="err" hidden></p>
+    <div class="result" id="result" hidden>
+      <div class="preview" id="preview"></div>
+      <div class="rinfo"><strong id="rname"></strong><span id="rsize"></span><button class="btn primary" type="button" id="dl"></button></div>
+    </div>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>動画や画面録画を枠にドロップします。</li><li>開始・終了時間を指定します。GIFはすぐ大きくなるので、数秒がおすすめです。</li><li>フレームレートと幅を選びます。チャットや資料なら12fps・480pxが目安です。</li><li>「変換する」を押してGIFを保存します。</li></ol>
+<h2>GIFを小さくするコツ</h2>
+<ul><li>短くする：3〜6秒で十分なことがほとんどです。</li><li>幅を小さくする：チャットやマニュアルなら480pxで十分です。</li><li>画面録画は10〜12fps、動きの多い映像は15〜20fpsが目安です。</li><li>長い動画は、GIFよりMP4のほうが10分の1程度の容量になることも多いです。</li></ul>
+<h2>使用しているオープンソースソフトウェア</h2>
+<p>変換には、<a href="https://ffmpeg.org/">FFmpeg</a>をWebAssembly化した<a href="https://github.com/ffmpegwasm/ffmpeg.wasm">ffmpeg.wasm</a>（MITライセンス）を使用しています。使用しているFFmpegの本体にはGPLライセンスの部品が含まれ、ソースコードは各プロジェクトから入手できます。変換プログラム（約31MB）は初回の変換時にjsDelivr（CDN）から読み込まれ、以後はブラウザに保存されたものが使われます。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>動画はアップロードされますか？</summary><p>いいえ。動画はお使いの端末のブラウザ内で処理されます。ダウンロードされるのは変換プログラムだけです。</p></details><details><summary>パソコン用ソフトより遅いのはなぜ？</summary><p>ブラウザでは、変換プログラムがCPUの1コアだけで動き、ハードウェアによる高速化も使えないためです。720pの1分の動画で1〜数分が目安です。H.264の動画をMP4・MOVに入れ替えるだけなら数秒で終わります。</p></details><details><summary>ファイルサイズの上限は？</summary><p>決まった上限はありませんが、ブラウザが使えるメモリは数GBまでです。数百MB程度までなら多くの場合変換できます。長時間や4Kの動画は失敗することがあります。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li><li><a href="/ja/image-converter/"><strong>画像形式変換</strong><span>HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。</span></a></li><li><a href="/ja/video-converter/"><strong>動画変換</strong><span>MP4・MOV・WMV・WebM・GIF・MP3に変換。</span></a></li><li><a href="/ja/mov-to-mp4/"><strong>MOV→MP4変換</strong><span>iPhoneのMOVを画質そのままMP4へ。</span></a></li><li><a href="/ja/wmv-to-mp4/"><strong>WMV→MP4変換</strong><span>古いWindowsのWMV動画をどこでも再生できるMP4に。</span></a></li><li><a href="/ja/video-to-mp3/"><strong>動画→MP3変換</strong><span>動画の音声をMP3・M4A・WAVで保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/video-converter/ffmpeg.js" defer></script>
+<script src="/assets/minipdf.js" defer></script>
+<script src="/video-converter/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

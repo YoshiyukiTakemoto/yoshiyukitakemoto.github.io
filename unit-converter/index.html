@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit Converter: Length, Weight, Temperature &amp; More | Plainkit</title>
+<meta name="description" content="Free unit converter for length, weight, temperature, area, volume, speed and data size. Converts to every unit at once, including traditional Japanese units like tsubo and shaku.">
+<link rel="canonical" href="https://tools.motty.jp/unit-converter/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/unit-converter/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/unit-converter/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/unit-converter/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Unit Converter: Length, Weight, Temperature &amp; More | Plainkit">
+<meta property="og:description" content="Free unit converter for length, weight, temperature, area, volume, speed and data size. Converts to every unit at once, including traditional Japanese units like tsubo and shaku.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/unit-converter/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.uc{display:grid;gap:14px}
+.kinds{display:flex;flex-wrap:wrap;gap:6px}
+.kinds button{font:500 14px var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer}
+.kinds button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+#v{width:12rem;font:500 18px var(--f-mono)}
+.res{width:100%;border-collapse:collapse}
+.res td{padding:9px 6px;border-top:1px solid var(--line)}
+.res td.n{font:500 16px var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;word-break:break-all}
+.res td.u{color:var(--muted);width:45%}
+.res tr.self td{background:color-mix(in srgb,var(--accent) 10%,var(--surface));font-weight:600}
+.res tr.grp td{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-top:0;padding-top:16px}
+.res button{border:0;background:none;color:var(--accent);font:500 12px var(--f-body);cursor:pointer;padding:2px 6px}
+.hint{margin:0;color:var(--muted);font-size:13px}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Unit Converter","url":"https://tools.motty.jp/unit-converter/","description":"Free unit converter for length, weight, temperature, area, volume, speed and data size. Converts to every unit at once, including traditional Japanese units like tsubo and shaku.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Unit Converter","item":"https://tools.motty.jp/unit-converter/"}]}</script>
+</head>
+<body data-slug="unit-converter">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/unit-converter/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Unit Converter</li></ol></nav>
+<div><h1>Unit converter</h1><p class="lede">Enter a value once and see it in every unit: metric, imperial and US customary, plus traditional Japanese units such as tsubo, shaku and gō.</p></div>
+<div class="uc">
+  <div class="kinds" id="kinds" role="group"></div>
+  <section class="panel">
+    <div class="row">
+      <div class="field"><label for="v" id="l-v"></label><input id="v" type="number" step="any" value="1" inputmode="decimal"></div>
+      <div class="field"><label for="from" id="l-from"></label><select id="from"></select></div>
+    </div>
+    <table class="res"><tbody id="res"></tbody></table>
+    <p class="hint" id="hint"></p>
+  </section>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Choose a quantity: length, weight, temperature, area, volume, speed or data size.</li><li>Type a value and pick the unit it is in.</li><li>Read the value in every other unit at once. The unit you entered is highlighted.</li><li>Press Copy next to a result to paste it elsewhere.</li></ol>
+<h2>Quick reference</h2>
+<table><tbody><tr><td>1 inch</td><td>2.54 cm</td></tr><tr><td>1 foot</td><td>30.48 cm</td></tr><tr><td>1 mile</td><td>1.609344 km</td></tr><tr><td>1 pound</td><td>453.59237 g</td></tr><tr><td>1 US gallon</td><td>3.785 L</td></tr><tr><td>0 °C</td><td>32 °F</td></tr><tr><td>1 tsubo</td><td>3.306 m²</td></tr></tbody></table>
+<h2>Traditional Japanese units</h2>
+<p>Japan still uses some pre-metric units. Property sizes are given in <strong>tsubo</strong> (about 3.306 m²) and rooms in <strong>jō</strong>, the area of one tatami mat (1.62 m² by the real estate advertising standard). Rice and sake are measured in <strong>gō</strong> (about 180 mL). Carpentry uses <strong>shaku</strong> (about 30.3 cm).</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>How do I convert Celsius to Fahrenheit?</summary><p>Multiply by 9/5 and add 32. For example, 20 °C × 1.8 + 32 = 68 °F. Choose Temperature above to convert instantly.</p></details><details><summary>Why are there two kinds of gigabyte?</summary><p>GB uses powers of 1000 (used by drive makers) and GiB uses powers of 1024 (used by many operating systems). That’s why a 1 TB drive shows as about 931 GiB.</p></details><details><summary>How big is a tatami mat (jō)?</summary><p>It varies by region, from about 1.45 to 1.82 m². Japanese property listings use 1.62 m² per jō, which is the value used here.</p></details><details><summary>Are US and UK gallons the same?</summary><p>No. A US gallon is 3.785 L and a UK (imperial) gallon is 4.546 L. Both are listed.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/percentage-calculator/"><strong>Percentage Calculator</strong><span>% of a number, % change, discounts and reverse percentages.</span></a></li><li><a href="/tax-calculator/"><strong>VAT Calculator</strong><span>Add or remove VAT and sales tax at any rate.</span></a></li><li><a href="/bmi-calculator/"><strong>BMI Calculator</strong><span>Body mass index with WHO category and healthy range.</span></a></li><li><a href="/split-bill/"><strong>Bill Splitter</strong><span>Split a bill evenly or by share, with rounding.</span></a></li><li><a href="/pomodoro/"><strong>Pomodoro Timer</strong><span>Focus and break timer with daily session count.</span></a></li><li><a href="/notepad/"><strong>Online Notepad</strong><span>Autosaving notes in your browser. Search and .txt download.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/unit-converter/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

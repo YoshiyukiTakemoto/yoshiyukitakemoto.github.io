@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>文字数カウント（リアルタイム・無料） | Plainkit</title>
+<meta name="description" content="文字数をリアルタイムで数える無料ツール。空白・改行を除いた文字数、行数、原稿用紙枚数、バイト数、X（Twitter）の文字数まで同時に表示します。">
+<link rel="canonical" href="https://tools.motty.jp/ja/character-count/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/character-count/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/character-count/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/character-count/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="文字数カウント（リアルタイム・無料） | Plainkit">
+<meta property="og:description" content="文字数をリアルタイムで数える無料ツール。空白・改行を除いた文字数、行数、原稿用紙枚数、バイト数、X（Twitter）の文字数まで同時に表示します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/character-count/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.cc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,19rem);gap:20px;align-items:start}
+@media (max-width:820px){.cc{grid-template-columns:1fr}}
+.ed-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.target{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.target input{width:6.5rem}
+#text{width:100%;min-height:22rem;resize:vertical;font:16px/1.75 var(--f-body);padding:12px 14px}
+.ed-btns{display:flex;gap:8px;flex-wrap:wrap}
+.limitbar{display:grid;gap:4px}
+.limitbar i{display:block;height:6px;border-radius:3px;background:var(--ok);width:0;max-width:100%}
+.limitbar.over i{background:var(--warn)}
+.limitbar span{font-size:13px;color:var(--muted)}
+.limitbar.over span{color:var(--warn)}
+.stats{position:sticky;top:16px}
+.big{display:grid;gap:2px}
+.big strong{font:700 3rem/1 var(--f-display);letter-spacing:-.02em}
+.stats dl{display:grid;grid-template-columns:minmax(0,1fr) auto;margin:0;gap:0}
+.stats dt,.stats dd{padding:8px 0;border-top:1px solid var(--line);margin:0}
+.stats dt{color:var(--muted);font-size:14px}
+.stats dd{font:500 15px var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.stats dd small{color:var(--muted);font-size:12px}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"文字数カウント","url":"https://tools.motty.jp/ja/character-count/","description":"文字数をリアルタイムで数える無料ツール。空白・改行を除いた文字数、行数、原稿用紙枚数、バイト数、X（Twitter）の文字数まで同時に表示します。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"文字数カウント","item":"https://tools.motty.jp/ja/character-count/"}]}</script>
+</head>
+<body data-slug="character-count">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/character-count/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">文字数カウント</li></ol></nav>
+<div><h1>文字数カウント</h1><p class="lede">文章を入力または貼り付けるだけで、文字数・行数・段落数・バイト数をすぐに数えます。原稿用紙の枚数やX（Twitter）の文字数換算も表示します。</p></div>
+<div class="cc">
+  <section class="panel editor">
+    <div class="ed-top">
+      <label for="text" class="eyebrow" id="l-text"></label>
+      <div class="target"><label for="limit" id="l-limit"></label><input id="limit" type="number" min="0" step="1" inputmode="numeric"></div>
+    </div>
+    <textarea id="text" spellcheck="false"></textarea>
+    <div class="limitbar" id="limitbar" hidden><i></i><span class="num" id="limitmsg"></span></div>
+    <div class="ed-btns"><button class="btn" type="button" id="copy"></button><button class="btn" type="button" id="clear"></button></div>
+  </section>
+  <aside class="panel stats" aria-live="polite">
+    <div class="big"><span class="eyebrow" id="l-chars"></span><strong class="num" id="s-chars">0</strong></div>
+    <dl id="stats"></dl>
+  </aside>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>文章を入力欄に入力するか、貼り付けます。</li><li>右側に結果が表示されます。入力のたびに更新されます。</li><li>目標文字数を入れると、あと何文字か、何文字オーバーかがわかります。レポートやES（エントリーシート）の字数制限に便利です。</li><li>入力した文章はこのブラウザ内に保存されるため、タブを閉じても続きから再開できます。</li></ol>
+<h2>主な文字数の目安</h2>
+<table><thead><tr><th>用途</th><th>文字数</th></tr></thead><tbody><tr><td>X（Twitter）の投稿</td><td>全角140文字（半角280文字）</td></tr><tr><td>Googleの検索タイトル</td><td>全角30文字前後</td></tr><tr><td>メタディスクリプション</td><td>全角80〜120文字前後</td></tr><tr><td>原稿用紙1枚</td><td>400文字（20字×20行）</td></tr><tr><td>Instagramのキャプション</td><td>2,200文字</td></tr></tbody></table>
+<h2>文字の数え方</h2>
+<p>見た目で1文字に見える単位（書記素クラスタ）で数えるため、絵文字👨‍👩‍👧や濁点付きの合成文字も1文字として数えます。原稿用紙の枚数は空白・改行を除いた文字数を400で割った目安で、句読点のぶら下げや改行による空きマスは考慮していません。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>入力した文章は送信されますか？</summary><p>いいえ。文字数の計算はブラウザ内で行い、文章はどこにもアップロードされません。</p></details><details><summary>空白や改行は文字数に含まれますか？</summary><p>一番大きく表示される文字数には空白と改行を含みます。右側に「空白を除く」「空白・改行を除く」文字数も表示します。</p></details><details><summary>Xの文字数が通常の文字数と違うのはなぜ？</summary><p>Xでは日本語などの全角文字と絵文字を2、URLは長さに関係なく23として数えるためです。上限は280（全角140文字）です。</p></details><details><summary>Shift_JISのバイト数は正確ですか？</summary><p>半角英数字と半角カナを1バイト、それ以外を2バイトとして計算した目安です。Shift_JISにない文字も2バイトとして数えます。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/password-generator/"><strong>パスワード生成</strong><span>安全なランダムパスワードを文字数・文字種を指定して生成。</span></a></li><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li><li><a href="/ja/overlap/"><strong>時差・会議時間プランナー</strong><span>海外と全員の勤務時間が重なる会議時間を探す。</span></a></li><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li><li><a href="/ja/image-converter/"><strong>画像形式変換</strong><span>HEIC→JPG、PNG⇔JPG、WebP、ICO、画像→PDF。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/character-count/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

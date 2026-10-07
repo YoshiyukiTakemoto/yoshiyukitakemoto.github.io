@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ルーレット（抽選・くじ引き・順番決め） | Plainkit</title>
+<meta name="description" content="項目を入力して回すだけの無料ルーレット。抽選、くじ引き、発表の順番決め、ランチ選びに。当たった項目を除外する機能付きで、項目リストは次回も残ります。">
+<link rel="canonical" href="https://tools.motty.jp/ja/roulette/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/roulette/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/roulette/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/roulette/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="ルーレット（抽選・くじ引き・順番決め） | Plainkit">
+<meta property="og:description" content="項目を入力して回すだけの無料ルーレット。抽選、くじ引き、発表の順番決め、ランチ選びに。当たった項目を除外する機能付きで、項目リストは次回も残ります。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/roulette/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.rl{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.rl{grid-template-columns:1fr}}
+.wheel-box{justify-items:center;text-align:center}
+.wheel{position:relative;width:min(26rem,86vw);max-width:100%;aspect-ratio:1}
+.wheel canvas{width:100%;height:100%;display:block}
+.pin{position:absolute;top:-6px;left:50%;margin-left:-14px;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:26px solid var(--fg);filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.btn.big{font-size:17px;padding:12px 40px}
+.result{margin:0;min-height:2.6rem;font:700 clamp(1.4rem,4vw,2rem)/1.3 var(--f-display)}
+#items{width:100%;min-height:14rem;resize:vertical;font:15px/1.6 var(--f-body)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.hist{margin:6px 0 0;padding-left:1.4em;display:grid;gap:2px;max-height:10rem;overflow:auto;font-size:14px}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ルーレット","url":"https://tools.motty.jp/ja/roulette/","description":"項目を入力して回すだけの無料ルーレット。抽選、くじ引き、発表の順番決め、ランチ選びに。当たった項目を除外する機能付きで、項目リストは次回も残ります。","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"ルーレット","item":"https://tools.motty.jp/ja/roulette/"}]}</script>
+</head>
+<body data-slug="roulette">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/roulette/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">ルーレット</li></ol></nav>
+<div><h1>ルーレット（抽選・くじ引き）</h1><p class="lede">名前や選択肢を入力してルーレットを回すと、ランダムに1つを選びます。授業での指名、プレゼント抽選、会議の発表順、今日のランチ決めなどに使えます。</p></div>
+<div class="rl">
+  <section class="panel wheel-box">
+    <div class="wheel"><canvas id="wheel" width="720" height="720"></canvas><i class="pin" aria-hidden="true"></i></div>
+    <button class="btn primary big" type="button" id="spin"></button>
+    <p class="result" id="result" aria-live="polite"></p>
+  </section>
+  <section class="panel">
+    <div class="field"><label for="items" id="l-items"></label><textarea id="items" spellcheck="false"></textarea></div>
+    <label class="check"><input type="checkbox" id="remove"><span id="l-remove"></span></label>
+    <div class="btns"><button class="btn" type="button" id="shuffle"></button><button class="btn" type="button" id="restore"></button></div>
+    <div><span class="eyebrow" id="l-hist"></span><ol class="hist" id="hist"></ol></div>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li>右側に項目を1行に1つずつ入力します。入力に合わせてルーレットが変わります。</li><li><strong>回す</strong>（またはスペースキー）を押します。</li><li><em>当たった項目を次から除外する</em>をオンにすると、同じ項目が2回当たりません。発表の順番決めに便利です。</li><li>項目リストはこのブラウザに保存され、次回もそのまま使えます。</li></ol>
+<h2>公平に選ばれますか</h2>
+<p>すべての項目は同じ大きさに分けられ、止まる位置はブラウザの暗号用乱数で決めています。毎回の結果は前回の結果に影響されません。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>項目はいくつまで入れられますか？</summary><p>上限はありません。40項目を超えると文字が小さくなりますが、抽選の公平さは変わりません。</p></details><details><summary>プロジェクターや配信で使えますか？</summary><p>はい。ルーレットが大きく表示されるので、画面共有や配信でも見やすいです。</p></details><details><summary>特定の項目を当たりやすくできますか？</summary><p>同じ項目を複数行に入力すると、その分だけ当たる確率が上がります。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/kit-dungeon/"><strong>キットダンジョン</strong><span>毎日のダンジョンに潜るターン制ローグライクRPG。</span></a></li><li><a href="/ja/kit-blaster/"><strong>キットブラスター</strong><span>パワーアップとボス戦のあるレトロ縦シューティング。</span></a></li><li><a href="/ja/kit-jump/"><strong>キットジャンプ</strong><span>無限に続く横スクロールアクション。敵を踏んでコイン集め。</span></a></li><li><a href="/ja/sudoku/"><strong>数独（ナンプレ）</strong><span>毎日の数独を3つの難易度で。メモ・連続記録つき。</span></a></li><li><a href="/ja/life-in-weeks/"><strong>人生カレンダー</strong><span>人生を1週間＝1マスで表示。残りの週・夏を計算。</span></a></li><li><a href="/ja/reaction-test/"><strong>反射神経テスト</strong><span>緑になったらタップ。反応速度をミリ秒で測定。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/roulette/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

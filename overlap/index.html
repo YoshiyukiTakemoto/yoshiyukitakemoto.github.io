@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meeting Planner Across Time Zones (Free) | Plainkit</title>
+<meta name="description" content="Free world meeting planner. Compare cities on a 24-hour grid, see who is in working hours, and pick a time that fits everyone. Handles daylight saving time.">
+<link rel="canonical" href="https://tools.motty.jp/overlap/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/overlap/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/overlap/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/overlap/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Meeting Planner Across Time Zones (Free) | Plainkit">
+<meta property="og:description" content="Free world meeting planner. Compare cities on a 24-hour grid, see who is in working hours, and pick a time that fits everyone. Handles daylight saving time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/overlap/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+:root{--day:#f5d77e;--day-ink:#3b2f05;--dusk:#cfd8ec;--dusk-ink:#28324d;--night:#28314d;--night-ink:#c4cce3;--label:14.5rem}
+@media (prefers-color-scheme:dark){:root{--day:#d6ae45;--day-ink:#1c1503;--dusk:#2c3656;--dusk-ink:#c8d0e8;--night:#080b16;--night-ink:#6d7792}}
+.pair{display:flex;align-items:center;gap:6px}
+.search{position:relative;flex:1 1 16rem}
+.search input{width:100%}
+#results{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 4px);margin:0;padding:4px;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(10,15,35,.18);max-height:20rem;overflow:auto}
+#results li{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;cursor:pointer}
+#results li[aria-selected="true"],#results li:hover{background:var(--bg)}
+#results small{color:var(--muted);font-family:var(--f-mono);font-size:12px;white-space:nowrap}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-left:auto}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+.scroller{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.grid{display:grid;min-width:max-content}
+.lab{position:sticky;left:0;z-index:2;background:var(--surface);padding:10px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;min-width:0}
+.lab .who{flex:1;min-width:0}
+.lab .name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lab .meta{font:12px var(--f-mono);color:var(--muted);white-space:nowrap}
+.lab .clock{font:500 15px var(--f-mono);font-variant-numeric:tabular-nums}
+.lab .acts{display:flex;flex-direction:column;gap:2px}
+.lab.top{align-items:flex-end}
+.icon{border:0;background:none;color:var(--muted);cursor:pointer;font-size:14px;line-height:1;padding:3px 5px;border-radius:5px}
+.icon:hover{background:var(--bg);color:var(--fg)}
+.badge{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:2px}
+.cell{display:grid;place-items:center;font:500 13px var(--f-mono);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--line);border-left:1px solid color-mix(in srgb,var(--line) 60%,transparent);min-height:58px;cursor:pointer;position:relative;padding:2px}
+.cell.work{background:var(--day);color:var(--day-ink)}
+.cell.edge{background:var(--dusk);color:var(--dusk-ink)}
+.cell.night{background:var(--night);color:var(--night-ink)}
+.cell .d{font:600 9.5px var(--f-body);letter-spacing:.04em;text-transform:uppercase;line-height:1.1;text-align:center}
+.cell.newday{box-shadow:inset 2px 0 0 var(--accent)}
+.cell.sel{outline:2px solid var(--accent);outline-offset:-2px;z-index:1}
+.meter{border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;padding:6px 3px 5px;cursor:pointer;min-height:58px;position:relative}
+.meter b{display:block;width:62%;border-radius:3px 3px 0 0;background:color-mix(in srgb,var(--muted) 35%,transparent)}
+.meter.full b{background:var(--ok)}
+.meter.sel b{background:var(--accent)}
+.meter span{font:11px var(--f-mono);color:var(--muted)}
+.meter .now{position:absolute;top:4px;font:600 9px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.slot{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+@media (max-width:760px){.slot{grid-template-columns:1fr}:root{--label:10rem}.lab .clock{display:none}}
+.slot h2{font-family:var(--f-display);font-weight:500;font-size:1.35rem;margin:4px 0 12px;letter-spacing:-.01em}
+.rows{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.rows li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line)}
+.rows .t{font:500 17px var(--f-mono);font-variant-numeric:tabular-nums}
+.rows .dt{color:var(--muted);font-size:13px;white-space:nowrap}
+.chip{font-size:11px;font-weight:600;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.chip.work{background:var(--day);color:var(--day-ink)}
+.chip.edge{background:var(--dusk);color:var(--dusk-ink)}
+.chip.night{background:var(--night);color:var(--night-ink)}
+.share{display:grid;gap:10px;align-content:start;min-width:0}
+.share textarea{width:100%;min-height:9.5rem;resize:vertical;font:13px/1.55 var(--f-mono)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.note{color:var(--muted);font-size:13px;max-width:62ch}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Meeting Time Zone Planner","url":"https://tools.motty.jp/overlap/","description":"Free world meeting planner. Compare cities on a 24-hour grid, see who is in working hours, and pick a time that fits everyone. Handles daylight saving time.","applicationCategory":"BusinessApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Meeting Time Zone Planner","item":"https://tools.motty.jp/overlap/"}]}</script>
+</head>
+<body data-slug="overlap">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/overlap/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Meeting Time Zone Planner</li></ol></nav>
+<div><h1>Meeting planner across time zones</h1><p class="lede">Line up any cities on one 24-hour grid and find the hour when everyone is at work. Daylight saving time and half-hour offsets are handled for you.</p></div>
+<section class="controls">
+  <div class="field search">
+    <label for="city-q" id="l-add"></label>
+    <input id="city-q" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="results">
+    <ul id="results" role="listbox" hidden></ul>
+  </div>
+  <div class="field"><label for="date" id="l-date"></label><input id="date" type="date"></div>
+  <div class="field"><label for="ws" id="l-work"></label><div class="pair"><select id="ws"></select><span>–</span><select id="we"></select></div></div>
+  <div class="field"><label for="dur" id="l-dur"></label><select id="dur"></select></div>
+</section>
+<div class="status"><span class="pill" id="verdict"></span><div class="legend" id="legend"></div></div>
+<div class="scroller"><div class="grid" id="grid"></div></div>
+<section class="slot" id="slot"></section>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Type a city or time zone in the search box and press Enter. Add as many as you need.</li><li>The first city is the base. Use the ⇡ button to make another city the base.</li><li>Set the date, working hours and meeting length. Columns where every city is at work turn green in the top row.</li><li>Click any hour to choose it, then copy the text or add the slot to Google Calendar.</li></ol>
+<h2>Reading the grid</h2>
+<p>Yellow cells are inside the working hours you set. Light blue cells are early morning or evening (06:00–22:00 outside working hours). Dark cells are night. A blue line marks where a city crosses midnight into the next or previous day.</p>
+<h2>Why daylight saving time matters</h2>
+<p>Europe and North America change their clocks on different weekends, so the gap between London and New York is 4 hours for a few weeks each year instead of 5. The planner uses your browser’s built-in IANA time zone database for the date you pick, so the times are correct for that exact day.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Is it free?</summary><p>Yes. There is no account, no trial and no limit on cities or use.</p></details><details><summary>Does it support cities with 30 or 45-minute offsets?</summary><p>Yes. India (UTC+5:30), Nepal (UTC+5:45), Newfoundland, Adelaide and other non-hour offsets show their exact local times.</p></details><details><summary>Where is my city list stored?</summary><p>Only in your browser’s local storage on this device. Nothing is sent to a server.</p></details><details><summary>Can I add a time zone that isn’t in the city list?</summary><p>Yes. Search for any IANA time zone name, such as America/Denver or Asia/Almaty.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/date-calculator/"><strong>Date Calculator</strong><span>Days between dates, weekdays, and adding days or months.</span></a></li><li><a href="/age-calculator/"><strong>Age Calculator</strong><span>Exact age, days lived and countdown to the next birthday.</span></a></li><li><a href="/japanese-era/"><strong>Japanese Era Converter</strong><span>Convert years and dates to Reiwa, Heisei, Showa and back.</span></a></li><li><a href="/pomodoro/"><strong>Pomodoro Timer</strong><span>Focus and break timer with daily session count.</span></a></li><li><a href="/notepad/"><strong>Online Notepad</strong><span>Autosaving notes in your browser. Search and .txt download.</span></a></li><li><a href="/quiet-qr/"><strong>QR Code Generator</strong><span>Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/overlap/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

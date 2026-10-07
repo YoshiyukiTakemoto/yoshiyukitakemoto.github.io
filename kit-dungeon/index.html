@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kit Dungeon: Free Roguelike RPG in Your Browser | Plainkit</title>
+<meta name="description" content="Play Kit Dungeon, a free turn-based roguelike RPG. Explore auto-generated dungeons, fight monsters, find weapons and potions, and see how deep you can go. A new daily dungeon every day.">
+<link rel="canonical" href="https://tools.motty.jp/kit-dungeon/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/kit-dungeon/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/kit-dungeon/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/kit-dungeon/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Kit Dungeon: Free Roguelike RPG in Your Browser | Plainkit">
+<meta property="og:description" content="Play Kit Dungeon, a free turn-based roguelike RPG. Explore auto-generated dungeons, fight monsters, find weapons and potions, and see how deep you can go. A new daily dungeon every day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/kit-dungeon/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.kd{display:grid;gap:12px}
+.modes{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.modes .mode{color:var(--muted);font-size:14px}
+#free.confirm,#daily.confirm{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,19rem);gap:16px;align-items:start}
+@media (max-width:820px){.main{grid-template-columns:1fr}}
+.view{position:relative}
+#map{width:100%;height:auto;aspect-ratio:960/704;display:block;border-radius:12px;background:#0b0e1a;outline:none;touch-action:manipulation;image-rendering:pixelated}
+#map:focus-visible{box-shadow:0 0 0 3px var(--accent)}
+.pad{display:grid;grid-template-columns:repeat(3,56px);grid-template-rows:repeat(3,56px);gap:6px;justify-content:center;margin-top:10px}
+.pad button{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);font-size:20px;touch-action:manipulation}
+.pad [data-d=up]{grid-column:2;grid-row:1}.pad [data-d=left]{grid-column:1;grid-row:2}.pad [data-d=wait]{grid-column:2;grid-row:2}.pad [data-d=right]{grid-column:3;grid-row:2}.pad [data-d=down]{grid-column:2;grid-row:3}
+.side{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.hp{display:grid;gap:4px}
+.hp .bar{height:12px;border-radius:6px;background:var(--bg);overflow:hidden}
+.hp i{display:block;height:100%;background:#3fae6a;transition:width .2s}
+.hp i.low{background:#d9534f}
+.hp span{font-size:13px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 12px;margin:0;font-size:14px}
+.stats div{display:flex;justify-content:space-between;gap:6px;border-bottom:1px dashed var(--line);padding-bottom:3px}
+.stats dt{color:var(--muted)}.stats dd{margin:0;font-family:var(--f-mono);text-align:right}
+.inv{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+.inv button{border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);padding:6px 2px;font:500 11.5px var(--f-body);cursor:pointer;min-height:44px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.inv button:disabled{opacity:.35;cursor:default}
+.inv small{display:block;color:var(--muted);font:11px var(--f-mono)}
+.screen{position:relative}
+.log{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);width:min(92%,34rem);list-style:none;margin:0;padding:10px 16px;display:grid;gap:3px;font:600 clamp(12px,1.8vw,15px)/1.5 var(--f-body);color:#fff;background:rgba(10,12,24,.9);border:2px solid #e6e9f2;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.4);pointer-events:none}
+.log.pop{animation:msgin .14s ease-out}
+@keyframes msgin{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+.keys{margin:0;color:var(--muted);font-size:13px}
+.keys kbd{font:500 12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--surface);color:var(--fg)}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Kit Dungeon","url":"https://tools.motty.jp/kit-dungeon/","description":"Play Kit Dungeon, a free turn-based roguelike RPG. Explore auto-generated dungeons, fight monsters, find weapons and potions, and see how deep you can go. A new daily dungeon every day.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"Kit Dungeon","item":"https://tools.motty.jp/kit-dungeon/"}]}</script>
+</head>
+<body data-slug="kit-dungeon">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/kit-dungeon/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Kit Dungeon</li></ol></nav>
+<div><h1>Kit Dungeon: daily roguelike RPG</h1><p class="lede">A turn-based dungeon crawler. Every floor is generated as you go down. Fight monsters, level up, find better gear and descend as deep as you can. One life per run.</p></div>
+<div class="kd">
+  <div class="modes">
+    <button class="btn primary" type="button" id="daily"></button>
+    <button class="btn" type="button" id="free"></button>
+    <span class="mode" id="mode"></span>
+  </div>
+  <div class="main">
+    <div class="view">
+      <div class="screen">
+        <canvas id="map" width="960" height="704" tabindex="0" aria-label="Dungeon map"></canvas>
+        <ol class="log" id="log" aria-live="polite" hidden></ol>
+      </div>
+      <div class="pad" id="pad" hidden>
+        <button type="button" data-d="up" aria-label="Up">▲</button>
+        <button type="button" data-d="left" aria-label="Left">◀</button>
+        <button type="button" data-d="wait" aria-label="Wait">・</button>
+        <button type="button" data-d="right" aria-label="Right">▶</button>
+        <button type="button" data-d="down" aria-label="Down">▼</button>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="hp"><div class="bar"><i id="hpbar"></i></div><span class="num" id="hptext"></span></div>
+      <dl class="stats" id="stats"></dl>
+      <div><span class="eyebrow" id="l-inv"></span><div class="inv" id="inv"></div></div>
+      <button class="btn" type="button" id="stairs" hidden></button>
+      <div id="share"></div>
+    </aside>
+  </div>
+  <p class="keys" id="keys"></p>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Choose <strong>Today’s dungeon</strong> (the same layout for everyone today) or a new random dungeon.</li><li>Move with the arrow keys or WASD. On phones, use the pad or tap the map. Walk into a monster to attack it.</li><li>Step on items to pick them up. Better weapons and armour are equipped automatically. Press 1–8 to use potions, bombs and scrolls.</li><li>Find the golden stairs and press Enter to go deeper. Your run saves every turn, so you can close the page and come back.</li></ol>
+<h2>How it works</h2>
+<p>Each action takes one turn, and monsters move after you. You see only what is in your line of sight; explored areas stay on the map. Monsters get stronger the deeper you go, so balance fighting for experience against hurrying down. When your HP reaches zero the run ends and you start again from floor B1.</p>
+<h2>Items</h2>
+<ul><li><strong>Potion</strong>: restores some HP.</li><li><strong>Elixir</strong>: restores all HP.</li><li><strong>Bomb</strong>: damages every monster in sight.</li><li><strong>Teleport scroll</strong>: moves you to a random spot on the floor. Useful when surrounded.</li></ul>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>What is a roguelike?</summary><p>A game genre with randomly generated levels, turn-based movement and permanent death. Every run is different, so you learn and improve rather than memorise.</p></details><details><summary>Is today’s dungeon really the same for everyone?</summary><p>Yes. The floors are generated from today’s date, so everyone gets the same layouts, monsters and items. Combat rolls still vary.</p></details><details><summary>Is my progress saved?</summary><p>Yes. The current run saves in this browser after every turn.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/kit-blaster/"><strong>Kit Blaster</strong><span>Retro vertical shooter with power-ups and bosses.</span></a></li><li><a href="/kit-jump/"><strong>Kit Jump</strong><span>Endless run-and-jump game. Stomp, collect, survive.</span></a></li><li><a href="/sudoku/"><strong>Daily Sudoku</strong><span>New daily puzzle in 3 levels, with notes and streaks.</span></a></li><li><a href="/roulette/"><strong>Spin the Wheel</strong><span>Random picker wheel for names, prizes and decisions.</span></a></li><li><a href="/life-in-weeks/"><strong>Your Life in Weeks</strong><span>Your whole life as a grid of weeks, with weeks left.</span></a></li><li><a href="/reaction-test/"><strong>Reaction Time Test</strong><span>Tap when it turns green. Average of 5 tries in ms.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/kit-dungeon/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>
