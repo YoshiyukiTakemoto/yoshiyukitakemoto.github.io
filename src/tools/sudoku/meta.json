@@ -1,0 +1,53 @@
+{
+  "order": 98,
+  "category": "fun",
+  "schemaCategory": "GameApplication",
+  "assets": ["gen.js"],
+  "scripts": ["gen.js"],
+  "en": {
+    "name": "Daily Sudoku",
+    "title": "Daily Sudoku: Free Online Sudoku Puzzles",
+    "description": "Play free sudoku online. A new daily puzzle in easy, medium and hard, plus unlimited practice. Pencil marks, undo, mistake highlighting, streaks and auto-save.",
+    "h1": "Daily sudoku",
+    "lede": "A new puzzle every day at three difficulty levels, the same for everyone. Keep your streak going, or play unlimited practice puzzles. Progress saves automatically.",
+    "card": "New daily puzzle in 3 levels, with notes and streaks.",
+    "steps": [
+      "Pick Easy, Medium or Hard. Everyone playing today gets the same puzzle.",
+      "Tap a cell, then tap a number. On a keyboard, use the arrow keys and 1–9.",
+      "Turn on <strong>Notes</strong> (or press N) to pencil in candidates.",
+      "Solve the daily puzzle each day to build a streak, then share your time."
+    ],
+    "sections": [
+      { "h": "How to play sudoku", "html": "<p>Fill the 9×9 grid so that every row, every column and every 3×3 box contains the digits 1 to 9 exactly once. Every puzzle here has exactly one solution and can be solved by logic, without guessing.</p>" },
+      { "h": "Solving tips", "html": "<ul><li><strong>Single position</strong>: if a digit fits in only one cell of a row, column or box, it goes there.</li><li><strong>Single candidate</strong>: if a cell can only take one digit, write it in.</li><li><strong>Use notes</strong> on harder puzzles to track candidates, and clear them as you place digits.</li></ul>" }
+    ],
+    "faq": [
+      ["When does the daily puzzle change?", "At midnight in your own time zone."],
+      ["Is my game saved if I close the tab?", "Yes. Each puzzle’s progress, time and notes are saved in this browser."],
+      ["What counts as a mistake?", "Placing a digit that doesn’t match the solution. You can hide mistake highlighting for a harder challenge; mistakes are still counted."]
+    ]
+  },
+  "ja": {
+    "name": "数独（ナンプレ）",
+    "title": "数独・ナンプレ無料（毎日の問題・初級〜上級）",
+    "description": "無料で遊べるオンライン数独（ナンプレ）。毎日新しい問題を初級・中級・上級で出題。メモ機能、戻す、間違い表示、連続日数の記録、自動保存に対応。登録不要。",
+    "h1": "数独（ナンプレ）毎日の問題",
+    "lede": "毎日新しい問題を3つの難易度で出題します。問題は全員共通なので、タイムを友達と比べられます。練習問題は何問でも遊べ、途中経過は自動で保存されます。",
+    "card": "毎日の数独を3つの難易度で。メモ・連続記録つき。",
+    "steps": [
+      "初級・中級・上級を選びます。今日遊ぶ人は全員同じ問題です。",
+      "マスをタップしてから数字をタップします。キーボードでは矢印キーと1〜9で入力できます。",
+      "<strong>メモ</strong>をオン（またはNキー）にすると、候補の数字を小さく書き込めます。",
+      "毎日解いて連続日数を伸ばし、タイムをシェアしましょう。"
+    ],
+    "sections": [
+      { "h": "数独のルール", "html": "<p>9×9のマスに、どの行・どの列・どの3×3のブロックにも1〜9の数字が1つずつ入るように埋めます。このサイトの問題はすべて答えが1つだけで、当てずっぽうに頼らず理詰めで解けます。数独はナンプレ（ナンバープレース）とも呼ばれます。</p>" },
+      { "h": "解き方のコツ", "html": "<ul><li><strong>入る場所が1つだけ</strong>：ある数字が、行・列・ブロックの中で1か所にしか入らないなら、そこに決まります。</li><li><strong>入る数字が1つだけ</strong>：あるマスに入れられる数字が1つしかなければ、それに決まります。</li><li><strong>メモを使う</strong>：上級では候補をメモし、数字が決まるたびに消していくと解きやすくなります。</li></ul>" }
+    ],
+    "faq": [
+      ["今日の問題はいつ切り替わりますか？", "お使いの端末の時刻で、毎日0時に切り替わります。"],
+      ["途中でタブを閉じても続きから遊べますか？", "はい。問題ごとに、入力内容・タイム・メモがこのブラウザに保存されます。"],
+      ["ミスはどう数えられますか？", "答えと違う数字を入れるとミスになります。「間違いを赤で表示」をオフにすると表示されなくなりますが、回数は数えられます。"]
+    ]
+  }
+}

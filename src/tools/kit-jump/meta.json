@@ -1,0 +1,49 @@
+{
+  "order": 97,
+  "category": "fun",
+  "schemaCategory": "GameApplication",
+  "en": {
+    "name": "Kit Jump",
+    "title": "Kit Jump: Free Endless Platformer Game",
+    "description": "Play Kit Jump, a free endless platform game in your browser. Run, jump over gaps, stomp enemies and collect coins in levels that never end. Works with keyboard or touch.",
+    "h1": "Kit Jump: endless platformer",
+    "lede": "Run and jump through a world that builds itself as you go. Stomp enemies, grab coins and see how far you can get. No download, no sign-up.",
+    "card": "Endless run-and-jump game. Stomp, collect, survive.",
+    "steps": [
+      "Press Space or tap the game to start.",
+      "Move with the arrow keys or A / D. Jump with Space, ↑ or W. Hold jump to go higher.",
+      "Jump on enemies to defeat them. Touching them from the side ends the run, and so does falling into a gap.",
+      "On phones, use the on-screen buttons. Press ⛶ for full screen and P to pause."
+    ],
+    "sections": [
+      { "h": "Scoring", "html": "<ul><li>1 point for every block of distance</li><li>10 points per coin</li><li>50 points per enemy stomped</li></ul><p>The level gets harder the further you go: wider gaps and more enemies. Your best score is saved in this browser.</p>" }
+    ],
+    "faq": [
+      ["Does the level ever end?", "No. The world is generated as you run, so every run is different."],
+      ["Can I play on my phone?", "Yes. On-screen buttons appear on touch screens. Turn your phone sideways and use full screen for the best view."],
+      ["Is it free?", "Yes, with no ads, no in-app purchases and no sign-up."]
+    ]
+  },
+  "ja": {
+    "name": "キットジャンプ",
+    "title": "キットジャンプ（無料ブラウザゲーム・横スクロールアクション）",
+    "description": "ブラウザで無料で遊べる横スクロールアクションゲーム。ステージは無限に自動生成され、穴を飛び越え、敵を踏み、コインを集めながらどこまで進めるかに挑戦します。スマホ対応。",
+    "h1": "キットジャンプ（無限横スクロールアクション）",
+    "lede": "走って跳んで、どこまでも続く世界を進むアクションゲームです。敵を踏みつけ、コインを集め、ハイスコアを目指しましょう。ダウンロードも登録も不要です。",
+    "card": "無限に続く横スクロールアクション。敵を踏んでコイン集め。",
+    "steps": [
+      "スペースキーを押すか、ゲーム画面をタップしてスタートします。",
+      "矢印キーまたはA・Dで移動、スペース・↑・Wでジャンプします。長押しすると高く跳べます。",
+      "敵は上から踏むと倒せます。横からぶつかったり、穴に落ちたりするとゲームオーバーです。",
+      "スマホでは画面のボタンで操作します。⛶で全画面、Pキーで一時停止できます。"
+    ],
+    "sections": [
+      { "h": "スコアの計算", "html": "<ul><li>進んだ距離1ブロックごとに1点</li><li>コイン1枚で10点</li><li>敵を1体踏むごとに50点</li></ul><p>先に進むほど穴が広く、敵が多くなります。ハイスコアはこのブラウザに保存されます。</p>" }
+    ],
+    "faq": [
+      ["ステージに終わりはありますか？", "ありません。進むたびにステージが自動で作られるので、毎回違うコースになります。"],
+      ["スマホでも遊べますか？", "はい。タッチ操作の端末では画面にボタンが表示されます。横向きにして全画面にすると遊びやすくなります。"],
+      ["無料ですか？", "はい。広告、課金、登録はありません。"]
+    ]
+  }
+}
