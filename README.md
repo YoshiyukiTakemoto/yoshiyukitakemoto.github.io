@@ -27,4 +27,6 @@ Set `"domain"` in `site.config.json` (e.g. `"tools.example.com"`). The build wri
 - [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) (MIT) by Kazuhiko Arase. QR Code is a registered trademark of DENSO WAVE INCORPORATED.
 - [JSZip](https://github.com/Stuk/jszip) (MIT).
 - [heic2any](https://github.com/alexcorvi/heic2any) (MIT), which bundles [libheif](https://github.com/strukturag/libheif) (LGPL-3.0), unmodified.
+- [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) (MIT): `@ffmpeg/ffmpeg` 0.12.15 is vendored in `src/tools/video-converter/`; `@ffmpeg/core` 0.12.10 is loaded from jsDelivr at runtime. The core is a build of [FFmpeg](https://ffmpeg.org/) that includes GPL-licensed components (e.g. x264); source is available from those projects.
+- Landing pages such as `mov-to-mp4` reuse another tool's code via `"base"` and set defaults via `"preset"` in `meta.json`.
 - Fonts: Bricolage Grotesque, IBM Plex Sans JP, IBM Plex Mono, Shippori Mincho B1, Yuji Syuku (SIL Open Font License, via Google Fonts).

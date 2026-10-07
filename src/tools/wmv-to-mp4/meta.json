@@ -1,0 +1,90 @@
+{
+ "order": 29.2,
+ "category": "media",
+ "base": "video-converter",
+ "preset": {
+  "to": "mp4"
+ },
+ "en": {
+  "name": "WMV to MP4",
+  "title": "WMV to MP4 Converter: Free, No Upload",
+  "description": "Convert old Windows Media Video (WMV) files to MP4 so they play on iPhone, Mac, Android and the web. Free, runs in your browser, nothing uploaded.",
+  "h1": "WMV to MP4 converter",
+  "lede": "Old Windows Media videos often won’t play on phones, Macs or websites. Convert them to MP4 (H.264) in your browser, without installing anything.",
+  "card": "Make old Windows WMV videos play everywhere.",
+  "steps": [
+   "Drop your WMV file on the box.",
+   "Keep MP4 selected. Choose a lower resolution or “Small file” to make the result smaller.",
+   "Press Convert. WMV must be re-encoded, so allow a few minutes for longer videos."
+  ],
+  "sections": [
+   {
+    "h": "About WMV",
+    "html": "<p>WMV (Windows Media Video) was Microsoft’s video format in the 2000s and was used by many cameras, screen recorders and Windows Movie Maker. Apple devices and most browsers can’t play it. Converting to MP4 with H.264 video and AAC audio makes the file playable almost everywhere. This tool can also convert videos <em>to</em> WMV for older Windows software.</p>"
+   },
+   {
+    "h": "Open-source software",
+    "html": "<p>Conversion is done by <a href=\"https://ffmpeg.org/\">FFmpeg</a> compiled to WebAssembly by <a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a> (MIT). The FFmpeg core used here includes components licensed under the GPL; their source code is available from those projects. The converter (about 31 MB) is downloaded from the jsDelivr CDN the first time you convert, then cached by your browser.</p>"
+   }
+  ],
+  "faq": [
+   [
+    "Is my video uploaded?",
+    "No. The video is processed by your browser on your own device. Only the converter program itself is downloaded."
+   ],
+   [
+    "Why is it slower than desktop software?",
+    "Browsers run the converter on a single CPU core without hardware acceleration. Converting a 1-minute 720p video usually takes one to a few minutes. Copying H.264 into MP4 or MOV without re-encoding takes seconds."
+   ],
+   [
+    "Is there a size limit?",
+    "There is no fixed limit, but browsers can only use a few GB of memory. Files up to a few hundred MB usually work; very long or 4K videos may fail."
+   ],
+   [
+    "Why does my WMV fail to convert?",
+    "WMV files protected with Windows Media DRM can’t be converted by any free tool."
+   ]
+  ]
+ },
+ "ja": {
+  "name": "WMV→MP4変換",
+  "title": "WMVをMP4に変換（無料・アップロード不要）",
+  "description": "古いWindows Media Video（WMV）をMP4に無料で変換。iPhone・Mac・Android・Webで再生できるようになります。ブラウザ内で処理するのでアップロード不要。",
+  "h1": "WMVをMP4に変換",
+  "lede": "昔のWindows Media形式の動画は、スマホやMac、Webサイトでは再生できないことがよくあります。インストール不要で、ブラウザだけでMP4（H.264）に変換できます。",
+  "card": "古いWindowsのWMV動画をどこでも再生できるMP4に。",
+  "steps": [
+   "WMVファイルを枠にドロップします。",
+   "形式はMP4のままにします。ファイルを小さくしたいときは、解像度を下げるか「小さいファイル」を選びます。",
+   "「変換する」を押します。WMVは作り直しが必要なため、長い動画は数分かかります。"
+  ],
+  "sections": [
+   {
+    "h": "WMVとは",
+    "html": "<p>WMV（Windows Media Video）は2000年代にMicrosoftが普及させた動画形式で、デジカメ、画面録画ソフト、Windowsムービーメーカーなどで多く使われました。Apple製品や多くのブラウザでは再生できません。映像H.264・音声AACのMP4に変換すれば、ほぼどこでも再生できます。古いWindowsソフト向けに、MP4などをWMVに変換することもできます。</p>"
+   },
+   {
+    "h": "使用しているオープンソースソフトウェア",
+    "html": "<p>変換には、<a href=\"https://ffmpeg.org/\">FFmpeg</a>をWebAssembly化した<a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a>（MITライセンス）を使用しています。使用しているFFmpegの本体にはGPLライセンスの部品が含まれ、ソースコードは各プロジェクトから入手できます。変換プログラム（約31MB）は初回の変換時にjsDelivr（CDN）から読み込まれ、以後はブラウザに保存されたものが使われます。</p>"
+   }
+  ],
+  "faq": [
+   [
+    "動画はアップロードされますか？",
+    "いいえ。動画はお使いの端末のブラウザ内で処理されます。ダウンロードされるのは変換プログラムだけです。"
+   ],
+   [
+    "パソコン用ソフトより遅いのはなぜ？",
+    "ブラウザでは、変換プログラムがCPUの1コアだけで動き、ハードウェアによる高速化も使えないためです。720pの1分の動画で1〜数分が目安です。H.264の動画をMP4・MOVに入れ替えるだけなら数秒で終わります。"
+   ],
+   [
+    "ファイルサイズの上限は？",
+    "決まった上限はありませんが、ブラウザが使えるメモリは数GBまでです。数百MB程度までなら多くの場合変換できます。長時間や4Kの動画は失敗することがあります。"
+   ],
+   [
+    "WMVが変換できないのはなぜ？",
+    "Windows Media DRM（コピー保護）付きのWMVは、無料のツールでは変換できません。"
+   ]
+  ]
+ }
+}

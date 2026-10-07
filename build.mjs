@@ -31,10 +31,12 @@ for (const slug of fs.readdirSync(path.join(SRC, "tools"))) {
   const dir = path.join(SRC, "tools", slug);
   if (!fs.statSync(dir).isDirectory()) continue;
   const meta = JSON.parse(fs.readFileSync(path.join(dir, "meta.json"), "utf8"));
-  const read = (f) => (fs.existsSync(path.join(dir, f)) ? fs.readFileSync(path.join(dir, f), "utf8") : "");
+  // A landing page can reuse another tool's markup, styles and scripts ("base") with different defaults ("preset").
+  const codeDir = meta.base ? path.join(SRC, "tools", meta.base) : dir;
+  const read = (f) => (fs.existsSync(path.join(codeDir, f)) ? fs.readFileSync(path.join(codeDir, f), "utf8") : "");
   let render;
-  if (fs.existsSync(path.join(dir, "render.mjs"))) render = (await import(pathToFileURL(path.join(dir, "render.mjs")))).default;
-  else { const html = read("tool.html"); render = () => html; }
+  if (fs.existsSync(path.join(codeDir, "render.mjs"))) render = (await import(pathToFileURL(path.join(codeDir, "render.mjs")))).default;
+  else { const html = read("tool.html").replace("%%PRESET%%", esc(JSON.stringify(meta.preset || {}))); render = () => html; }
   tools.push({ slug, dir, meta, render, css: read("tool.css") });
 }
 tools.sort((a, b) => a.meta.order - b.meta.order);
@@ -114,7 +116,8 @@ const addUrl = (slug) => sitemap.push(`<url><loc>${BASE}${url("en", slug)}</loc>
   `<url><loc>${BASE}${url("ja", slug)}</loc><lastmod>${today}</lastmod>${LANGS.map((l) => `<xhtml:link rel="alternate" hreflang="${l}" href="${BASE}${url(l, slug)}"/>`).join("")}<xhtml:link rel="alternate" hreflang="x-default" href="${BASE}${url("en", slug)}"/></url>`);
 
 for (const t of tools) {
-  for (const f of ["app.js", ...(t.meta.assets || [])]) write(`${t.slug}/${f}`, fs.readFileSync(path.join(t.dir, f)));
+  if (!t.meta.base) for (const f of ["app.js", ...(t.meta.assets || [])]) write(`${t.slug}/${f}`, fs.readFileSync(path.join(t.dir, f)));
+  const codeSlug = t.meta.base || t.slug;
   for (const lang of LANGS) {
     const m = t.meta[lang], ui = cfg.ui[lang];
     const main = `<main class="wrap">
@@ -135,7 +138,8 @@ ${cards(lang, related(t))}
       { "@context": "https://schema.org", "@type": "WebApplication", name: m.name, url: BASE + url(lang, t.slug), description: m.description, applicationCategory: t.meta.schemaCategory || "UtilitiesApplication", operatingSystem: "Any", browserRequirements: "Requires JavaScript", inLanguage: lang, isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: ui.home, item: BASE + url(lang) }, { "@type": "ListItem", position: 2, name: m.name, item: BASE + url(lang, t.slug) }] },
     ];
-    const scripts = [...(t.meta.scripts || []).map((s) => (s.startsWith("/") ? s : `/${t.slug}/${s}`)), `/${t.slug}/app.js`];
+    const base = t.meta.base ? tools.find((x) => x.slug === t.meta.base).meta : t.meta;
+    const scripts = [...(base.scripts || []).map((s) => (s.startsWith("/") ? s : `/${codeSlug}/${s}`)), `/${codeSlug}/app.js`];
     write(`${url(lang, t.slug).slice(1)}index.html`, page({ lang, slug: t.slug, title: `${m.title} | ${cfg.name}`, desc: m.description, main, css: t.css, scripts, schema }));
   }
   addUrl(t.slug);

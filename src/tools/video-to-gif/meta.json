@@ -1,0 +1,84 @@
+{
+ "order": 29.3,
+ "category": "media",
+ "base": "video-converter",
+ "preset": {
+  "to": "gif"
+ },
+ "en": {
+  "name": "Video to GIF",
+  "title": "Video to GIF Converter: High Quality, Free",
+  "description": "Turn videos and screen recordings into high-quality animated GIFs. Set the start and end, frame rate and width. Free, in your browser, no upload, no watermark.",
+  "h1": "Video to GIF converter",
+  "lede": "Make an animated GIF from any video or screen recording. Choose the part you want, the frame rate and the size. Colours are optimised per GIF for a clean result, with no watermark.",
+  "card": "Clean animated GIFs from videos, no watermark.",
+  "steps": [
+   "Drop a video or screen recording on the box.",
+   "Set the start and end times. GIFs grow quickly, so a few seconds is best.",
+   "Choose frame rate and width: 12 fps at 480 px suits most chats and docs.",
+   "Press Convert and download the GIF."
+  ],
+  "sections": [
+   {
+    "h": "Tips for small GIFs",
+    "html": "<ul><li>Keep it short: 3 to 6 seconds is usually enough.</li><li>Lower the width: 480 px is plenty for chat and documentation.</li><li>Use 10–12 fps for screen recordings, 15–20 fps for motion.</li><li>For long clips, an MP4 is often 10 times smaller than a GIF.</li></ul>"
+   },
+   {
+    "h": "Open-source software",
+    "html": "<p>Conversion is done by <a href=\"https://ffmpeg.org/\">FFmpeg</a> compiled to WebAssembly by <a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a> (MIT). The FFmpeg core used here includes components licensed under the GPL; their source code is available from those projects. The converter (about 31 MB) is downloaded from the jsDelivr CDN the first time you convert, then cached by your browser.</p>"
+   }
+  ],
+  "faq": [
+   [
+    "Is my video uploaded?",
+    "No. The video is processed by your browser on your own device. Only the converter program itself is downloaded."
+   ],
+   [
+    "Why is it slower than desktop software?",
+    "Browsers run the converter on a single CPU core without hardware acceleration. Converting a 1-minute 720p video usually takes one to a few minutes. Copying H.264 into MP4 or MOV without re-encoding takes seconds."
+   ],
+   [
+    "Is there a size limit?",
+    "There is no fixed limit, but browsers can only use a few GB of memory. Files up to a few hundred MB usually work; very long or 4K videos may fail."
+   ]
+  ]
+ },
+ "ja": {
+  "name": "動画→GIF変換",
+  "title": "動画をGIFに変換（高画質・無料・透かしなし）",
+  "description": "動画や画面録画を高画質なGIFアニメに無料で変換。開始・終了時間、フレームレート、幅を指定できます。ブラウザ内で処理、アップロード不要、透かしなし。",
+  "h1": "動画をGIFアニメに変換",
+  "lede": "動画や画面録画からGIFアニメを作ります。使う部分、フレームレート、大きさを選べます。GIFごとに色を最適化するのできれいに仕上がり、透かしも入りません。",
+  "card": "動画や画面録画を透かしなしでGIFに。",
+  "steps": [
+   "動画や画面録画を枠にドロップします。",
+   "開始・終了時間を指定します。GIFはすぐ大きくなるので、数秒がおすすめです。",
+   "フレームレートと幅を選びます。チャットや資料なら12fps・480pxが目安です。",
+   "「変換する」を押してGIFを保存します。"
+  ],
+  "sections": [
+   {
+    "h": "GIFを小さくするコツ",
+    "html": "<ul><li>短くする：3〜6秒で十分なことがほとんどです。</li><li>幅を小さくする：チャットやマニュアルなら480pxで十分です。</li><li>画面録画は10〜12fps、動きの多い映像は15〜20fpsが目安です。</li><li>長い動画は、GIFよりMP4のほうが10分の1程度の容量になることも多いです。</li></ul>"
+   },
+   {
+    "h": "使用しているオープンソースソフトウェア",
+    "html": "<p>変換には、<a href=\"https://ffmpeg.org/\">FFmpeg</a>をWebAssembly化した<a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a>（MITライセンス）を使用しています。使用しているFFmpegの本体にはGPLライセンスの部品が含まれ、ソースコードは各プロジェクトから入手できます。変換プログラム（約31MB）は初回の変換時にjsDelivr（CDN）から読み込まれ、以後はブラウザに保存されたものが使われます。</p>"
+   }
+  ],
+  "faq": [
+   [
+    "動画はアップロードされますか？",
+    "いいえ。動画はお使いの端末のブラウザ内で処理されます。ダウンロードされるのは変換プログラムだけです。"
+   ],
+   [
+    "パソコン用ソフトより遅いのはなぜ？",
+    "ブラウザでは、変換プログラムがCPUの1コアだけで動き、ハードウェアによる高速化も使えないためです。720pの1分の動画で1〜数分が目安です。H.264の動画をMP4・MOVに入れ替えるだけなら数秒で終わります。"
+   ],
+   [
+    "ファイルサイズの上限は？",
+    "決まった上限はありませんが、ブラウザが使えるメモリは数GBまでです。数百MB程度までなら多くの場合変換できます。長時間や4Kの動画は失敗することがあります。"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "order": 29.1,
+ "category": "media",
+ "base": "video-converter",
+ "preset": {
+  "to": "mp4"
+ },
+ "en": {
+  "name": "MOV to MP4",
+  "title": "MOV to MP4 Converter (iPhone Videos)",
+  "description": "Convert MOV videos from iPhone or Mac to MP4 for free. H.264 videos are converted in seconds without quality loss. Runs in your browser, no upload.",
+  "h1": "MOV to MP4 converter",
+  "lede": "Turn iPhone and Mac MOV videos into MP4 files that play on Windows, Android and most websites. H.264 videos are re-packaged in seconds with no quality loss.",
+  "card": "iPhone MOV to MP4 in seconds, no quality loss.",
+  "steps": [
+   "Drop your MOV file on the box.",
+   "Keep MP4 selected and leave “Skip re-encoding” on for the fastest, lossless result.",
+   "Press Convert and download the MP4."
+  ],
+  "sections": [
+   {
+    "h": "Why convert MOV to MP4?",
+    "html": "<p>MOV is Apple’s QuickTime format. The video inside is usually H.264 or HEVC (H.265), the same as in MP4, but some Windows apps, websites and upload forms only accept .mp4. For H.264 videos this tool copies the streams into an MP4 container without re-encoding. HEVC videos are re-encoded to H.264 for the widest compatibility, which takes longer.</p>"
+   },
+   {
+    "h": "Open-source software",
+    "html": "<p>Conversion is done by <a href=\"https://ffmpeg.org/\">FFmpeg</a> compiled to WebAssembly by <a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a> (MIT). The FFmpeg core used here includes components licensed under the GPL; their source code is available from those projects. The converter (about 31 MB) is downloaded from the jsDelivr CDN the first time you convert, then cached by your browser.</p>"
+   }
+  ],
+  "faq": [
+   [
+    "Is my video uploaded?",
+    "No. The video is processed by your browser on your own device. Only the converter program itself is downloaded."
+   ],
+   [
+    "Why is it slower than desktop software?",
+    "Browsers run the converter on a single CPU core without hardware acceleration. Converting a 1-minute 720p video usually takes one to a few minutes. Copying H.264 into MP4 or MOV without re-encoding takes seconds."
+   ],
+   [
+    "Is there a size limit?",
+    "There is no fixed limit, but browsers can only use a few GB of memory. Files up to a few hundred MB usually work; very long or 4K videos may fail."
+   ]
+  ]
+ },
+ "ja": {
+  "name": "MOV→MP4変換",
+  "title": "MOVをMP4に変換（iPhone動画・無料）",
+  "description": "iPhoneやMacのMOV動画をMP4に無料で変換。H.264の動画なら画質を落とさず数秒で変換できます。ブラウザ内で処理するのでアップロード不要。",
+  "h1": "MOVをMP4に変換",
+  "lede": "iPhoneやMacで撮ったMOV動画を、WindowsやAndroid、多くのWebサイトで再生できるMP4に変換します。H.264の動画なら、画質を落とさず数秒で変換できます。",
+  "card": "iPhoneのMOVを画質そのままMP4へ。",
+  "steps": [
+   "MOVファイルを枠にドロップします。",
+   "形式はMP4のまま、「可能なら再エンコードしない」をオンにしておくと、最も速く劣化なしで変換できます。",
+   "「変換する」を押してMP4を保存します。"
+  ],
+  "sections": [
+   {
+    "h": "MOVをMP4にする理由",
+    "html": "<p>MOVはAppleのQuickTime形式です。中身の映像はMP4と同じH.264やHEVC（H.265）であることが多いのですが、Windowsの一部のアプリやWebサイト、応募フォームなどでは.mp4しか受け付けないことがあります。H.264の動画は再エンコードせずにMP4へ入れ替えるため一瞬で終わります。HEVCの動画は互換性の高いH.264に変換するため、少し時間がかかります。</p>"
+   },
+   {
+    "h": "使用しているオープンソースソフトウェア",
+    "html": "<p>変換には、<a href=\"https://ffmpeg.org/\">FFmpeg</a>をWebAssembly化した<a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a>（MITライセンス）を使用しています。使用しているFFmpegの本体にはGPLライセンスの部品が含まれ、ソースコードは各プロジェクトから入手できます。変換プログラム（約31MB）は初回の変換時にjsDelivr（CDN）から読み込まれ、以後はブラウザに保存されたものが使われます。</p>"
+   }
+  ],
+  "faq": [
+   [
+    "動画はアップロードされますか？",
+    "いいえ。動画はお使いの端末のブラウザ内で処理されます。ダウンロードされるのは変換プログラムだけです。"
+   ],
+   [
+    "パソコン用ソフトより遅いのはなぜ？",
+    "ブラウザでは、変換プログラムがCPUの1コアだけで動き、ハードウェアによる高速化も使えないためです。720pの1分の動画で1〜数分が目安です。H.264の動画をMP4・MOVに入れ替えるだけなら数秒で終わります。"
+   ],
+   [
+    "ファイルサイズの上限は？",
+    "決まった上限はありませんが、ブラウザが使えるメモリは数GBまでです。数百MB程度までなら多くの場合変換できます。長時間や4Kの動画は失敗することがあります。"
+   ]
+  ]
+ }
+}

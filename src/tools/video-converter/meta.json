@@ -1,0 +1,97 @@
+{
+ "order": 29,
+ "category": "media",
+ "schemaCategory": "MultimediaApplication",
+ "assets": [
+  "ffmpeg.js",
+  "814.ffmpeg.js"
+ ],
+ "scripts": [
+  "ffmpeg.js",
+  "/assets/minipdf.js"
+ ],
+ "en": {
+  "name": "Video Converter",
+  "title": "Video Converter: MP4, MOV, WMV, WebM, GIF, MP3",
+  "description": "Free online video converter that runs in your browser. Convert MOV, WMV, AVI, MKV and more to MP4, WebM, WMV, GIF or MP3, trim, resize and compress. No upload, no sign-up.",
+  "h1": "Video converter",
+  "lede": "Convert videos between MP4, MOV, WMV, WebM and more, turn clips into GIFs or extract the audio as MP3. Trim, resize and compress too. Everything happens in your browser, so your videos are never uploaded.",
+  "card": "MP4, MOV, WMV, WebM, GIF and MP3. No upload.",
+  "steps": [
+   "Drop a video on the box or choose one. The converter loads the first time (about 31 MB).",
+   "Pick the output format. For MP4 and MOV, H.264 videos are copied without re-encoding when possible, which takes seconds.",
+   "Optionally set quality, resolution, start and end times, or remove the audio.",
+   "Press <strong>Convert</strong>, preview the result and download it."
+  ],
+  "sections": [
+   {
+    "h": "Supported formats",
+    "html": "<table><thead><tr><th>Input</th><th>Output</th></tr></thead><tbody><tr><td>MP4, MOV, M4V, WMV, ASF, AVI, MKV, WebM, FLV, 3GP, MPEG, TS</td><td>MP4 (H.264), MOV (H.264), WebM (VP8), WMV (WMV2), GIF, MP3, M4A (AAC), WAV</td></tr></tbody></table>"
+   },
+   {
+    "h": "Open-source software",
+    "html": "<p>Conversion is done by <a href=\"https://ffmpeg.org/\">FFmpeg</a> compiled to WebAssembly by <a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a> (MIT). The FFmpeg core used here includes components licensed under the GPL; their source code is available from those projects. The converter (about 31 MB) is downloaded from the jsDelivr CDN the first time you convert, then cached by your browser.</p>"
+   }
+  ],
+  "faq": [
+   [
+    "Is my video uploaded?",
+    "No. The video is processed by your browser on your own device. Only the converter program itself is downloaded."
+   ],
+   [
+    "Why is it slower than desktop software?",
+    "Browsers run the converter on a single CPU core without hardware acceleration. Converting a 1-minute 720p video usually takes one to a few minutes. Copying H.264 into MP4 or MOV without re-encoding takes seconds."
+   ],
+   [
+    "Is there a size limit?",
+    "There is no fixed limit, but browsers can only use a few GB of memory. Files up to a few hundred MB usually work; very long or 4K videos may fail."
+   ],
+   [
+    "Can it convert copy-protected videos?",
+    "No. Videos protected with DRM, such as some purchased or rented movies, can’t be converted."
+   ]
+  ]
+ },
+ "ja": {
+  "name": "動画変換",
+  "title": "動画変換（MP4・MOV・WMV・GIF・MP3）無料",
+  "description": "ブラウザで使える無料の動画変換ツール。MOV・WMV・AVI・MKVなどをMP4・WebM・WMV・GIF・MP3に変換。切り取り・解像度変更・圧縮も可能。アップロード不要・登録不要。",
+  "h1": "動画変換（MP4・MOV・WMV・GIF・MP3）",
+  "lede": "MP4・MOV・WMV・WebMなどの相互変換、動画からGIFアニメの作成、音声のMP3抽出ができます。切り取り、解像度の変更、圧縮にも対応。処理はブラウザ内で行うため、動画がアップロードされることはありません。",
+  "card": "MP4・MOV・WMV・WebM・GIF・MP3に変換。",
+  "steps": [
+   "動画を枠にドロップするか、選択します。初回のみ変換プログラム（約31MB）を読み込みます。",
+   "変換後の形式を選びます。MP4・MOVへの変換では、H.264の動画は可能な限り再エンコードせずにコピーするので数秒で終わります。",
+   "必要に応じて、画質、解像度、開始・終了時間、音声の削除を設定します。",
+   "<strong>変換する</strong>を押し、プレビューで確認してから保存します。"
+  ],
+  "sections": [
+   {
+    "h": "対応形式",
+    "html": "<table><thead><tr><th>読み込み</th><th>書き出し</th></tr></thead><tbody><tr><td>MP4、MOV、M4V、WMV、ASF、AVI、MKV、WebM、FLV、3GP、MPEG、TS</td><td>MP4（H.264）、MOV（H.264）、WebM（VP8）、WMV（WMV2）、GIF、MP3、M4A（AAC）、WAV</td></tr></tbody></table>"
+   },
+   {
+    "h": "使用しているオープンソースソフトウェア",
+    "html": "<p>変換には、<a href=\"https://ffmpeg.org/\">FFmpeg</a>をWebAssembly化した<a href=\"https://github.com/ffmpegwasm/ffmpeg.wasm\">ffmpeg.wasm</a>（MITライセンス）を使用しています。使用しているFFmpegの本体にはGPLライセンスの部品が含まれ、ソースコードは各プロジェクトから入手できます。変換プログラム（約31MB）は初回の変換時にjsDelivr（CDN）から読み込まれ、以後はブラウザに保存されたものが使われます。</p>"
+   }
+  ],
+  "faq": [
+   [
+    "動画はアップロードされますか？",
+    "いいえ。動画はお使いの端末のブラウザ内で処理されます。ダウンロードされるのは変換プログラムだけです。"
+   ],
+   [
+    "パソコン用ソフトより遅いのはなぜ？",
+    "ブラウザでは、変換プログラムがCPUの1コアだけで動き、ハードウェアによる高速化も使えないためです。720pの1分の動画で1〜数分が目安です。H.264の動画をMP4・MOVに入れ替えるだけなら数秒で終わります。"
+   ],
+   [
+    "ファイルサイズの上限は？",
+    "決まった上限はありませんが、ブラウザが使えるメモリは数GBまでです。数百MB程度までなら多くの場合変換できます。長時間や4Kの動画は失敗することがあります。"
+   ],
+   [
+    "コピー保護された動画も変換できますか？",
+    "できません。購入・レンタルした映画の一部など、DRM（コピー保護）付きの動画は変換できません。"
+   ]
+  ]
+ }
+}

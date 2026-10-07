@@ -1,0 +1,31 @@
+<div class="vc" id="vc" data-preset="%%PRESET%%">
+  <label class="drop" id="drop" for="file">
+    <strong id="d-title"></strong>
+    <span class="sub" id="d-sub"></span>
+    <span class="btn primary" id="d-btn"></span>
+    <input type="file" id="file" accept="video/*,audio/*,.wmv,.avi,.mkv,.flv,.mov,.m4v,.3gp,.mpg,.mpeg,.ts,.asf" hidden>
+  </label>
+  <section class="panel" id="work" hidden>
+    <div class="info" id="info"></div>
+    <div class="opts">
+      <div class="field"><label for="to" id="l-to"></label><select id="to"></select></div>
+      <div class="field" data-for="video"><label for="quality" id="l-quality"></label><select id="quality"></select></div>
+      <div class="field" data-for="video"><label for="res" id="l-res"></label><select id="res"></select></div>
+      <div class="field" data-for="gif"><label for="fps" id="l-fps"></label><select id="fps"><option>8</option><option>10</option><option selected>12</option><option>15</option><option>20</option></select></div>
+      <div class="field" data-for="gif"><label for="gw" id="l-gw"></label><select id="gw"><option>320</option><option selected>480</option><option>640</option><option>800</option></select></div>
+      <div class="field"><label for="ss" id="l-ss"></label><input id="ss" type="text" inputmode="decimal" placeholder="0:00"></div>
+      <div class="field"><label for="to-t" id="l-tot"></label><input id="to-t" type="text" inputmode="decimal"></div>
+    </div>
+    <div class="checks">
+      <label class="check" data-for="video"><input type="checkbox" id="mute"><span id="l-mute"></span></label>
+      <label class="check" data-for="copy"><input type="checkbox" id="copy" checked><span id="l-copy"></span></label>
+    </div>
+    <div class="go"><button class="btn primary big" type="button" id="run"></button><button class="btn" type="button" id="cancel" hidden></button><button class="btn" type="button" id="other"></button></div>
+    <div class="prog" id="prog" hidden><div class="bar"><i id="bar"></i></div><span id="ptext" aria-live="polite"></span></div>
+    <p class="err" id="err" hidden></p>
+    <div class="result" id="result" hidden>
+      <div class="preview" id="preview"></div>
+      <div class="rinfo"><strong id="rname"></strong><span id="rsize"></span><button class="btn primary" type="button" id="dl"></button></div>
+    </div>
+  </section>
+</div>
