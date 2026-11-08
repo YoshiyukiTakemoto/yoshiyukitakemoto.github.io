@@ -1,0 +1,17 @@
+name = "plainkit-wp-check"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+account_id = "90b1808a2b243bdd6619fa9f8289cba0" # personal account (not geelee/jmss)
+
+# Per-IP limit on scans and waitlist sign-ups.
+[[ratelimits]]
+name = "LIMIT"
+namespace_id = "1001"
+simple = { limit = 5, period = 60 }
+
+# Waitlist for the paid monitoring service. Create with:
+#   npx wrangler kv namespace create WAITLIST
+# and paste the id here.
+[[kv_namespaces]]
+binding = "WAITLIST"
+id = "c763a7745f6e4f4d8cfff209b2a1dba0"

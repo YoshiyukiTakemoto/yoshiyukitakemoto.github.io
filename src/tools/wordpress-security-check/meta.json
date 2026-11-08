@@ -1,0 +1,58 @@
+{
+  "order": 91,
+  "category": "dev",
+  "schemaCategory": "SecurityApplication",
+  "preset": { "api": "https://plainkit-wp-check.wp-check.workers.dev" },
+  "en": {
+    "name": "WordPress Security Check",
+    "title": "Free WordPress Security Check (Version & Plugin Scanner)",
+    "description": "Free WordPress security check. Enter a URL to find an outdated WordPress version, outdated or removed plugins, exposed debug logs, XML-RPC, user lists and missing HTTPS headers. No sign-up.",
+    "h1": "WordPress security check",
+    "lede": "Enter a site address to check its WordPress version, plugins and common weak spots in about 10 seconds. Only public pages are read, the same ones any visitor’s browser loads. Unlike our other tools, this one runs on our server, because browsers can’t read other sites directly. The address you enter isn’t stored.",
+    "card": "Scan a WordPress site for outdated versions, plugins and exposed files.",
+    "steps": [
+      "Enter the site address, such as <code>example.com</code>.",
+      "Confirm that you own or manage the site, or have permission to check it.",
+      "Press <strong>Check site</strong>. Results are grouped into <em>Fix now</em>, <em>Improve</em> and <em>OK</em>, each with how to fix it.",
+      "Check the plugin table for components with updates or that were removed from wordpress.org."
+    ],
+    "sections": [
+      { "h": "What this tool checks", "html": "<ul><li><strong>WordPress version</strong>, compared with wordpress.org’s list of secure and insecure releases.</li><li><strong>Plugins and themes</strong> loaded on the home page: available updates, removal from the official directory, and plugins with no update for two years.</li><li><strong>Exposed files</strong>: <code>debug.log</code>, <code>readme.html</code> and browsable upload folders.</li><li><strong>Attack surface</strong>: XML-RPC and the REST API user list.</li><li><strong>HTTPS and headers</strong>: HTTPS redirect, HSTS, X-Content-Type-Options and clickjacking protection.</li><li><strong>PHP version</strong>, when the server announces it.</li></ul>" },
+      { "h": "Why outdated plugins matter", "html": "<p>Most hacked WordPress sites aren’t broken into through WordPress itself but through a plugin or theme with a known vulnerability. Once a fix is published, attackers scan the web for sites still running the old version, often within days. Keeping plugins updated, and replacing ones that are no longer maintained, is the single most effective protection.</p>" },
+      { "h": "What this check can’t see", "html": "<p>The scan reads public pages from outside, like a visitor. It can’t see the admin area, server files, the database or plugins that only load on other pages. A clean result lowers risk but doesn’t prove a site is safe. For a full picture, also review the plugin list in the dashboard and keep regular backups.</p>" }
+    ],
+    "faq": [
+      ["Is it safe to run this on my site?", "Yes. It sends about 10–40 ordinary page requests, the same kind a browser makes. It never logs in, submits forms or tries passwords."],
+      ["Can I check someone else’s site?", "Only check sites you own or manage, or that you have permission to check. Requests are rate-limited."],
+      ["Do you store the address or results?", "No. Results are cached for 10 minutes so repeated checks don’t hit the site again, then discarded. If you join the monitoring waitlist, we keep your email and the site address you checked."],
+      ["Why does a plugin show “Not in the wordpress.org directory”?", "Paid and custom plugins aren’t listed on wordpress.org, so their latest version can’t be checked here. Check for updates with the plugin’s vendor."],
+      ["Why is the WordPress version unknown?", "Many sites hide it, which is good practice. The version can then only be checked from the dashboard."]
+    ]
+  },
+  "ja": {
+    "name": "WordPress脆弱性チェック",
+    "title": "WordPress脆弱性チェック｜無料でバージョン・プラグインを診断",
+    "description": "URLを入れるだけでWordPressの脆弱性を無料チェック。本体やプラグインの古いバージョン、公式から削除されたプラグイン、debug.logの公開、XML-RPC、ユーザー名の露出、HTTPS設定を診断します。登録不要。",
+    "h1": "WordPress脆弱性チェック",
+    "lede": "サイトのアドレスを入れるだけで、WordPress本体・プラグインのバージョンやよくある弱点を約10秒で診断します。見るのは、誰のブラウザでも表示できる公開ページだけです。ブラウザから他のサイトは直接読めないため、このツールだけは当サイトのサーバーで処理します。入力したアドレスは保存しません。",
+    "card": "WordPressの古いバージョン・プラグインや公開ファイルを診断。",
+    "steps": [
+      "<code>example.com</code> のようにサイトのアドレスを入力します。",
+      "自分が管理するサイト、またはチェックの許可を得たサイトであることを確認してチェックを入れます。",
+      "<strong>チェックする</strong>を押します。結果は<em>要対応</em>・<em>改善推奨</em>・<em>OK</em>に分かれ、それぞれ対処方法を表示します。",
+      "プラグインの表で、更新があるものや公式ディレクトリから削除されたものを確認します。"
+    ],
+    "sections": [
+      { "h": "チェックする項目", "html": "<ul><li><strong>WordPress本体のバージョン</strong>：wordpress.org が公開している安全・危険なバージョンの一覧と照合します。</li><li><strong>プラグイン・テーマ</strong>：トップページで読み込まれているものについて、更新の有無、公式ディレクトリからの削除、2年以上更新がないものを確認します。</li><li><strong>公開されてしまっているファイル</strong>：<code>debug.log</code>、<code>readme.html</code>、アップロードフォルダの一覧表示。</li><li><strong>攻撃されやすい入口</strong>：XML-RPC、REST APIのユーザー一覧。</li><li><strong>HTTPSとセキュリティヘッダー</strong>：HTTPSへの転送、HSTS、X-Content-Type-Options、クリックジャッキング対策。</li><li><strong>PHPのバージョン</strong>（サーバーが表示している場合）。</li></ul>" },
+      { "h": "古いプラグインが危ない理由", "html": "<p>改ざんされるWordPressサイトの多くは、本体ではなく、既知の脆弱性があるプラグインやテーマから侵入されています。修正版が公開されると、攻撃者は古いバージョンのままのサイトを自動で探し回り、数日のうちに狙ってくることもあります。プラグインを最新に保ち、更新が止まったものを入れ替えることが、もっとも効果的な対策です。</p>" },
+      { "h": "このチェックで分からないこと", "html": "<p>外から訪問者と同じように公開ページを読むだけなので、管理画面、サーバー上のファイル、データベース、他のページだけで使うプラグインは確認できません。問題が出なければリスクは下がりますが、安全の証明にはなりません。管理画面でプラグイン一覧を確認し、定期的なバックアップもあわせて行ってください。</p>" }
+    ],
+    "faq": [
+      ["自分のサイトに実行しても大丈夫ですか？", "大丈夫です。ブラウザと同じ普通のページ読み込みを10〜40回ほど行うだけで、ログイン、フォーム送信、パスワードの試行は一切しません。"],
+      ["他人のサイトもチェックできますか？", "自分が管理するサイト、またはチェックの許可を得たサイトだけにしてください。短時間の連続チェックは制限しています。"],
+      ["アドレスや結果は保存されますか？", "保存しません。同じサイトに何度もアクセスしないよう結果を10分間だけ一時保存し、その後は破棄します。監視サービスの案内に登録した場合は、メールアドレスとチェックしたサイトのアドレスを保存します。"],
+      ["プラグインが「公式ディレクトリにない」と表示されるのはなぜですか？", "有料プラグインや独自開発のプラグインは wordpress.org に掲載されていないため、最新版を確認できません。提供元で更新を確認してください。"],
+      ["WordPressのバージョンが「不明」になるのはなぜですか？", "バージョンを隠しているサイトが多いためです（望ましい設定です）。その場合は管理画面で確認してください。"]
+    ]
+  }
+}

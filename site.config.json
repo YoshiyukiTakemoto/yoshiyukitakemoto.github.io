@@ -40,14 +40,14 @@
         ],
         [
           "Private by design",
-          "Tools run entirely in your browser. Nothing you type or drop is uploaded."
+          "Tools run entirely in your browser. Nothing you type or drop is uploaded. (The WordPress security check is the one exception: it reads the public pages of the site you enter.)"
         ],
         [
           "Works anywhere",
           "Phone, tablet or desktop, in any modern browser. Japanese and English."
         ]
       ],
-      "foot": "No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool runs in your browser.",
+      "foot": "No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool except the WordPress security check runs in your browser.",
       "source": "Source code",
       "notFound": "Page not found",
       "notFoundBody": "This page doesn’t exist. Try one of the tools below.",
@@ -88,14 +88,14 @@
         ],
         [
           "プライバシー重視",
-          "処理はすべてブラウザ内で行います。入力した文章やファイルはアップロードされません。"
+          "処理はすべてブラウザ内で行います。入力した文章やファイルはアップロードされません（WordPress脆弱性チェックのみ、入力したサイトの公開ページをサーバーで読み込みます）。"
         ],
         [
           "どこでも使える",
           "スマホ・タブレット・パソコンの最新ブラウザで動作します。日本語と英語に対応。"
         ]
       ],
-      "foot": "登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。すべてのツールはブラウザ内で動作します。",
+      "foot": "登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。WordPress脆弱性チェックを除き、すべてのツールはブラウザ内で動作します。",
       "source": "ソースコード",
       "notFound": "ページが見つかりません",
       "notFoundBody": "お探しのページはありません。以下のツールをお試しください。",

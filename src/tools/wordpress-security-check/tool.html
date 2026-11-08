@@ -1,0 +1,19 @@
+<div class="wpc" id="wpc" data-preset="%%PRESET%%">
+  <form class="controls wpc-form" id="form" novalidate>
+    <div class="field wpc-url"><label for="url" id="l-url"></label><input id="url" type="url" inputmode="url" autocomplete="url" placeholder="example.com" required></div>
+    <button class="btn primary" type="submit" id="go"></button>
+    <label class="check wpc-consent"><input type="checkbox" id="consent" required><span id="l-consent"></span></label>
+  </form>
+  <p class="wpc-status" id="status" aria-live="polite"></p>
+  <section class="panel" id="result" hidden>
+    <div class="wpc-head"><div><span class="eyebrow" id="r-site-label"></span><div class="wpc-site" id="r-site"></div></div><div class="wpc-sum" id="r-sum"></div></div>
+    <ul class="wpc-list" id="r-list"></ul>
+    <div id="r-comp" hidden><h3 class="wpc-h" id="r-comp-h"></h3><div class="wpc-table"><table><thead><tr id="r-comp-th"></tr></thead><tbody id="r-comp-body"></tbody></table></div><p class="wpc-note" id="r-comp-note"></p></div>
+    <p class="wpc-note" id="r-limits"></p>
+  </section>
+  <section class="panel wpc-cta" id="cta" hidden>
+    <div><h3 class="wpc-h" id="c-h"></h3><p id="c-body"></p></div>
+    <form class="wpc-wait" id="wait" novalidate><input id="email" type="email" autocomplete="email" required><button class="btn primary" type="submit" id="c-btn"></button></form>
+    <p class="wpc-note" id="c-status" aria-live="polite"></p>
+  </section>
+</div>
