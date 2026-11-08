@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WordPress脆弱性チェック｜無料でバージョン・プラグインを診断 | Plainkit</title>
+<meta name="description" content="URLを入れるだけでWordPressの脆弱性を無料チェック。本体やプラグインの古いバージョン、公式から削除されたプラグイン、debug.logの公開、XML-RPC、ユーザー名の露出、HTTPS設定を診断します。登録不要。">
+<link rel="canonical" href="https://tools.motty.jp/ja/wordpress-security-check/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/wordpress-security-check/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/wordpress-security-check/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/wordpress-security-check/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="WordPress脆弱性チェック｜無料でバージョン・プラグインを診断 | Plainkit">
+<meta property="og:description" content="URLを入れるだけでWordPressの脆弱性を無料チェック。本体やプラグインの古いバージョン、公式から削除されたプラグイン、debug.logの公開、XML-RPC、ユーザー名の露出、HTTPS設定を診断します。登録不要。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/ja/wordpress-security-check/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/ja/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.wpc{display:grid;gap:14px;--bad:#b42318;--bad-bg:#fde4e1}
+@media (prefers-color-scheme:dark){.wpc{--bad:#ff8a7a;--bad-bg:#3a1714}}
+.wpc>*{min-width:0}
+.wpc-form .wpc-url{flex:1 1 18rem}
+.wpc-url input{width:100%}
+.wpc-consent{flex-basis:100%;color:var(--muted)}
+.wpc-status{margin:0;font-size:14px;color:var(--muted);min-height:1.4em}
+.wpc-status.err{color:var(--bad)}
+.wpc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px}
+.wpc-site{font:600 1.15rem var(--f-display);word-break:break-all}
+.wpc-sum{display:flex;flex-wrap:wrap;gap:6px}
+.wpc-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.wpc-list li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;align-items:start}
+.wpc-list strong{font-weight:600}
+.wpc-list p{margin:0;color:var(--muted);font-size:14px;grid-column:2}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:2px 10px;white-space:nowrap;background:var(--bg);color:var(--muted)}
+.tag.danger{background:var(--bad-bg);color:var(--bad)}
+.tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.wpc-h{font:600 1.05rem var(--f-body);margin:0 0 6px}
+.wpc-table{overflow-x:auto}
+.wpc-table table{border-collapse:collapse;font-size:14px;width:100%}
+.wpc-table th,.wpc-table td{border-bottom:1px solid var(--line);padding:6px 12px 6px 0;text-align:left;white-space:nowrap}
+.wpc-table th{font-size:12px;color:var(--muted);font-weight:600}
+.wpc-note{margin:0;font-size:13px;color:var(--muted)}
+.wpc-cta{border-color:var(--accent)}
+.wpc-cta p{margin:0}
+.wpc-wait{display:flex;flex-wrap:wrap;gap:8px}
+.wpc-wait input{flex:1 1 16rem}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WordPress脆弱性チェック","url":"https://tools.motty.jp/ja/wordpress-security-check/","description":"URLを入れるだけでWordPressの脆弱性を無料チェック。本体やプラグインの古いバージョン、公式から削除されたプラグイン、debug.logの公開、XML-RPC、ユーザー名の露出、HTTPS設定を診断します。登録不要。","applicationCategory":"SecurityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://tools.motty.jp/ja/"},{"@type":"ListItem","position":2,"name":"WordPress脆弱性チェック","item":"https://tools.motty.jp/ja/wordpress-security-check/"}]}</script>
+</head>
+<body data-slug="wordpress-security-check">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/ja/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/ja/#tools">ツール一覧</a><a class="lang" href="/wordpress-security-check/" hreflang="en" lang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/ja/">ホーム</a></li><li aria-current="page">WordPress脆弱性チェック</li></ol></nav>
+<div><h1>WordPress脆弱性チェック</h1><p class="lede">サイトのアドレスを入れるだけで、WordPress本体・プラグインのバージョンやよくある弱点を約10秒で診断します。見るのは、誰のブラウザでも表示できる公開ページだけです。ブラウザから他のサイトは直接読めないため、このツールだけは当サイトのサーバーで処理します。入力したアドレスは保存しません。</p></div>
+<div class="wpc" id="wpc" data-preset="{&quot;api&quot;:&quot;https://plainkit-wp-check.wp-check.workers.dev&quot;}">
+  <form class="controls wpc-form" id="form" novalidate>
+    <div class="field wpc-url"><label for="url" id="l-url"></label><input id="url" type="url" inputmode="url" autocomplete="url" placeholder="example.com" required></div>
+    <button class="btn primary" type="submit" id="go"></button>
+    <label class="check wpc-consent"><input type="checkbox" id="consent" required><span id="l-consent"></span></label>
+  </form>
+  <p class="wpc-status" id="status" aria-live="polite"></p>
+  <section class="panel" id="result" hidden>
+    <div class="wpc-head"><div><span class="eyebrow" id="r-site-label"></span><div class="wpc-site" id="r-site"></div></div><div class="wpc-sum" id="r-sum"></div></div>
+    <ul class="wpc-list" id="r-list"></ul>
+    <div id="r-comp" hidden><h3 class="wpc-h" id="r-comp-h"></h3><div class="wpc-table"><table><thead><tr id="r-comp-th"></tr></thead><tbody id="r-comp-body"></tbody></table></div><p class="wpc-note" id="r-comp-note"></p></div>
+    <p class="wpc-note" id="r-limits"></p>
+  </section>
+  <section class="panel wpc-cta" id="cta" hidden>
+    <div><h3 class="wpc-h" id="c-h"></h3><p id="c-body"></p></div>
+    <form class="wpc-wait" id="wait" novalidate><input id="email" type="email" autocomplete="email" required><button class="btn primary" type="submit" id="c-btn"></button></form>
+    <p class="wpc-note" id="c-status" aria-live="polite"></p>
+  </section>
+</div>
+
+<article class="content">
+<h2>使い方</h2>
+<ol><li><code>example.com</code> のようにサイトのアドレスを入力します。</li><li>自分が管理するサイト、またはチェックの許可を得たサイトであることを確認してチェックを入れます。</li><li><strong>チェックする</strong>を押します。結果は<em>要対応</em>・<em>改善推奨</em>・<em>OK</em>に分かれ、それぞれ対処方法を表示します。</li><li>プラグインの表で、更新があるものや公式ディレクトリから削除されたものを確認します。</li></ol>
+<h2>チェックする項目</h2>
+<ul><li><strong>WordPress本体のバージョン</strong>：wordpress.org が公開している安全・危険なバージョンの一覧と照合します。</li><li><strong>プラグイン・テーマ</strong>：トップページで読み込まれているものについて、更新の有無、公式ディレクトリからの削除、2年以上更新がないものを確認します。</li><li><strong>公開されてしまっているファイル</strong>：<code>debug.log</code>、<code>readme.html</code>、アップロードフォルダの一覧表示。</li><li><strong>攻撃されやすい入口</strong>：XML-RPC、REST APIのユーザー一覧。</li><li><strong>HTTPSとセキュリティヘッダー</strong>：HTTPSへの転送、HSTS、X-Content-Type-Options、クリックジャッキング対策。</li><li><strong>PHPのバージョン</strong>（サーバーが表示している場合）。</li></ul>
+<h2>古いプラグインが危ない理由</h2>
+<p>改ざんされるWordPressサイトの多くは、本体ではなく、既知の脆弱性があるプラグインやテーマから侵入されています。修正版が公開されると、攻撃者は古いバージョンのままのサイトを自動で探し回り、数日のうちに狙ってくることもあります。プラグインを最新に保ち、更新が止まったものを入れ替えることが、もっとも効果的な対策です。</p>
+<h2>このチェックで分からないこと</h2>
+<p>外から訪問者と同じように公開ページを読むだけなので、管理画面、サーバー上のファイル、データベース、他のページだけで使うプラグインは確認できません。問題が出なければリスクは下がりますが、安全の証明にはなりません。管理画面でプラグイン一覧を確認し、定期的なバックアップもあわせて行ってください。</p>
+<h2>よくある質問</h2>
+<div class="faq"><details><summary>自分のサイトに実行しても大丈夫ですか？</summary><p>大丈夫です。ブラウザと同じ普通のページ読み込みを10〜40回ほど行うだけで、ログイン、フォーム送信、パスワードの試行は一切しません。</p></details><details><summary>他人のサイトもチェックできますか？</summary><p>自分が管理するサイト、またはチェックの許可を得たサイトだけにしてください。短時間の連続チェックは制限しています。</p></details><details><summary>アドレスや結果は保存されますか？</summary><p>保存しません。同じサイトに何度もアクセスしないよう結果を10分間だけ一時保存し、その後は破棄します。監視サービスの案内に登録した場合は、メールアドレスとチェックしたサイトのアドレスを保存します。</p></details><details><summary>プラグインが「公式ディレクトリにない」と表示されるのはなぜですか？</summary><p>有料プラグインや独自開発のプラグインは wordpress.org に掲載されていないため、最新版を確認できません。提供元で更新を確認してください。</p></details><details><summary>WordPressのバージョンが「不明」になるのはなぜですか？</summary><p>バージョンを隠しているサイトが多いためです（望ましい設定です）。その場合は管理画面で確認してください。</p></details></div>
+<h2>ほかの無料ツール</h2>
+</article>
+<ul class="cards"><li><a href="/ja/json-formatter/"><strong>JSON整形</strong><span>JSONを整形・圧縮・検証。エラー位置を表示。</span></a></li><li><a href="/ja/color-converter/"><strong>カラーコード変換</strong><span>HEX・RGB・HSL・CMYK変換とコントラスト比チェック。</span></a></li><li><a href="/ja/pomodoro/"><strong>ポモドーロタイマー</strong><span>25分作業＋5分休憩の集中タイマー。回数を記録。</span></a></li><li><a href="/ja/notepad/"><strong>メモ帳</strong><span>ブラウザに自動保存されるメモ帳。検索・.txt保存。</span></a></li><li><a href="/ja/overlap/"><strong>時差・会議時間プランナー</strong><span>海外と全員の勤務時間が重なる会議時間を探す。</span></a></li><li><a href="/ja/quiet-qr/"><strong>QRコード作成</strong><span>URL・Wi‑Fi・連絡先の静的QRコード。PNG・SVG保存。</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/ja/pomodoro/">ポモドーロタイマー</a></li><li><a href="/ja/notepad/">メモ帳</a></li><li><a href="/ja/overlap/">時差・会議時間プランナー</a></li><li><a href="/ja/quiet-qr/">QRコード作成</a></li><li><a href="/ja/image-converter/">画像形式変換</a></li><li><a href="/ja/video-converter/">動画変換</a></li><li><a href="/ja/mov-to-mp4/">MOV→MP4変換</a></li><li><a href="/ja/wmv-to-mp4/">WMV→MP4変換</a></li><li><a href="/ja/video-to-gif/">動画→GIF変換</a></li><li><a href="/ja/video-to-mp3/">動画→MP3変換</a></li><li><a href="/ja/lighten/">画像圧縮・リサイズ</a></li><li><a href="/ja/date-calculator/">日数計算</a></li><li><a href="/ja/age-calculator/">年齢計算</a></li><li><a href="/ja/japanese-era/">和暦・西暦変換</a></li><li><a href="/ja/character-count/">文字数カウント</a></li><li><a href="/ja/noshi/">熨斗（のし）作成</a></li><li><a href="/ja/password-generator/">パスワード生成</a></li><li><a href="/ja/unit-converter/">単位換算</a></li><li><a href="/ja/percentage-calculator/">パーセント計算</a></li><li><a href="/ja/tax-calculator/">消費税計算</a></li><li><a href="/ja/bmi-calculator/">BMI計算</a></li><li><a href="/ja/split-bill/">割り勘計算</a></li><li><a href="/ja/json-formatter/">JSON整形</a></li><li><a href="/ja/wordpress-security-check/">WordPress脆弱性チェック</a></li><li><a href="/ja/color-converter/">カラーコード変換</a></li><li><a href="/ja/kit-dungeon/">キットダンジョン</a></li><li><a href="/ja/kit-blaster/">キットブラスター</a></li><li><a href="/ja/kit-jump/">キットジャンプ</a></li><li><a href="/ja/sudoku/">数独（ナンプレ）</a></li><li><a href="/ja/roulette/">ルーレット</a></li><li><a href="/ja/life-in-weeks/">人生カレンダー</a></li><li><a href="/ja/reaction-test/">反射神経テスト</a></li><li><a href="/ja/color-game/">色の違い探しゲーム</a></li></ul>
+  <p style="margin:0">登録不要・Cookieなし。アクセス数の集計には、個人を追跡しないCloudflare Web Analyticsを使用しています。WordPress脆弱性チェックを除き、すべてのツールはブラウザ内で動作します。 <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">ソースコード</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/wordpress-security-check/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+ "name": "Plainkit: Free tools that run in your browser",
+ "short_name": "Plainkit",
+ "description": "Free, private online tools: unit converter, percentage and tax calculators, age and BMI calculators, QR code generator, image compressor, character counter, JSON formatter and more. No sign-up, no cookies.",
+ "lang": "en",
+ "start_url": "/",
+ "scope": "/",
+ "display": "standalone",
+ "background_color": "#f2f4f8",
+ "theme_color": "#2440c4",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Pomodoro Timer",
+   "url": "/pomodoro/",
+   "icons": [
+    {
+     "src": "/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Online Notepad",
+   "url": "/notepad/",
+   "icons": [
+    {
+     "src": "/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Character Counter",
+   "url": "/character-count/",
+   "icons": [
+    {
+     "src": "/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "QR Code Generator",
+   "url": "/quiet-qr/",
+   "icons": [
+    {
+     "src": "/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  }
+ ]
+}

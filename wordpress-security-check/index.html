@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free WordPress Security Check (Version &amp; Plugin Scanner) | Plainkit</title>
+<meta name="description" content="Free WordPress security check. Enter a URL to find an outdated WordPress version, outdated or removed plugins, exposed debug logs, XML-RPC, user lists and missing HTTPS headers. No sign-up.">
+<link rel="canonical" href="https://tools.motty.jp/wordpress-security-check/">
+<link rel="alternate" hreflang="en" href="https://tools.motty.jp/wordpress-security-check/">
+<link rel="alternate" hreflang="ja" href="https://tools.motty.jp/ja/wordpress-security-check/">
+<link rel="alternate" hreflang="x-default" href="https://tools.motty.jp/wordpress-security-check/">
+<meta property="og:site_name" content="Plainkit">
+<meta property="og:title" content="Free WordPress Security Check (Version &amp; Plugin Scanner) | Plainkit">
+<meta property="og:description" content="Free WordPress security check. Enter a URL to find an outdated WordPress version, outdated or removed plugins, exposed debug logs, XML-RPC, user lists and missing HTTPS headers. No sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.motty.jp/wordpress-security-check/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#2440c4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+JP:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
+<style>
+.wpc{display:grid;gap:14px;--bad:#b42318;--bad-bg:#fde4e1}
+@media (prefers-color-scheme:dark){.wpc{--bad:#ff8a7a;--bad-bg:#3a1714}}
+.wpc>*{min-width:0}
+.wpc-form .wpc-url{flex:1 1 18rem}
+.wpc-url input{width:100%}
+.wpc-consent{flex-basis:100%;color:var(--muted)}
+.wpc-status{margin:0;font-size:14px;color:var(--muted);min-height:1.4em}
+.wpc-status.err{color:var(--bad)}
+.wpc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px}
+.wpc-site{font:600 1.15rem var(--f-display);word-break:break-all}
+.wpc-sum{display:flex;flex-wrap:wrap;gap:6px}
+.wpc-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.wpc-list li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;align-items:start}
+.wpc-list strong{font-weight:600}
+.wpc-list p{margin:0;color:var(--muted);font-size:14px;grid-column:2}
+.tag{display:inline-block;font-size:12px;font-weight:600;border-radius:999px;padding:2px 10px;white-space:nowrap;background:var(--bg);color:var(--muted)}
+.tag.danger{background:var(--bad-bg);color:var(--bad)}
+.tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.wpc-h{font:600 1.05rem var(--f-body);margin:0 0 6px}
+.wpc-table{overflow-x:auto}
+.wpc-table table{border-collapse:collapse;font-size:14px;width:100%}
+.wpc-table th,.wpc-table td{border-bottom:1px solid var(--line);padding:6px 12px 6px 0;text-align:left;white-space:nowrap}
+.wpc-table th{font-size:12px;color:var(--muted);font-weight:600}
+.wpc-note{margin:0;font-size:13px;color:var(--muted)}
+.wpc-cta{border-color:var(--accent)}
+.wpc-cta p{margin:0}
+.wpc-wait{display:flex;flex-wrap:wrap;gap:8px}
+.wpc-wait input{flex:1 1 16rem}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WordPress Security Check","url":"https://tools.motty.jp/wordpress-security-check/","description":"Free WordPress security check. Enter a URL to find an outdated WordPress version, outdated or removed plugins, exposed debug logs, XML-RPC, user lists and missing HTTPS headers. No sign-up.","applicationCategory":"SecurityApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tools.motty.jp/"},{"@type":"ListItem","position":2,"name":"WordPress Security Check","item":"https://tools.motty.jp/wordpress-security-check/"}]}</script>
+</head>
+<body data-slug="wordpress-security-check">
+<header class="bar"><div class="bar-in">
+  <a class="brand" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="var(--accent)"/><rect x="13" y="2" width="9" height="9" rx="2" fill="var(--line)"/><rect x="2" y="13" width="9" height="9" rx="2" fill="var(--line)"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="var(--accent)"/></svg>Plainkit</a>
+  <nav><a href="/#tools">All tools</a><a class="lang" href="/ja/wordpress-security-check/" hreflang="ja" lang="ja">日本語</a></nav>
+</div></header>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">WordPress Security Check</li></ol></nav>
+<div><h1>WordPress security check</h1><p class="lede">Enter a site address to check its WordPress version, plugins and common weak spots in about 10 seconds. Only public pages are read, the same ones any visitor’s browser loads. Unlike our other tools, this one runs on our server, because browsers can’t read other sites directly. The address you enter isn’t stored.</p></div>
+<div class="wpc" id="wpc" data-preset="{&quot;api&quot;:&quot;https://plainkit-wp-check.wp-check.workers.dev&quot;}">
+  <form class="controls wpc-form" id="form" novalidate>
+    <div class="field wpc-url"><label for="url" id="l-url"></label><input id="url" type="url" inputmode="url" autocomplete="url" placeholder="example.com" required></div>
+    <button class="btn primary" type="submit" id="go"></button>
+    <label class="check wpc-consent"><input type="checkbox" id="consent" required><span id="l-consent"></span></label>
+  </form>
+  <p class="wpc-status" id="status" aria-live="polite"></p>
+  <section class="panel" id="result" hidden>
+    <div class="wpc-head"><div><span class="eyebrow" id="r-site-label"></span><div class="wpc-site" id="r-site"></div></div><div class="wpc-sum" id="r-sum"></div></div>
+    <ul class="wpc-list" id="r-list"></ul>
+    <div id="r-comp" hidden><h3 class="wpc-h" id="r-comp-h"></h3><div class="wpc-table"><table><thead><tr id="r-comp-th"></tr></thead><tbody id="r-comp-body"></tbody></table></div><p class="wpc-note" id="r-comp-note"></p></div>
+    <p class="wpc-note" id="r-limits"></p>
+  </section>
+  <section class="panel wpc-cta" id="cta" hidden>
+    <div><h3 class="wpc-h" id="c-h"></h3><p id="c-body"></p></div>
+    <form class="wpc-wait" id="wait" novalidate><input id="email" type="email" autocomplete="email" required><button class="btn primary" type="submit" id="c-btn"></button></form>
+    <p class="wpc-note" id="c-status" aria-live="polite"></p>
+  </section>
+</div>
+
+<article class="content">
+<h2>How to use</h2>
+<ol><li>Enter the site address, such as <code>example.com</code>.</li><li>Confirm that you own or manage the site, or have permission to check it.</li><li>Press <strong>Check site</strong>. Results are grouped into <em>Fix now</em>, <em>Improve</em> and <em>OK</em>, each with how to fix it.</li><li>Check the plugin table for components with updates or that were removed from wordpress.org.</li></ol>
+<h2>What this tool checks</h2>
+<ul><li><strong>WordPress version</strong>, compared with wordpress.org’s list of secure and insecure releases.</li><li><strong>Plugins and themes</strong> loaded on the home page: available updates, removal from the official directory, and plugins with no update for two years.</li><li><strong>Exposed files</strong>: <code>debug.log</code>, <code>readme.html</code> and browsable upload folders.</li><li><strong>Attack surface</strong>: XML-RPC and the REST API user list.</li><li><strong>HTTPS and headers</strong>: HTTPS redirect, HSTS, X-Content-Type-Options and clickjacking protection.</li><li><strong>PHP version</strong>, when the server announces it.</li></ul>
+<h2>Why outdated plugins matter</h2>
+<p>Most hacked WordPress sites aren’t broken into through WordPress itself but through a plugin or theme with a known vulnerability. Once a fix is published, attackers scan the web for sites still running the old version, often within days. Keeping plugins updated, and replacing ones that are no longer maintained, is the single most effective protection.</p>
+<h2>What this check can’t see</h2>
+<p>The scan reads public pages from outside, like a visitor. It can’t see the admin area, server files, the database or plugins that only load on other pages. A clean result lowers risk but doesn’t prove a site is safe. For a full picture, also review the plugin list in the dashboard and keep regular backups.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>Is it safe to run this on my site?</summary><p>Yes. It sends about 10–40 ordinary page requests, the same kind a browser makes. It never logs in, submits forms or tries passwords.</p></details><details><summary>Can I check someone else’s site?</summary><p>Only check sites you own or manage, or that you have permission to check. Requests are rate-limited.</p></details><details><summary>Do you store the address or results?</summary><p>No. Results are cached for 10 minutes so repeated checks don’t hit the site again, then discarded. If you join the monitoring waitlist, we keep your email and the site address you checked.</p></details><details><summary>Why does a plugin show “Not in the wordpress.org directory”?</summary><p>Paid and custom plugins aren’t listed on wordpress.org, so their latest version can’t be checked here. Check for updates with the plugin’s vendor.</p></details><details><summary>Why is the WordPress version unknown?</summary><p>Many sites hide it, which is good practice. The version can then only be checked from the dashboard.</p></details></div>
+<h2>More free tools</h2>
+</article>
+<ul class="cards"><li><a href="/json-formatter/"><strong>JSON Formatter</strong><span>Beautify, minify and validate JSON with error locations.</span></a></li><li><a href="/color-converter/"><strong>Color Converter</strong><span>HEX, RGB, HSL, CMYK and OKLCH with WCAG contrast check.</span></a></li><li><a href="/pomodoro/"><strong>Pomodoro Timer</strong><span>Focus and break timer with daily session count.</span></a></li><li><a href="/notepad/"><strong>Online Notepad</strong><span>Autosaving notes in your browser. Search and .txt download.</span></a></li><li><a href="/overlap/"><strong>Meeting Time Zone Planner</strong><span>Find a meeting time that falls inside everyone’s working hours.</span></a></li><li><a href="/quiet-qr/"><strong>QR Code Generator</strong><span>Static QR codes for links, Wi‑Fi and contacts. PNG and SVG.</span></a></li></ul>
+</main>
+<footer class="foot"><div class="foot-in">
+  <ul><li><a href="/pomodoro/">Pomodoro Timer</a></li><li><a href="/notepad/">Online Notepad</a></li><li><a href="/overlap/">Meeting Time Zone Planner</a></li><li><a href="/quiet-qr/">QR Code Generator</a></li><li><a href="/image-converter/">Image Converter</a></li><li><a href="/video-converter/">Video Converter</a></li><li><a href="/mov-to-mp4/">MOV to MP4</a></li><li><a href="/wmv-to-mp4/">WMV to MP4</a></li><li><a href="/video-to-gif/">Video to GIF</a></li><li><a href="/video-to-mp3/">Video to MP3</a></li><li><a href="/lighten/">Image Compressor</a></li><li><a href="/date-calculator/">Date Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/japanese-era/">Japanese Era Converter</a></li><li><a href="/character-count/">Character Counter</a></li><li><a href="/noshi/">Noshi Paper Maker</a></li><li><a href="/password-generator/">Password Generator</a></li><li><a href="/unit-converter/">Unit Converter</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/tax-calculator/">VAT Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/split-bill/">Bill Splitter</a></li><li><a href="/json-formatter/">JSON Formatter</a></li><li><a href="/wordpress-security-check/">WordPress Security Check</a></li><li><a href="/color-converter/">Color Converter</a></li><li><a href="/kit-dungeon/">Kit Dungeon</a></li><li><a href="/kit-blaster/">Kit Blaster</a></li><li><a href="/kit-jump/">Kit Jump</a></li><li><a href="/sudoku/">Daily Sudoku</a></li><li><a href="/roulette/">Spin the Wheel</a></li><li><a href="/life-in-weeks/">Your Life in Weeks</a></li><li><a href="/reaction-test/">Reaction Time Test</a></li><li><a href="/color-game/">Color Difference Game</a></li></ul>
+  <p style="margin:0">No sign-up, no cookies. Visits are counted with Cloudflare Web Analytics, which doesn’t track individuals. Every tool except the WordPress security check runs in your browser. <a href="https://github.com/YoshiyukiTakemoto/yoshiyukitakemoto.github.io">Source code</a></p>
+  <p style="margin:0">© 2026 Plainkit</p>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+<script src="/wordpress-security-check/app.js" defer></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "97bf9990a8e1407281935cbd76170ebb"}'></script>
+</body>
+</html>
